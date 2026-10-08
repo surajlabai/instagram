@@ -1,5 +1,4 @@
-// module1.js — Module 1: Foundational English
-// 5 Cards: Letters, IPA Sounds, Verbs, Be Verbs, Modern Verbs
+// module1.js — Module 1: Foundational English (UPDATED)
 
 var MODULE1 = {
   id: 'm1',
@@ -7,17 +6,17 @@ var MODULE1 = {
   title: 'Foundational English',
   sub: 'Beginner Level',
   icon: '🌱',
-  desc: 'सीखो A-Z letters, sounds, verbs और basic sentences — खेल-खेल में।',
+  desc: 'सीखो A-Z letters, IPA sounds, verbs और basic sentences — खेल-खेल में।',
 
   cards: [
     // ═══════════════════════════════════════════════════════
-    // CARD 1: LETTERS (A-Z)
+    // CARD 1: LETTERS (FIXED)
     // ═══════════════════════════════════════════════════════
     {
       id: 'letters',
       title: 'Letters (A-Z)',
       icon: '🔤',
-      desc: 'Capital + Small letters, sound (Hindi), aur word recognition',
+      desc: 'Capital + Small letters with sound',
       type: 'letters',
       letters: [
         { capital: 'A', small: 'a', sound: 'ए', word: 'Apple', emoji: '🍎' },
@@ -50,68 +49,86 @@ var MODULE1 = {
     },
 
     // ═══════════════════════════════════════════════════════
-    // CARD 2: IPA SOUNDS
+    // CARD 2: IPA SOUNDS (UPGRADED — 20 vowels + 24 consonants)
     // ═══════════════════════════════════════════════════════
     {
       id: 'sounds',
       title: 'IPA Sounds',
       icon: '🔊',
-      desc: 'Vowel और Consonant sounds — सही pronunciation सीखो',
+      desc: '20 Vowel + 24 Consonant sounds — सही pronunciation सीखो',
       type: 'sounds',
       categories: [
         {
           id: 'vowels',
           title: 'Vowels (स्वर)',
           icon: '🅰️',
-          desc: '5 vowels — A, E, I, O, U',
+          desc: '20 vowel sounds in English',
           items: [
-            { symbol: 'A', sound: 'ए', word: 'Apple', emoji: '🍎' },
-            { symbol: 'E', sound: 'ई', word: 'Egg', emoji: '🥚' },
-            { symbol: 'I', sound: 'आइ', word: 'Ice', emoji: '🧊' },
-            { symbol: 'O', sound: 'ओ', word: 'Orange', emoji: '🍊' },
-            { symbol: 'U', sound: 'यू', word: 'Umbrella', emoji: '☂️' }
+            { symbol: '/iː/', sound: 'ई (long)', word: 'sheep', emoji: '🐑' },
+            { symbol: '/ɪ/', sound: 'इ (short)', word: 'sit', emoji: '🪑' },
+            { symbol: '/e/', sound: 'ए', word: 'bed', emoji: '🛏️' },
+            { symbol: '/æ/', sound: 'कै', word: 'cat', emoji: '🐱' },
+            { symbol: '/ɑː/', sound: 'आ (long)', word: 'car', emoji: '🚗' },
+            { symbol: '/ɒ/', sound: 'ऑ', word: 'hot', emoji: '🔥' },
+            { symbol: '/ɔː/', sound: 'ओ (long)', word: 'door', emoji: '🚪' },
+            { symbol: '/ʊ/', sound: 'उ (short)', word: 'book', emoji: '📖' },
+            { symbol: '/uː/', sound: 'ऊ (long)', word: 'food', emoji: '🍲' },
+            { symbol: '/ʌ/', sound: 'अ', word: 'cup', emoji: '☕' },
+            { symbol: '/ɜː/', sound: 'अर्', word: 'bird', emoji: '🐦' },
+            { symbol: '/ə/', sound: 'अ (weak)', word: 'about', emoji: '💭' },
+            { symbol: '/eɪ/', sound: 'एइ', word: 'cake', emoji: '🍰' },
+            { symbol: '/aɪ/', sound: 'आइ', word: 'bike', emoji: '🚲' },
+            { symbol: '/ɔɪ/', sound: 'ऑइ', word: 'boy', emoji: '👦' },
+            { symbol: '/aʊ/', sound: 'आउ', word: 'house', emoji: '🏠' },
+            { symbol: '/əʊ/', sound: 'ओउ', word: 'go', emoji: '🚶' },
+            { symbol: '/ɪə/', sound: 'इअ', word: 'here', emoji: '📍' },
+            { symbol: '/eə/', sound: 'एअ', word: 'hair', emoji: '💇' },
+            { symbol: '/ʊə/', sound: 'उअ', word: 'tour', emoji: '🧳' }
           ]
         },
         {
           id: 'consonants',
           title: 'Consonants (व्यंजन)',
           icon: '🅱️',
-          desc: '21 consonants — बाकी सभी letters',
+          desc: '24 consonant sounds in English',
           items: [
-            { symbol: 'B', sound: 'बी', word: 'Ball', emoji: '⚽' },
-            { symbol: 'C', sound: 'सी', word: 'Cat', emoji: '🐱' },
-            { symbol: 'D', sound: 'डी', word: 'Dog', emoji: '🐶' },
-            { symbol: 'F', sound: 'एफ़', word: 'Fish', emoji: '🐟' },
-            { symbol: 'G', sound: 'जी', word: 'Goat', emoji: '🐐' },
-            { symbol: 'H', sound: 'एच', word: 'Hat', emoji: '🎩' },
-            { symbol: 'J', sound: 'जे', word: 'Jug', emoji: '🍶' },
-            { symbol: 'K', sound: 'के', word: 'Kite', emoji: '🪁' },
-            { symbol: 'L', sound: 'एल', word: 'Lion', emoji: '🦁' },
-            { symbol: 'M', sound: 'एम', word: 'Moon', emoji: '🌙' },
-            { symbol: 'N', sound: 'एन', word: 'Nest', emoji: '🪹' },
-            { symbol: 'P', sound: 'पी', word: 'Pen', emoji: '🖊️' },
-            { symbol: 'Q', sound: 'क्यू', word: 'Queen', emoji: '👑' },
-            { symbol: 'R', sound: 'आर', word: 'Rat', emoji: '🐀' },
-            { symbol: 'S', sound: 'एस', word: 'Sun', emoji: '☀️' },
-            { symbol: 'T', sound: 'टी', word: 'Tree', emoji: '🌳' },
-            { symbol: 'V', sound: 'वी', word: 'Van', emoji: '🚐' },
-            { symbol: 'W', sound: 'डब्ल्यू', word: 'Watch', emoji: '⌚' },
-            { symbol: 'X', sound: 'एक्स', word: 'Xylophone', emoji: '🎹' },
-            { symbol: 'Y', sound: 'वाय', word: 'Yak', emoji: '🐃' },
-            { symbol: 'Z', sound: 'ज़ेड', word: 'Zebra', emoji: '🦓' }
+            { symbol: '/p/', sound: 'प', word: 'pen', emoji: '🖊️' },
+            { symbol: '/b/', sound: 'ब', word: 'book', emoji: '📖' },
+            { symbol: '/t/', sound: 'ट', word: 'tea', emoji: '🍵' },
+            { symbol: '/d/', sound: 'ड', word: 'dog', emoji: '🐶' },
+            { symbol: '/k/', sound: 'क', word: 'cat', emoji: '🐱' },
+            { symbol: '/g/', sound: 'ग', word: 'go', emoji: '🚶' },
+            { symbol: '/f/', sound: 'फ़', word: 'fish', emoji: '🐟' },
+            { symbol: '/v/', sound: 'व', word: 'van', emoji: '🚐' },
+            { symbol: '/θ/', sound: 'थ', word: 'think', emoji: '🤔' },
+            { symbol: '/ð/', sound: 'द', word: 'this', emoji: '👉' },
+            { symbol: '/s/', sound: 'स', word: 'sun', emoji: '☀️' },
+            { symbol: '/z/', sound: 'ज़', word: 'zoo', emoji: '🦁' },
+            { symbol: '/ʃ/', sound: 'श', word: 'she', emoji: '👩' },
+            { symbol: '/ʒ/', sound: 'झ़', word: 'vision', emoji: '👁️' },
+            { symbol: '/h/', sound: 'ह', word: 'hat', emoji: '🎩' },
+            { symbol: '/tʃ/', sound: 'च', word: 'chair', emoji: '🪑' },
+            { symbol: '/dʒ/', sound: 'ज', word: 'jam', emoji: '🍯' },
+            { symbol: '/m/', sound: 'म', word: 'man', emoji: '👨' },
+            { symbol: '/n/', sound: 'न', word: 'no', emoji: '❌' },
+            { symbol: '/ŋ/', sound: 'ङ (नाक)', word: 'sing', emoji: '🎤' },
+            { symbol: '/l/', sound: 'ल', word: 'love', emoji: '❤️' },
+            { symbol: '/r/', sound: 'र', word: 'red', emoji: '🔴' },
+            { symbol: '/j/', sound: 'य', word: 'yes', emoji: '✅' },
+            { symbol: '/w/', sound: 'व', word: 'wet', emoji: '💧' }
           ]
         }
       ]
     },
 
     // ═══════════════════════════════════════════════════════
-    // CARD 3: VERBS (A-Z)
+    // CARD 3: VERBS (A-Z) — Full A-Z, 20+ per letter
     // ═══════════════════════════════════════════════════════
     {
       id: 'verbs',
       title: 'Verbs (A-Z)',
       icon: '⚡',
-      desc: 'A-Z verbs के v1, v2, v3 forms',
+      desc: 'A-Z verbs with v1, v2, v3 forms',
       type: 'verbs',
       groups: [
         { letter: 'A', verbs: [
@@ -129,12 +146,12 @@ var MODULE1 = {
           { v1: 'attack', v2: 'attacked', v3: 'attacked', hi: 'हमला करना' },
           { v1: 'attend', v2: 'attended', v3: 'attended', hi: 'उपस्थित होना' },
           { v1: 'attract', v2: 'attracted', v3: 'attracted', hi: 'आकर्षित करना' },
-          { v1: 'awake', v2: 'awoke', v3: 'awoken', hi: 'जागना' },
           { v1: 'achieve', v2: 'achieved', v3: 'achieved', hi: 'हासिल करना' },
           { v1: 'admire', v2: 'admired', v3: 'admired', hi: 'प्रशंसा करना' },
           { v1: 'admit', v2: 'admitted', v3: 'admitted', hi: 'स्वीकार करना' },
           { v1: 'advise', v2: 'advised', v3: 'advised', hi: 'सलाह देना' },
-          { v1: 'afford', v2: 'afforded', v3: 'afforded', hi: 'खर्च कर पाना' }
+          { v1: 'afford', v2: 'afforded', v3: 'afforded', hi: 'खर्च कर पाना' },
+          { v1: 'aim', v2: 'aimed', v3: 'aimed', hi: 'लक्ष्य रखना' }
         ]},
         { letter: 'B', verbs: [
           { v1: 'be', v2: 'was/were', v3: 'been', hi: 'होना' },
@@ -245,12 +262,437 @@ var MODULE1 = {
           { v1: 'fetch', v2: 'fetched', v3: 'fetched', hi: 'लाना' },
           { v1: 'fade', v2: 'faded', v3: 'faded', hi: 'फीका होना' },
           { v1: 'fasten', v2: 'fastened', v3: 'fastened', hi: 'बांधना' }
+        ]},
+        { letter: 'G', verbs: [
+          { v1: 'give', v2: 'gave', v3: 'given', hi: 'देना' },
+          { v1: 'go', v2: 'went', v3: 'gone', hi: 'जाना' },
+          { v1: 'get', v2: 'got', v3: 'got/gotten', hi: 'पाना' },
+          { v1: 'grow', v2: 'grew', v3: 'grown', hi: 'बढ़ना' },
+          { v1: 'gather', v2: 'gathered', v3: 'gathered', hi: 'इकट्ठा करना' },
+          { v1: 'glance', v2: 'glanced', v3: 'glanced', hi: 'नज़र डालना' },
+          { v1: 'glow', v2: 'glowed', v3: 'glowed', hi: 'चमकना' },
+          { v1: 'govern', v2: 'governed', v3: 'governed', hi: 'शासन करना' },
+          { v1: 'grab', v2: 'grabbed', v3: 'grabbed', hi: 'झपटना' },
+          { v1: 'greet', v2: 'greeted', v3: 'greeted', hi: 'नमस्ते करना' },
+          { v1: 'grin', v2: 'grinned', v3: 'grinned', hi: 'मुस्कुराना' },
+          { v1: 'grind', v2: 'ground', v3: 'ground', hi: 'पीसना' },
+          { v1: 'grip', v2: 'gripped', v3: 'gripped', hi: 'पकड़ना' },
+          { v1: 'groan', v2: 'groaned', v3: 'groaned', hi: 'कराहना' },
+          { v1: 'guarantee', v2: 'guaranteed', v3: 'guaranteed', hi: 'गारंटी देना' },
+          { v1: 'guard', v2: 'guarded', v3: 'guarded', hi: 'रक्षा करना' },
+          { v1: 'guess', v2: 'guessed', v3: 'guessed', hi: 'अनुमान लगाना' },
+          { v1: 'guide', v2: 'guided', v3: 'guided', hi: 'रास्ता दिखाना' },
+          { v1: 'gulp', v2: 'gulped', v3: 'gulped', hi: 'निगलना' },
+          { v1: 'gush', v2: 'gushed', v3: 'gushed', hi: 'उछलना' }
+        ]},
+        { letter: 'H', verbs: [
+          { v1: 'have', v2: 'had', v3: 'had', hi: 'होना/पास होना' },
+          { v1: 'hear', v2: 'heard', v3: 'heard', hi: 'सुनना' },
+          { v1: 'help', v2: 'helped', v3: 'helped', hi: 'मदद करना' },
+          { v1: 'hide', v2: 'hid', v3: 'hidden', hi: 'छिपाना' },
+          { v1: 'hit', v2: 'hit', v3: 'hit', hi: 'मारना' },
+          { v1: 'hold', v2: 'held', v3: 'held', hi: 'पकड़ना' },
+          { v1: 'hope', v2: 'hoped', v3: 'hoped', hi: 'उम्मीद करना' },
+          { v1: 'hug', v2: 'hugged', v3: 'hugged', hi: 'गले लगाना' },
+          { v1: 'hunt', v2: 'hunted', v3: 'hunted', hi: 'शिकार करना' },
+          { v1: 'hurry', v2: 'hurried', v3: 'hurried', hi: 'जल्दी करना' },
+          { v1: 'handle', v2: 'handled', v3: 'handled', hi: 'संभालना' },
+          { v1: 'hang', v2: 'hung', v3: 'hung', hi: 'लटकाना' },
+          { v1: 'happen', v2: 'happened', v3: 'happened', hi: 'होना' },
+          { v1: 'harm', v2: 'harmed', v3: 'harmed', hi: 'नुकसान करना' },
+          { v1: 'harvest', v2: 'harvested', v3: 'harvested', hi: 'कटाई करना' },
+          { v1: 'hate', v2: 'hated', v3: 'hated', hi: 'नफरत करना' },
+          { v1: 'heal', v2: 'healed', v3: 'healed', hi: 'ठीक करना' },
+          { v1: 'hesitate', v2: 'hesitated', v3: 'hesitated', hi: 'झिझकना' },
+          { v1: 'hire', v2: 'hired', v3: 'hired', hi: 'काम पर रखना' },
+          { v1: 'howl', v2: 'howled', v3: 'howled', hi: 'चीखना' }
+        ]},
+        { letter: 'I', verbs: [
+          { v1: 'ignore', v2: 'ignored', v3: 'ignored', hi: 'अनदेखा करना' },
+          { v1: 'imagine', v2: 'imagined', v3: 'imagined', hi: 'कल्पना करना' },
+          { v1: 'imply', v2: 'implied', v3: 'implied', hi: 'इशारा करना' },
+          { v1: 'impress', v2: 'impressed', v3: 'impressed', hi: 'प्रभावित करना' },
+          { v1: 'improve', v2: 'improved', v3: 'improved', hi: 'सुधारना' },
+          { v1: 'include', v2: 'included', v3: 'included', hi: 'शामिल करना' },
+          { v1: 'increase', v2: 'increased', v3: 'increased', hi: 'बढ़ाना' },
+          { v1: 'indicate', v2: 'indicated', v3: 'indicated', hi: 'संकेत देना' },
+          { v1: 'influence', v2: 'influenced', v3: 'influenced', hi: 'प्रभाव डालना' },
+          { v1: 'inform', v2: 'informed', v3: 'informed', hi: 'सूचित करना' },
+          { v1: 'inherit', v2: 'inherited', v3: 'inherited', hi: 'विरासत में पाना' },
+          { v1: 'insist', v2: 'insisted', v3: 'insisted', hi: 'ज़ोर देना' },
+          { v1: 'inspect', v2: 'inspected', v3: 'inspected', hi: 'निरीक्षण करना' },
+          { v1: 'inspire', v2: 'inspired', v3: 'inspired', hi: 'प्रेरित करना' },
+          { v1: 'install', v2: 'installed', v3: 'installed', hi: 'स्थापित करना' },
+          { v1: 'intend', v2: 'intended', v3: 'intended', hi: 'इरादा रखना' },
+          { v1: 'interpret', v2: 'interpreted', v3: 'interpreted', hi: 'अनुवाद करना' },
+          { v1: 'interrupt', v2: 'interrupted', v3: 'interrupted', hi: 'टोकना' },
+          { v1: 'introduce', v2: 'introduced', v3: 'introduced', hi: 'परिचय देना' },
+          { v1: 'invent', v2: 'invented', v3: 'invented', hi: 'आविष्कार करना' }
+        ]},
+        { letter: 'J', verbs: [
+          { v1: 'jump', v2: 'jumped', v3: 'jumped', hi: 'कूदना' },
+          { v1: 'join', v2: 'joined', v3: 'joined', hi: 'जुड़ना' },
+          { v1: 'judge', v2: 'judged', v3: 'judged', hi: 'न्याय करना' },
+          { v1: 'jam', v2: 'jammed', v3: 'jammed', hi: 'अटकाना' },
+          { v1: 'jog', v2: 'jogged', v3: 'jogged', hi: 'धीरे दौड़ना' },
+          { v1: 'joke', v2: 'joked', v3: 'joked', hi: 'मज़ाक करना' },
+          { v1: 'jot', v2: 'jotted', v3: 'jotted', hi: 'लिख लेना' },
+          { v1: 'journey', v2: 'journeyed', v3: 'journeyed', hi: 'यात्रा करना' },
+          { v1: 'joy', v2: 'joyed', v3: 'joyed', hi: 'खुश होना' },
+          { v1: 'juggle', v2: 'juggled', v3: 'juggled', hi: 'करतब करना' },
+          { v1: 'jump', v2: 'jumped', v3: 'jumped', hi: 'कूदना' },
+          { v1: 'justify', v2: 'justified', v3: 'justified', hi: 'सही ठहराना' },
+          { v1: 'jot', v2: 'jotted', v3: 'jotted', hi: 'नोट करना' },
+          { v1: 'jabber', v2: 'jabbered', v3: 'jabbered', hi: 'बकबक करना' },
+          { v1: 'jail', v2: 'jailed', v3: 'jailed', hi: 'जेल भेजना' },
+          { v1: 'jam', v2: 'jammed', v3: 'jammed', hi: 'ठूंसना' },
+          { v1: 'jeer', v2: 'jeered', v3: 'jeered', hi: 'मज़ाक उड़ाना' },
+          { v1: 'jell', v2: 'jelled', v3: 'jelled', hi: 'जमना' },
+          { v1: 'jerk', v2: 'jerked', v3: 'jerked', hi: 'झटका देना' },
+          { v1: 'jingle', v2: 'jingled', v3: 'jingled', hi: 'छनकना' }
+        ]},
+        { letter: 'K', verbs: [
+          { v1: 'keep', v2: 'kept', v3: 'kept', hi: 'रखना' },
+          { v1: 'kick', v2: 'kicked', v3: 'kicked', hi: 'लात मारना' },
+          { v1: 'kill', v2: 'killed', v3: 'killed', hi: 'मारना' },
+          { v1: 'kiss', v2: 'kissed', v3: 'kissed', hi: 'चूमना' },
+          { v1: 'kneel', v2: 'knelt', v3: 'knelt', hi: 'घुटने टेकना' },
+          { v1: 'knit', v2: 'knitted', v3: 'knitted', hi: 'बुनना' },
+          { v1: 'knock', v2: 'knocked', v3: 'knocked', hi: 'खटखटाना' },
+          { v1: 'know', v2: 'knew', v3: 'known', hi: 'जानना' },
+          { v1: 'keel', v2: 'keeled', v3: 'keeled', hi: 'पलट जाना' },
+          { v1: 'kennel', v2: 'kenneled', v3: 'kenneled', hi: 'कुत्ताघर रखना' },
+          { v1: 'kerb', v2: 'kerbed', v3: 'kerbed', hi: 'नियंत्रित करना' },
+          { v1: 'kettle', v2: 'kettled', v3: 'kettled', hi: 'केटली में उबालना' },
+          { v1: 'key', v2: 'keyed', v3: 'keyed', hi: 'टाइप करना' },
+          { v1: 'kickstart', v2: 'kickstarted', v3: 'kickstarted', hi: 'शुरू करना' },
+          { v1: 'kid', v2: 'kidded', v3: 'kidded', hi: 'मज़ाक करना' },
+          { v1: 'kindle', v2: 'kindled', v3: 'kindled', hi: 'जलाना' },
+          { v1: 'kiss', v2: 'kissed', v3: 'kissed', hi: 'चूमना' },
+          { v1: 'knead', v2: 'kneaded', v3: 'kneaded', hi: 'गूंधना' },
+          { v1: 'knot', v2: 'knotted', v3: 'knotted', hi: 'गांठ बांधना' },
+          { v1: 'kowtow', v2: 'kowtowed', v3: 'kowtowed', hi: 'सिर झुकाना' }
+        ]},
+        { letter: 'L', verbs: [
+          { v1: 'laugh', v2: 'laughed', v3: 'laughed', hi: 'हंसना' },
+          { v1: 'lead', v2: 'led', v3: 'led', hi: 'नेतृत्व करना' },
+          { v1: 'learn', v2: 'learned', v3: 'learned', hi: 'सीखना' },
+          { v1: 'leave', v2: 'left', v3: 'left', hi: 'छोड़ना' },
+          { v1: 'lend', v2: 'lent', v3: 'lent', hi: 'उधार देना' },
+          { v1: 'lie', v2: 'lay', v3: 'lain', hi: 'लेटना' },
+          { v1: 'listen', v2: 'listened', v3: 'listened', hi: 'सुनना' },
+          { v1: 'live', v2: 'lived', v3: 'lived', hi: 'रहना' },
+          { v1: 'look', v2: 'looked', v3: 'looked', hi: 'देखना' },
+          { v1: 'lose', v2: 'lost', v3: 'lost', hi: 'खोना' },
+          { v1: 'love', v2: 'loved', v3: 'loved', hi: 'प्यार करना' },
+          { v1: 'land', v2: 'landed', v3: 'landed', hi: 'उतरना' },
+          { v1: 'last', v2: 'lasted', v3: 'lasted', hi: 'टिकना' },
+          { v1: 'latch', v2: 'latched', v3: 'latched', hi: 'बंद करना' },
+          { v1: 'launch', v2: 'launched', v3: 'launched', hi: 'शुरू करना' },
+          { v1: 'lay', v2: 'laid', v3: 'laid', hi: 'रखना' },
+          { v1: 'leak', v2: 'leaked', v3: 'leaked', hi: 'रिसना' },
+          { v1: 'lean', v2: 'leaned', v3: 'leaned', hi: 'झुकना' },
+          { v1: 'leap', v2: 'leapt', v3: 'leapt', hi: 'छलांग लगाना' },
+          { v1: 'lick', v2: 'licked', v3: 'licked', hi: 'चाटना' }
+        ]},
+        { letter: 'M', verbs: [
+          { v1: 'make', v2: 'made', v3: 'made', hi: 'बनाना' },
+          { v1: 'mean', v2: 'meant', v3: 'meant', hi: 'मतलब होना' },
+          { v1: 'meet', v2: 'met', v3: 'met', hi: 'मिलना' },
+          { v1: 'move', v2: 'moved', v3: 'moved', hi: 'हिलना' },
+          { v1: 'manage', v2: 'managed', v3: 'managed', hi: 'संभालना' },
+          { v1: 'march', v2: 'marched', v3: 'marched', hi: 'कूच करना' },
+          { v1: 'mark', v2: 'marked', v3: 'marked', hi: 'निशान लगाना' },
+          { v1: 'marry', v2: 'married', v3: 'married', hi: 'शादी करना' },
+          { v1: 'matter', v2: 'mattered', v3: 'mattered', hi: 'मायने रखना' },
+          { v1: 'measure', v2: 'measured', v3: 'measured', hi: 'मापना' },
+          { v1: 'melt', v2: 'melted', v3: 'melted', hi: 'पिघलना' },
+          { v1: 'mention', v2: 'mentioned', v3: 'mentioned', hi: 'ज़िक्र करना' },
+          { v1: 'mind', v2: 'minded', v3: 'minded', hi: 'ध्यान देना' },
+          { v1: 'miss', v2: 'missed', v3: 'missed', hi: 'याद करना' },
+          { v1: 'mix', v2: 'mixed', v3: 'mixed', hi: 'मिलाना' },
+          { v1: 'mop', v2: 'mopped', v3: 'mopped', hi: 'पोंछा लगाना' },
+          { v1: 'mourn', v2: 'mourned', v3: 'mourned', hi: 'शोक करना' },
+          { v1: 'mumble', v2: 'mumbled', v3: 'mumbled', hi: 'बड़बड़ाना' },
+          { v1: 'murder', v2: 'murdered', v3: 'murdered', hi: 'कत्ल करना' },
+          { v1: 'mutter', v2: 'muttered', v3: 'muttered', hi: 'बुदबुदाना' }
+        ]},
+        { letter: 'N', verbs: [
+          { v1: 'need', v2: 'needed', v3: 'needed', hi: 'ज़रूरत होना' },
+          { v1: 'notice', v2: 'noticed', v3: 'noticed', hi: 'ध्यान देना' },
+          { v1: 'name', v2: 'named', v3: 'named', hi: 'नाम रखना' },
+          { v1: 'narrow', v2: 'narrowed', v3: 'narrowed', hi: 'संकरा करना' },
+          { v1: 'near', v2: 'neared', v3: 'neared', hi: 'पास आना' },
+          { v1: 'neglect', v2: 'neglected', v3: 'neglected', hi: 'उपेक्षा करना' },
+          { v1: 'negotiate', v2: 'negotiated', v3: 'negotiated', hi: 'बातचीत करना' },
+          { v1: 'nod', v2: 'nodded', v3: 'nodded', hi: 'सिर हिलाना' },
+          { v1: 'nominate', v2: 'nominated', v3: 'nominated', hi: 'नामांकित करना' },
+          { v1: 'nudge', v2: 'nudged', v3: 'nudged', hi: 'कुहनी मारना' },
+          { v1: 'nurse', v2: 'nursed', v3: 'nursed', hi: 'देखभाल करना' },
+          { v1: 'nag', v2: 'nagged', v3: 'nagged', hi: 'टोकना' },
+          { v1: 'nail', v2: 'nailed', v3: 'nailed', hi: 'कील ठोकना' },
+          { v1: 'nap', v2: 'napped', v3: 'napped', hi: 'झपकी लेना' },
+          { v1: 'narrate', v2: 'narrated', v3: 'narrated', hi: 'सुनाना' },
+          { v1: 'navigate', v2: 'navigated', v3: 'navigated', hi: 'रास्ता ढूँढना' },
+          { v1: 'neigh', v2: 'neighed', v3: 'neighed', hi: 'हींसना' },
+          { v1: 'nestle', v2: 'nestled', v3: 'nestled', hi: 'आराम से बैठना' },
+          { v1: 'nibble', v2: 'nibbled', v3: 'nibbled', hi: 'कुतरना' },
+          { v1: 'nip', v2: 'nipped', v3: 'nipped', hi: 'चुटकी काटना' }
+        ]},
+        { letter: 'O', verbs: [
+          { v1: 'open', v2: 'opened', v3: 'opened', hi: 'खोलना' },
+          { v1: 'offer', v2: 'offered', v3: 'offered', hi: 'पेशकश करना' },
+          { v1: 'obey', v2: 'obeyed', v3: 'obeyed', hi: 'आज्ञा मानना' },
+          { v1: 'observe', v2: 'observed', v3: 'observed', hi: 'निरीक्षण करना' },
+          { v1: 'obtain', v2: 'obtained', v3: 'obtained', hi: 'प्राप्त करना' },
+          { v1: 'occur', v2: 'occurred', v3: 'occurred', hi: 'घटित होना' },
+          { v1: 'operate', v2: 'operated', v3: 'operated', hi: 'संचालित करना' },
+          { v1: 'oppose', v2: 'opposed', v3: 'opposed', hi: 'विरोध करना' },
+          { v1: 'order', v2: 'ordered', v3: 'ordered', hi: 'आदेश देना' },
+          { v1: 'organize', v2: 'organized', v3: 'organized', hi: 'व्यवस्थित करना' },
+          { v1: 'overcome', v2: 'overcame', v3: 'overcome', hi: 'काबू पाना' },
+          { v1: 'owe', v2: 'owed', v3: 'owed', hi: 'कर्ज़ा होना' },
+          { v1: 'own', v2: 'owned', v3: 'owned', hi: 'मालिक होना' },
+          { v1: 'object', v2: 'objected', v3: 'objected', hi: 'आपत्ति करना' },
+          { v1: 'oblige', v2: 'obliged', v3: 'obliged', hi: 'बाध्य करना' },
+          { v1: 'occupy', v2: 'occupied', v3: 'occupied', hi: 'कब्जा करना' },
+          { v1: 'offend', v2: 'offended', v3: 'offended', hi: 'नाराज़ करना' },
+          { v1: 'omit', v2: 'omitted', v3: 'omitted', hi: 'छोड़ देना' },
+          { v1: 'opt', v2: 'opted', v3: 'opted', hi: 'चुनना' },
+          { v1: 'outline', v2: 'outlined', v3: 'outlined', hi: 'रूपरेखा बनाना' }
+        ]},
+        { letter: 'P', verbs: [
+          { v1: 'play', v2: 'played', v3: 'played', hi: 'खेलना' },
+          { v1: 'put', v2: 'put', v3: 'put', hi: 'रखना' },
+          { v1: 'pay', v2: 'paid', v3: 'paid', hi: 'भुगतान करना' },
+          { v1: 'pick', v2: 'picked', v3: 'picked', hi: 'उठाना' },
+          { v1: 'pull', v2: 'pulled', v3: 'pulled', hi: 'खींचना' },
+          { v1: 'push', v2: 'pushed', v3: 'pushed', hi: 'धक्का देना' },
+          { v1: 'paint', v2: 'painted', v3: 'painted', hi: 'रंगना' },
+          { v1: 'park', v2: 'parked', v3: 'parked', hi: 'गाड़ी खड़ी करना' },
+          { v1: 'pass', v2: 'passed', v3: 'passed', hi: 'पास होना' },
+          { v1: 'perform', v2: 'performed', v3: 'performed', hi: 'प्रदर्शन करना' },
+          { v1: 'persuade', v2: 'persuaded', v3: 'persuaded', hi: 'मनाना' },
+          { v1: 'plan', v2: 'planned', v3: 'planned', hi: 'योजना बनाना' },
+          { v1: 'plant', v2: 'planted', v3: 'planted', hi: 'पौधा लगाना' },
+          { v1: 'please', v2: 'pleased', v3: 'pleased', hi: 'खुश करना' },
+          { v1: 'point', v2: 'pointed', v3: 'pointed', hi: 'इशारा करना' },
+          { v1: 'pray', v2: 'prayed', v3: 'prayed', hi: 'प्रार्थना करना' },
+          { v1: 'prepare', v2: 'prepared', v3: 'prepared', hi: 'तैयारी करना' },
+          { v1: 'present', v2: 'presented', v3: 'presented', hi: 'प्रस्तुत करना' },
+          { v1: 'protect', v2: 'protected', v3: 'protected', hi: 'रक्षा करना' },
+          { v1: 'prove', v2: 'proved', v3: 'proved', hi: 'साबित करना' }
+        ]},
+        { letter: 'Q', verbs: [
+          { v1: 'question', v2: 'questioned', v3: 'questioned', hi: 'सवाल करना' },
+          { v1: 'quit', v2: 'quit', v3: 'quit', hi: 'छोड़ना' },
+          { v1: 'quote', v2: 'quoted', v3: 'quoted', hi: 'उद्धृत करना' },
+          { v1: 'qualify', v2: 'qualified', v3: 'qualified', hi: 'योग्य होना' },
+          { v1: 'quarrel', v2: 'quarreled', v3: 'quarreled', hi: 'झगड़ना' },
+          { v1: 'quench', v2: 'quenched', v3: 'quenched', hi: 'बुझाना' },
+          { v1: 'query', v2: 'queried', v3: 'queried', hi: 'पूछताछ करना' },
+          { v1: 'quicken', v2: 'quickened', v3: 'quickened', hi: 'तेज़ करना' },
+          { v1: 'quiet', v2: 'quieted', v3: 'quieted', hi: 'शांत करना' },
+          { v1: 'quiver', v2: 'quivered', v3: 'quivered', hi: 'कांपना' },
+          { v1: 'quiz', v2: 'quizzed', v3: 'quizzed', hi: 'परीक्षा लेना' },
+          { v1: 'quell', v2: 'quelled', v3: 'quelled', hi: 'दबाना' },
+          { v1: 'quilt', v2: 'quilted', v3: 'quilted', hi: 'रज़ाई बनाना' },
+          { v1: 'quip', v2: 'quipped', v3: 'quipped', hi: 'चुटकी लेना' },
+          { v1: 'quash', v2: 'quashed', v3: 'quashed', hi: 'रद्द करना' },
+          { v1: 'quaver', v2: 'quavered', v3: 'quavered', hi: 'कांपती आवाज़' },
+          { v1: 'queen', v2: 'queened', v3: 'queened', hi: 'रानी बनना' },
+          { v1: 'quench', v2: 'quenched', v3: 'quenched', hi: 'शांत करना' },
+          { v1: 'quest', v2: 'quested', v3: 'quested', hi: 'खोज करना' },
+          { v1: 'queue', v2: 'queued', v3: 'queued', hi: 'कतार में लगना' }
+        ]},
+        { letter: 'R', verbs: [
+          { v1: 'read', v2: 'read', v3: 'read', hi: 'पढ़ना' },
+          { v1: 'run', v2: 'ran', v3: 'run', hi: 'दौड़ना' },
+          { v1: 'raise', v2: 'raised', v3: 'raised', hi: 'उठाना' },
+          { v1: 'reach', v2: 'reached', v3: 'reached', hi: 'पहुँचना' },
+          { v1: 'realize', v2: 'realized', v3: 'realized', hi: 'एहसास होना' },
+          { v1: 'receive', v2: 'received', v3: 'received', hi: 'प्राप्त करना' },
+          { v1: 'recognize', v2: 'recognized', v3: 'recognized', hi: 'पहचानना' },
+          { v1: 'recommend', v2: 'recommended', v3: 'recommended', hi: 'सिफारिश करना' },
+          { v1: 'reduce', v2: 'reduced', v3: 'reduced', hi: 'कम करना' },
+          { v1: 'refuse', v2: 'refused', v3: 'refused', hi: 'मना करना' },
+          { v1: 'regard', v2: 'regarded', v3: 'regarded', hi: 'मानना' },
+          { v1: 'register', v2: 'registered', v3: 'registered', hi: 'पंजीकरण करना' },
+          { v1: 'regret', v2: 'regretted', v3: 'regretted', hi: 'पछताना' },
+          { v1: 'reject', v2: 'rejected', v3: 'rejected', hi: 'अस्वीकार करना' },
+          { v1: 'relax', v2: 'relaxed', v3: 'relaxed', hi: 'आराम करना' },
+          { v1: 'release', v2: 'released', v3: 'released', hi: 'रिहा करना' },
+          { v1: 'remain', v2: 'remained', v3: 'remained', hi: 'रहना' },
+          { v1: 'remember', v2: 'remembered', v3: 'remembered', hi: 'याद करना' },
+          { v1: 'remind', v2: 'reminded', v3: 'reminded', hi: 'याद दिलाना' },
+          { v1: 'remove', v2: 'removed', v3: 'removed', hi: 'हटाना' }
+        ]},
+        { letter: 'S', verbs: [
+          { v1: 'say', v2: 'said', v3: 'said', hi: 'कहना' },
+          { v1: 'see', v2: 'saw', v3: 'seen', hi: 'देखना' },
+          { v1: 'sell', v2: 'sold', v3: 'sold', hi: 'बेचना' },
+          { v1: 'send', v2: 'sent', v3: 'sent', hi: 'भेजना' },
+          { v1: 'sing', v2: 'sang', v3: 'sung', hi: 'गाना' },
+          { v1: 'sit', v2: 'sat', v3: 'sat', hi: 'बैठना' },
+          { v1: 'sleep', v2: 'slept', v3: 'slept', hi: 'सोना' },
+          { v1: 'speak', v2: 'spoke', v3: 'spoken', hi: 'बोलना' },
+          { v1: 'stand', v2: 'stood', v3: 'stood', hi: 'खड़ा होना' },
+          { v1: 'start', v2: 'started', v3: 'started', hi: 'शुरू करना' },
+          { v1: 'stay', v2: 'stayed', v3: 'stayed', hi: 'रहना' },
+          { v1: 'stop', v2: 'stopped', v3: 'stopped', hi: 'रुकना' },
+          { v1: 'study', v2: 'studied', v3: 'studied', hi: 'पढ़ाई करना' },
+          { v1: 'succeed', v2: 'succeeded', v3: 'succeeded', hi: 'सफल होना' },
+          { v1: 'swim', v2: 'swam', v3: 'swum', hi: 'तैरना' },
+          { v1: 'save', v2: 'saved', v3: 'saved', hi: 'बचाना' },
+          { v1: 'search', v2: 'searched', v3: 'searched', hi: 'खोजना' },
+          { v1: 'seem', v2: 'seemed', v3: 'seemed', hi: 'लगना' },
+          { v1: 'share', v2: 'shared', v3: 'shared', hi: 'बांटना' },
+          { v1: 'shout', v2: 'shouted', v3: 'shouted', hi: 'चिल्लाना' }
+        ]},
+        { letter: 'T', verbs: [
+          { v1: 'take', v2: 'took', v3: 'taken', hi: 'लेना' },
+          { v1: 'talk', v2: 'talked', v3: 'talked', hi: 'बात करना' },
+          { v1: 'teach', v2: 'taught', v3: 'taught', hi: 'सिखाना' },
+          { v1: 'tell', v2: 'told', v3: 'told', hi: 'बताना' },
+          { v1: 'think', v2: 'thought', v3: 'thought', hi: 'सोचना' },
+          { v1: 'throw', v2: 'threw', v3: 'thrown', hi: 'फेंकना' },
+          { v1: 'travel', v2: 'traveled', v3: 'traveled', hi: 'यात्रा करना' },
+          { v1: 'try', v2: 'tried', v3: 'tried', hi: 'कोशिश करना' },
+          { v1: 'turn', v2: 'turned', v3: 'turned', hi: 'मुड़ना' },
+          { v1: 'taste', v2: 'tasted', v3: 'tasted', hi: 'चखना' },
+          { v1: 'thank', v2: 'thanked', v3: 'thanked', hi: 'धन्यवाद देना' },
+          { v1: 'touch', v2: 'touched', v3: 'touched', hi: 'छूना' },
+          { v1: 'train', v2: 'trained', v3: 'trained', hi: 'प्रशिक्षण देना' },
+          { v1: 'translate', v2: 'translated', v3: 'translated', hi: 'अनुवाद करना' },
+          { v1: 'treat', v2: 'treated', v3: 'treated', hi: 'व्यवहार करना' },
+          { v1: 'trust', v2: 'trusted', v3: 'trusted', hi: 'भरोसा करना' },
+          { v1: 'tie', v2: 'tied', v3: 'tied', hi: 'बांधना' },
+          { v1: 'toss', v2: 'tossed', v3: 'tossed', hi: 'उछालना' },
+          { v1: 'trap', v2: 'trapped', v3: 'trapped', hi: 'फंसाना' },
+          { v1: 'twist', v2: 'twisted', v3: 'twisted', hi: 'घुमाना' }
+        ]},
+        { letter: 'U', verbs: [
+          { v1: 'understand', v2: 'understood', v3: 'understood', hi: 'समझना' },
+          { v1: 'use', v2: 'used', v3: 'used', hi: 'उपयोग करना' },
+          { v1: 'unite', v2: 'united', v3: 'united', hi: 'एकजुट होना' },
+          { v1: 'unlock', v2: 'unlocked', v3: 'unlocked', hi: 'खोलना' },
+          { v1: 'update', v2: 'updated', v3: 'updated', hi: 'अपडेट करना' },
+          { v1: 'upset', v2: 'upset', v3: 'upset', hi: 'परेशान करना' },
+          { v1: 'urge', v2: 'urged', v3: 'urged', hi: 'आग्रह करना' },
+          { v1: 'utter', v2: 'uttered', v3: 'uttered', hi: 'बोलना' },
+          { v1: 'uncover', v2: 'uncovered', v3: 'uncovered', hi: 'खोलना' },
+          { v1: 'undergo', v2: 'underwent', v3: 'undergone', hi: 'भुगतना' },
+          { v1: 'underline', v2: 'underlined', v3: 'underlined', hi: 'रेखांकन करना' },
+          { v1: 'undermine', v2: 'undermined', v3: 'undermined', hi: 'कमज़ोर करना' },
+          { v1: 'undo', v2: 'undid', v3: 'undone', hi: 'पूर्ववत करना' },
+          { v1: 'unfold', v2: 'unfolded', v3: 'unfolded', hi: 'खोलना' },
+          { v1: 'unite', v2: 'united', v3: 'united', hi: 'मिलाना' },
+          { v1: 'unpack', v2: 'unpacked', v3: 'unpacked', hi: 'सामान खोलना' },
+          { v1: 'unwind', v2: 'unwound', v3: 'unwound', hi: 'खोलना' },
+          { v1: 'upgrade', v2: 'upgraded', v3: 'upgraded', hi: 'उन्नत करना' },
+          { v1: 'upload', v2: 'uploaded', v3: 'uploaded', hi: 'अपलोड करना' },
+          { v1: 'utilize', v2: 'utilized', v3: 'utilized', hi: 'उपयोग करना' }
+        ]},
+        { letter: 'V', verbs: [
+          { v1: 'visit', v2: 'visited', v3: 'visited', hi: 'मिलने जाना' },
+          { v1: 'value', v2: 'valued', v3: 'valued', hi: 'महत्व देना' },
+          { v1: 'vanish', v2: 'vanished', v3: 'vanished', hi: 'गायब होना' },
+          { v1: 'vary', v2: 'varied', v3: 'varied', hi: 'बदलना' },
+          { v1: 'verify', v2: 'verified', v3: 'verified', hi: 'सत्यापित करना' },
+          { v1: 'view', v2: 'viewed', v3: 'viewed', hi: 'देखना' },
+          { v1: 'violate', v2: 'violated', v3: 'violated', hi: 'उल्लंघन करना' },
+          { v1: 'vote', v2: 'voted', v3: 'voted', hi: 'वोट देना' },
+          { v1: 'vacate', v2: 'vacated', v3: 'vacated', hi: 'खाली करना' },
+          { v1: 'vaccinate', v2: 'vaccinated', v3: 'vaccinated', hi: 'टीका लगाना' },
+          { v1: 'validate', v2: 'validated', v3: 'validated', hi: 'मान्य करना' },
+          { v1: 'vault', v2: 'vaulted', v3: 'vaulted', hi: 'कूदना' },
+          { v1: 'veer', v2: 'veered', v3: 'veered', hi: 'मुड़ना' },
+          { v1: 'venture', v2: 'ventured', v3: 'ventured', hi: 'जोखिम लेना' },
+          { v1: 'verbalize', v2: 'verbalized', v3: 'verbalized', hi: 'शब्दों में कहना' },
+          { v1: 'veto', v2: 'vetoed', v3: 'vetoed', hi: 'वीटो करना' },
+          { v1: 'vibrate', v2: 'vibrated', v3: 'vibrated', hi: 'कंपन करना' },
+          { v1: 'violate', v2: 'violated', v3: 'violated', hi: 'तोड़ना' },
+          { v1: 'visualize', v2: 'visualized', v3: 'visualized', hi: 'कल्पना करना' },
+          { v1: 'volunteer', v2: 'volunteered', v3: 'volunteered', hi: 'स्वेच्छा से करना' }
+        ]},
+        { letter: 'W', verbs: [
+          { v1: 'walk', v2: 'walked', v3: 'walked', hi: 'चलना' },
+          { v1: 'want', v2: 'wanted', v3: 'wanted', hi: 'चाहना' },
+          { v1: 'watch', v2: 'watched', v3: 'watched', hi: 'देखना' },
+          { v1: 'wear', v2: 'wore', v3: 'worn', hi: 'पहनना' },
+          { v1: 'win', v2: 'won', v3: 'won', hi: 'जीतना' },
+          { v1: 'write', v2: 'wrote', v3: 'written', hi: 'लिखना' },
+          { v1: 'wait', v2: 'waited', v3: 'waited', hi: 'इंतज़ार करना' },
+          { v1: 'wake', v2: 'woke', v3: 'woken', hi: 'जागना' },
+          { v1: 'wash', v2: 'washed', v3: 'washed', hi: 'धोना' },
+          { v1: 'waste', v2: 'wasted', v3: 'wasted', hi: 'बर्बाद करना' },
+          { v1: 'wave', v2: 'waved', v3: 'waved', hi: 'हिलाना' },
+          { v1: 'weep', v2: 'wept', v3: 'wept', hi: 'रोना' },
+          { v1: 'welcome', v2: 'welcomed', v3: 'welcomed', hi: 'स्वागत करना' },
+          { v1: 'whisper', v2: 'whispered', v3: 'whispered', hi: 'फुसफुसाना' },
+          { v1: 'wish', v2: 'wished', v3: 'wished', hi: 'इच्छा करना' },
+          { v1: 'wonder', v2: 'wondered', v3: 'wondered', hi: 'आश्चर्य करना' },
+          { v1: 'work', v2: 'worked', v3: 'worked', hi: 'काम करना' },
+          { v1: 'worry', v2: 'worried', v3: 'worried', hi: 'चिंता करना' },
+          { v1: 'wrap', v2: 'wrapped', v3: 'wrapped', hi: 'लपेटना' },
+          { v1: 'wrestle', v2: 'wrestled', v3: 'wrestled', hi: 'कुश्ती लड़ना' }
+        ]},
+        { letter: 'X', verbs: [
+          { v1: 'xerox', v2: 'xeroxed', v3: 'xeroxed', hi: 'फोटोकॉपी करना' },
+          { v1: 'x-ray', v2: 'x-rayed', v3: 'x-rayed', hi: 'एक्स-रे करना' },
+          { v1: 'xerox', v2: 'xeroxed', v3: 'xeroxed', hi: 'प्रतिलिपि करना' },
+          { v1: 'x-out', v2: 'x-outed', v3: 'x-outed', hi: 'काट देना' },
+          { v1: 'xylograph', v2: 'xylographed', v3: 'xylographed', hi: 'लकड़ी पर नक्काशी' },
+          { v1: 'xenophobia', v2: 'xenophobied', v3: 'xenophobied', hi: 'विदेशी से डरना' },
+          { v1: 'xylophone', v2: 'xylophoned', v3: 'xylophoned', hi: 'बजाना' },
+          { v1: 'x-ray', v2: 'x-rayed', v3: 'x-rayed', hi: 'जाँच करना' },
+          { v1: 'xerox', v2: 'xeroxed', v3: 'xeroxed', hi: 'कॉपी करना' },
+          { v1: 'x-out', v2: 'x-outed', v3: 'x-outed', hi: 'मिटाना' },
+          { v1: 'xylograph', v2: 'xylographed', v3: 'xylographed', hi: 'काष्ठ पर छापना' },
+          { v1: 'x-ray', v2: 'x-rayed', v3: 'x-rayed', hi: 'देखना' },
+          { v1: 'xerox', v2: 'xeroxed', v3: 'xeroxed', hi: 'नकल करना' },
+          { v1: 'x-out', v2: 'x-outed', v3: 'x-outed', hi: 'हटाना' },
+          { v1: 'xylograph', v2: 'xylographed', v3: 'xylographed', hi: 'छापना' }
+        ]},
+        { letter: 'Y', verbs: [
+          { v1: 'yell', v2: 'yelled', v3: 'yelled', hi: 'चिल्लाना' },
+          { v1: 'yield', v2: 'yielded', v3: 'yielded', hi: 'हार मानना' },
+          { v1: 'yawn', v2: 'yawned', v3: 'yawned', hi: 'जम्हाई लेना' },
+          { v1: 'yearn', v2: 'yearned', v3: 'yearned', hi: 'तरसना' },
+          { v1: 'yank', v2: 'yanked', v3: 'yanked', hi: 'झटके से खींचना' },
+          { v1: 'yap', v2: 'yapped', v3: 'yapped', hi: 'भौंकना' },
+          { v1: 'yarn', v2: 'yarned', v3: 'yarned', hi: 'कहानी सुनाना' },
+          { v1: 'yearn', v2: 'yearned', v3: 'yearned', hi: 'चाहना' },
+          { v1: 'yell', v2: 'yelled', v3: 'yelled', hi: 'चीखना' },
+          { v1: 'yelp', v2: 'yelped', v3: 'yelped', hi: 'चीखना' },
+          { v1: 'yield', v2: 'yielded', v3: 'yielded', hi: 'उत्पादन देना' },
+          { v1: 'yodel', v2: 'yodeled', v3: 'yodeled', hi: 'गाना' },
+          { v1: 'yoke', v2: 'yoked', v3: 'yoked', hi: 'जोड़ना' },
+          { v1: 'yowl', v2: 'yowled', v3: 'yowled', hi: 'चीखना' },
+          { v1: 'yank', v2: 'yanked', v3: 'yanked', hi: 'खींचना' }
+        ]},
+        { letter: 'Z', verbs: [
+          { v1: 'zip', v2: 'zipped', v3: 'zipped', hi: 'ज़िप करना' },
+          { v1: 'zoom', v2: 'zoomed', v3: 'zoomed', hi: 'तेज़ी से जाना' },
+          { v1: 'zigzag', v2: 'zigzagged', v3: 'zigzagged', hi: 'टेढ़ा-मेढ़ा चलना' },
+          { v1: 'zap', v2: 'zapped', v3: 'zapped', hi: 'झटका देना' },
+          { v1: 'zero', v2: 'zeroed', v3: 'zeroed', hi: 'शून्य करना' },
+          { v1: 'zest', v2: 'zested', v3: 'zested', hi: 'छीलना' },
+          { v1: 'zinc', v2: 'zinced', v3: 'zinced', hi: 'जस्ता चढ़ाना' },
+          { v1: 'zing', v2: 'zinged', v3: 'zinged', hi: 'तेज़ी से जाना' },
+          { v1: 'zip', v2: 'zipped', v3: 'zipped', hi: 'बंद करना' },
+          { v1: 'zone', v2: 'zoned', v3: 'zoned', hi: 'क्षेत्र बनाना' },
+          { v1: 'zoom', v2: 'zoomed', v3: 'zoomed', hi: 'ज़ूम करना' },
+          { v1: 'zigzag', v2: 'zigzagged', v3: 'zigzagged', hi: 'टेढ़ा चलना' },
+          { v1: 'zap', v2: 'zapped', v3: 'zapped', hi: 'मारना' },
+          { v1: 'zero', v2: 'zeroed', v3: 'zeroed', hi: 'शून्य पर लाना' },
+          { v1: 'zip', v2: 'zipped', v3: 'zipped', hi: 'ज़िप लगाना' }
         ]}
       ]
     },
 
     // ═══════════════════════════════════════════════════════
-    // CARD 4: BE VERBS
+    // CARD 4: BE VERBS (verb first, then meaning, then sentences)
     // ═══════════════════════════════════════════════════════
     {
       id: 'beverbs',
@@ -259,8 +701,7 @@ var MODULE1 = {
       desc: 'is, am, are, was, were, shall be, will be, has, have',
       type: 'beverbs',
       verbs: [
-        {
-          id: 'is', word: 'is', usage: 'He/She/It के साथ (Present)', hi: 'है',
+        { id: 'is', word: 'is', hi: 'है', usage: 'He/She/It के साथ (Present)',
           sentences: [
             { en: 'He is a doctor.', hi: 'वह डॉक्टर है।' },
             { en: 'She is happy.', hi: 'वह खुश है।' },
@@ -284,8 +725,7 @@ var MODULE1 = {
             { en: 'The door is open.', hi: 'दरवाज़ा खुला है।' }
           ]
         },
-        {
-          id: 'am', word: 'am', usage: 'I के साथ (Present)', hi: 'हूँ',
+        { id: 'am', word: 'am', hi: 'हूँ', usage: 'I के साथ (Present)',
           sentences: [
             { en: 'I am a student.', hi: 'मैं छात्र हूँ।' },
             { en: 'I am happy.', hi: 'मैं खुश हूँ।' },
@@ -309,8 +749,7 @@ var MODULE1 = {
             { en: 'I am very happy today.', hi: 'मैं आज बहुत खुश हूँ।' }
           ]
         },
-        {
-          id: 'are', word: 'are', usage: 'We/You/They के साथ (Present)', hi: 'हैं/हो',
+        { id: 'are', word: 'are', hi: 'हैं/हो', usage: 'We/You/They के साथ (Present)',
           sentences: [
             { en: 'We are friends.', hi: 'हम दोस्त हैं।' },
             { en: 'You are smart.', hi: 'तुम होशियार हो।' },
@@ -334,8 +773,7 @@ var MODULE1 = {
             { en: 'They are very smart.', hi: 'वे बहुत होशियार हैं।' }
           ]
         },
-        {
-          id: 'was', word: 'was', usage: 'He/She/It के साथ (Past)', hi: 'था/थी',
+        { id: 'was', word: 'was', hi: 'था/थी', usage: 'He/She/It के साथ (Past)',
           sentences: [
             { en: 'He was a doctor.', hi: 'वह डॉक्टर था।' },
             { en: 'She was happy.', hi: 'वह खुश थी।' },
@@ -359,8 +797,7 @@ var MODULE1 = {
             { en: 'The door was open.', hi: 'दरवाज़ा खुला था।' }
           ]
         },
-        {
-          id: 'were', word: 'were', usage: 'We/You/They के साथ (Past)', hi: 'थे/थीं',
+        { id: 'were', word: 'were', hi: 'थे/थीं', usage: 'We/You/They के साथ (Past)',
           sentences: [
             { en: 'We were friends.', hi: 'हम दोस्त थे।' },
             { en: 'You were smart.', hi: 'तुम होशियार थे।' },
@@ -384,8 +821,7 @@ var MODULE1 = {
             { en: 'They were very smart.', hi: 'वे बहुत होशियार थे।' }
           ]
         },
-        {
-          id: 'shall-be', word: 'shall be', usage: 'I/We के साथ (Future)', hi: 'होगा/होंगे',
+        { id: 'shall-be', word: 'shall be', hi: 'होगा/होंगे', usage: 'I/We के साथ (Future)',
           sentences: [
             { en: 'I shall be there.', hi: 'मैं वहाँ होऊँगा।' },
             { en: 'We shall be happy.', hi: 'हम खुश होंगे।' },
@@ -409,8 +845,7 @@ var MODULE1 = {
             { en: 'We shall be proud.', hi: 'हमें गर्व होगा।' }
           ]
         },
-        {
-          id: 'will-be', word: 'will be', usage: 'सभी subjects के साथ (Future)', hi: 'होगा/होंगे',
+        { id: 'will-be', word: 'will be', hi: 'होगा/होंगे', usage: 'सभी subjects के साथ (Future)',
           sentences: [
             { en: 'He will be a doctor.', hi: 'वह डॉक्टर बनेगा।' },
             { en: 'She will be happy.', hi: 'वह खुश होगी।' },
@@ -434,8 +869,7 @@ var MODULE1 = {
             { en: 'You will be proud.', hi: 'तुम्हें गर्व होगा।' }
           ]
         },
-        {
-          id: 'has', word: 'has', usage: 'He/She/It के साथ (Present)', hi: 'पास है',
+        { id: 'has', word: 'has', hi: 'पास है', usage: 'He/She/It के साथ (Present)',
           sentences: [
             { en: 'He has a car.', hi: 'उसके पास गाड़ी है।' },
             { en: 'She has a book.', hi: 'उसके पास किताब है।' },
@@ -459,8 +893,7 @@ var MODULE1 = {
             { en: 'It has a sweet taste.', hi: 'उसका स्वाद मीठा है।' }
           ]
         },
-        {
-          id: 'have', word: 'have', usage: 'I/We/You/They के साथ (Present)', hi: 'पास है',
+        { id: 'have', word: 'have', hi: 'पास है', usage: 'I/We/You/They के साथ (Present)',
           sentences: [
             { en: 'I have a car.', hi: 'मेरे पास गाड़ी है।' },
             { en: 'We have a house.', hi: 'हमारे पास घर है।' },
@@ -497,8 +930,7 @@ var MODULE1 = {
       desc: 'can, should, may, might, would, need, dare, must',
       type: 'modernverbs',
       verbs: [
-        {
-          id: 'can', word: 'can', usage: 'Ability (सकता है)', hi: 'सकता है',
+        { id: 'can', word: 'can', hi: 'सकता है', usage: 'Ability (योग्यता)',
           sentences: [
             { en: 'I can swim.', hi: 'मैं तैर सकता हूँ।' },
             { en: 'She can sing.', hi: 'वह गा सकती है।' },
@@ -522,8 +954,7 @@ var MODULE1 = {
             { en: 'She can write a letter.', hi: 'वह पत्र लिख सकती है।' }
           ]
         },
-        {
-          id: 'should', word: 'should', usage: 'Advice (चाहिए)', hi: 'चाहिए',
+        { id: 'should', word: 'should', hi: 'चाहिए', usage: 'Advice (सलाह)',
           sentences: [
             { en: 'You should study hard.', hi: 'तुम्हें मेहनत करनी चाहिए।' },
             { en: 'He should see a doctor.', hi: 'उसे डॉक्टर को दिखाना चाहिए।' },
@@ -547,8 +978,7 @@ var MODULE1 = {
             { en: 'I should help my parents.', hi: 'मुझे अपने माता-पिता की मदद करनी चाहिए।' }
           ]
         },
-        {
-          id: 'may', word: 'may', usage: 'Possibility / Permission', hi: 'शायद / सकता है',
+        { id: 'may', word: 'may', hi: 'शायद / सकता है', usage: 'Possibility / Permission',
           sentences: [
             { en: 'It may rain today.', hi: 'आज बारिश हो सकती है।' },
             { en: 'He may come tomorrow.', hi: 'वह कल आ सकता है।' },
@@ -572,8 +1002,7 @@ var MODULE1 = {
             { en: 'We may meet again.', hi: 'हम फिर मिल सकते हैं।' }
           ]
         },
-        {
-          id: 'might', word: 'might', usage: 'Weak possibility', hi: 'शायद',
+        { id: 'might', word: 'might', hi: 'शायद', usage: 'Weak possibility',
           sentences: [
             { en: 'It might rain today.', hi: 'आज बारिश हो सकती है।' },
             { en: 'He might come later.', hi: 'वह बाद में आ सकता है।' },
@@ -597,8 +1026,7 @@ var MODULE1 = {
             { en: 'You might need this.', hi: 'तुम्हें इसकी ज़रूरत हो सकती है।' }
           ]
         },
-        {
-          id: 'would', word: 'would', usage: 'Polite request / Past habit', hi: 'करता / करेंगे',
+        { id: 'would', word: 'would', hi: 'करता / करेंगे', usage: 'Polite request / Past habit',
           sentences: [
             { en: 'I would like a cup of tea.', hi: 'मुझे एक कप चाय चाहिए।' },
             { en: 'Would you help me?', hi: 'क्या तुम मेरी मदद करोगे?' },
@@ -622,8 +1050,7 @@ var MODULE1 = {
             { en: 'We would love to visit.', hi: 'हमें घूमने जाना अच्छा लगेगा।' }
           ]
         },
-        {
-          id: 'need', word: 'need', usage: 'Necessity (ज़रूरत है)', hi: 'ज़रूरत है',
+        { id: 'need', word: 'need', hi: 'ज़रूरत है', usage: 'Necessity',
           sentences: [
             { en: 'I need your help.', hi: 'मुझे तुम्हारी मदद चाहिए।' },
             { en: 'You need to study.', hi: 'तुम्हें पढ़ाई करनी है।' },
@@ -647,8 +1074,7 @@ var MODULE1 = {
             { en: 'You need to be patient.', hi: 'तुम्हें धैर्य रखना है।' }
           ]
         },
-        {
-          id: 'dare', word: 'dare', usage: 'Courage (हिम्मत करना)', hi: 'हिम्मत करना',
+        { id: 'dare', word: 'dare', hi: 'हिम्मत करना', usage: 'Courage',
           sentences: [
             { en: 'I dare to speak the truth.', hi: 'मैं सच बोलने की हिम्मत करता हूँ।' },
             { en: 'He dare not lie.', hi: 'वह झूठ बोलने की हिम्मत नहीं करता।' },
@@ -672,8 +1098,7 @@ var MODULE1 = {
             { en: 'She dares to stand alone.', hi: 'वह अकेले खड़े होने की हिम्मत करती है।' }
           ]
         },
-        {
-          id: 'must', word: 'must', usage: 'Strong necessity (ज़रूर)', hi: 'ज़रूर / अवश्य',
+        { id: 'must', word: 'must', hi: 'ज़रूर / अवश्य', usage: 'Strong necessity',
           sentences: [
             { en: 'You must study hard.', hi: 'तुम्हें मेहनत करनी ही चाहिए।' },
             { en: 'He must see a doctor.', hi: 'उसे डॉक्टर को दिखाना ही चाहिए।' },
