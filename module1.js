@@ -1,7 +1,7 @@
 // module1.js — Module 1: Foundational English
 // 5 Cards: Letters, IPA Sounds, Verbs, Be Verbs, Modern Verbs
 
-const MODULE1 = {
+var MODULE1 = {
   id: 'm1',
   badge: 'Module 1',
   title: 'Foundational English',
@@ -105,7 +105,7 @@ const MODULE1 = {
     },
 
     // ═══════════════════════════════════════════════════════
-    // CARD 3: VERBS (A-Z) — v1, v2, v3
+    // CARD 3: VERBS (A-Z)
     // ═══════════════════════════════════════════════════════
     {
       id: 'verbs',
