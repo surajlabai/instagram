@@ -1,5 +1,5 @@
-// module1.js — Module 1: Foundational English (DEMO)
-// Ye sirf demo data hai. Real mein har topic ke 100+ questions honge.
+// module1.js — Module 1: Foundational English (Beginner Level)
+// Structure: 5 Cards → Letters, IPA Sounds, Verbs, Be Verbs, Modern Verbs
 
 const MODULE1 = {
   id: 'm1',
@@ -7,286 +7,757 @@ const MODULE1 = {
   title: 'Foundational English',
   sub: 'Beginner Level',
   icon: '🌱',
-  desc: 'Build a strong foundation in basic English.',
-  topics: [
-
-    // ═══════════════════════════════════════════
-    // TOPIC 1: Alphabet & Sounds
-    // ═══════════════════════════════════════════
+  desc: 'सीखो A-Z letters, sounds, verbs और basic sentences — खेल-खेल में।',
+  
+  cards: [
+    // ═══════════════════════════════════════════════════════════
+    // CARD 1: LETTERS (A-Z) — Small + Capital + Sound + Game
+    // ═══════════════════════════════════════════════════════════
     {
-      id: 'alphabet',
-      title: 'Alphabet & Sounds',
+      id: 'letters',
+      title: 'Letters (A-Z)',
       icon: '🔤',
-      intro: 'सीखो A-Z letters और unke sounds',
-      lessons: [
-        {
-          title: 'Step 1: Capital Letters (A-Z)',
-          type: 'info',
-          content: `
-            <p>English में 26 letters होते हैं। हर letter का एक sound होता है।</p>
-            <p><b>Capital Letters:</b> A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z</p>
-          `,
-          examples: [
-            { letter: 'A', sound: 'ए', word: 'Apple' },
-            { letter: 'B', sound: 'बी', word: 'Ball' },
-            { letter: 'C', sound: 'सी', word: 'Cat' },
-            { letter: 'D', sound: 'डी', word: 'Dog' },
-            { letter: 'E', sound: 'ई', word: 'Egg' }
-          ]
-        },
-        {
-          title: 'Step 2: Vowels & Consonants',
-          type: 'info',
-          content: `
-            <p><b>Vowels (स्वर):</b> A, E, I, O, U (5 letters)</p>
-            <p><b>Consonants (व्यंजन):</b> बाकी सभी 21 letters</p>
-          `,
-          examples: [
-            { type: 'Vowel', letter: 'A', example: 'Apple' },
-            { type: 'Vowel', letter: 'E', example: 'Egg' },
-            { type: 'Consonant', letter: 'B', example: 'Ball' },
-            { type: 'Consonant', letter: 'C', example: 'Cat' },
-            { type: 'Consonant', letter: 'D', example: 'Dog' }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: 'कौन सा vowel है?', options: ['B', 'A', 'K', 'M'], answer: 'A' },
-        { type: 'mcq', q: 'कौन सा consonant है?', options: ['A', 'E', 'I', 'B'], answer: 'B' },
-        { type: 'mcq', q: 'C का sound क्या है?', options: ['सी', 'बी', 'ए', 'डी'], answer: 'सी' },
-        { type: 'mcq', q: 'कितने vowels होते हैं?', options: ['3', '4', '5', '6'], answer: '5' },
-        { type: 'mcq', q: 'M कौन सा letter है?', options: ['Vowel', 'Consonant', 'Both', 'None'], answer: 'Consonant' }
+      desc: 'Capital + Small letters, sound (Hindi), aur word recognition',
+      type: 'letters',
+      
+      // All 26 letters with sound and example word
+      letters: [
+        { capital: 'A', small: 'a', sound: 'ए', word: 'Apple', emoji: '🍎' },
+        { capital: 'B', small: 'b', sound: 'बी', word: 'Ball', emoji: '⚽' },
+        { capital: 'C', small: 'c', sound: 'सी', word: 'Cat', emoji: '🐱' },
+        { capital: 'D', small: 'd', sound: 'डी', word: 'Dog', emoji: '🐶' },
+        { capital: 'E', small: 'e', sound: 'ई', word: 'Egg', emoji: '🥚' },
+        { capital: 'F', small: 'f', sound: 'एफ़', word: 'Fish', emoji: '🐟' },
+        { capital: 'G', small: 'g', sound: 'जी', word: 'Goat', emoji: '🐐' },
+        { capital: 'H', small: 'h', sound: 'एच', word: 'Hat', emoji: '🎩' },
+        { capital: 'I', small: 'i', sound: 'आइ', word: 'Ice', emoji: '🧊' },
+        { capital: 'J', small: 'j', sound: 'जे', word: 'Jug', emoji: '🍶' },
+        { capital: 'K', small: 'k', sound: 'के', word: 'Kite', emoji: '🪁' },
+        { capital: 'L', small: 'l', sound: 'एल', word: 'Lion', emoji: '🦁' },
+        { capital: 'M', small: 'm', sound: 'एम', word: 'Moon', emoji: '🌙' },
+        { capital: 'N', small: 'n', sound: 'एन', word: 'Nest', emoji: '🪹' },
+        { capital: 'O', small: 'o', sound: 'ओ', word: 'Orange', emoji: '🍊' },
+        { capital: 'P', small: 'p', sound: 'पी', word: 'Pen', emoji: '🖊️' },
+        { capital: 'Q', small: 'q', sound: 'क्यू', word: 'Queen', emoji: '👑' },
+        { capital: 'R', small: 'r', sound: 'आर', word: 'Rat', emoji: '🐀' },
+        { capital: 'S', small: 's', sound: 'एस', word: 'Sun', emoji: '☀️' },
+        { capital: 'T', small: 't', sound: 'टी', word: 'Tree', emoji: '🌳' },
+        { capital: 'U', small: 'u', sound: 'यू', word: 'Umbrella', emoji: '☂️' },
+        { capital: 'V', small: 'v', sound: 'वी', word: 'Van', emoji: '🚐' },
+        { capital: 'W', small: 'w', sound: 'डब्ल्यू', word: 'Watch', emoji: '⌚' },
+        { capital: 'X', small: 'x', sound: 'एक्स', word: 'Xylophone', emoji: '🎹' },
+        { capital: 'Y', small: 'y', sound: 'वाय', word: 'Yak', emoji: '🐃' },
+        { capital: 'Z', small: 'z', sound: 'ज़ेड', word: 'Zebra', emoji: '🦓' }
       ]
     },
 
-    // ═══════════════════════════════════════════
-    // TOPIC 2: Subject + Verb + Object (SVO)
-    // ═══════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════
+    // CARD 2: IPA SOUNDS — Vowels + Consonants
+    // ═══════════════════════════════════════════════════════════
     {
-      id: 'svo',
-      title: 'Subject + Verb + Object',
-      icon: '🧩',
-      intro: 'सीखो simple sentence कैसे बनाते हैं',
-      lessons: [
+      id: 'sounds',
+      title: 'IPA Sounds',
+      icon: '🔊',
+      desc: 'Vowel और Consonant sounds — सही pronunciation सीखो',
+      type: 'sounds',
+      
+      categories: [
         {
-          title: 'Step 1: Kya hai S+V+O?',
-          type: 'info',
-          content: `
-            <p>हर English sentence में 3 parts होते हैं:</p>
-            <p>• <b>Subject</b> = कौन? (Ram, She, The boy)</p>
-            <p>• <b>Verb</b> = क्या करता है? (eats, reads, plays)</p>
-            <p>• <b>Object</b> = क्या? (apple, book, cricket)</p>
-          `,
-          examples: [
-            { s: 'Ram', v: 'eats', o: 'an apple' },
-            { s: 'She', v: 'reads', o: 'a book' },
-            { s: 'They', v: 'play', o: 'cricket' },
-            { s: 'I', v: 'drink', o: 'water' },
-            { s: 'The boy', v: 'kicks', o: 'the ball' }
+          id: 'vowels',
+          title: 'Vowels (स्वर)',
+          icon: '🅰️',
+          desc: '5 vowels — A, E, I, O, U',
+          items: [
+            { symbol: 'A', sound: 'ए', word: 'Apple', emoji: '🍎' },
+            { symbol: 'E', sound: 'ई', word: 'Egg', emoji: '🥚' },
+            { symbol: 'I', sound: 'आइ', word: 'Ice', emoji: '🧊' },
+            { symbol: 'O', sound: 'ओ', word: 'Orange', emoji: '🍊' },
+            { symbol: 'U', sound: 'यू', word: 'Umbrella', emoji: '☂️' }
           ]
         },
         {
-          title: 'Step 2: Practice — Sentence Banao',
-          type: 'slot',
-          instruction: 'Words को सही order में रखो',
-          questions: [
-            { slots: ['Subject', 'Verb', 'Object'], words: ['eats', 'Ram', 'an apple'], answer: ['Ram', 'eats', 'an apple'] },
-            { slots: ['Subject', 'Verb', 'Object'], words: ['a book', 'She', 'reads'], answer: ['She', 'reads', 'a book'] },
-            { slots: ['Subject', 'Verb', 'Object'], words: ['cricket', 'They', 'play'], answer: ['They', 'play', 'cricket'] },
-            { slots: ['Subject', 'Verb', 'Object'], words: ['water', 'I', 'drink'], answer: ['I', 'drink', 'water'] },
-            { slots: ['Subject', 'Verb', 'Object'], words: ['the ball', 'kicks', 'The boy'], answer: ['The boy', 'kicks', 'the ball'] }
+          id: 'consonants',
+          title: 'Consonants (व्यंजन)',
+          icon: '🅱️',
+          desc: '21 consonants — बाकी सभी letters',
+          items: [
+            { symbol: 'B', sound: 'बी', word: 'Ball', emoji: '⚽' },
+            { symbol: 'C', sound: 'सी', word: 'Cat', emoji: '🐱' },
+            { symbol: 'D', sound: 'डी', word: 'Dog', emoji: '🐶' },
+            { symbol: 'F', sound: 'एफ़', word: 'Fish', emoji: '🐟' },
+            { symbol: 'G', sound: 'जी', word: 'Goat', emoji: '🐐' },
+            { symbol: 'H', sound: 'एच', word: 'Hat', emoji: '🎩' },
+            { symbol: 'J', sound: 'जे', word: 'Jug', emoji: '🍶' },
+            { symbol: 'K', sound: 'के', word: 'Kite', emoji: '🪁' },
+            { symbol: 'L', sound: 'एल', word: 'Lion', emoji: '🦁' },
+            { symbol: 'M', sound: 'एम', word: 'Moon', emoji: '🌙' },
+            { symbol: 'N', sound: 'एन', word: 'Nest', emoji: '🪹' },
+            { symbol: 'P', sound: 'पी', word: 'Pen', emoji: '🖊️' },
+            { symbol: 'Q', sound: 'क्यू', word: 'Queen', emoji: '👑' },
+            { symbol: 'R', sound: 'आर', word: 'Rat', emoji: '🐀' },
+            { symbol: 'S', sound: 'एस', word: 'Sun', emoji: '☀️' },
+            { symbol: 'T', sound: 'टी', word: 'Tree', emoji: '🌳' },
+            { symbol: 'V', sound: 'वी', word: 'Van', emoji: '🚐' },
+            { symbol: 'W', sound: 'डब्ल्यू', word: 'Watch', emoji: '⌚' },
+            { symbol: 'X', sound: 'एक्स', word: 'Xylophone', emoji: '🎹' },
+            { symbol: 'Y', sound: 'वाय', word: 'Yak', emoji: '🐃' },
+            { symbol: 'Z', sound: 'ज़ेड', word: 'Zebra', emoji: '🦓' }
           ]
         }
-      ],
-      practice: [
-        { type: 'mcq', q: 'सही sentence कौन सा है?', options: ['Ram eats an apple', 'eats Ram an apple', 'an apple Ram eats', 'Ram an apple eats'], answer: 'Ram eats an apple' },
-        { type: 'mcq', q: '"She reads a book" में Subject कौन है?', options: ['She', 'reads', 'book', 'a'], answer: 'She' },
-        { type: 'mcq', q: '"They play cricket" में Object कौन है?', options: ['They', 'play', 'cricket', 'none'], answer: 'cricket' },
-        { type: 'mcq', q: 'सही sentence:', options: ['I drink water', 'drink I water', 'water drink I', 'I water drink'], answer: 'I drink water' },
-        { type: 'mcq', q: '"The boy kicks the ball" में Verb कौन है?', options: ['The boy', 'kicks', 'the ball', 'boy'], answer: 'kicks' }
       ]
     },
 
-    // ═══════════════════════════════════════════
-    // TOPIC 3: Simple Present Tense
-    // ═══════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════════
+    // CARD 3: VERBS (A-Z) — v1, v2, v3
+    // ═══════════════════════════════════════════════════════════
     {
-      id: 'simple-present',
-      title: 'Simple Present Tense',
-      icon: '⏰',
-      intro: 'Present tense में बात कैसे करें',
-      lessons: [
-        {
-          title: 'Step 1: Positive Sentences',
-          type: 'info',
-          content: `
-            <p><b>Simple Present</b> = रोज़ होने वाली बातें।</p>
-            <p>Rule: Subject + Verb(s/es) + Object</p>
-          `,
-          examples: [
-            { sentence: 'I go to school.', hi: 'मैं स्कूल जाता हूँ' },
-            { sentence: 'She reads a book.', hi: 'वह किताब पढ़ती है' },
-            { sentence: 'Ram eats an apple.', hi: 'राम सेब खाता है' },
-            { sentence: 'We play cricket.', hi: 'हम क्रिकेट खेलते हैं' },
-            { sentence: 'They watch TV.', hi: 'वे टीवी देखते हैं' }
-          ]
-        },
-        {
-          title: 'Step 2: Practice — Positive',
-          type: 'slot',
-          instruction: 'Positive sentence बनाओ',
-          questions: [
-            { slots: ['Subject', 'Verb', 'Object'], words: ['go', 'I', 'school', 'to'], answer: ['I', 'go', 'to school'] },
-            { slots: ['Subject', 'Verb', 'Object'], words: ['reads', 'She', 'a book'], answer: ['She', 'reads', 'a book'] },
-            { slots: ['Subject', 'Verb', 'Object'], words: ['eats', 'Ram', 'an apple'], answer: ['Ram', 'eats', 'an apple'] },
-            { slots: ['Subject', 'Verb', 'Object'], words: ['play', 'We', 'cricket'], answer: ['We', 'play', 'cricket'] },
-            { slots: ['Subject', 'Verb', 'Object'], words: ['watch', 'They', 'TV'], answer: ['They', 'watch TV'] }
-          ]
-        },
-        {
-          title: 'Step 3: Negative Sentences',
-          type: 'info',
-          content: `
-            <p><b>Negative</b> = नहीं (do not / does not)</p>
-            <p>Rule: Subject + do/does + not + Verb + Object</p>
-          `,
-          examples: [
-            { sentence: 'I do not go to school.', hi: 'मैं स्कूल नहीं जाता' },
-            { sentence: 'She does not read a book.', hi: 'वह किताब नहीं पढ़ती' },
-            { sentence: 'Ram does not eat an apple.', hi: 'राम सेब नहीं खाता' },
-            { sentence: 'We do not play cricket.', hi: 'हम क्रिकेट नहीं खेलते' },
-            { sentence: 'They do not watch TV.', hi: 'वे टीवी नहीं देखते' }
-          ]
-        },
-        {
-          title: 'Step 4: Practice — Negative',
-          type: 'slot',
-          instruction: 'Negative sentence बनाओ',
-          questions: [
-            { slots: ['Subject', 'Aux', 'Not', 'Verb', 'Object'], words: ['not', 'I', 'go', 'do', 'school', 'to'], answer: ['I', 'do', 'not', 'go', 'to school'] },
-            { slots: ['Subject', 'Aux', 'Not', 'Verb', 'Object'], words: ['does', 'not', 'She', 'read', 'a book'], answer: ['She', 'does', 'not', 'read', 'a book'] },
-            { slots: ['Subject', 'Aux', 'Not', 'Verb', 'Object'], words: ['does', 'Ram', 'not', 'eat', 'an apple'], answer: ['Ram', 'does', 'not', 'eat', 'an apple'] },
-            { slots: ['Subject', 'Aux', 'Not', 'Verb', 'Object'], words: ['do', 'We', 'not', 'play', 'cricket'], answer: ['We', 'do', 'not', 'play', 'cricket'] },
-            { slots: ['Subject', 'Aux', 'Not', 'Verb', 'Object'], words: ['They', 'do', 'not', 'watch', 'TV'], answer: ['They', 'do', 'not', 'watch TV'] }
-          ]
-        },
-        {
-          title: 'Step 5: WH Questions',
-          type: 'info',
-          content: `
-            <p><b>WH Questions</b> = What, Where, When, Who, Why, How</p>
-            <p>Rule: Wh + do/does + Subject + Verb?</p>
-          `,
-          examples: [
-            { sentence: 'Where do you go?', hi: 'तुम कहाँ जाते हो?' },
-            { sentence: 'What does she read?', hi: 'वह क्या पढ़ती है?' },
-            { sentence: 'What does Ram eat?', hi: 'राम क्या खाता है?' },
-            { sentence: 'When do we play?', hi: 'हम कब खेलते हैं?' },
-            { sentence: 'Why do they watch TV?', hi: 'वे टीवी क्यों देखते हैं?' }
-          ]
-        },
-        {
-          title: 'Step 6: Practice — WH Questions',
-          type: 'slot',
-          instruction: 'WH question बनाओ',
-          questions: [
-            { slots: ['Wh', 'Aux', 'Subject', 'Verb'], words: ['you', 'Where', 'go', 'do'], answer: ['Where', 'do', 'you', 'go'] },
-            { slots: ['Wh', 'Aux', 'Subject', 'Verb'], words: ['does', 'What', 'she', 'read'], answer: ['What', 'does', 'she', 'read'] },
-            { slots: ['Wh', 'Aux', 'Subject', 'Verb'], words: ['does', 'What', 'Ram', 'eat'], answer: ['What', 'does', 'Ram', 'eat'] },
-            { slots: ['Wh', 'Aux', 'Subject', 'Verb'], words: ['do', 'When', 'we', 'play'], answer: ['When', 'do', 'we', 'play'] },
-            { slots: ['Wh', 'Aux', 'Subject', 'Verb'], words: ['they', 'Why', 'watch', 'do'], answer: ['Why', 'do', 'they', 'watch'] }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: 'She ___ to school every day.', options: ['go', 'goes', 'going', 'went'], answer: 'goes' },
-        { type: 'mcq', q: 'I ___ not like tea.', options: ['do', 'does', 'is', 'am'], answer: 'do' },
-        { type: 'mcq', q: '___ does he go?', options: ['What', 'Where', 'When', 'Why'], answer: 'Where' },
-        { type: 'mcq', q: 'They ___ cricket every Sunday.', options: ['play', 'plays', 'playing', 'played'], answer: 'play' },
-        { type: 'mcq', q: 'Ram ___ eat meat.', options: ['do not', 'does not', 'is not', 'are not'], answer: 'does not' }
-      ]
-    },
-
-    // ═══════════════════════════════════════════
-    // TOPIC 4: Articles (a, an, the)
-    // ═══════════════════════════════════════════
-    {
-      id: 'articles',
-      title: 'Articles (a, an, the)',
-      icon: '🔗',
-      intro: 'सीखो a, an, the का use',
-      lessons: [
-        {
-          title: 'Step 1: A vs An',
-          type: 'info',
-          content: `
-            <p><b>A</b> = Consonant sound से पहले (a book, a car)</p>
-            <p><b>An</b> = Vowel sound से पहले (an apple, an egg)</p>
-          `,
-          examples: [
-            { article: 'a', word: 'book', sentence: 'I have a book.' },
-            { article: 'an', word: 'apple', sentence: 'She eats an apple.' },
-            { article: 'a', word: 'car', sentence: 'He drives a car.' },
-            { article: 'an', word: 'egg', sentence: 'I ate an egg.' },
-            { article: 'a', word: 'dog', sentence: 'It is a dog.' }
-          ]
-        },
-        {
-          title: 'Step 2: The (Specific)',
-          type: 'info',
-          content: `
-            <p><b>The</b> = Specific चीज़ के लिए (the sun, the book you gave me)</p>
-          `,
-          examples: [
-            { sentence: 'The sun rises in the east.', hi: 'सूरज पूर्व में उगता है' },
-            { sentence: 'The book you gave me is good.', hi: 'जो किताब तुमने दी वो अच्छी है' },
-            { sentence: 'The Taj Mahal is in Agra.', hi: 'ताजमहल आगरा में है' },
-            { sentence: 'Close the door.', hi: 'दरवाज़ा बंद करो' },
-            { sentence: 'The Ganga is a holy river.', hi: 'गंगा पवित्र नदी है' }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: '___ apple a day keeps doctor away.', options: ['A', 'An', 'The', '—'], answer: 'An' },
-        { type: 'mcq', q: 'I saw ___ elephant.', options: ['a', 'an', 'the', '—'], answer: 'an' },
-        { type: 'mcq', q: '___ sun is bright.', options: ['A', 'An', 'The', '—'], answer: 'The' },
-        { type: 'mcq', q: 'She has ___ dog.', options: ['a', 'an', 'the', '—'], answer: 'a' },
-        { type: 'mcq', q: 'He is ___ honest man.', options: ['a', 'an', 'the', '—'], answer: 'an' }
-      ]
-    },
-
-    // ═══════════════════════════════════════════
-    // TOPIC 5: Basic Verbs (is/am/are)
-    // ═══════════════════════════════════════════
-    {
-      id: 'be-verbs',
-      title: 'Be Verbs (is/am/are)',
+      id: 'verbs',
+      title: 'Verbs (A-Z)',
       icon: '⚡',
-      intro: 'सीखो is, am, are का use',
-      lessons: [
+      desc: 'A-Z verbs के v1, v2, v3 forms',
+      type: 'verbs',
+      
+      // A-Z verbs grouped by first letter
+      groups: [
+        { letter: 'A', verbs: [
+          { v1: 'ask', v2: 'asked', v3: 'asked', hi: 'पूछना' },
+          { v1: 'answer', v2: 'answered', v3: 'answered', hi: 'जवाब देना' },
+          { v1: 'arrive', v2: 'arrived', v3: 'arrived', hi: 'पहुँचना' },
+          { v1: 'add', v2: 'added', v3: 'added', hi: 'जोड़ना' },
+          { v1: 'accept', v2: 'accepted', v3: 'accepted', hi: 'स्वीकार करना' },
+          { v1: 'allow', v2: 'allowed', v3: 'allowed', hi: 'अनुमति देना' },
+          { v1: 'agree', v2: 'agreed', v3: 'agreed', hi: 'सहमत होना' },
+          { v1: 'avoid', v2: 'avoided', v3: 'avoided', hi: 'बचना' },
+          { v1: 'appear', v2: 'appeared', v3: 'appeared', hi: 'दिखाई देना' },
+          { v1: 'apply', v2: 'applied', v3: 'applied', hi: 'आवेदन करना' },
+          { v1: 'argue', v2: 'argued', v3: 'argued', hi: 'बहस करना' },
+          { v1: 'attack', v2: 'attacked', v3: 'attacked', hi: 'हमला करना' },
+          { v1: 'attend', v2: 'attended', v3: 'attended', hi: 'उपस्थित होना' },
+          { v1: 'attract', v2: 'attracted', v3: 'attracted', hi: 'आकर्षित करना' },
+          { v1: 'awake', v2: 'awoke', v3: 'awoken', hi: 'जागना' },
+          { v1: 'achieve', v2: 'achieved', v3: 'achieved', hi: 'हासिल करना' },
+          { v1: 'admire', v2: 'admired', v3: 'admired', hi: 'प्रशंसा करना' },
+          { v1: 'admit', v2: 'admitted', v3: 'admitted', hi: 'स्वीकार करना' },
+          { v1: 'advise', v2: 'advised', v3: 'advised', hi: 'सलाह देना' },
+          { v1: 'afford', v2: 'afforded', v3: 'afforded', hi: 'खर्च कर पाना' }
+        ]},
+        { letter: 'B', verbs: [
+          { v1: 'be', v2: 'was/were', v3: 'been', hi: 'होना' },
+          { v1: 'become', v2: 'became', v3: 'become', hi: 'बनना' },
+          { v1: 'begin', v2: 'began', v3: 'begun', hi: 'शुरू करना' },
+          { v1: 'believe', v2: 'believed', v3: 'believed', hi: 'विश्वास करना' },
+          { v1: 'bring', v2: 'brought', v3: 'brought', hi: 'लाना' },
+          { v1: 'buy', v2: 'bought', v3: 'bought', hi: 'खरीदना' },
+          { v1: 'build', v2: 'built', v3: 'built', hi: 'बनाना' },
+          { v1: 'break', v2: 'broke', v3: 'broken', hi: 'तोड़ना' },
+          { v1: 'burn', v2: 'burned/burnt', v3: 'burned/burnt', hi: 'जलाना' },
+          { v1: 'borrow', v2: 'borrowed', v3: 'borrowed', hi: 'उधार लेना' },
+          { v1: 'bake', v2: 'baked', v3: 'baked', hi: 'सेंकना' },
+          { v1: 'bathe', v2: 'bathed', v3: 'bathed', hi: 'नहाना' },
+          { v1: 'beat', v2: 'beat', v3: 'beaten', hi: 'पीटना' },
+          { v1: 'bite', v2: 'bit', v3: 'bitten', hi: 'काटना' },
+          { v1: 'blow', v2: 'blew', v3: 'blown', hi: 'फूंक मारना' },
+          { v1: 'boil', v2: 'boiled', v3: 'boiled', hi: 'उबालना' },
+          { v1: 'bless', v2: 'blessed', v3: 'blessed', hi: 'आशीर्वाद देना' },
+          { v1: 'book', v2: 'booked', v3: 'booked', hi: 'बुक करना' },
+          { v1: 'brush', v2: 'brushed', v3: 'brushed', hi: 'ब्रश करना' },
+          { v1: 'breathe', v2: 'breathed', v3: 'breathed', hi: 'साँस लेना' }
+        ]},
+        { letter: 'C', verbs: [
+          { v1: 'call', v2: 'called', v3: 'called', hi: 'बुलाना' },
+          { v1: 'carry', v2: 'carried', v3: 'carried', hi: 'ले जाना' },
+          { v1: 'catch', v2: 'caught', v3: 'caught', hi: 'पकड़ना' },
+          { v1: 'change', v2: 'changed', v3: 'changed', hi: 'बदलना' },
+          { v1: 'choose', v2: 'chose', v3: 'chosen', hi: 'चुनना' },
+          { v1: 'clean', v2: 'cleaned', v3: 'cleaned', hi: 'साफ करना' },
+          { v1: 'climb', v2: 'climbed', v3: 'climbed', hi: 'चढ़ना' },
+          { v1: 'close', v2: 'closed', v3: 'closed', hi: 'बंद करना' },
+          { v1: 'come', v2: 'came', v3: 'come', hi: 'आना' },
+          { v1: 'cook', v2: 'cooked', v3: 'cooked', hi: 'पकाना' },
+          { v1: 'count', v2: 'counted', v3: 'counted', hi: 'गिनना' },
+          { v1: 'cry', v2: 'cried', v3: 'cried', hi: 'रोना' },
+          { v1: 'cut', v2: 'cut', v3: 'cut', hi: 'काटना' },
+          { v1: 'compare', v2: 'compared', v3: 'compared', hi: 'तुलना करना' },
+          { v1: 'complain', v2: 'complained', v3: 'complained', hi: 'शिकायत करना' },
+          { v1: 'complete', v2: 'completed', v3: 'completed', hi: 'पूरा करना' },
+          { v1: 'connect', v2: 'connected', v3: 'connected', hi: 'जोड़ना' },
+          { v1: 'consider', v2: 'considered', v3: 'considered', hi: 'विचार करना' },
+          { v1: 'continue', v2: 'continued', v3: 'continued', hi: 'जारी रखना' },
+          { v1: 'create', v2: 'created', v3: 'created', hi: 'बनाना' }
+        ]},
+        { letter: 'D', verbs: [
+          { v1: 'dance', v2: 'danced', v3: 'danced', hi: 'नाचना' },
+          { v1: 'decide', v2: 'decided', v3: 'decided', hi: 'तय करना' },
+          { v1: 'die', v2: 'died', v3: 'died', hi: 'मरना' },
+          { v1: 'dig', v2: 'dug', v3: 'dug', hi: 'खोदना' },
+          { v1: 'do', v2: 'did', v3: 'done', hi: 'करना' },
+          { v1: 'draw', v2: 'drew', v3: 'drawn', hi: 'चित्र बनाना' },
+          { v1: 'dream', v2: 'dreamed/dreamt', v3: 'dreamed/dreamt', hi: 'सपना देखना' },
+          { v1: 'drink', v2: 'drank', v3: 'drunk', hi: 'पीना' },
+          { v1: 'drive', v2: 'drove', v3: 'driven', hi: 'गाड़ी चलाना' },
+          { v1: 'drop', v2: 'dropped', v3: 'dropped', hi: 'गिराना' },
+          { v1: 'deliver', v2: 'delivered', v3: 'delivered', hi: 'पहुँचाना' },
+          { v1: 'demand', v2: 'demanded', v3: 'demanded', hi: 'मांग करना' },
+          { v1: 'depend', v2: 'depended', v3: 'depended', hi: 'निर्भर होना' },
+          { v1: 'describe', v2: 'described', v3: 'described', hi: 'वर्णन करना' },
+          { v1: 'destroy', v2: 'destroyed', v3: 'destroyed', hi: 'नष्ट करना' },
+          { v1: 'develop', v2: 'developed', v3: 'developed', hi: 'विकसित करना' },
+          { v1: 'discover', v2: 'discovered', v3: 'discovered', hi: 'खोजना' },
+          { v1: 'discuss', v2: 'discussed', v3: 'discussed', hi: 'चर्चा करना' },
+          { v1: 'divide', v2: 'divided', v3: 'divided', hi: 'बांटना' },
+          { v1: 'doubt', v2: 'doubted', v3: 'doubted', hi: 'संदेह करना' }
+        ]},
+        { letter: 'E', verbs: [
+          { v1: 'earn', v2: 'earned', v3: 'earned', hi: 'कमाना' },
+          { v1: 'eat', v2: 'ate', v3: 'eaten', hi: 'खाना' },
+          { v1: 'enter', v2: 'entered', v3: 'entered', hi: 'प्रवेश करना' },
+          { v1: 'enjoy', v2: 'enjoyed', v3: 'enjoyed', hi: 'आनंद लेना' },
+          { v1: 'examine', v2: 'examined', v3: 'examined', hi: 'जाँचना' },
+          { v1: 'expect', v2: 'expected', v3: 'expected', hi: 'अपेक्षा करना' },
+          { v1: 'explain', v2: 'explained', v3: 'explained', hi: 'समझाना' },
+          { v1: 'exist', v2: 'existed', v3: 'existed', hi: 'मौजूद होना' },
+          { v1: 'expand', v2: 'expanded', v3: 'expanded', hi: 'फैलाना' },
+          { v1: 'express', v2: 'expressed', v3: 'expressed', hi: 'व्यक्त करना' },
+          { v1: 'educate', v2: 'educated', v3: 'educated', hi: 'शिक्षित करना' },
+          { v1: 'elect', v2: 'elected', v3: 'elected', hi: 'चुनना' },
+          { v1: 'emerge', v2: 'emerged', v3: 'emerged', hi: 'उभरना' },
+          { v1: 'employ', v2: 'employed', v3: 'employed', hi: 'नौकरी देना' },
+          { v1: 'encourage', v2: 'encouraged', v3: 'encouraged', hi: 'प्रोत्साहित करना' },
+          { v1: 'escape', v2: 'escaped', v3: 'escaped', hi: 'भागना' },
+          { v1: 'establish', v2: 'established', v3: 'established', hi: 'स्थापित करना' },
+          { v1: 'estimate', v2: 'estimated', v3: 'estimated', hi: 'अनुमान लगाना' },
+          { v1: 'excite', v2: 'excited', v3: 'excited', hi: 'उत्साहित करना' },
+          { v1: 'exercise', v2: 'exercised', v3: 'exercised', hi: 'व्यायाम करना' }
+        ]},
+        { letter: 'F', verbs: [
+          { v1: 'fall', v2: 'fell', v3: 'fallen', hi: 'गिरना' },
+          { v1: 'feel', v2: 'felt', v3: 'felt', hi: 'महसूस करना' },
+          { v1: 'fight', v2: 'fought', v3: 'fought', hi: 'लड़ना' },
+          { v1: 'find', v2: 'found', v3: 'found', hi: 'खोजना' },
+          { v1: 'fly', v2: 'flew', v3: 'flown', hi: 'उड़ना' },
+          { v1: 'forget', v2: 'forgot', v3: 'forgotten', hi: 'भूलना' },
+          { v1: 'forgive', v2: 'forgave', v3: 'forgiven', hi: 'माफ़ करना' },
+          { v1: 'freeze', v2: 'froze', v3: 'frozen', hi: 'जमना' },
+          { v1: 'feed', v2: 'fed', v3: 'fed', hi: 'खिलाना' },
+          { v1: 'fill', v2: 'filled', v3: 'filled', hi: 'भरना' },
+          { v1: 'finish', v2: 'finished', v3: 'finished', hi: 'खत्म करना' },
+          { v1: 'fit', v2: 'fit', v3: 'fit', hi: 'फिट होना' },
+          { v1: 'fix', v2: 'fixed', v3: 'fixed', hi: 'ठीक करना' },
+          { v1: 'follow', v2: 'followed', v3: 'followed', hi: 'पीछा करना' },
+          { v1: 'fry', v2: 'fried', v3: 'fried', hi: 'तलना' },
+          { v1: 'fail', v2: 'failed', v3: 'failed', hi: 'असफल होना' },
+          { v1: 'fear', v2: 'feared', v3: 'feared', hi: 'डरना' },
+          { v1: 'fetch', v2: 'fetched', v3: 'fetched', hi: 'लाना' },
+          { v1: 'fade', v2: 'faded', v3: 'faded', hi: 'फीका होना' },
+          { v1: 'fasten', v2: 'fastened', v3: 'fastened', hi: 'बांधना' }
+        ]}
+        // NOTE: Baaki G-Z letters aap khud add kar sakte ho — same pattern follow karo
+      ]
+    },
+
+    // ═══════════════════════════════════════════════════════════
+    // CARD 4: BE VERBS — is, am, are, was, were, shall be, will be, has, have
+    // ═══════════════════════════════════════════════════════════
+    {
+      id: 'beverbs',
+      title: 'Be Verbs',
+      icon: '🔗',
+      desc: 'is, am, are, was, were, shall be, will be, has, have — 20 sentences each',
+      type: 'beverbs',
+      
+      verbs: [
         {
-          title: 'Step 1: Rule',
-          type: 'info',
-          content: `
-            <p><b>I → am</b></p>
-            <p><b>He/She/It → is</b></p>
-            <p><b>We/You/They → are</b></p>
-          `,
-          examples: [
-            { sentence: 'I am a student.', hi: 'मैं छात्र हूँ' },
-            { sentence: 'She is happy.', hi: 'वह खुश है' },
-            { sentence: 'He is a doctor.', hi: 'वह डॉक्टर है' },
-            { sentence: 'We are friends.', hi: 'हम दोस्त हैं' },
-            { sentence: 'They are playing.', hi: 'वे खेल रहे हैं' }
+          id: 'is',
+          word: 'is',
+          usage: 'He/She/It के साथ (Present)',
+          hi: 'है',
+          sentences: [
+            { en: 'He is a doctor.', hi: 'वह डॉक्टर है।' },
+            { en: 'She is happy.', hi: 'वह खुश है।' },
+            { en: 'It is a cat.', hi: 'यह बिल्ली है।' },
+            { en: 'Ram is my friend.', hi: 'राम मेरा दोस्त है।' },
+            { en: 'The sun is bright.', hi: 'सूरज चमकीला है।' },
+            { en: 'This is my book.', hi: 'यह मेरी किताब है।' },
+            { en: 'That is a tree.', hi: 'वह पेड़ है।' },
+            { en: 'My father is a teacher.', hi: 'मेरे पिता शिक्षक हैं।' },
+            { en: 'She is from Delhi.', hi: 'वह दिल्ली से है।' },
+            { en: 'The sky is blue.', hi: 'आसमान नीला है।' },
+            { en: 'He is very tall.', hi: 'वह बहुत लंबा है।' },
+            { en: 'It is raining today.', hi: 'आज बारिश हो रही है।' },
+            { en: 'This is very easy.', hi: 'यह बहुत आसान है।' },
+            { en: 'She is my sister.', hi: 'वह मेरी बहन है।' },
+            { en: 'The book is on the table.', hi: 'किताब मेज़ पर है।' },
+            { en: 'He is at home.', hi: 'वह घर पर है।' },
+            { en: 'The food is delicious.', hi: 'खाना स्वादिष्ट है।' },
+            { en: 'My name is Rahul.', hi: 'मेरा नाम राहुल है।' },
+            { en: 'It is very cold.', hi: 'यह बहुत ठंडा है।' },
+            { en: 'The door is open.', hi: 'दरवाज़ा खुला है।' }
+          ]
+        },
+        {
+          id: 'am',
+          word: 'am',
+          usage: 'I के साथ (Present)',
+          hi: 'हूँ',
+          sentences: [
+            { en: 'I am a student.', hi: 'मैं छात्र हूँ।' },
+            { en: 'I am happy.', hi: 'मैं खुश हूँ।' },
+            { en: 'I am from India.', hi: 'मैं भारत से हूँ।' },
+            { en: 'I am 15 years old.', hi: 'मैं 15 साल का हूँ।' },
+            { en: 'I am hungry.', hi: 'मैं भूखा हूँ।' },
+            { en: 'I am tired.', hi: 'मैं थका हूँ।' },
+            { en: 'I am ready.', hi: 'मैं तैयार हूँ।' },
+            { en: 'I am learning English.', hi: 'मैं English सीख रहा हूँ।' },
+            { en: 'I am a teacher.', hi: 'मैं शिक्षक हूँ।' },
+            { en: 'I am at home.', hi: 'मैं घर पर हूँ।' },
+            { en: 'I am very busy.', hi: 'मैं बहुत व्यस्त हूँ।' },
+            { en: 'I am fine.', hi: 'मैं ठीक हूँ।' },
+            { en: 'I am sorry.', hi: 'मैं माफ़ी चाहता हूँ।' },
+            { en: 'I am a boy.', hi: 'मैं लड़का हूँ।' },
+            { en: 'I am not well.', hi: 'मैं ठीक नहीं हूँ।' },
+            { en: 'I am from Mumbai.', hi: 'मैं मुंबई से हूँ।' },
+            { en: 'I am here.', hi: 'मैं यहाँ हूँ।' },
+            { en: 'I am your friend.', hi: 'मैं तुम्हारा दोस्त हूँ।' },
+            { en: 'I am ready to go.', hi: 'मैं जाने के लिए तैयार हूँ।' },
+            { en: 'I am very happy today.', hi: 'मैं आज बहुत खुश हूँ।' }
+          ]
+        },
+        {
+          id: 'are',
+          word: 'are',
+          usage: 'We/You/They के साथ (Present)',
+          hi: 'हैं/हो',
+          sentences: [
+            { en: 'We are friends.', hi: 'हम दोस्त हैं।' },
+            { en: 'You are smart.', hi: 'तुम होशियार हो।' },
+            { en: 'They are playing.', hi: 'वे खेल रहे हैं।' },
+            { en: 'We are students.', hi: 'हम छात्र हैं।' },
+            { en: 'You are right.', hi: 'तुम सही हो।' },
+            { en: 'They are happy.', hi: 'वे खुश हैं।' },
+            { en: 'We are from India.', hi: 'हम भारत से हैं।' },
+            { en: 'You are my friend.', hi: 'तुम मेरे दोस्त हो।' },
+            { en: 'They are brothers.', hi: 'वे भाई हैं।' },
+            { en: 'We are going home.', hi: 'हम घर जा रहे हैं।' },
+            { en: 'You are very kind.', hi: 'तुम बहुत दयालु हो।' },
+            { en: 'They are doctors.', hi: 'वे डॉक्टर हैं।' },
+            { en: 'We are ready.', hi: 'हम तैयार हैं।' },
+            { en: 'You are late.', hi: 'तुम देर से हो।' },
+            { en: 'The boys are playing.', hi: 'लड़के खेल रहे हैं।' },
+            { en: 'We are studying English.', hi: 'हम English पढ़ रहे हैं।' },
+            { en: 'They are at school.', hi: 'वे स्कूल में हैं।' },
+            { en: 'You are welcome.', hi: 'आपका स्वागत है।' },
+            { en: 'We are a team.', hi: 'हम एक टीम हैं।' },
+            { en: 'They are very smart.', hi: 'वे बहुत होशियार हैं।' }
+          ]
+        },
+        {
+          id: 'was',
+          word: 'was',
+          usage: 'He/She/It के साथ (Past)',
+          hi: 'था/थी',
+          sentences: [
+            { en: 'He was a doctor.', hi: 'वह डॉक्टर था।' },
+            { en: 'She was happy.', hi: 'वह खुश थी।' },
+            { en: 'It was a cat.', hi: 'यह बिल्ली थी।' },
+            { en: 'Ram was my friend.', hi: 'राम मेरा दोस्त था।' },
+            { en: 'The sun was bright.', hi: 'सूरज चमकीला था।' },
+            { en: 'This was my book.', hi: 'यह मेरी किताब थी।' },
+            { en: 'That was a tree.', hi: 'वह पेड़ था।' },
+            { en: 'My father was a teacher.', hi: 'मेरे पिता शिक्षक थे।' },
+            { en: 'She was from Delhi.', hi: 'वह दिल्ली से थी।' },
+            { en: 'The sky was blue.', hi: 'आसमान नीला था।' },
+            { en: 'He was very tall.', hi: 'वह बहुत लंबा था।' },
+            { en: 'It was raining yesterday.', hi: 'कल बारिश हो रही थी।' },
+            { en: 'This was very easy.', hi: 'यह बहुत आसान था।' },
+            { en: 'She was my sister.', hi: 'वह मेरी बहन थी।' },
+            { en: 'The book was on the table.', hi: 'किताब मेज़ पर थी।' },
+            { en: 'He was at home.', hi: 'वह घर पर था।' },
+            { en: 'The food was delicious.', hi: 'खाना स्वादिष्ट था।' },
+            { en: 'My name was Rahul.', hi: 'मेरा नाम राहुल था।' },
+            { en: 'It was very cold.', hi: 'यह बहुत ठंडा था।' },
+            { en: 'The door was open.', hi: 'दरवाज़ा खुला था।' }
+          ]
+        },
+        {
+          id: 'were',
+          word: 'were',
+          usage: 'We/You/They के साथ (Past)',
+          hi: 'थे/थीं',
+          sentences: [
+            { en: 'We were friends.', hi: 'हम दोस्त थे।' },
+            { en: 'You were smart.', hi: 'तुम होशियार थे।' },
+            { en: 'They were playing.', hi: 'वे खेल रहे थे।' },
+            { en: 'We were students.', hi: 'हम छात्र थे।' },
+            { en: 'You were right.', hi: 'तुम सही थे।' },
+            { en: 'They were happy.', hi: 'वे खुश थे।' },
+            { en: 'We were from India.', hi: 'हम भारत से थे।' },
+            { en: 'You were my friend.', hi: 'तुम मेरे दोस्त थे।' },
+            { en: 'They were brothers.', hi: 'वे भाई थे।' },
+            { en: 'We were going home.', hi: 'हम घर जा रहे थे।' },
+            { en: 'You were very kind.', hi: 'तुम बहुत दयालु थे।' },
+            { en: 'They were doctors.', hi: 'वे डॉक्टर थे।' },
+            { en: 'We were ready.', hi: 'हम तैयार थे।' },
+            { en: 'You were late.', hi: 'तुम देर से थे।' },
+            { en: 'The boys were playing.', hi: 'लड़के खेल रहे थे।' },
+            { en: 'We were studying English.', hi: 'हम English पढ़ रहे थे।' },
+            { en: 'They were at school.', hi: 'वे स्कूल में थे।' },
+            { en: 'You were welcome.', hi: 'आपका स्वागत था।' },
+            { en: 'We were a team.', hi: 'हम एक टीम थे।' },
+            { en: 'They were very smart.', hi: 'वे बहुत होशियार थे।' }
+          ]
+        },
+        {
+          id: 'shall-be',
+          word: 'shall be',
+          usage: 'I/We के साथ (Future)',
+          hi: 'होगा/होंगे',
+          sentences: [
+            { en: 'I shall be there.', hi: 'मैं वहाँ होऊँगा।' },
+            { en: 'We shall be happy.', hi: 'हम खुश होंगे।' },
+            { en: 'I shall be a doctor.', hi: 'मैं डॉक्टर बनूँगा।' },
+            { en: 'We shall be friends.', hi: 'हम दोस्त होंगे।' },
+            { en: 'I shall be ready.', hi: 'मैं तैयार होऊँगा।' },
+            { en: 'We shall be at home.', hi: 'हम घर पर होंगे।' },
+            { en: 'I shall be very happy.', hi: 'मैं बहुत खुश होऊँगा।' },
+            { en: 'We shall be students.', hi: 'हम छात्र होंगे।' },
+            { en: 'I shall be there on time.', hi: 'मैं समय पर वहाँ होऊँगा।' },
+            { en: 'We shall be successful.', hi: 'हम सफल होंगे।' },
+            { en: 'I shall be a teacher.', hi: 'मैं शिक्षक बनूँगा।' },
+            { en: 'We shall be together.', hi: 'हम साथ होंगे।' },
+            { en: 'I shall be fine.', hi: 'मैं ठीक होऊँगा।' },
+            { en: 'We shall be there soon.', hi: 'हम जल्द वहाँ होंगे।' },
+            { en: 'I shall be at school.', hi: 'मैं स्कूल में होऊँगा।' },
+            { en: 'We shall be very glad.', hi: 'हम बहुत खुश होंगे।' },
+            { en: 'I shall be your friend.', hi: 'मैं तुम्हारा दोस्त होऊँगा।' },
+            { en: 'We shall be back.', hi: 'हम वापस आएंगे।' },
+            { en: 'I shall be careful.', hi: 'मैं सावधान रहूँगा।' },
+            { en: 'We shall be proud.', hi: 'हमें गर्व होगा।' }
+          ]
+        },
+        {
+          id: 'will-be',
+          word: 'will be',
+          usage: 'सभी subjects के साथ (Future)',
+          hi: 'होगा/होंगे',
+          sentences: [
+            { en: 'He will be a doctor.', hi: 'वह डॉक्टर बनेगा।' },
+            { en: 'She will be happy.', hi: 'वह खुश होगी।' },
+            { en: 'It will be a cat.', hi: 'यह बिल्ली होगी।' },
+            { en: 'They will be friends.', hi: 'वे दोस्त होंगे।' },
+            { en: 'You will be successful.', hi: 'तुम सफल होगे।' },
+            { en: 'I will be there.', hi: 'मैं वहाँ होऊँगा।' },
+            { en: 'We will be happy.', hi: 'हम खुश होंगे।' },
+            { en: 'She will be a teacher.', hi: 'वह शिक्षक बनेगी।' },
+            { en: 'It will be raining soon.', hi: 'जल्द बारिश होगी।' },
+            { en: 'He will be at home.', hi: 'वह घर पर होगा।' },
+            { en: 'You will be fine.', hi: 'तुम ठीक होगे।' },
+            { en: 'They will be doctors.', hi: 'वे डॉक्टर होंगे।' },
+            { en: 'We will be ready.', hi: 'हम तैयार होंगे।' },
+            { en: 'It will be very hot.', hi: 'बहुत गर्मी होगी।' },
+            { en: 'He will be my friend.', hi: 'वह मेरा दोस्त होगा।' },
+            { en: 'The food will be tasty.', hi: 'खाना स्वादिष्ट होगा।' },
+            { en: 'She will be late.', hi: 'वह देर से आएगी।' },
+            { en: 'We will be there soon.', hi: 'हम जल्द वहाँ होंगे।' },
+            { en: 'They will be very happy.', hi: 'वे बहुत खुश होंगे।' },
+            { en: 'You will be proud.', hi: 'तुम्हें गर्व होगा।' }
+          ]
+        },
+        {
+          id: 'has',
+          word: 'has',
+          usage: 'He/She/It के साथ (Present)',
+          hi: 'पास है',
+          sentences: [
+            { en: 'He has a car.', hi: 'उसके पास गाड़ी है।' },
+            { en: 'She has a book.', hi: 'उसके पास किताब है।' },
+            { en: 'It has four legs.', hi: 'उसके चार पैर हैं।' },
+            { en: 'Ram has a pen.', hi: 'राम के पास पेन है।' },
+            { en: 'He has two brothers.', hi: 'उसके दो भाई हैं।' },
+            { en: 'She has long hair.', hi: 'उसके लंबे बाल हैं।' },
+            { en: 'The dog has a tail.', hi: 'कुत्ते की पूँछ है।' },
+            { en: 'My father has a shop.', hi: 'मेरे पिता की दुकान है।' },
+            { en: 'He has a lot of money.', hi: 'उसके पास बहुत पैसा है।' },
+            { en: 'She has a beautiful voice.', hi: 'उसकी आवाज़ सुंदर है।' },
+            { en: 'It has a red color.', hi: 'उसका रंग लाल है।' },
+            { en: 'He has a good heart.', hi: 'उसका दिल अच्छा है।' },
+            { en: 'She has many friends.', hi: 'उसके बहुत दोस्त हैं।' },
+            { en: 'Ram has a bicycle.', hi: 'राम के पास साइकिल है।' },
+            { en: 'He has a pet dog.', hi: 'उसके पास पालतू कुत्ता है।' },
+            { en: 'She has a nice dress.', hi: 'उसकी अच्छी ड्रेस है।' },
+            { en: 'The room has two windows.', hi: 'कमरे में दो खिड़कियाँ हैं।' },
+            { en: 'He has a lot of work.', hi: 'उसके पास बहुत काम है।' },
+            { en: 'She has a small family.', hi: 'उसका छोटा परिवार है।' },
+            { en: 'It has a sweet taste.', hi: 'उसका स्वाद मीठा है।' }
+          ]
+        },
+        {
+          id: 'have',
+          word: 'have',
+          usage: 'I/We/You/They के साथ (Present)',
+          hi: 'पास है',
+          sentences: [
+            { en: 'I have a car.', hi: 'मेरे पास गाड़ी है।' },
+            { en: 'We have a house.', hi: 'हमारे पास घर है।' },
+            { en: 'You have a book.', hi: 'तुम्हारे पास किताब है।' },
+            { en: 'They have a garden.', hi: 'उनके पास बगीचा है।' },
+            { en: 'I have two sisters.', hi: 'मेरी दो बहनें हैं।' },
+            { en: 'We have many friends.', hi: 'हमारे बहुत दोस्त हैं।' },
+            { en: 'You have a nice smile.', hi: 'तुम्हारी मुस्कान अच्छी है।' },
+            { en: 'They have a big house.', hi: 'उनका बड़ा घर है।' },
+            { en: 'I have a lot of work.', hi: 'मेरे पास बहुत काम है।' },
+            { en: 'We have a good team.', hi: 'हमारी अच्छी टीम है।' },
+            { en: 'You have many talents.', hi: 'तुम्हारे पास बहुत प्रतिभाएँ हैं।' },
+            { en: 'They have two children.', hi: 'उनके दो बच्चे हैं।' },
+            { en: 'I have a beautiful garden.', hi: 'मेरा सुंदर बगीचा है।' },
+            { en: 'We have a big family.', hi: 'हमारा बड़ा परिवार है।' },
+            { en: 'You have a good heart.', hi: 'तुम्हारा दिल अच्छा है।' },
+            { en: 'They have a new car.', hi: 'उनकी नई गाड़ी है।' },
+            { en: 'I have many hobbies.', hi: 'मेरे बहुत शौक हैं।' },
+            { en: 'We have a lot to learn.', hi: 'हमें बहुत कुछ सीखना है।' },
+            { en: 'You have my support.', hi: 'तुम्हें मेरा साथ है।' },
+            { en: 'They have a good life.', hi: 'उनका अच्छा जीवन है।' }
           ]
         }
-      ],
-      practice: [
-        { type: 'mcq', q: 'I ___ a teacher.', options: ['am', 'is', 'are', 'be'], answer: 'am' },
-        { type: 'mcq', q: 'She ___ my sister.', options: ['am', 'is', 'are', 'be'], answer: 'is' },
-        { type: 'mcq', q: 'They ___ happy.', options: ['am', 'is', 'are', 'be'], answer: 'are' },
-        { type: 'mcq', q: 'We ___ students.', options: ['am', 'is', 'are', 'be'], answer: 'are' },
-        { type: 'mcq', q: 'It ___ a cat.', options: ['am', 'is', 'are', 'be'], answer: 'is' }
+      ]
+    },
+
+    // ═══════════════════════════════════════════════════════════
+    // CARD 5: MODERN VERBS — can, should, may, might, would, need, dare, must
+    // ═══════════════════════════════════════════════════════════
+    {
+      id: 'modernverbs',
+      title: 'Modern Verbs',
+      icon: '🎭',
+      desc: 'can, should, may, might, would, need, dare, must — 20 sentences each',
+      type: 'modernverbs',
+      
+      verbs: [
+        {
+          id: 'can',
+          word: 'can',
+          usage: 'Ability (सकता है)',
+          hi: 'सकता है',
+          sentences: [
+            { en: 'I can swim.', hi: 'मैं तैर सकता हूँ।' },
+            { en: 'She can sing.', hi: 'वह गा सकती है।' },
+            { en: 'He can drive a car.', hi: 'वह गाड़ी चला सकता है।' },
+            { en: 'We can help you.', hi: 'हम तुम्हारी मदद कर सकते हैं।' },
+            { en: 'They can come tomorrow.', hi: 'वे कल आ सकते हैं।' },
+            { en: 'You can do it.', hi: 'तुम यह कर सकते हो।' },
+            { en: 'I can speak English.', hi: 'मैं English बोल सकता हूँ।' },
+            { en: 'She can cook well.', hi: 'वह अच्छा खाना बना सकती है।' },
+            { en: 'He can run fast.', hi: 'वह तेज़ दौड़ सकता है।' },
+            { en: 'We can solve this problem.', hi: 'हम यह समस्या हल कर सकते हैं।' },
+            { en: 'They can play cricket.', hi: 'वे क्रिकेट खेल सकते हैं।' },
+            { en: 'You can stay here.', hi: 'तुम यहाँ रुक सकते हो।' },
+            { en: 'I can read books.', hi: 'मैं किताबें पढ़ सकता हूँ।' },
+            { en: 'She can dance well.', hi: 'वह अच्छा नाच सकती है।' },
+            { en: 'He can lift heavy weights.', hi: 'वह भारी वज़न उठा सकता है।' },
+            { en: 'We can finish this today.', hi: 'हम यह आज खत्म कर सकते हैं।' },
+            { en: 'They can win the match.', hi: 'वे मैच जीत सकते हैं।' },
+            { en: 'You can trust me.', hi: 'तुम मुझ पर भरोसा कर सकते हो।' },
+            { en: 'I can help you.', hi: 'मैं तुम्हारी मदद कर सकता हूँ।' },
+            { en: 'She can write a letter.', hi: 'वह पत्र लिख सकती है।' }
+          ]
+        },
+        {
+          id: 'should',
+          word: 'should',
+          usage: 'Advice (चाहिए)',
+          hi: 'चाहिए',
+          sentences: [
+            { en: 'You should study hard.', hi: 'तुम्हें मेहनत करनी चाहिए।' },
+            { en: 'He should see a doctor.', hi: 'उसे डॉक्टर को दिखाना चाहिए।' },
+            { en: 'We should help others.', hi: 'हमें दूसरों की मदद करनी चाहिए।' },
+            { en: 'She should take rest.', hi: 'उसे आराम करना चाहिए।' },
+            { en: 'They should come early.', hi: 'उन्हें जल्दी आना चाहिए।' },
+            { en: 'I should wake up early.', hi: 'मुझे जल्दी उठना चाहिए।' },
+            { en: 'You should respect your elders.', hi: 'तुम्हें बड़ों का सम्मान करना चाहिए।' },
+            { en: 'He should exercise daily.', hi: 'उसे रोज़ व्यायाम करना चाहिए।' },
+            { en: 'We should save money.', hi: 'हमें पैसे बचाने चाहिए।' },
+            { en: 'She should learn English.', hi: 'उसे English सीखनी चाहिए।' },
+            { en: 'You should be honest.', hi: 'तुम्हें ईमानदार होना चाहिए।' },
+            { en: 'They should apologize.', hi: 'उन्हें माफ़ी मांगनी चाहिए।' },
+            { en: 'I should call my mother.', hi: 'मुझे माँ को कॉल करना चाहिए।' },
+            { en: 'You should eat healthy food.', hi: 'तुम्हें स्वस्थ खाना खाना चाहिए।' },
+            { en: 'He should listen to me.', hi: 'उसे मेरी बात सुननी चाहिए।' },
+            { en: 'We should be careful.', hi: 'हमें सावधान रहना चाहिए।' },
+            { en: 'She should focus on studies.', hi: 'उसे पढ़ाई पर ध्यान देना चाहिए।' },
+            { en: 'You should not lie.', hi: 'तुम्हें झूठ नहीं बोलना चाहिए।' },
+            { en: 'They should work together.', hi: 'उन्हें मिलकर काम करना चाहिए।' },
+            { en: 'I should help my parents.', hi: 'मुझे अपने माता-पिता की मदद करनी चाहिए।' }
+          ]
+        },
+        {
+          id: 'may',
+          word: 'may',
+          usage: 'Possibility / Permission (शायद / अनुमति)',
+          hi: 'शायद / सकता है',
+          sentences: [
+            { en: 'It may rain today.', hi: 'आज बारिश हो सकती है।' },
+            { en: 'He may come tomorrow.', hi: 'वह कल आ सकता है।' },
+            { en: 'May I come in?', hi: 'क्या मैं अंदर आ सकता हूँ?' },
+            { en: 'May I sit here?', hi: 'क्या मैं यहाँ बैठ सकता हूँ?' },
+            { en: 'She may be at home.', hi: 'वह घर पर हो सकती है।' },
+            { en: 'You may go now.', hi: 'तुम अब जा सकते हो।' },
+            { en: 'They may win the game.', hi: 'वे खेल जीत सकते हैं।' },
+            { en: 'It may be true.', hi: 'यह सच हो सकता है।' },
+            { en: 'May I ask a question?', hi: 'क्या मैं सवाल पूछ सकता हूँ?' },
+            { en: 'He may not come.', hi: 'वह शायद नहीं आएगा।' },
+            { en: 'We may go to the park.', hi: 'हम पार्क जा सकते हैं।' },
+            { en: 'She may join us later.', hi: 'वह बाद में जुड़ सकती है।' },
+            { en: 'May I use your pen?', hi: 'क्या मैं तुम्हारा पेन use कर सकता हूँ?' },
+            { en: 'It may snow in winter.', hi: 'सर्दी में बर्फ पड़ सकती है।' },
+            { en: 'You may leave now.', hi: 'तुम अब जा सकते हो।' },
+            { en: 'They may be late.', hi: 'वे देर से आ सकते हैं।' },
+            { en: 'I may visit you tomorrow.', hi: 'मैं कल तुमसे मिलने आ सकता हूँ।' },
+            { en: 'May God bless you!', hi: 'भगवान तुम्हें आशीर्वाद दें!' },
+            { en: 'She may not agree.', hi: 'वह शायद सहमत न हो।' },
+            { en: 'We may meet again.', hi: 'हम फिर मिल सकते हैं।' }
+          ]
+        },
+        {
+          id: 'might',
+          word: 'might',
+          usage: 'Weak possibility (शायद)',
+          hi: 'शायद',
+          sentences: [
+            { en: 'It might rain today.', hi: 'आज बारिश हो सकती है।' },
+            { en: 'He might come later.', hi: 'वह बाद में आ सकता है।' },
+            { en: 'She might be busy.', hi: 'वह व्यस्त हो सकती है।' },
+            { en: 'They might win the match.', hi: 'वे मैच जीत सकते हैं।' },
+            { en: 'I might go to Delhi.', hi: 'मैं दिल्ली जा सकता हूँ।' },
+            { en: 'It might be true.', hi: 'यह सच हो सकता है।' },
+            { en: 'You might be right.', hi: 'तुम सही हो सकते हो।' },
+            { en: 'We might meet tomorrow.', hi: 'हम कल मिल सकते हैं।' },
+            { en: 'He might not come.', hi: 'वह शायद न आए।' },
+            { en: 'She might need help.', hi: 'उसे मदद की ज़रूरत हो सकती है।' },
+            { en: 'It might snow tonight.', hi: 'आज रात बर्फ पड़ सकती है।' },
+            { en: 'They might be late.', hi: 'वे देर से आ सकते हैं।' },
+            { en: 'I might call you later.', hi: 'मैं बाद में कॉल कर सकता हूँ।' },
+            { en: 'You might like this book.', hi: 'तुम्हें यह किताब पसंद आ सकती है।' },
+            { en: 'She might stay here.', hi: 'वह यहाँ रुक सकती है।' },
+            { en: 'We might go tomorrow.', hi: 'हम कल जा सकते हैं।' },
+            { en: 'He might forget.', hi: 'वह भूल सकता है।' },
+            { en: 'It might take time.', hi: 'समय लग सकता है।' },
+            { en: 'They might agree.', hi: 'वे सहमत हो सकते हैं।' },
+            { en: 'You might need this.', hi: 'तुम्हें इसकी ज़रूरत हो सकती है।' }
+          ]
+        },
+        {
+          id: 'would',
+          word: 'would',
+          usage: 'Polite request / Past habit (करता / करेंगे)',
+          hi: 'करता / करेंगे',
+          sentences: [
+            { en: 'I would like a cup of tea.', hi: 'मुझे एक कप चाय चाहिए।' },
+            { en: 'Would you help me?', hi: 'क्या तुम मेरी मदद करोगे?' },
+            { en: 'He would come every day.', hi: 'वह रोज़ आता था।' },
+            { en: 'She would sing beautifully.', hi: 'वह सुंदर गाती थी।' },
+            { en: 'We would play cricket.', hi: 'हम क्रिकेट खेलते थे।' },
+            { en: 'I would love to meet you.', hi: 'मुझे तुमसे मिलना अच्छा लगेगा।' },
+            { en: 'Would you like some water?', hi: 'क्या तुम कुछ पानी लोगे?' },
+            { en: 'They would often visit us.', hi: 'वे अक्सर हमसे मिलने आते थे।' },
+            { en: 'She would always help others.', hi: 'वह हमेशा दूसरों की मदद करती थी।' },
+            { en: 'I would rather stay home.', hi: 'मैं घर पर रहना पसंद करूँगा।' },
+            { en: 'Would you mind closing the door?', hi: 'क्या तुम दरवाज़ा बंद करोगे?' },
+            { en: 'He would never lie.', hi: 'वह कभी झूठ नहीं बोलता था।' },
+            { en: 'We would go there often.', hi: 'हम अक्सर वहाँ जाते थे।' },
+            { en: 'I would like to learn English.', hi: 'मैं English सीखना चाहूँगा।' },
+            { en: 'They would come on Sundays.', hi: 'वे रविवार को आते थे।' },
+            { en: 'Would you like to join us?', hi: 'क्या तुम हमसे जुड़ना चाहोगे?' },
+            { en: 'She would read every night.', hi: 'वह हर रात पढ़ती थी।' },
+            { en: 'I would prefer coffee.', hi: 'मैं कॉफ़ी पसंद करूँगा।' },
+            { en: 'He would help if asked.', hi: 'पूछने पर वह मदद करता।' },
+            { en: 'We would love to visit.', hi: 'हमें घूमने जाना अच्छा लगेगा।' }
+          ]
+        },
+        {
+          id: 'need',
+          word: 'need',
+          usage: 'Necessity (ज़रूरत है)',
+          hi: 'ज़रूरत है',
+          sentences: [
+            { en: 'I need your help.', hi: 'मुझे तुम्हारी मदद चाहिए।' },
+            { en: 'You need to study.', hi: 'तुम्हें पढ़ाई करनी है।' },
+            { en: 'He needs a doctor.', hi: 'उसे डॉक्टर की ज़रूरत है।' },
+            { en: 'She needs rest.', hi: 'उसे आराम की ज़रूरत है।' },
+            { en: 'We need more time.', hi: 'हमें और समय चाहिए।' },
+            { en: 'They need money.', hi: 'उन्हें पैसे चाहिए।' },
+            { en: 'I need to sleep.', hi: 'मुझे सोने की ज़रूरत है।' },
+            { en: 'You need to exercise.', hi: 'तुम्हें व्यायाम करना है।' },
+            { en: 'He needs a new phone.', hi: 'उसे नया फ़ोन चाहिए।' },
+            { en: 'She needs to improve.', hi: 'उसे सुधार की ज़रूरत है।' },
+            { en: 'We need your support.', hi: 'हमें तुम्हारा साथ चाहिए।' },
+            { en: 'They need to leave early.', hi: 'उन्हें जल्दी निकलना है।' },
+            { en: 'I need some water.', hi: 'मुझे कुछ पानी चाहिए।' },
+            { en: 'You need to focus.', hi: 'तुम्हें ध्यान देना है।' },
+            { en: 'He needs to apologize.', hi: 'उसे माफ़ी मांगनी है।' },
+            { en: 'We need to work hard.', hi: 'हमें मेहनत करनी है।' },
+            { en: 'She needs a break.', hi: 'उसे ब्रेक की ज़रूरत है।' },
+            { en: 'They need more practice.', hi: 'उन्हें और अभ्यास चाहिए।' },
+            { en: 'I need to call him.', hi: 'मुझे उसे कॉल करना है।' },
+            { en: 'You need to be patient.', hi: 'तुम्हें धैर्य रखना है।' }
+          ]
+        },
+        {
+          id: 'dare',
+          word: 'dare',
+          usage: 'Courage (हिम्मत करना)',
+          hi: 'हिम्मत करना',
+          sentences: [
+            { en: 'I dare to speak the truth.', hi: 'मैं सच बोलने की हिम्मत करता हूँ।' },
+            { en: 'He dare not lie.', hi: 'वह झूठ बोलने की हिम्मत नहीं करता।' },
+            { en: 'She dares to dream big.', hi: 'वह बड़े सपने देखने की हिम्मत करती है।' },
+            { en: 'How dare you say that?', hi: 'तुम्हारी हिम्मत कैसे हुई यह कहने की?' },
+            { en: 'He would not dare to come.', hi: 'वह आने की हिम्मत नहीं करेगा।' },
+            { en: 'I dare you to try.', hi: 'मैं तुम्हें कोशिश करने की चुनौती देता हूँ।' },
+            { en: 'She dare not refuse.', hi: 'वह मना करने की हिम्मत नहीं करती।' },
+            { en: 'They dared to fight.', hi: 'उन्होंने लड़ने की हिम्मत की।' },
+            { en: 'He dares to speak up.', hi: 'वह बोलने की हिम्मत करता है।' },
+            { en: 'Nobody dares to challenge him.', hi: 'कोई उसे चुनौती देने की हिम्मत नहीं करता।' },
+            { en: 'I dare not go there.', hi: 'मैं वहाँ जाने की हिम्मत नहीं करता।' },
+            { en: 'She dares to be different.', hi: 'वह अलग होने की हिम्मत करती है।' },
+            { en: 'How dare he speak to me?', hi: 'उसकी हिम्मत कैसे हुई मुझसे बात करने की?' },
+            { en: 'He dare not disobey.', hi: 'वह अवज्ञा करने की हिम्मत नहीं करता।' },
+            { en: 'I dare to take risks.', hi: 'मैं जोखिम लेने की हिम्मत करता हूँ।' },
+            { en: 'They dare to question.', hi: 'वे सवाल करने की हिम्मत करते हैं।' },
+            { en: 'She dare not tell him.', hi: 'वह उसे बताने की हिम्मत नहीं करती।' },
+            { en: 'He dared to go alone.', hi: 'उसने अकेले जाने की हिम्मत की।' },
+            { en: 'I dare not ask.', hi: 'मैं पूछने की हिम्मत नहीं करता।' },
+            { en: 'She dares to stand alone.', hi: 'वह अकेले खड़े होने की हिम्मत करती है।' },
+            { en: 'They dare not refuse him.', hi: 'वे उसे मना करने की हिम्मत नहीं करते।' },
+            { en: 'He dares to think differently.', hi: 'वह अलग सोचने की हिम्मत करता है।' }
+          ]
+        },
+        {
+          id: 'must',
+          word: 'must',
+          usage: 'Strong necessity (अवश्य / ज़रूर)',
+          hi: 'ज़रूर / अवश्य',
+          sentences: [
+            { en: 'You must study hard.', hi: 'तुम्हें मेहनत करनी ही चाहिए।' },
+            { en: 'He must see a doctor.', hi: 'उसे डॉक्टर को दिखाना ही चाहिए।' },
+            { en: 'We must help the poor.', hi: 'हमें गरीबों की मदद करनी ही चाहिए।' },
+            { en: 'She must take rest.', hi: 'उसे आराम करना ही चाहिए।' },
+            { en: 'They must come on time.', hi: 'उन्हें समय पर आना ही चाहिए।' },
+            { en: 'I must wake up early.', hi: 'मुझे जल्दी उठना ही चाहिए।' },
+            { en: 'You must respect elders.', hi: 'तुम्हें बड़ों का सम्मान करना ही चाहिए।' },
+            { en: 'He must exercise daily.', hi: 'उसे रोज़ व्यायाम करना ही चाहिए।' },
+            { en: 'We must save money.', hi: 'हमें पैसे बचाने ही चाहिए।' },
+            { en: 'She must learn English.', hi: 'उसे English सीखनी ही चाहिए।' },
+            { en: 'You must be honest.', hi: 'तुम्हें ईमानदार होना ही चाहिए।' },
+            { en: 'They must apologize.', hi: 'उन्हें माफ़ी मांगनी ही चाहिए।' },
+            { en: 'I must call my mother.', hi: 'मुझे माँ को कॉल करना ही चाहिए।' },
+            { en: 'You must eat healthy food.', hi: 'तुम्हें स्वस्थ खाना खाना ही चाहिए।' },
+            { en: 'He must listen to me.', hi: 'उसे मेरी बात सुननी ही चाहिए।' },
+            { en: 'We must be careful.', hi: 'हमें सावधान रहना ही चाहिए।' },
+            { en: 'She must focus on studies.', hi: 'उसे पढ़ाई पर ध्यान देना ही चाहिए।' },
+            { en: 'You must not lie.', hi: 'तुम्हें झूठ नहीं बोलना चाहिए।' },
+            { en: 'They must work together.', hi: 'उन्हें मिलकर काम करना ही चाहिए।' },
+            { en: 'I must help my parents.', hi: 'मुझे अपने माता-पिता की मदद करनी ही चाहिए।' }
+          ]
+        }
       ]
     }
   ]
