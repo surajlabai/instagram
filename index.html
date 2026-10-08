@@ -7,160 +7,76 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
   body { background: #0a0e1a; color: #fff; min-height: 100vh; padding: 20px; }
-  
   .container { max-width: 1000px; margin: 0 auto; }
-  
   .header { text-align: center; padding: 30px 0; }
-  .header h1 { font-size: 2rem; background: linear-gradient(135deg, #60a5fa, #a78bfa, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+  .header h1 { font-size: 2rem; color: #60a5fa; margin-bottom: 8px; }
   .header p { color: #94a3b8; }
-  
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 30px; }
-  
-  .card {
-    background: #131828; border: 1px solid #1e293b; border-radius: 16px;
-    padding: 24px; cursor: pointer; transition: all 0.3s;
-  }
-  .card:hover { border-color: #60a5fa; transform: translateY(-4px); box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2); }
+  .card { background: #131828; border: 1px solid #1e293b; border-radius: 16px; padding: 24px; cursor: pointer; transition: all 0.3s; }
+  .card:hover { border-color: #60a5fa; transform: translateY(-4px); }
   .card-icon { font-size: 2rem; margin-bottom: 12px; }
   .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
   .card-desc { font-size: 0.85rem; color: #94a3b8; line-height: 1.5; }
-  
-  /* Detail Page */
   .detail-page { display: none; }
   .detail-page.active { display: block; }
-  
-  .back-btn {
-    background: #1e293b; border: 1px solid #334155; color: #fff;
-    padding: 10px 20px; border-radius: 10px; cursor: pointer;
-    font-size: 0.9rem; font-weight: 600; margin-bottom: 20px;
-  }
+  .back-btn { background: #1e293b; border: 1px solid #334155; color: #fff; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; }
   .back-btn:hover { background: #334155; }
-  
   .detail-header { margin-bottom: 24px; }
   .detail-header h2 { font-size: 1.6rem; margin-bottom: 6px; }
   .detail-header p { color: #94a3b8; font-size: 0.9rem; }
-  
-  /* Letters grid */
   .letters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
-  .letter-card {
-    background: #131828; border: 2px solid #1e293b; border-radius: 14px;
-    padding: 16px; text-align: center; cursor: pointer; transition: all 0.25s;
-  }
+  .letter-card { background: #131828; border: 2px solid #1e293b; border-radius: 14px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.25s; }
   .letter-card:hover { border-color: #60a5fa; transform: translateY(-4px); }
   .letter-big { font-size: 2rem; font-weight: 900; color: #60a5fa; margin-bottom: 4px; }
   .letter-small { font-size: 1.2rem; color: #94a3b8; margin-bottom: 6px; }
   .letter-sound { font-size: 0.8rem; color: #4ade80; font-weight: 700; }
-  
-  /* Generic list items */
-  .list-item {
-    background: #131828; border: 1px solid #1e293b; border-radius: 12px;
-    padding: 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s;
-  }
+  .list-item { background: #131828; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
   .list-item:hover { border-color: #60a5fa; background: #1a2035; }
   .list-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
   .list-sub { font-size: 0.8rem; color: #94a3b8; }
-  
-  /* Verb letters row */
   .verb-letters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-  .verb-letter-btn {
-    width: 44px; height: 44px; border-radius: 10px;
-    background: #131828; border: 2px solid #1e293b; color: #fff;
-    font-size: 1rem; font-weight: 900; cursor: pointer; transition: all 0.2s;
-  }
+  .verb-letter-btn { width: 44px; height: 44px; border-radius: 10px; background: #131828; border: 2px solid #1e293b; color: #fff; font-size: 1rem; font-weight: 900; cursor: pointer; transition: all 0.2s; }
   .verb-letter-btn:hover { border-color: #60a5fa; }
   .verb-letter-btn.active { background: #60a5fa; border-color: #60a5fa; color: #0a0e1a; }
-  
-  /* Verb detail */
-  .verb-detail {
-    background: linear-gradient(135deg, rgba(96,165,250,0.1), rgba(167,139,250,0.1));
-    border: 1px solid #334155; border-radius: 16px; padding: 24px;
-    text-align: center; margin-bottom: 20px;
-  }
+  .verb-detail { background: #131828; border: 1px solid #334155; border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 20px; }
   .verb-v1 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
   .verb-hi { color: #4ade80; font-weight: 700; margin-bottom: 16px; }
   .verb-forms { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
   .verb-form { background: #0f1420; border-radius: 10px; padding: 14px; }
   .verb-form-label { font-size: 0.7rem; color: #94a3b8; margin-bottom: 6px; text-transform: uppercase; }
   .verb-form-value { font-size: 1rem; font-weight: 800; }
-  
-  /* Game Page */
   .game-page { display: none; }
   .game-page.active { display: block; }
-  
-  .game-progress {
-    background: #131828; border-radius: 100px; height: 8px;
-    margin-bottom: 20px; overflow: hidden;
-  }
-  .game-progress-fill { background: linear-gradient(90deg, #60a5fa, #a78bfa); height: 100%; width: 0; transition: width 0.3s; }
-  
-  .game-question {
-    background: linear-gradient(135deg, rgba(96,165,250,0.1), rgba(167,139,250,0.1));
-    border: 1px solid #334155; border-radius: 20px; padding: 30px 24px;
-    text-align: center; margin-bottom: 20px;
-  }
+  .game-progress { background: #131828; border-radius: 100px; height: 8px; margin-bottom: 20px; overflow: hidden; }
+  .game-progress-fill { background: #60a5fa; height: 100%; width: 0; transition: width 0.3s; }
+  .game-question { background: #131828; border: 1px solid #334155; border-radius: 20px; padding: 30px 24px; text-align: center; margin-bottom: 20px; }
   .game-emoji { font-size: 3rem; margin-bottom: 12px; display: block; }
   .game-question-text { font-size: 1.3rem; font-weight: 800; line-height: 1.5; margin-bottom: 8px; }
   .game-question-hint { font-size: 0.9rem; color: #94a3b8; }
-  
   .game-options { display: flex; flex-direction: column; gap: 10px; }
-  .game-option {
-    background: #131828; border: 2px solid #1e293b; border-radius: 14px;
-    padding: 16px 20px; cursor: pointer; transition: all 0.2s;
-    font-size: 1rem; font-weight: 700; text-align: left; color: #fff;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .game-option:hover { border-color: #60a5fa; transform: translateX(4px); }
-  .game-option.correct { border-color: #4ade80; background: rgba(74,222,128,0.15); color: #4ade80; }
-  .game-option.wrong { border-color: #f87171; background: rgba(248,113,113,0.15); color: #f87171; }
+  .game-option { background: #131828; border: 2px solid #1e293b; border-radius: 14px; padding: 16px 20px; cursor: pointer; transition: all 0.2s; font-size: 1rem; font-weight: 700; text-align: left; color: #fff; display: flex; align-items: center; gap: 12px; }
+  .game-option:hover { border-color: #60a5fa; }
+  .game-option.correct { border-color: #4ade80; background: #1a3a1a; color: #4ade80; }
+  .game-option.wrong { border-color: #f87171; background: #3a1a1a; color: #f87171; }
   .game-option-letter { width: 32px; height: 32px; border-radius: 8px; background: #1e293b; display: flex; align-items: center; justify-content: center; font-weight: 900; }
-  
   .game-feedback { text-align: center; font-size: 1rem; font-weight: 800; margin: 16px 0; min-height: 24px; }
-  
-  .game-next {
-    width: 100%; padding: 16px; background: linear-gradient(135deg, #60a5fa, #7c3aed);
-    border: none; color: #fff; font-size: 1rem; font-weight: 800;
-    border-radius: 14px; cursor: pointer; display: none;
-  }
+  .game-next { width: 100%; padding: 16px; background: #60a5fa; border: none; color: #fff; font-size: 1rem; font-weight: 800; border-radius: 14px; cursor: pointer; display: none; }
   .game-next.show { display: block; }
-  
-  .result-card {
-    background: #131828; border: 1px solid #334155; border-radius: 20px;
-    padding: 40px 24px; text-align: center;
-  }
+  .result-card { background: #131828; border: 1px solid #334155; border-radius: 20px; padding: 40px 24px; text-align: center; }
   .result-emoji { font-size: 4rem; margin-bottom: 16px; }
   .result-title { font-size: 1.8rem; font-weight: 900; margin-bottom: 8px; color: #60a5fa; }
   .result-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
   .result-stat { background: #0f1420; border-radius: 12px; padding: 16px; }
   .result-stat-value { font-size: 1.6rem; font-weight: 900; color: #60a5fa; }
   .result-stat-label { font-size: 0.75rem; color: #94a3b8; margin-top: 4px; text-transform: uppercase; }
-  
-  .btn {
-    width: 100%; padding: 14px; border-radius: 12px;
-    background: linear-gradient(135deg, #60a5fa, #7c3aed);
-    border: none; color: #fff; font-size: 0.95rem; font-weight: 800;
-    cursor: pointer; margin-bottom: 10px;
-  }
+  .btn { width: 100%; padding: 14px; border-radius: 12px; background: #60a5fa; border: none; color: #fff; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-bottom: 10px; }
   .btn.sec { background: #1e293b; }
-  .btn:hover { opacity: 0.9; }
-  
-  .practice-btn {
-    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-    padding: 14px 40px; border-radius: 100px;
-    background: linear-gradient(135deg, #60a5fa, #7c3aed);
-    border: none; color: #fff; font-size: 1rem; font-weight: 800;
-    cursor: pointer; box-shadow: 0 10px 30px rgba(96,165,250,0.4);
-  }
-  
-  @media (max-width: 640px) {
-    .header h1 { font-size: 1.4rem; }
-    .letter-big { font-size: 1.6rem; }
-  }
+  .practice-btn { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 14px 40px; border-radius: 100px; background: #60a5fa; border: none; color: #fff; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 10px 30px rgba(96,165,250,0.4); }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- HOME PAGE -->
   <div class="home-page" id="home-page">
     <div class="header">
       <h1>🌱 English Mastery</h1>
@@ -169,7 +85,6 @@
     <div class="cards-grid" id="cards-grid"></div>
   </div>
 
-  <!-- DETAIL PAGE -->
   <div class="detail-page" id="detail-page">
     <button class="back-btn" onclick="goBack()">← Back</button>
     <div class="detail-header">
@@ -179,7 +94,6 @@
     <div id="detail-content"></div>
   </div>
 
-  <!-- GAME PAGE -->
   <div class="game-page" id="game-page">
     <button class="back-btn" onclick="closeGame()">← Back</button>
     <div class="game-progress"><div class="game-progress-fill" id="game-progress-fill"></div></div>
@@ -187,252 +101,184 @@
   </div>
 </div>
 
-<!-- LOAD MODULE 1 DATA -->
 <script src="module1.js"></script>
 
-<!-- MAIN ENGINE -->
 <script>
-// ============================================================
-// STATE
-// ============================================================
-let state = {
+var state = {
   currentCard: null,
+  currentCardIdx: 0,
   gameQuestions: [],
   gameIdx: 0,
   gameCorrect: 0,
   gameWrong: 0
 };
 
-// ============================================================
-// HOME RENDER
-// ============================================================
 function renderHome() {
-  const grid = document.getElementById('cards-grid');
-  const cards = MODULE1.cards;
-
-  grid.innerHTML = cards.map((c, i) => `
-    <div class="card" onclick="openCard(${i})">
-      <div class="card-icon">${c.icon}</div>
-      <div class="card-title">${c.title}</div>
-      <div class="card-desc">${c.desc}</div>
-    </div>
-  `).join('');
-
-  // Hide other pages
+  var grid = document.getElementById('cards-grid');
+  grid.innerHTML = MODULE1.cards.map(function(c, i) {
+    return '<div class="card" onclick="openCard(' + i + ')">' +
+      '<div class="card-icon">' + c.icon + '</div>' +
+      '<div class="card-title">' + c.title + '</div>' +
+      '<div class="card-desc">' + c.desc + '</div>' +
+      '</div>';
+  }).join('');
   document.getElementById('home-page').style.display = 'block';
   document.getElementById('detail-page').classList.remove('active');
   document.getElementById('game-page').classList.remove('active');
 }
 
-// ============================================================
-// NAVIGATION
-// ============================================================
-function goBack() {
-  renderHome();
-}
-
-function closeGame() {
-  openCardByIndex(state.currentCardIdx);
-}
-
-let currentCardIdx = 0;
+function goBack() { renderHome(); }
+function closeGame() { openCard(state.currentCardIdx); }
 
 function openCard(idx) {
-  currentCardIdx = idx;
+  state.currentCardIdx = idx;
   state.currentCard = MODULE1.cards[idx];
-  const c = state.currentCard;
-
+  var c = state.currentCard;
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('game-page').classList.remove('active');
   document.getElementById('detail-page').classList.add('active');
-
   document.getElementById('detail-title').textContent = c.icon + ' ' + c.title;
   document.getElementById('detail-sub').textContent = c.desc;
-
-  // Render based on type
-  const content = document.getElementById('detail-content');
-  const type = c.type;
-
-  if (type === 'letters') content.innerHTML = renderLetters(c);
-  else if (type === 'sounds') content.innerHTML = renderSounds(c);
-  else if (type === 'verbs') content.innerHTML = renderVerbs(c);
-  else if (type === 'beverbs') content.innerHTML = renderBeVerbs(c);
-  else if (type === 'modernverbs') content.innerHTML = renderModernVerbs(c);
+  var content = document.getElementById('detail-content');
+  if (c.type === 'letters') content.innerHTML = renderLetters(c);
+  else if (c.type === 'sounds') content.innerHTML = renderSounds(c);
+  else if (c.type === 'verbs') content.innerHTML = renderVerbs(c);
+  else if (c.type === 'beverbs') content.innerHTML = renderBeVerbs(c);
+  else if (c.type === 'modernverbs') content.innerHTML = renderModernVerbs(c);
 }
 
-function openCardByIndex(idx) { openCard(idx); }
-
-// ============================================================
-// CARD 1 — LETTERS
-// ============================================================
+// LETTERS
 function renderLetters(card) {
-  return `
-    <div class="letters-grid">
-      ${card.letters.map((l, i) => `
-        <div class="letter-card" onclick="startLetterGame()">
-          <div class="letter-big">${l.capital}</div>
-          <div class="letter-small">${l.small}</div>
-          <div class="letter-sound">${l.sound}</div>
-        </div>
-      `).join('')}
-    </div>
-    <button class="practice-btn" onclick="startLetterGame()">🎮 Practice All Letters</button>
-  `;
+  return '<div class="letters-grid">' +
+    card.letters.map(function(l) {
+      return '<div class="letter-card" onclick="startLetterGame()">' +
+        '<div class="letter-big">' + l.capital + '</div>' +
+        '<div class="letter-small">' + l.small + '</div>' +
+        '<div class="letter-sound">' + l.sound + '</div>' +
+        '</div>';
+    }).join('') + '</div>' +
+    '<button class="practice-btn" onclick="startLetterGame()">🎮 Practice All Letters</button>';
 }
 
-// ============================================================
-// CARD 2 — SOUNDS
-// ============================================================
+// SOUNDS
 function renderSounds(card) {
-  return card.categories.map((cat, i) => `
-    <div class="list-item" onclick="openSoundCategory(${i})">
-      <div class="list-title">${cat.icon} ${cat.title}</div>
-      <div class="list-sub">${cat.desc} · ${cat.items.length} sounds</div>
-    </div>
-  `).join('');
+  return card.categories.map(function(cat, i) {
+    return '<div class="list-item" onclick="openSoundCategory(' + i + ')">' +
+      '<div class="list-title">' + cat.icon + ' ' + cat.title + '</div>' +
+      '<div class="list-sub">' + cat.desc + ' · ' + cat.items.length + ' sounds</div>' +
+      '</div>';
+  }).join('');
 }
 
 function openSoundCategory(idx) {
-  const cat = state.currentCard.categories[idx];
+  var cat = state.currentCard.categories[idx];
   document.getElementById('detail-title').textContent = cat.icon + ' ' + cat.title;
   document.getElementById('detail-sub').textContent = cat.desc;
-
-  const content = document.getElementById('detail-content');
-  content.innerHTML = `
-    <div class="letters-grid">
-      ${cat.items.map((item, i) => `
-        <div class="letter-card" onclick="startSoundGame(${idx})">
-          <div class="letter-big">${item.symbol}</div>
-          <div class="letter-small" style="font-size:0.9rem">${item.sound}</div>
-          <div class="letter-sound">${item.word}</div>
-        </div>
-      `).join('')}
-    </div>
-    <button class="practice-btn" onclick="startSoundGame(${idx})">🎮 Practice</button>
-  `;
+  document.getElementById('detail-content').innerHTML =
+    '<div class="letters-grid">' +
+    cat.items.map(function(item) {
+      return '<div class="letter-card" onclick="startSoundGame(' + idx + ')">' +
+        '<div class="letter-big">' + item.symbol + '</div>' +
+        '<div class="letter-small" style="font-size:0.9rem">' + item.sound + '</div>' +
+        '<div class="letter-sound">' + item.word + '</div>' +
+        '</div>';
+    }).join('') + '</div>' +
+    '<button class="practice-btn" onclick="startSoundGame(' + idx + ')">🎮 Practice</button>';
 }
 
-// ============================================================
-// CARD 3 — VERBS
-// ============================================================
+// VERBS
 function renderVerbs(card) {
-  if (!card.groups || card.groups.length === 0) {
-    return '<p style="text-align:center;color:#94a3b8">No verbs yet</p>';
-  }
-  return `
-    <div class="verb-letters">
-      ${card.groups.map((g, i) => `
-        <button class="verb-letter-btn ${i === 0 ? 'active' : ''}" onclick="showVerbs(${i})">${g.letter}</button>
-      `).join('')}
-    </div>
-    <div id="verbs-list"></div>
-    <button class="practice-btn" onclick="startVerbGame()">🎮 Practice Verbs</button>
-  ` + `<script>setTimeout(()=>showVerbs(0),100);</script>`;
+  if (!card.groups || card.groups.length === 0) return '<p style="text-align:center;color:#94a3b8">No verbs yet</p>';
+  var html = '<div class="verb-letters">';
+  card.groups.forEach(function(g, i) {
+    html += '<button class="verb-letter-btn ' + (i === 0 ? 'active' : '') + '" onclick="showVerbs(' + i + ')">' + g.letter + '</button>';
+  });
+  html += '</div><div id="verbs-list"></div>' +
+    '<button class="practice-btn" onclick="startVerbGame()">🎮 Practice Verbs</button>';
+  setTimeout(function() { showVerbs(0); }, 50);
+  return html;
 }
 
 function showVerbs(idx) {
-  document.querySelectorAll('.verb-letter-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
-  const group = state.currentCard.groups[idx];
-  document.getElementById('verbs-list').innerHTML = group.verbs.map((v, i) => `
-    <div class="list-item" onclick="openVerbDetail(${idx}, ${i})">
-      <div class="list-title">${v.v1}</div>
-      <div class="list-sub">${v.hi}</div>
-    </div>
-  `).join('');
+  document.querySelectorAll('.verb-letter-btn').forEach(function(b, i) {
+    b.classList.toggle('active', i === idx);
+  });
+  var group = state.currentCard.groups[idx];
+  document.getElementById('verbs-list').innerHTML = group.verbs.map(function(v, i) {
+    return '<div class="list-item" onclick="openVerbDetail(' + idx + ', ' + i + ')">' +
+      '<div class="list-title">' + v.v1 + '</div>' +
+      '<div class="list-sub">' + v.hi + '</div>' +
+      '</div>';
+  }).join('');
 }
 
 function openVerbDetail(groupIdx, verbIdx) {
-  const v = state.currentCard.groups[groupIdx].verbs[verbIdx];
+  var v = state.currentCard.groups[groupIdx].verbs[verbIdx];
   document.getElementById('detail-title').textContent = '📝 ' + v.v1;
   document.getElementById('detail-sub').textContent = v.hi;
-  document.getElementById('detail-content').innerHTML = `
-    <div class="verb-detail">
-      <div class="verb-v1">${v.v1}</div>
-      <div class="verb-hi">${v.hi}</div>
-      <div class="verb-forms">
-        <div class="verb-form"><div class="verb-form-label">V1</div><div class="verb-form-value">${v.v1}</div></div>
-        <div class="verb-form"><div class="verb-form-label">V2</div><div class="verb-form-value">${v.v2}</div></div>
-        <div class="verb-form"><div class="verb-form-label">V3</div><div class="verb-form-value">${v.v3}</div></div>
-      </div>
-    </div>
-    <button class="btn sec" onclick="openCard(${currentCardIdx})">← Back</button>
-  `;
+  document.getElementById('detail-content').innerHTML =
+    '<div class="verb-detail">' +
+    '<div class="verb-v1">' + v.v1 + '</div>' +
+    '<div class="verb-hi">' + v.hi + '</div>' +
+    '<div class="verb-forms">' +
+    '<div class="verb-form"><div class="verb-form-label">V1</div><div class="verb-form-value">' + v.v1 + '</div></div>' +
+    '<div class="verb-form"><div class="verb-form-label">V2</div><div class="verb-form-value">' + v.v2 + '</div></div>' +
+    '<div class="verb-form"><div class="verb-form-label">V3</div><div class="verb-form-value">' + v.v3 + '</div></div>' +
+    '</div></div>' +
+    '<button class="btn sec" onclick="openCard(' + state.currentCardIdx + ')">← Back</button>';
 }
 
-// ============================================================
-// CARD 4 — BE VERBS
-// ============================================================
+// BE VERBS
 function renderBeVerbs(card) {
-  return card.verbs.map((v, i) => `
-    <div class="list-item" onclick="openBeVerbDetail(${i})">
-      <div class="list-title">${v.word}</div>
-      <div class="list-sub">${v.hi} · ${v.usage}</div>
-    </div>
-  `).join('') + `<button class="practice-btn" onclick="startBeVerbGame()">🎮 Practice Be Verbs</button>`;
+  return card.verbs.map(function(v, i) {
+    return '<div class="list-item" onclick="openBeVerbDetail(' + i + ')">' +
+      '<div class="list-title">' + v.word + '</div>' +
+      '<div class="list-sub">' + v.hi + ' · ' + v.usage + '</div>' +
+      '</div>';
+  }).join('') + '<button class="practice-btn" onclick="startBeVerbGame()">🎮 Practice Be Verbs</button>';
 }
 
 function openBeVerbDetail(idx) {
-  const v = state.currentCard.verbs[idx];
+  var v = state.currentCard.verbs[idx];
   document.getElementById('detail-title').textContent = '🔗 ' + v.word;
   document.getElementById('detail-sub').textContent = v.usage;
-
-  document.getElementById('detail-content').innerHTML = `
-    <div class="verb-detail">
-      <div class="verb-v1">${v.word}</div>
-      <div class="verb-hi">${v.hi}</div>
-    </div>
-    ${v.sentences.map((s, i) => `
-      <div class="list-item">
-        <div class="list-title">${i+1}. ${s.en}</div>
-        <div class="list-sub">${s.hi}</div>
-      </div>
-    `).join('')}
-    <button class="btn sec" onclick="openCard(${currentCardIdx})">← Back</button>
-  `;
+  document.getElementById('detail-content').innerHTML =
+    '<div class="verb-detail"><div class="verb-v1">' + v.word + '</div><div class="verb-hi">' + v.hi + '</div></div>' +
+    v.sentences.map(function(s, i) {
+      return '<div class="list-item"><div class="list-title">' + (i+1) + '. ' + s.en + '</div><div class="list-sub">' + s.hi + '</div></div>';
+    }).join('') +
+    '<button class="btn sec" onclick="openCard(' + state.currentCardIdx + ')">← Back</button>';
 }
 
-// ============================================================
-// CARD 5 — MODERN VERBS
-// ============================================================
+// MODERN VERBS
 function renderModernVerbs(card) {
-  return card.verbs.map((v, i) => `
-    <div class="list-item" onclick="openModernVerbDetail(${i})">
-      <div class="list-title">${v.word}</div>
-      <div class="list-sub">${v.hi} · ${v.usage}</div>
-    </div>
-  `).join('') + `<button class="practice-btn" onclick="startModernVerbGame()">🎮 Practice Modern Verbs</button>`;
+  return card.verbs.map(function(v, i) {
+    return '<div class="list-item" onclick="openModernVerbDetail(' + i + ')">' +
+      '<div class="list-title">' + v.word + '</div>' +
+      '<div class="list-sub">' + v.hi + ' · ' + v.usage + '</div>' +
+      '</div>';
+  }).join('') + '<button class="practice-btn" onclick="startModernVerbGame()">🎮 Practice Modern Verbs</button>';
 }
 
 function openModernVerbDetail(idx) {
-  const v = state.currentCard.verbs[idx];
+  var v = state.currentCard.verbs[idx];
   document.getElementById('detail-title').textContent = '🎭 ' + v.word;
   document.getElementById('detail-sub').textContent = v.usage;
-
-  document.getElementById('detail-content').innerHTML = `
-    <div class="verb-detail">
-      <div class="verb-v1">${v.word}</div>
-      <div class="verb-hi">${v.hi}</div>
-    </div>
-    ${v.sentences.map((s, i) => `
-      <div class="list-item">
-        <div class="list-title">${i+1}. ${s.en}</div>
-        <div class="list-sub">${s.hi}</div>
-      </div>
-    `).join('')}
-    <button class="btn sec" onclick="openCard(${currentCardIdx})">← Back</button>
-  `;
+  document.getElementById('detail-content').innerHTML =
+    '<div class="verb-detail"><div class="verb-v1">' + v.word + '</div><div class="verb-hi">' + v.hi + '</div></div>' +
+    v.sentences.map(function(s, i) {
+      return '<div class="list-item"><div class="list-title">' + (i+1) + '. ' + s.en + '</div><div class="list-sub">' + s.hi + '</div></div>';
+    }).join('') +
+    '<button class="btn sec" onclick="openCard(' + state.currentCardIdx + ')">← Back</button>';
 }
 
-// ============================================================
-// GAME ENGINE
-// ============================================================
-function startGame(questions, title) {
+// GAME
+function startGame(questions) {
   if (!questions.length) return alert('No questions');
   state.gameQuestions = questions;
   state.gameIdx = 0;
   state.gameCorrect = 0;
   state.gameWrong = 0;
-
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('detail-page').classList.remove('active');
   document.getElementById('game-page').classList.add('active');
@@ -440,37 +286,30 @@ function startGame(questions, title) {
 }
 
 function renderGameQ() {
-  const q = state.gameQuestions[state.gameIdx];
-  const total = state.gameQuestions.length;
+  var q = state.gameQuestions[state.gameIdx];
+  var total = state.gameQuestions.length;
   document.getElementById('game-progress-fill').style.width = ((state.gameIdx + 1) / total * 100) + '%';
-
-  document.getElementById('game-content').innerHTML = `
-    <div class="game-question">
-      ${q.emoji ? `<span class="game-emoji">${q.emoji}</span>` : ''}
-      <div class="game-question-text">${q.question}</div>
-      ${q.hint ? `<div class="game-question-hint">${q.hint}</div>` : ''}
-    </div>
-    <div class="game-options" id="game-options">
-      ${q.options.map((o, i) => `
-        <div class="game-option" onclick="pickAnswer(${i})">
-          <div class="game-option-letter">${String.fromCharCode(65+i)}</div>
-          <div>${o}</div>
-        </div>
-      `).join('')}
-    </div>
-    <div class="game-feedback" id="game-feedback"></div>
-    <button class="game-next" id="game-next" onclick="nextQ()">
-      ${state.gameIdx === total - 1 ? '🏁 Result' : '➡️ Next'}
-    </button>
-  `;
+  var html = '<div class="game-question">';
+  if (q.emoji) html += '<span class="game-emoji">' + q.emoji + '</span>';
+  html += '<div class="game-question-text">' + q.question + '</div>';
+  if (q.hint) html += '<div class="game-question-hint">' + q.hint + '</div>';
+  html += '</div><div class="game-options">';
+  q.options.forEach(function(o, i) {
+    html += '<div class="game-option" onclick="pickAnswer(' + i + ')">' +
+      '<div class="game-option-letter">' + String.fromCharCode(65+i) + '</div>' +
+      '<div>' + o + '</div></div>';
+  });
+  html += '</div><div class="game-feedback" id="game-feedback"></div>' +
+    '<button class="game-next" id="game-next" onclick="nextQ()">' +
+    (state.gameIdx === total - 1 ? '🏁 Result' : '➡️ Next') + '</button>';
+  document.getElementById('game-content').innerHTML = html;
 }
 
 function pickAnswer(idx) {
-  const q = state.gameQuestions[state.gameIdx];
-  const opts = document.querySelectorAll('.game-option');
-  opts.forEach(o => o.style.pointerEvents = 'none');
-
-  const fb = document.getElementById('game-feedback');
+  var q = state.gameQuestions[state.gameIdx];
+  var opts = document.querySelectorAll('.game-option');
+  opts.forEach(function(o) { o.style.pointerEvents = 'none'; });
+  var fb = document.getElementById('game-feedback');
   if (q.options[idx] === q.answer) {
     opts[idx].classList.add('correct');
     fb.style.color = '#4ade80';
@@ -478,7 +317,7 @@ function pickAnswer(idx) {
     state.gameCorrect++;
   } else {
     opts[idx].classList.add('wrong');
-    const correctIdx = q.options.indexOf(q.answer);
+    var correctIdx = q.options.indexOf(q.answer);
     if (correctIdx >= 0) opts[correctIdx].classList.add('correct');
     fb.style.color = '#f87171';
     fb.textContent = '❌ Answer: ' + q.answer;
@@ -494,126 +333,95 @@ function nextQ() {
 }
 
 function showResult() {
-  const total = state.gameQuestions.length;
-  const correct = state.gameCorrect;
-  const pct = Math.round((correct / total) * 100);
-  let emoji = '🏆', title = 'Excellent!';
+  var total = state.gameQuestions.length;
+  var correct = state.gameCorrect;
+  var pct = Math.round((correct / total) * 100);
+  var emoji = '🏆', title = 'Excellent!';
   if (pct < 40) { emoji = '🌱'; title = 'Keep Trying!'; }
   else if (pct < 70) { emoji = '👍'; title = 'Good Job!'; }
   else if (pct < 90) { emoji = '🔥'; title = 'Great!'; }
   else { emoji = '👑'; title = 'Legendary!'; }
-
-  document.getElementById('game-content').innerHTML = `
-    <div class="result-card">
-      <div class="result-emoji">${emoji}</div>
-      <div class="result-title">${title}</div>
-      <div class="result-stats">
-        <div class="result-stat"><div class="result-stat-value">${correct}/${total}</div><div class="result-stat-label">Correct</div></div>
-        <div class="result-stat"><div class="result-stat-value">${pct}%</div><div class="result-stat-label">Accuracy</div></div>
-      </div>
-      <button class="btn" onclick="openCard(${currentCardIdx})">🔁 Try Again</button>
-      <button class="btn sec" onclick="renderHome()">← Home</button>
-    </div>
-  `;
+  document.getElementById('game-content').innerHTML =
+    '<div class="result-card">' +
+    '<div class="result-emoji">' + emoji + '</div>' +
+    '<div class="result-title">' + title + '</div>' +
+    '<div class="result-stats">' +
+    '<div class="result-stat"><div class="result-stat-value">' + correct + '/' + total + '</div><div class="result-stat-label">Correct</div></div>' +
+    '<div class="result-stat"><div class="result-stat-value">' + pct + '%</div><div class="result-stat-label">Accuracy</div></div>' +
+    '</div>' +
+    '<button class="btn" onclick="openCard(' + state.currentCardIdx + ')">🔁 Try Again</button>' +
+    '<button class="btn sec" onclick="renderHome()">← Home</button>' +
+    '</div>';
   document.getElementById('game-progress-fill').style.width = '100%';
 }
 
-// ============================================================
 // GAME STARTERS
-// ============================================================
 function startLetterGame() {
-  const letters = MODULE1.cards.find(c => c.id === 'letters').letters;
-  const questions = letters.map(l => {
-    const correct = l.sound;
-    const others = letters.filter(x => x.sound !== correct).map(x => x.sound);
-    return {
-      emoji: l.emoji || '🔤',
-      question: `"${l.capital}${l.small}" का sound क्या है?`,
-      hint: `Example: ${l.word}`,
-      options: shuffle([correct, ...others.slice(0, 3)]),
-      answer: correct
-    };
+  var letters = MODULE1.cards.find(function(c) { return c.id === 'letters'; }).letters;
+  var questions = letters.map(function(l) {
+    var correct = l.sound;
+    var others = letters.filter(function(x) { return x.sound !== correct; }).map(function(x) { return x.sound; });
+    return { emoji: l.emoji || '🔤', question: '"' + l.capital + l.small + '" का sound क्या है?', hint: 'Example: ' + l.word, options: shuffle([correct].concat(others.slice(0, 3))), answer: correct };
   });
-  startGame(questions, 'Letters');
+  startGame(questions);
 }
 
 function startSoundGame(catIdx) {
-  const cat = state.currentCard.categories[catIdx];
-  const questions = cat.items.map(item => {
-    const correct = item.sound;
-    const others = cat.items.filter(x => x.sound !== correct).map(x => x.sound);
-    return {
-      emoji: item.emoji || '🔊',
-      question: `"${item.symbol}" का sound क्या है?`,
-      hint: `Example: ${item.word}`,
-      options: shuffle([correct, ...others.slice(0, 3)]),
-      answer: correct
-    };
+  var cat = state.currentCard.categories[catIdx];
+  var questions = cat.items.map(function(item) {
+    var correct = item.sound;
+    var others = cat.items.filter(function(x) { return x.sound !== correct; }).map(function(x) { return x.sound; });
+    return { emoji: item.emoji || '🔊', question: '"' + item.symbol + '" का sound क्या है?', hint: 'Example: ' + item.word, options: shuffle([correct].concat(others.slice(0, 3))), answer: correct };
   });
-  startGame(questions, 'Sounds');
+  startGame(questions);
 }
 
 function startVerbGame() {
-  const allVerbs = state.currentCard.groups.flatMap(g => g.verbs).slice(0, 20);
-  const questions = allVerbs.map(v => {
-    const others = allVerbs.filter(x => x.v2 !== v.v2).map(x => x.v2);
-    return {
-      emoji: '📝',
-      question: `"${v.v1}" का V2 (Past) क्या है?`,
-      hint: `V1: ${v.v1}`,
-      options: shuffle([v.v2, ...others.slice(0, 3)]),
-      answer: v.v2
-    };
+  var allVerbs = [];
+  state.currentCard.groups.forEach(function(g) { allVerbs = allVerbs.concat(g.verbs); });
+  allVerbs = allVerbs.slice(0, 20);
+  var questions = allVerbs.map(function(v) {
+    var others = allVerbs.filter(function(x) { return x.v2 !== v.v2; }).map(function(x) { return x.v2; });
+    return { emoji: '📝', question: '"' + v.v1 + '" का V2 (Past) क्या है?', hint: 'V1: ' + v.v1, options: shuffle([v.v2].concat(others.slice(0, 3))), answer: v.v2 };
   });
-  startGame(questions, 'Verbs');
+  startGame(questions);
 }
 
 function startBeVerbGame() {
-  const verbs = state.currentCard.verbs;
-  const allSentences = verbs.flatMap(v => v.sentences.slice(0, 3).map(s => ({ s, verb: v.word })));
-  const questions = allSentences.slice(0, 20).map(({s, verb}) => {
-    const blanked = s.en.replace(new RegExp('\\b' + verb + '\\b', 'i'), '___');
-    const others = verbs.filter(x => x.word !== verb).map(x => x.word);
-    return {
-      emoji: '🔗',
-      question: blanked,
-      hint: s.hi,
-      options: shuffle([verb, ...others.slice(0, 3)]),
-      answer: verb
-    };
+  var verbs = state.currentCard.verbs;
+  var allS = [];
+  verbs.forEach(function(v) { v.sentences.slice(0, 3).forEach(function(s) { allS.push({ s: s, verb: v.word }); }); });
+  allS = allS.slice(0, 20);
+  var questions = allS.map(function(item) {
+    var blanked = item.s.en.replace(new RegExp('\\b' + item.verb + '\\b', 'i'), '___');
+    var others = verbs.filter(function(x) { return x.word !== item.verb; }).map(function(x) { return x.word; });
+    return { emoji: '🔗', question: blanked, hint: item.s.hi, options: shuffle([item.verb].concat(others.slice(0, 3))), answer: item.verb };
   });
-  startGame(questions, 'Be Verbs');
+  startGame(questions);
 }
 
 function startModernVerbGame() {
-  const verbs = state.currentCard.verbs;
-  const allSentences = verbs.flatMap(v => v.sentences.slice(0, 3).map(s => ({ s, verb: v.word })));
-  const questions = allSentences.slice(0, 20).map(({s, verb}) => {
-    const blanked = s.en.replace(new RegExp('\\b' + verb + '\\b', 'i'), '___');
-    const others = verbs.filter(x => x.word !== verb).map(x => x.word);
-    return {
-      emoji: '🎭',
-      question: blanked,
-      hint: s.hi,
-      options: shuffle([verb, ...others.slice(0, 3)]),
-      answer: verb
-    };
+  var verbs = state.currentCard.verbs;
+  var allS = [];
+  verbs.forEach(function(v) { v.sentences.slice(0, 3).forEach(function(s) { allS.push({ s: s, verb: v.word }); }); });
+  allS = allS.slice(0, 20);
+  var questions = allS.map(function(item) {
+    var blanked = item.s.en.replace(new RegExp('\\b' + item.verb + '\\b', 'i'), '___');
+    var others = verbs.filter(function(x) { return x.word !== item.verb; }).map(function(x) { return x.word; });
+    return { emoji: '🎭', question: blanked, hint: item.s.hi, options: shuffle([item.verb].concat(others.slice(0, 3))), answer: item.verb };
   });
-  startGame(questions, 'Modern Verbs');
+  startGame(questions);
 }
 
 function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
   }
   return a;
 }
 
-// ============================================================
-// INIT
-// ============================================================
 renderHome();
 </script>
 </body>
