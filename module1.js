@@ -1,5 +1,5 @@
-// module1.js — Module 1: Foundational English (Beginner Level)
-// Structure: 5 Cards → Letters, IPA Sounds, Verbs, Be Verbs, Modern Verbs
+// module1.js — Module 1: Foundational English
+// 5 Cards: Letters, IPA Sounds, Verbs, Be Verbs, Modern Verbs
 
 const MODULE1 = {
   id: 'm1',
@@ -8,19 +8,17 @@ const MODULE1 = {
   sub: 'Beginner Level',
   icon: '🌱',
   desc: 'सीखो A-Z letters, sounds, verbs और basic sentences — खेल-खेल में।',
-  
+
   cards: [
-    // ═══════════════════════════════════════════════════════════
-    // CARD 1: LETTERS (A-Z) — Small + Capital + Sound + Game
-    // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
+    // CARD 1: LETTERS (A-Z)
+    // ═══════════════════════════════════════════════════════
     {
       id: 'letters',
       title: 'Letters (A-Z)',
       icon: '🔤',
       desc: 'Capital + Small letters, sound (Hindi), aur word recognition',
       type: 'letters',
-      
-      // All 26 letters with sound and example word
       letters: [
         { capital: 'A', small: 'a', sound: 'ए', word: 'Apple', emoji: '🍎' },
         { capital: 'B', small: 'b', sound: 'बी', word: 'Ball', emoji: '⚽' },
@@ -51,16 +49,15 @@ const MODULE1 = {
       ]
     },
 
-    // ═══════════════════════════════════════════════════════════
-    // CARD 2: IPA SOUNDS — Vowels + Consonants
-    // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
+    // CARD 2: IPA SOUNDS
+    // ═══════════════════════════════════════════════════════
     {
       id: 'sounds',
       title: 'IPA Sounds',
       icon: '🔊',
       desc: 'Vowel और Consonant sounds — सही pronunciation सीखो',
       type: 'sounds',
-      
       categories: [
         {
           id: 'vowels',
@@ -107,17 +104,15 @@ const MODULE1 = {
       ]
     },
 
-    // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
     // CARD 3: VERBS (A-Z) — v1, v2, v3
-    // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
     {
       id: 'verbs',
       title: 'Verbs (A-Z)',
       icon: '⚡',
       desc: 'A-Z verbs के v1, v2, v3 forms',
       type: 'verbs',
-      
-      // A-Z verbs grouped by first letter
       groups: [
         { letter: 'A', verbs: [
           { v1: 'ask', v2: 'asked', v3: 'asked', hi: 'पूछना' },
@@ -150,7 +145,7 @@ const MODULE1 = {
           { v1: 'buy', v2: 'bought', v3: 'bought', hi: 'खरीदना' },
           { v1: 'build', v2: 'built', v3: 'built', hi: 'बनाना' },
           { v1: 'break', v2: 'broke', v3: 'broken', hi: 'तोड़ना' },
-          { v1: 'burn', v2: 'burned/burnt', v3: 'burned/burnt', hi: 'जलाना' },
+          { v1: 'burn', v2: 'burned', v3: 'burned', hi: 'जलाना' },
           { v1: 'borrow', v2: 'borrowed', v3: 'borrowed', hi: 'उधार लेना' },
           { v1: 'bake', v2: 'baked', v3: 'baked', hi: 'सेंकना' },
           { v1: 'bathe', v2: 'bathed', v3: 'bathed', hi: 'नहाना' },
@@ -192,7 +187,7 @@ const MODULE1 = {
           { v1: 'dig', v2: 'dug', v3: 'dug', hi: 'खोदना' },
           { v1: 'do', v2: 'did', v3: 'done', hi: 'करना' },
           { v1: 'draw', v2: 'drew', v3: 'drawn', hi: 'चित्र बनाना' },
-          { v1: 'dream', v2: 'dreamed/dreamt', v3: 'dreamed/dreamt', hi: 'सपना देखना' },
+          { v1: 'dream', v2: 'dreamed', v3: 'dreamed', hi: 'सपना देखना' },
           { v1: 'drink', v2: 'drank', v3: 'drunk', hi: 'पीना' },
           { v1: 'drive', v2: 'drove', v3: 'driven', hi: 'गाड़ी चलाना' },
           { v1: 'drop', v2: 'dropped', v3: 'dropped', hi: 'गिराना' },
@@ -251,26 +246,21 @@ const MODULE1 = {
           { v1: 'fade', v2: 'faded', v3: 'faded', hi: 'फीका होना' },
           { v1: 'fasten', v2: 'fastened', v3: 'fastened', hi: 'बांधना' }
         ]}
-        // NOTE: Baaki G-Z letters aap khud add kar sakte ho — same pattern follow karo
       ]
     },
 
-    // ═══════════════════════════════════════════════════════════
-    // CARD 4: BE VERBS — is, am, are, was, were, shall be, will be, has, have
-    // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
+    // CARD 4: BE VERBS
+    // ═══════════════════════════════════════════════════════
     {
       id: 'beverbs',
       title: 'Be Verbs',
       icon: '🔗',
-      desc: 'is, am, are, was, were, shall be, will be, has, have — 20 sentences each',
+      desc: 'is, am, are, was, were, shall be, will be, has, have',
       type: 'beverbs',
-      
       verbs: [
         {
-          id: 'is',
-          word: 'is',
-          usage: 'He/She/It के साथ (Present)',
-          hi: 'है',
+          id: 'is', word: 'is', usage: 'He/She/It के साथ (Present)', hi: 'है',
           sentences: [
             { en: 'He is a doctor.', hi: 'वह डॉक्टर है।' },
             { en: 'She is happy.', hi: 'वह खुश है।' },
@@ -295,10 +285,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'am',
-          word: 'am',
-          usage: 'I के साथ (Present)',
-          hi: 'हूँ',
+          id: 'am', word: 'am', usage: 'I के साथ (Present)', hi: 'हूँ',
           sentences: [
             { en: 'I am a student.', hi: 'मैं छात्र हूँ।' },
             { en: 'I am happy.', hi: 'मैं खुश हूँ।' },
@@ -323,10 +310,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'are',
-          word: 'are',
-          usage: 'We/You/They के साथ (Present)',
-          hi: 'हैं/हो',
+          id: 'are', word: 'are', usage: 'We/You/They के साथ (Present)', hi: 'हैं/हो',
           sentences: [
             { en: 'We are friends.', hi: 'हम दोस्त हैं।' },
             { en: 'You are smart.', hi: 'तुम होशियार हो।' },
@@ -351,10 +335,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'was',
-          word: 'was',
-          usage: 'He/She/It के साथ (Past)',
-          hi: 'था/थी',
+          id: 'was', word: 'was', usage: 'He/She/It के साथ (Past)', hi: 'था/थी',
           sentences: [
             { en: 'He was a doctor.', hi: 'वह डॉक्टर था।' },
             { en: 'She was happy.', hi: 'वह खुश थी।' },
@@ -379,10 +360,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'were',
-          word: 'were',
-          usage: 'We/You/They के साथ (Past)',
-          hi: 'थे/थीं',
+          id: 'were', word: 'were', usage: 'We/You/They के साथ (Past)', hi: 'थे/थीं',
           sentences: [
             { en: 'We were friends.', hi: 'हम दोस्त थे।' },
             { en: 'You were smart.', hi: 'तुम होशियार थे।' },
@@ -407,10 +385,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'shall-be',
-          word: 'shall be',
-          usage: 'I/We के साथ (Future)',
-          hi: 'होगा/होंगे',
+          id: 'shall-be', word: 'shall be', usage: 'I/We के साथ (Future)', hi: 'होगा/होंगे',
           sentences: [
             { en: 'I shall be there.', hi: 'मैं वहाँ होऊँगा।' },
             { en: 'We shall be happy.', hi: 'हम खुश होंगे।' },
@@ -435,10 +410,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'will-be',
-          word: 'will be',
-          usage: 'सभी subjects के साथ (Future)',
-          hi: 'होगा/होंगे',
+          id: 'will-be', word: 'will be', usage: 'सभी subjects के साथ (Future)', hi: 'होगा/होंगे',
           sentences: [
             { en: 'He will be a doctor.', hi: 'वह डॉक्टर बनेगा।' },
             { en: 'She will be happy.', hi: 'वह खुश होगी।' },
@@ -463,10 +435,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'has',
-          word: 'has',
-          usage: 'He/She/It के साथ (Present)',
-          hi: 'पास है',
+          id: 'has', word: 'has', usage: 'He/She/It के साथ (Present)', hi: 'पास है',
           sentences: [
             { en: 'He has a car.', hi: 'उसके पास गाड़ी है।' },
             { en: 'She has a book.', hi: 'उसके पास किताब है।' },
@@ -491,10 +460,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'have',
-          word: 'have',
-          usage: 'I/We/You/They के साथ (Present)',
-          hi: 'पास है',
+          id: 'have', word: 'have', usage: 'I/We/You/They के साथ (Present)', hi: 'पास है',
           sentences: [
             { en: 'I have a car.', hi: 'मेरे पास गाड़ी है।' },
             { en: 'We have a house.', hi: 'हमारे पास घर है।' },
@@ -521,22 +487,18 @@ const MODULE1 = {
       ]
     },
 
-    // ═══════════════════════════════════════════════════════════
-    // CARD 5: MODERN VERBS — can, should, may, might, would, need, dare, must
-    // ═══════════════════════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
+    // CARD 5: MODERN VERBS
+    // ═══════════════════════════════════════════════════════
     {
       id: 'modernverbs',
       title: 'Modern Verbs',
       icon: '🎭',
-      desc: 'can, should, may, might, would, need, dare, must — 20 sentences each',
+      desc: 'can, should, may, might, would, need, dare, must',
       type: 'modernverbs',
-      
       verbs: [
         {
-          id: 'can',
-          word: 'can',
-          usage: 'Ability (सकता है)',
-          hi: 'सकता है',
+          id: 'can', word: 'can', usage: 'Ability (सकता है)', hi: 'सकता है',
           sentences: [
             { en: 'I can swim.', hi: 'मैं तैर सकता हूँ।' },
             { en: 'She can sing.', hi: 'वह गा सकती है।' },
@@ -561,10 +523,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'should',
-          word: 'should',
-          usage: 'Advice (चाहिए)',
-          hi: 'चाहिए',
+          id: 'should', word: 'should', usage: 'Advice (चाहिए)', hi: 'चाहिए',
           sentences: [
             { en: 'You should study hard.', hi: 'तुम्हें मेहनत करनी चाहिए।' },
             { en: 'He should see a doctor.', hi: 'उसे डॉक्टर को दिखाना चाहिए।' },
@@ -589,10 +548,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'may',
-          word: 'may',
-          usage: 'Possibility / Permission (शायद / अनुमति)',
-          hi: 'शायद / सकता है',
+          id: 'may', word: 'may', usage: 'Possibility / Permission', hi: 'शायद / सकता है',
           sentences: [
             { en: 'It may rain today.', hi: 'आज बारिश हो सकती है।' },
             { en: 'He may come tomorrow.', hi: 'वह कल आ सकता है।' },
@@ -617,10 +573,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'might',
-          word: 'might',
-          usage: 'Weak possibility (शायद)',
-          hi: 'शायद',
+          id: 'might', word: 'might', usage: 'Weak possibility', hi: 'शायद',
           sentences: [
             { en: 'It might rain today.', hi: 'आज बारिश हो सकती है।' },
             { en: 'He might come later.', hi: 'वह बाद में आ सकता है।' },
@@ -645,10 +598,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'would',
-          word: 'would',
-          usage: 'Polite request / Past habit (करता / करेंगे)',
-          hi: 'करता / करेंगे',
+          id: 'would', word: 'would', usage: 'Polite request / Past habit', hi: 'करता / करेंगे',
           sentences: [
             { en: 'I would like a cup of tea.', hi: 'मुझे एक कप चाय चाहिए।' },
             { en: 'Would you help me?', hi: 'क्या तुम मेरी मदद करोगे?' },
@@ -673,10 +623,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'need',
-          word: 'need',
-          usage: 'Necessity (ज़रूरत है)',
-          hi: 'ज़रूरत है',
+          id: 'need', word: 'need', usage: 'Necessity (ज़रूरत है)', hi: 'ज़रूरत है',
           sentences: [
             { en: 'I need your help.', hi: 'मुझे तुम्हारी मदद चाहिए।' },
             { en: 'You need to study.', hi: 'तुम्हें पढ़ाई करनी है।' },
@@ -701,10 +648,7 @@ const MODULE1 = {
           ]
         },
         {
-          id: 'dare',
-          word: 'dare',
-          usage: 'Courage (हिम्मत करना)',
-          hi: 'हिम्मत करना',
+          id: 'dare', word: 'dare', usage: 'Courage (हिम्मत करना)', hi: 'हिम्मत करना',
           sentences: [
             { en: 'I dare to speak the truth.', hi: 'मैं सच बोलने की हिम्मत करता हूँ।' },
             { en: 'He dare not lie.', hi: 'वह झूठ बोलने की हिम्मत नहीं करता।' },
@@ -725,16 +669,11 @@ const MODULE1 = {
             { en: 'She dare not tell him.', hi: 'वह उसे बताने की हिम्मत नहीं करती।' },
             { en: 'He dared to go alone.', hi: 'उसने अकेले जाने की हिम्मत की।' },
             { en: 'I dare not ask.', hi: 'मैं पूछने की हिम्मत नहीं करता।' },
-            { en: 'She dares to stand alone.', hi: 'वह अकेले खड़े होने की हिम्मत करती है।' },
-            { en: 'They dare not refuse him.', hi: 'वे उसे मना करने की हिम्मत नहीं करते।' },
-            { en: 'He dares to think differently.', hi: 'वह अलग सोचने की हिम्मत करता है।' }
+            { en: 'She dares to stand alone.', hi: 'वह अकेले खड़े होने की हिम्मत करती है।' }
           ]
         },
         {
-          id: 'must',
-          word: 'must',
-          usage: 'Strong necessity (अवश्य / ज़रूर)',
-          hi: 'ज़रूर / अवश्य',
+          id: 'must', word: 'must', usage: 'Strong necessity (ज़रूर)', hi: 'ज़रूर / अवश्य',
           sentences: [
             { en: 'You must study hard.', hi: 'तुम्हें मेहनत करनी ही चाहिए।' },
             { en: 'He must see a doctor.', hi: 'उसे डॉक्टर को दिखाना ही चाहिए।' },
