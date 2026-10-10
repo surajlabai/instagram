@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>English Mastery · Module 1</title>
+<title>English Mastery · All Modules</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
   body { background: #0a0e1a; color: #fff; min-height: 100vh; padding: 20px; }
   .container { max-width: 1000px; margin: 0 auto; }
 
+  /* HOME */
   .header { text-align: center; padding: 30px 0; }
   .header h1 { font-size: 2rem; color: #60a5fa; margin-bottom: 8px; }
   .header p { color: #94a3b8; }
-
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 30px; }
   .card { background: #131828; border: 1px solid #1e293b; border-radius: 16px; padding: 24px; cursor: pointer; transition: all 0.3s; }
   .card:hover { border-color: #60a5fa; transform: translateY(-4px); }
@@ -20,23 +20,23 @@
   .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
   .card-desc { font-size: 0.85rem; color: #94a3b8; line-height: 1.5; }
 
+  /* DETAIL */
   .detail-page { display: none; }
   .detail-page.active { display: block; }
-
   .back-btn { background: #1e293b; border: 1px solid #334155; color: #fff; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; }
   .back-btn:hover { background: #334155; }
-
   .detail-header { margin-bottom: 24px; }
   .detail-header h2 { font-size: 1.6rem; margin-bottom: 6px; }
   .detail-header p { color: #94a3b8; font-size: 0.9rem; }
 
-  /* LETTERS GRID */
+  /* LETTERS */
   .letters-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
   .letter-card { background: #131828; border: 2px solid #1e293b; border-radius: 14px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.25s; }
   .letter-card:hover { border-color: #60a5fa; transform: translateY(-4px); }
   .letter-big { font-size: 2rem; font-weight: 900; color: #60a5fa; margin-bottom: 4px; }
   .letter-small { font-size: 1.2rem; color: #94a3b8; margin-bottom: 6px; }
   .letter-sound { font-size: 0.8rem; color: #4ade80; font-weight: 700; }
+  .letter-examples { font-size: 0.65rem; color: #94a3b8; margin-top: 4px; }
 
   /* LIST ITEM */
   .list-item { background: #131828; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
@@ -44,40 +44,46 @@
   .list-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
   .list-sub { font-size: 0.8rem; color: #94a3b8; }
 
-  /* VERBS LETTERS */
+  /* SOUND CATEGORY */
+  .sound-category { background: #131828; border: 2px solid #1e293b; border-radius: 16px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; gap: 16px; }
+  .sound-category:hover { border-color: #60a5fa; transform: translateX(4px); }
+  .sound-cat-icon { font-size: 2rem; width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, #1e3a5f, #2a1a4a); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sound-cat-info { flex: 1; }
+  .sound-cat-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+  .sound-cat-desc { font-size: 0.8rem; color: #94a3b8; }
+
+  /* SOUND ITEM */
+  .sound-item { background: #131828; border: 2px solid #1e293b; border-radius: 14px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.25s; }
+  .sound-item:hover { border-color: #60a5fa; transform: translateY(-4px); }
+  .sound-symbol { font-size: 1.6rem; font-weight: 900; color: #60a5fa; margin-bottom: 6px; }
+  .sound-desc { font-size: 0.85rem; color: #4ade80; font-weight: 700; margin-bottom: 6px; }
+  .sound-example { font-size: 0.75rem; color: #94a3b8; }
+
+  /* VERBS */
   .verb-letters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; justify-content: center; }
   .verb-letter-btn { width: 44px; height: 44px; border-radius: 10px; background: #131828; border: 2px solid #1e293b; color: #fff; font-size: 1rem; font-weight: 900; cursor: pointer; transition: all 0.2s; }
   .verb-letter-btn:hover { border-color: #60a5fa; }
   .verb-letter-btn.active { background: #60a5fa; border-color: #60a5fa; color: #0a0e1a; }
   .verb-letter-btn.all-btn { width: 70px; font-size: 0.8rem; }
 
-  .verb-detail { background: #131828; border: 1px solid #334155; border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 20px; }
-  .verb-v1 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
-  .verb-hi { color: #4ade80; font-weight: 700; margin-bottom: 16px; }
-  .verb-forms { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-  .verb-form { background: #0f1420; border-radius: 10px; padding: 14px; }
-  .verb-form-label { font-size: 0.7rem; color: #94a3b8; margin-bottom: 6px; text-transform: uppercase; }
-  .verb-form-value { font-size: 1rem; font-weight: 800; }
+  /* VERB ROW (V1/V2/V3 shown side by side) */
+  .verb-row { background: #131828; border: 1px solid #1e293b; border-radius: 12px; padding: 14px 16px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; display: grid; grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr; gap: 12px; align-items: center; }
+  .verb-row:hover { border-color: #60a5fa; background: #1a2035; }
+  .verb-row-v1 { font-size: 0.95rem; font-weight: 800; color: #fff; }
+  .verb-row-v2 { font-size: 0.9rem; color: #60a5fa; font-weight: 700; }
+  .verb-row-v3 { font-size: 0.9rem; color: #a78bfa; font-weight: 700; }
+  .verb-row-hi { font-size: 0.8rem; color: #4ade80; font-weight: 700; }
 
-  /* BE VERB DETAIL */
+  /* BE / MODERN VERBS */
   .be-verb-header { text-align: center; padding: 24px; border-radius: 16px; background: linear-gradient(135deg, #1e3a5f, #2a1a4a); margin-bottom: 20px; }
   .be-verb-word-big { font-size: 2.5rem; font-weight: 900; color: #60a5fa; margin-bottom: 8px; }
   .be-verb-meaning { font-size: 1.3rem; font-weight: 800; color: #4ade80; margin-bottom: 8px; }
   .be-verb-usage-text { font-size: 0.9rem; color: #cbd5e1; }
-
   .example-block { margin-bottom: 16px; }
   .example-block-title { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 800; }
   .example-row { background: #131828; border: 1px solid #1e293b; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; }
   .example-en { font-size: 0.95rem; color: #fff; font-weight: 700; margin-bottom: 4px; }
   .example-hi { font-size: 0.8rem; color: #94a3b8; }
-
-  /* MENU 2 OPTIONS */
-  .menu-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-  .menu-btn { background: #131828; border: 2px solid #1e293b; border-radius: 14px; padding: 20px 16px; cursor: pointer; transition: all 0.25s; text-align: center; }
-  .menu-btn:hover { border-color: #60a5fa; transform: translateY(-3px); }
-  .menu-btn .icon { font-size: 2rem; margin-bottom: 8px; }
-  .menu-btn .title { font-size: 0.95rem; font-weight: 800; margin-bottom: 4px; }
-  .menu-btn .sub { font-size: 0.75rem; color: #94a3b8; }
 
   /* GAME */
   .game-page { display: none; }
@@ -85,7 +91,6 @@
   .game-progress { background: #131828; border-radius: 100px; height: 8px; margin-bottom: 20px; overflow: hidden; }
   .game-progress-fill { background: #60a5fa; height: 100%; width: 0; transition: width 0.3s; }
   .game-question { background: #131828; border: 1px solid #334155; border-radius: 20px; padding: 30px 24px; text-align: center; margin-bottom: 20px; }
-  .game-emoji { font-size: 3rem; margin-bottom: 12px; display: block; }
   .game-label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-weight: 800; }
   .game-question-text { font-size: 1.3rem; font-weight: 800; line-height: 1.5; margin-bottom: 8px; }
   .game-question-hint { font-size: 0.9rem; color: #94a3b8; }
@@ -95,6 +100,21 @@
   .game-option.correct { border-color: #4ade80; background: #1a3a1a; color: #4ade80; }
   .game-option.wrong { border-color: #f87171; background: #3a1a1a; color: #f87171; }
   .game-option-letter { width: 32px; height: 32px; border-radius: 8px; background: #1e293b; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
+
+  /* SENTENCE BUILDER */
+  .sentence-hindi { font-size: 1.3rem; font-weight: 800; color: #4ade80; text-align: center; margin-bottom: 20px; }
+  .sentence-slots { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0; min-height: 50px; padding: 12px; background: #0f1420; border-radius: 12px; border: 2px dashed #334155; }
+  .sentence-slot { min-width: 60px; padding: 10px 14px; background: #1e293b; border-radius: 8px; font-size: 0.95rem; font-weight: 700; color: #fff; cursor: pointer; transition: all 0.2s; }
+  .sentence-slot:hover { background: #334155; }
+  .sentence-slot.filled { background: #60a5fa; color: #0a0e1a; }
+  .sentence-slot.correct { background: #4ade80; color: #0a0e1a; }
+  .sentence-slot.wrong { background: #f87171; color: #fff; }
+
+  .word-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0; }
+  .word-chip { padding: 10px 16px; background: #1e293b; border: 2px solid #334155; border-radius: 10px; font-size: 0.95rem; font-weight: 700; color: #fff; cursor: pointer; transition: all 0.2s; }
+  .word-chip:hover { border-color: #60a5fa; transform: translateY(-3px); }
+  .word-chip.used { opacity: 0.25; pointer-events: none; }
+
   .game-feedback { text-align: center; font-size: 1rem; font-weight: 800; margin: 16px 0; min-height: 24px; }
   .game-next { width: 100%; padding: 16px; background: #60a5fa; border: none; color: #fff; font-size: 1rem; font-weight: 800; border-radius: 14px; cursor: pointer; display: none; }
   .game-next.show { display: block; }
@@ -109,13 +129,21 @@
 
   .btn { width: 100%; padding: 14px; border-radius: 12px; background: #60a5fa; border: none; color: #fff; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-bottom: 10px; }
   .btn.sec { background: #1e293b; }
+  .btn:hover { opacity: 0.9; }
 
   .practice-btn { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 14px 40px; border-radius: 100px; background: #60a5fa; border: none; color: #fff; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 10px 30px rgba(96,165,250,0.4); z-index: 100; }
+  .practice-btn:hover { transform: translateX(-50%) translateY(-3px); }
+
+  .empty-state { text-align: center; padding: 60px 20px; color: #4a5568; }
+  .empty-icon { font-size: 3rem; margin-bottom: 14px; opacity: 0.5; }
+  .empty-text { font-size: 0.9rem; line-height: 1.6; }
 
   @media (max-width: 640px) {
     .menu-row { grid-template-columns: 1fr 1fr; gap: 8px; }
     .menu-btn { padding: 14px 8px; }
     .letter-big { font-size: 1.6rem; }
+    .verb-row { grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 0.75rem; }
+    .verb-row-hi { grid-column: 1/-1; }
   }
 </style>
 </head>
@@ -126,7 +154,7 @@
   <div class="home-page" id="home-page">
     <div class="header">
       <h1>🌱 English Mastery</h1>
-      <p>Module 1 · Foundational English</p>
+      <p>All Modules · Learn & Play</p>
     </div>
     <div class="cards-grid" id="cards-grid"></div>
   </div>
@@ -150,9 +178,13 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
-<!-- LOAD MODULE 1 DATA (saare 5 cards ek file mein) -->
+<!-- MODULE LINKS — jab bhi nayi file upload karo, ye line add karo -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <script src="module1.js"></script>
+<!-- <script src="module2.js"></script> -->  <!-- Baad mein activate karo -->
+<!-- <script src="module3.js"></script> -->
+<!-- <script src="module4.js"></script> -->
+<!-- <script src="module5.js"></script> -->
 
 <script>
 // ═══════════════════════════════════════════════════════════
@@ -162,36 +194,73 @@ var state = {
   currentCard: null,
   currentCardIdx: 0,
   currentVerbLetter: 'all',
+  currentBeVerbIdx: 0,
+  currentModernVerbIdx: 0,
   gameQuestions: [],
   gameIdx: 0,
   gameCorrect: 0,
-  gameWrong: 0
+  gameWrong: 0,
+  gameReturnFn: null,
+  backStack: [],   // ← back button stack
+  sentenceBuilder: null
 };
 
 // ═══════════════════════════════════════════════════════════
-// COLLECT ALL CARDS (from 3 variables)
+// COLLECT ALL CARDS from any module file
+// Har module file mein MODULE1_CARDS, MODULE1_BEVERBS, etc.
+// Agar aap MODULE2, MODULE3 upload karte ho toh wo bhi detect hoga
 // ═══════════════════════════════════════════════════════════
 function getAllCards() {
   var cards = [];
+  // Module 1
   if (typeof MODULE1_CARDS !== 'undefined') cards = cards.concat(MODULE1_CARDS);
   if (typeof MODULE1_BEVERBS !== 'undefined') cards.push(MODULE1_BEVERBS);
   if (typeof MODULE1_MODERNVERBS !== 'undefined') cards.push(MODULE1_MODERNVERBS);
+  // Module 2 (agar file upload ki toh)
+  if (typeof MODULE2_CARDS !== 'undefined') cards = cards.concat(MODULE2_CARDS);
+  if (typeof MODULE2_BEVERBS !== 'undefined') cards.push(MODULE2_BEVERBS);
+  // Module 3, 4, 5 — same pattern
+  if (typeof MODULE3_CARDS !== 'undefined') cards = cards.concat(MODULE3_CARDS);
+  if (typeof MODULE4_CARDS !== 'undefined') cards = cards.concat(MODULE4_CARDS);
+  if (typeof MODULE5_CARDS !== 'undefined') cards = cards.concat(MODULE5_CARDS);
   return cards;
+}
+
+// ═══════════════════════════════════════════════════════════
+// BACK STACK (ek step back)
+// ═══════════════════════════════════════════════════════════
+function pushBack(fn) {
+  state.backStack.push(fn);
+}
+
+function goBack() {
+  if (state.backStack.length > 0) {
+    var fn = state.backStack.pop();
+    fn();
+  } else {
+    renderHome();
+  }
+}
+
+function goHome() {
+  state.backStack = [];
+  renderHome();
 }
 
 // ═══════════════════════════════════════════════════════════
 // HOME RENDER
 // ═══════════════════════════════════════════════════════════
 function renderHome() {
+  state.backStack = [];
   var cards = getAllCards();
   var grid = document.getElementById('cards-grid');
   if (cards.length === 0) {
-    grid.innerHTML = '<div style="text-align:center;padding:40px;color:#94a3b8">No cards loaded. Make sure module1.js is present.</div>';
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📚</div><div class="empty-text">No modules loaded.<br>Upload module1.js to start.</div></div>';
     return;
   }
   grid.innerHTML = cards.map(function(c, i) {
     return '<div class="card" onclick="openCard(' + i + ')">' +
-      '<div class="card-icon">' + c.icon + '</div>' +
+      '<div class="card-icon">' + (c.icon || '📖') + '</div>' +
       '<div class="card-title">' + c.title + '</div>' +
       '<div class="card-desc">' + c.desc + '</div>' +
       '</div>';
@@ -202,9 +271,6 @@ function renderHome() {
   window.scrollTo(0, 0);
 }
 
-function goBack() { renderHome(); }
-function closeGame() { openCard(state.currentCardIdx); }
-
 // ═══════════════════════════════════════════════════════════
 // OPEN CARD
 // ═══════════════════════════════════════════════════════════
@@ -212,18 +278,20 @@ function openCard(idx) {
   var cards = getAllCards();
   state.currentCardIdx = idx;
   state.currentCard = cards[idx];
+  state.backStack = [renderHome];  // reset back stack
   var c = state.currentCard;
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('game-page').classList.remove('active');
   document.getElementById('detail-page').classList.add('active');
-  document.getElementById('detail-title').textContent = c.icon + ' ' + c.title;
+  document.getElementById('detail-title').textContent = (c.icon || '') + ' ' + c.title;
   document.getElementById('detail-sub').textContent = c.desc;
   var content = document.getElementById('detail-content');
   if (c.type === 'letters') content.innerHTML = renderLetters(c);
-  else if (c.type === 'sounds') content.innerHTML = renderSoundsMenu(c);
+  else if (c.type === 'sounds') content.innerHTML = renderSounds(c);
   else if (c.type === 'verbs') content.innerHTML = renderVerbs(c);
   else if (c.type === 'beverbs') content.innerHTML = renderBeVerbs(c);
   else if (c.type === 'modernverbs') content.innerHTML = renderModernVerbs(c);
+  else content.innerHTML = '<p style="text-align:center;color:#94a3b8">Coming soon...</p>';
   window.scrollTo(0, 0);
 }
 
@@ -231,13 +299,15 @@ function openCard(idx) {
 // CARD 1: LETTERS
 // ═══════════════════════════════════════════════════════════
 function renderLetters(card) {
-  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Letter पर click करो — sound सीखो और practice करो</div>' +
+  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Letter पर click करो — sound और practice</div>' +
     '<div class="letters-grid">' +
     card.letters.map(function(l, i) {
+      var ex = l.examples ? l.examples.slice(0, 3).join(', ') : l.word;
       return '<div class="letter-card" onclick="startLetterGame(' + i + ')">' +
         '<div class="letter-big">' + l.capital + '</div>' +
         '<div class="letter-small">' + l.small + '</div>' +
         '<div class="letter-sound">' + l.sound + '</div>' +
+        '<div class="letter-examples">' + ex + '</div>' +
         '</div>';
     }).join('') + '</div>' +
     '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
@@ -256,129 +326,72 @@ function startLetterGame(letterIdx) {
       emoji: '🔤',
       label: 'LETTER SOUND',
       question: '"' + item.capital + ' ' + item.small + '" का sound क्या है?',
-      hint: 'Example: ' + item.word,
+      hint: 'Examples: ' + (item.examples ? item.examples.join(', ') : item.word),
       options: shuffle([correct].concat(others.slice(0, 3).map(function(x) { return x.sound; }))),
       answer: correct
     };
   });
-  startGame(questions);
+  startGame(questions, '🔤 Letters Practice', 'A-Z Sounds', function() { openCard(state.currentCardIdx); });
 }
 
 // ═══════════════════════════════════════════════════════════
-// CARD 2: SOUNDS
+// CARD 2: SOUNDS (Vowel + Consonant categories)
 // ═══════════════════════════════════════════════════════════
-function renderSoundsMenu(card) {
-  return '<div style="text-align:center;margin-bottom:20px;color:#94a3b8;font-size:0.85rem">👇 Choose the type of sound practice</div>' +
-    '<div class="menu-row">' +
-    '<div class="menu-btn" onclick="openSoundType(\'ipa\')">' +
-    '<div class="icon">🔤</div>' +
-    '<div class="title">IPA Sound</div>' +
-    '<div class="sub">Phonetic Alphabet</div>' +
-    '</div>' +
-    '<div class="menu-btn" onclick="openSoundType(\'indian\')">' +
-    '<div class="icon">🇮🇳</div>' +
-    '<div class="title">Indian Vowel & Consonant</div>' +
-    '<div class="sub">Vowels + Consonants</div>' +
-    '</div>' +
+function renderSounds(card) {
+  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Category चुनो — Vowel या Consonant</div>' +
+    card.sounds.map(function(cat, i) {
+      return '<div class="sound-category" onclick="openSoundCategory(' + i + ')">' +
+        '<div class="sound-cat-icon">' + cat.icon + '</div>' +
+        '<div class="sound-cat-info">' +
+        '<div class="sound-cat-title">' + cat.title + '</div>' +
+        '<div class="sound-cat-desc">' + cat.items.length + ' sounds with examples</div>' +
+        '</div>' +
+        '</div>';
+    }).join('');
+}
+
+function openSoundCategory(catIdx) {
+  var cat = state.currentCard.sounds[catIdx];
+  pushBack(function() { openCard(state.currentCardIdx); });
+  document.getElementById('detail-title').textContent = cat.icon + ' ' + cat.title;
+  document.getElementById('detail-sub').textContent = cat.items.length + ' sounds';
+  document.getElementById('detail-content').innerHTML =
+    '<div class="letters-grid">' +
+    cat.items.map(function(item, i) {
+      var ex = item.examples ? item.examples.slice(0, 3).join(', ') : item.word;
+      return '<div class="sound-item" onclick="startSoundGame(' + catIdx + ', ' + i + ')">' +
+        '<div class="sound-symbol">' + item.symbol + '</div>' +
+        '<div class="sound-desc">' + item.sound + '</div>' +
+        '<div class="sound-example">' + ex + '</div>' +
+        '</div>';
+    }).join('') + '</div>' +
+    '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
+    '<button class="btn" onclick="startSoundGame(' + catIdx + ', 0)" style="max-width:300px;margin:0 auto">🎮 Practice ' + cat.title + '</button>' +
     '</div>';
-}
-
-function openSoundType(type) {
-  var card = state.currentCard;
-  if (type === 'ipa') {
-    document.getElementById('detail-title').textContent = '🔤 IPA Sound';
-    document.getElementById('detail-sub').textContent = 'Learn IPA symbols';
-    var allItems = [];
-    card.sounds.forEach(function(cat) { allItems = allItems.concat(cat.items); });
-    document.getElementById('detail-content').innerHTML =
-      '<div class="letters-grid">' +
-      allItems.map(function(item, i) {
-        return '<div class="letter-card" onclick="startSoundGame(' + i + ', \'' + type + '\')">' +
-          '<div class="letter-big" style="font-size:1.4rem">' + item.symbol + '</div>' +
-          '<div class="letter-small" style="font-size:0.9rem">' + item.sound + '</div>' +
-          '<div class="letter-sound">' + item.word + '</div>' +
-          '</div>';
-      }).join('') + '</div>' +
-      '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
-      '<button class="btn" onclick="startSoundGame(0, \'' + type + '\')" style="max-width:300px;margin:0 auto">🎮 Practice IPA</button>' +
-      '</div>';
-  } else {
-    document.getElementById('detail-title').textContent = '🇮🇳 Indian Vowel & Consonant';
-    document.getElementById('detail-sub').textContent = 'Vowels + Consonants';
-    var indianVowels = [
-      { symbol: 'A', sound: 'ए', word: 'Apple' },
-      { symbol: 'E', sound: 'ई', word: 'Egg' },
-      { symbol: 'I', sound: 'आइ', word: 'Ice' },
-      { symbol: 'O', sound: 'ओ', word: 'Orange' },
-      { symbol: 'U', sound: 'यू', word: 'Umbrella' }
-    ];
-    var indianConsonants = [];
-    'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
-      var letterObj = card.letters.find(function(l) { return l.capital === ch; });
-      if (letterObj) indianConsonants.push({ symbol: ch, sound: letterObj.sound, word: letterObj.word });
-    });
-    document.getElementById('detail-content').innerHTML =
-      '<div style="text-align:center;margin-bottom:12px;color:#4ade80;font-weight:800;font-size:0.9rem">🅰️ Vowels</div>' +
-      '<div class="letters-grid">' +
-      indianVowels.map(function(item) {
-        return '<div class="letter-card" onclick="startSoundGame(0, \'indian-vowel\')">' +
-          '<div class="letter-big">' + item.symbol + '</div>' +
-          '<div class="letter-small" style="font-size:0.9rem">' + item.sound + '</div>' +
-          '<div class="letter-sound">' + item.word + '</div>' +
-          '</div>';
-      }).join('') + '</div>' +
-      '<div style="text-align:center;margin:20px 0 12px;color:#60a5fa;font-weight:800;font-size:0.9rem">🅱️ Consonants</div>' +
-      '<div class="letters-grid">' +
-      indianConsonants.map(function(item) {
-        return '<div class="letter-card" onclick="startSoundGame(0, \'indian-consonant\')">' +
-          '<div class="letter-big">' + item.symbol + '</div>' +
-          '<div class="letter-small" style="font-size:0.9rem">' + item.sound + '</div>' +
-          '<div class="letter-sound">' + item.word + '</div>' +
-          '</div>';
-      }).join('') + '</div>' +
-      '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
-      '<button class="btn" onclick="startSoundGame(0, \'indian-vowel\')" style="max-width:300px;margin:0 auto">🎮 Practice Vowels</button>' +
-      '</div>';
-  }
   window.scrollTo(0, 0);
 }
 
-function startSoundGame(itemIdx, type) {
-  var card = state.currentCard;
-  var allItems = [];
-  if (type === 'ipa') {
-    card.sounds.forEach(function(cat) { allItems = allItems.concat(cat.items); });
-  } else if (type === 'indian-vowel') {
-    allItems = [
-      { symbol: 'A', sound: 'ए', word: 'Apple' },
-      { symbol: 'E', sound: 'ई', word: 'Egg' },
-      { symbol: 'I', sound: 'आइ', word: 'Ice' },
-      { symbol: 'O', sound: 'ओ', word: 'Orange' },
-      { symbol: 'U', sound: 'यू', word: 'Umbrella' }
-    ];
-  } else {
-    'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
-      var l = card.letters.find(function(x) { return x.capital === ch; });
-      if (l) allItems.push({ symbol: ch, sound: l.sound, word: l.word });
-    });
-  }
-  var questions = allItems.map(function(item) {
-    var correct = item.sound;
-    var others = allItems.filter(function(x) { return x.sound !== correct; });
+function startSoundGame(catIdx, itemIdx) {
+  var cat = state.currentCard.sounds[catIdx];
+  var item = cat.items[itemIdx];
+  var ordered = [item].concat(cat.items.filter(function(x) { return x.symbol !== item.symbol; }));
+  var questions = ordered.map(function(it) {
+    var correct = it.sound;
+    var others = cat.items.filter(function(x) { return x.sound !== correct; });
     return {
       emoji: '🔊',
-      label: 'SOUND',
-      question: '"' + item.symbol + '" का sound क्या है?',
-      hint: 'Example: ' + item.word,
+      label: cat.title.toUpperCase(),
+      question: '"' + it.symbol + '" का sound क्या है?',
+      hint: 'Examples: ' + (it.examples ? it.examples.join(', ') : it.word),
       options: shuffle([correct].concat(others.slice(0, 3).map(function(x) { return x.sound; }))),
       answer: correct
     };
   });
-  startGame(questions);
+  startGame(questions, '🔊 Sound Practice', cat.title, function() { openSoundCategory(catIdx); });
 }
 
 // ═══════════════════════════════════════════════════════════
-// CARD 3: VERBS
+// CARD 3: VERBS (V1/V2/V3 side by side)
 // ═══════════════════════════════════════════════════════════
 function renderVerbs(card) {
   if (!card.groups || card.groups.length === 0) return '<p style="text-align:center;color:#94a3b8">No verbs yet</p>';
@@ -389,7 +402,7 @@ function renderVerbs(card) {
     }).join('') + '</div>' +
     '<div id="verbs-list"></div>' +
     '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
-    '<button class="btn" onclick="startVerbModeSelect()" style="max-width:300px;margin:0 auto">🎮 Practice Verbs</button>' +
+    '<button class="btn" onclick="startVerbPractice()" style="max-width:300px;margin:0 auto">🎮 Practice Verbs</button>' +
     '</div>';
   setTimeout(function() { showVerbs('all'); }, 50);
   return html;
@@ -411,56 +424,16 @@ function showVerbs(letter) {
     verbs = group ? group.verbs : [];
   }
   document.getElementById('verbs-list').innerHTML = verbs.map(function(v) {
-    return '<div class="list-item" onclick="openVerbDetail(\'' + escapeJs(v.v1) + '\')">' +
-      '<div class="list-title">' + v.v1 + '</div>' +
-      '<div class="list-sub">' + v.hi + '</div>' +
+    return '<div class="verb-row">' +
+      '<div class="verb-row-v1">' + v.v1 + '</div>' +
+      '<div class="verb-row-v2">' + v.v2 + '</div>' +
+      '<div class="verb-row-v3">' + v.v3 + '</div>' +
+      '<div class="verb-row-hi">' + v.hi + '</div>' +
       '</div>';
   }).join('');
 }
 
-function openVerbDetail(v1) {
-  var card = state.currentCard;
-  var verb = null;
-  card.groups.forEach(function(g) {
-    g.verbs.forEach(function(v) { if (v.v1 === v1) verb = v; });
-  });
-  if (!verb) return;
-  document.getElementById('detail-title').textContent = '📝 ' + verb.v1;
-  document.getElementById('detail-sub').textContent = verb.hi;
-  document.getElementById('detail-content').innerHTML =
-    '<div class="verb-detail">' +
-    '<div class="verb-v1">' + verb.v1 + '</div>' +
-    '<div class="verb-hi">' + verb.hi + '</div>' +
-    '<div class="verb-forms">' +
-    '<div class="verb-form"><div class="verb-form-label">V1</div><div class="verb-form-value">' + verb.v1 + '</div></div>' +
-    '<div class="verb-form"><div class="verb-form-label">V2 (Past)</div><div class="verb-form-value">' + verb.v2 + '</div></div>' +
-    '<div class="verb-form"><div class="verb-form-label">V3 (Past Part.)</div><div class="verb-form-value">' + verb.v3 + '</div></div>' +
-    '</div></div>' +
-    '<button class="btn sec" onclick="openCard(' + state.currentCardIdx + ')">← Back</button>';
-  window.scrollTo(0, 0);
-}
-
-function startVerbModeSelect() {
-  document.getElementById('detail-title').textContent = '🎮 Verbs Practice';
-  document.getElementById('detail-sub').textContent = 'Choose practice mode';
-  document.getElementById('detail-content').innerHTML =
-    '<div style="text-align:center;margin-bottom:20px;color:#94a3b8;font-size:0.85rem">👇 Choose mode for practice</div>' +
-    '<div class="menu-row">' +
-    '<div class="menu-btn" onclick="startVerbMode(\'v1\')">' +
-    '<div class="icon">📝</div>' +
-    '<div class="title">Only Verb</div>' +
-    '<div class="sub">Verb का meaning पूछो</div>' +
-    '</div>' +
-    '<div class="menu-btn" onclick="startVerbMode(\'forms\')">' +
-    '<div class="icon">🔢</div>' +
-    '<div class="title">V1 / V2 / V3</div>' +
-    '<div class="sub">तीनों forms पूछो</div>' +
-    '</div>' +
-    '</div>';
-  window.scrollTo(0, 0);
-}
-
-function startVerbMode(mode) {
+function startVerbPractice() {
   var card = state.currentCard;
   var verbs = [];
   if (state.currentVerbLetter && state.currentVerbLetter !== 'all') {
@@ -469,64 +442,50 @@ function startVerbMode(mode) {
   } else {
     card.groups.forEach(function(g) { verbs = verbs.concat(g.verbs); });
   }
+  // Limit to 10 verbs
+  verbs = shuffle(verbs).slice(0, 10);
   var questions = [];
-  if (mode === 'v1') {
-    verbs.forEach(function(v) {
-      var correct = v.hi;
-      var others = verbs.filter(function(x) { return x.hi !== correct; }).map(function(x) { return x.hi; });
-      questions.push({
-        emoji: '📝',
-        label: 'VERB MEANING',
-        question: '"' + v.v1 + '" का मतलब क्या है?',
-        hint: '',
-        options: shuffle([correct].concat(others.slice(0, 3))),
-        answer: correct
-      });
+  verbs.forEach(function(v) {
+    // V2 question
+    var othersV2 = verbs.filter(function(x) { return x.v2 !== v.v2; }).map(function(x) { return x.v2; });
+    questions.push({
+      emoji: '🔢',
+      label: 'V2 (PAST)',
+      question: '"' + v.v1 + '" का V2 क्या है?',
+      hint: 'V1: ' + v.v1,
+      options: shuffle([v.v2].concat(othersV2.slice(0, 3))),
+      answer: v.v2
     });
-  } else {
-    verbs.forEach(function(v) {
-      var othersV2 = verbs.filter(function(x) { return x.v2 !== v.v2; }).map(function(x) { return x.v2; });
-      questions.push({
-        emoji: '🔢',
-        label: 'V2 (PAST) FORM',
-        question: '"' + v.v1 + '" का V2 क्या है?',
-        hint: 'V1: ' + v.v1,
-        options: shuffle([v.v2].concat(othersV2.slice(0, 3))),
-        answer: v.v2
-      });
-      var othersV3 = verbs.filter(function(x) { return x.v3 !== v.v3; }).map(function(x) { return x.v3; });
-      questions.push({
-        emoji: '🔢',
-        label: 'V3 (PAST PARTICIPLE)',
-        question: '"' + v.v1 + '" का V3 क्या है?',
-        hint: 'V1: ' + v.v1,
-        options: shuffle([v.v3].concat(othersV3.slice(0, 3))),
-        answer: v.v3
-      });
+    // V3 question
+    var othersV3 = verbs.filter(function(x) { return x.v3 !== v.v3; }).map(function(x) { return x.v3; });
+    questions.push({
+      emoji: '🔢',
+      label: 'V3 (PAST PARTICIPLE)',
+      question: '"' + v.v1 + '" का V3 क्या है?',
+      hint: 'V1: ' + v.v1,
+      options: shuffle([v.v3].concat(othersV3.slice(0, 3))),
+      answer: v.v3
     });
-  }
-  questions = shuffle(questions);
-  startGame(questions);
+  });
+  startGame(questions, '🎮 Verb Practice', 'V2/V3', function() { openCard(state.currentCardIdx); });
 }
 
 // ═══════════════════════════════════════════════════════════
-// CARD 4: BE VERBS
+// CARD 4: BE VERBS (with sentence builder practice)
 // ═══════════════════════════════════════════════════════════
 function renderBeVerbs(card) {
-  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Verb पर click करो — meaning, usage और sentences देखो</div>' +
+  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Verb पर click करो — meaning, usage, sentences और practice</div>' +
     card.verbs.map(function(v, i) {
       return '<div class="list-item" onclick="openBeVerbDetail(' + i + ')">' +
         '<div class="list-title">' + v.word + ' <span style="color:#4ade80">= ' + v.hi + '</span></div>' +
         '<div class="list-sub">' + v.usage + '</div>' +
         '</div>';
-    }).join('') +
-    '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
-    '<button class="btn" onclick="openBeVerbDetail(0)" style="max-width:300px;margin:0 auto">🎮 Practice Be Verbs</button>' +
-    '</div>';
+    }).join('');
 }
 
 function openBeVerbDetail(idx) {
-  state.beVerbIdx = idx;
+  state.currentBeVerbIdx = idx;
+  pushBack(function() { openCard(state.currentCardIdx); });
   var v = state.currentCard.verbs[idx];
   document.getElementById('detail-title').textContent = '🔗 ' + v.word;
   document.getElementById('detail-sub').textContent = v.usage;
@@ -535,21 +494,15 @@ function openBeVerbDetail(idx) {
     '<div class="be-verb-meaning">' + v.hi + '</div>' +
     '<div class="be-verb-usage-text">' + v.usage + '</div>' +
     '</div>';
-  var simple = v.examples.simple[0];
-  var negative = v.examples.negative[0];
-  var wh = v.examples.wh[0];
-  html += '<div class="example-block">' +
-    '<div class="example-block-title">✅ Simple</div>' +
-    '<div class="example-row"><div class="example-en">' + simple.en + '</div><div class="example-hi">' + simple.hi + '</div></div>' +
-    '</div>';
-  html += '<div class="example-block">' +
-    '<div class="example-block-title">❌ Negative</div>' +
-    '<div class="example-row"><div class="example-en">' + negative.en + '</div><div class="example-hi">' + negative.hi + '</div></div>' +
-    '</div>';
-  html += '<div class="example-block">' +
-    '<div class="example-block-title">❓ WH Question</div>' +
-    '<div class="example-row"><div class="example-en">' + wh.en + '</div><div class="example-hi">' + wh.hi + '</div></div>' +
-    '</div>';
+  // 3 examples: simple, negative, wh
+  ['simple', 'negative', 'wh'].forEach(function(type) {
+    var label = type === 'simple' ? '✅ Simple' : type === 'negative' ? '❌ Negative' : '❓ WH Question';
+    var ex = v.examples[type][0];
+    html += '<div class="example-block">' +
+      '<div class="example-block-title">' + label + '</div>' +
+      '<div class="example-row"><div class="example-en">' + ex.en + '</div><div class="example-hi">' + ex.hi + '</div></div>' +
+      '</div>';
+  });
   html += '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
     '<button class="btn" onclick="startBeVerbPractice()" style="max-width:300px;margin:0 auto">🎮 Practice ' + v.word + '</button>' +
     '</div>';
@@ -558,33 +511,26 @@ function openBeVerbDetail(idx) {
 }
 
 function startBeVerbPractice() {
-  var v = state.currentCard.verbs[state.beVerbIdx];
-  var questions = [];
-  v.examples.simple.forEach(function(s) { questions.push(buildBlankQuestion(v, s, '✅ SIMPLE', 'be')); });
-  v.examples.negative.forEach(function(s) { questions.push(buildBlankQuestion(v, s, '❌ NEGATIVE', 'be')); });
-  v.examples.wh.forEach(function(s) { questions.push(buildBlankQuestion(v, s, '❓ WH QUESTION', 'be')); });
-  questions = shuffle(questions);
-  startGame(questions);
+  var v = state.currentCard.verbs[state.currentBeVerbIdx];
+  buildSentenceBuilderGame(v, function() { openBeVerbDetail(state.currentBeVerbIdx); });
 }
 
 // ═══════════════════════════════════════════════════════════
-// CARD 5: MODERN VERBS
+// CARD 5: MODERN VERBS (with sentence builder practice)
 // ═══════════════════════════════════════════════════════════
 function renderModernVerbs(card) {
-  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Verb पर click करो — meaning, usage और sentences देखो</div>' +
+  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Verb पर click करो — meaning, usage, sentences और practice</div>' +
     card.verbs.map(function(v, i) {
       return '<div class="list-item" onclick="openModernVerbDetail(' + i + ')">' +
         '<div class="list-title">' + v.word + ' <span style="color:#4ade80">= ' + v.hi + '</span></div>' +
         '<div class="list-sub">' + v.usage + '</div>' +
         '</div>';
-    }).join('') +
-    '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
-    '<button class="btn" onclick="openModernVerbDetail(0)" style="max-width:300px;margin:0 auto">🎮 Practice Modern Verbs</button>' +
-    '</div>';
+    }).join('');
 }
 
 function openModernVerbDetail(idx) {
-  state.modernVerbIdx = idx;
+  state.currentModernVerbIdx = idx;
+  pushBack(function() { openCard(state.currentCardIdx); });
   var v = state.currentCard.verbs[idx];
   document.getElementById('detail-title').textContent = '🎭 ' + v.word;
   document.getElementById('detail-sub').textContent = v.usage;
@@ -593,21 +539,14 @@ function openModernVerbDetail(idx) {
     '<div class="be-verb-meaning">' + v.hi + '</div>' +
     '<div class="be-verb-usage-text">' + v.usage + '</div>' +
     '</div>';
-  var simple = v.examples.simple[0];
-  var negative = v.examples.negative[0];
-  var wh = v.examples.wh[0];
-  html += '<div class="example-block">' +
-    '<div class="example-block-title">✅ Simple</div>' +
-    '<div class="example-row"><div class="example-en">' + simple.en + '</div><div class="example-hi">' + simple.hi + '</div></div>' +
-    '</div>';
-  html += '<div class="example-block">' +
-    '<div class="example-block-title">❌ Negative</div>' +
-    '<div class="example-row"><div class="example-en">' + negative.en + '</div><div class="example-hi">' + negative.hi + '</div></div>' +
-    '</div>';
-  html += '<div class="example-block">' +
-    '<div class="example-block-title">❓ WH Question</div>' +
-    '<div class="example-row"><div class="example-en">' + wh.en + '</div><div class="example-hi">' + wh.hi + '</div></div>' +
-    '</div>';
+  ['simple', 'negative', 'wh'].forEach(function(type) {
+    var label = type === 'simple' ? '✅ Simple' : type === 'negative' ? '❌ Negative' : '❓ WH Question';
+    var ex = v.examples[type][0];
+    html += '<div class="example-block">' +
+      '<div class="example-block-title">' + label + '</div>' +
+      '<div class="example-row"><div class="example-en">' + ex.en + '</div><div class="example-hi">' + ex.hi + '</div></div>' +
+      '</div>';
+  });
   html += '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
     '<button class="btn" onclick="startModernVerbPractice()" style="max-width:300px;margin:0 auto">🎮 Practice ' + v.word + '</button>' +
     '</div>';
@@ -616,41 +555,204 @@ function openModernVerbDetail(idx) {
 }
 
 function startModernVerbPractice() {
-  var v = state.currentCard.verbs[state.modernVerbIdx];
+  var v = state.currentCard.verbs[state.currentModernVerbIdx];
+  buildSentenceBuilderGame(v, function() { openModernVerbDetail(state.currentModernVerbIdx); });
+}
+
+// ═══════════════════════════════════════════════════════════
+// SENTENCE BUILDER GAME (Hindi → English, then English → Hindi)
+// ═══════════════════════════════════════════════════════════
+function buildSentenceBuilderGame(verb, returnFn) {
+  // Gather all sentences from all 3 categories
+  var allSimple = verb.examples.simple || [];
+  var allNeg = verb.examples.negative || [];
+  var allWh = verb.examples.wh || [];
+  // Pick 5 random (mix) — first 5 Hindi→English
+  var hindiToEnglish = shuffle(allSimple.concat(allNeg)).slice(0, 5);
+  // Next 5 English→Hindi
+  var englishToHindi = shuffle(allSimple.concat(allWh)).slice(0, 5);
+
   var questions = [];
-  v.examples.simple.forEach(function(s) { questions.push(buildBlankQuestion(v, s, '✅ SIMPLE', 'modern')); });
-  v.examples.negative.forEach(function(s) { questions.push(buildBlankQuestion(v, s, '❌ NEGATIVE', 'modern')); });
-  v.examples.wh.forEach(function(s) { questions.push(buildBlankQuestion(v, s, '❓ WH QUESTION', 'modern')); });
-  questions = shuffle(questions);
-  startGame(questions);
-}
+  hindiToEnglish.forEach(function(s) {
+    questions.push({
+      mode: 'hindi-to-english',
+      hindi: s.hi,
+      english: s.en,
+      words: s.words ? shuffle(s.words.slice()) : s.en.split(' '),
+      answer: s.words ? s.words.slice() : s.en.split(' ')
+    });
+  });
+  englishToHindi.forEach(function(s) {
+    questions.push({
+      mode: 'english-to-hindi',
+      english: s.en,
+      hindi: s.hi,
+      words: s.words ? shuffle(s.words.slice()) : s.en.split(' '),
+      answer: s.words ? s.words.slice() : s.en.split(' ')
+    });
+  });
 
-// ═══════════════════════════════════════════════════════════
-// HELPER: Build blank question for be/modern verbs
-// ═══════════════════════════════════════════════════════════
-function buildBlankQuestion(verb, sentence, label, kind) {
-  var escaped = verb.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  var blanked = sentence.en.replace(new RegExp('\\b' + escaped + '\\b', 'gi'), '_____');
-  var allWords = state.currentCard.verbs.map(function(v) { return v.word; }).filter(function(w) { return w !== verb.word; });
-  return {
-    emoji: kind === 'be' ? '🔗' : '🎭',
-    label: label,
-    question: blanked,
-    hint: sentence.hi,
-    options: shuffle([verb.word].concat(allWords.slice(0, 3))),
-    answer: verb.word
+  state.sentenceBuilder = {
+    questions: questions,
+    idx: 0,
+    correct: 0,
+    wrong: 0,
+    placed: [],
+    usedIdx: [],
+    returnFn: returnFn
   };
+
+  // Open game page
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('detail-page').classList.remove('active');
+  document.getElementById('game-page').classList.add('active');
+  renderSentenceBuilderQ();
+  window.scrollTo(0, 0);
+}
+
+function renderSentenceBuilderQ() {
+  var sb = state.sentenceBuilder;
+  var q = sb.questions[sb.idx];
+  var total = sb.questions.length;
+  document.getElementById('game-progress-fill').style.width = ((sb.idx + 1) / total * 100) + '%';
+
+  var isHindi = q.mode === 'hindi-to-english';
+  var label = isHindi ? '🇮🇳 Hindi → English' : '🇬🇧 English → Hindi';
+  var promptText = isHindi ? q.hindi : q.english;
+  var promptSub = isHindi ? 'इसका English बनाओ' : 'इसका Hindi बनाओ';
+
+  sb.placed = [];
+  sb.usedIdx = [];
+
+  var html = '<div class="game-question">' +
+    '<div class="game-label">' + label + '</div>' +
+    '<div class="sentence-hindi">' + promptText + '</div>' +
+    '<div class="game-question-hint">' + promptSub + '</div>' +
+    '</div>' +
+    '<div class="sentence-slots" id="sb-slots"></div>' +
+    '<div class="word-bank" id="sb-bank"></div>' +
+    '<div class="game-feedback" id="sb-feedback"></div>' +
+    '<button class="game-next" id="sb-next" onclick="nextSentenceBuilder()">' +
+    (sb.idx === total - 1 ? '🏁 Result' : '➡️ Next') + '</button>';
+
+  document.getElementById('game-content').innerHTML = html;
+  renderSBSlotsAndBank();
+}
+
+function renderSBSlotsAndBank() {
+  var sb = state.sentenceBuilder;
+  var q = sb.questions[sb.idx];
+  var slotsEl = document.getElementById('sb-slots');
+  var bankEl = document.getElementById('sb-bank');
+
+  if (!slotsEl || !bankEl) return;
+
+  // Slots
+  var slotsHtml = '';
+  for (var i = 0; i < q.answer.length; i++) {
+    var val = sb.placed[i];
+    var cls = 'sentence-slot' + (val ? ' filled' : '');
+    slotsHtml += '<div class="' + cls + '" onclick="removeSBSlot(' + i + ')">' + (val || '?') + '</div>';
+  }
+  slotsEl.innerHTML = slotsHtml;
+
+  // Bank
+  bankEl.innerHTML = q.words.map(function(w, i) {
+    var used = sb.usedIdx.indexOf(i) > -1;
+    return '<div class="word-chip' + (used ? ' used' : '') + '" onclick="placeSBSlot(' + i + ')">' + w + '</div>';
+  }).join('');
+
+  // Check if complete
+  var complete = sb.placed.length === q.answer.length && sb.placed.every(function(v) { return v; });
+  var fb = document.getElementById('sb-feedback');
+  var nextBtn = document.getElementById('sb-next');
+
+  if (complete) {
+    var isCorrect = sb.placed.every(function(v, i) { return v === q.answer[i]; });
+    if (isCorrect) {
+      fb.style.color = '#4ade80';
+      fb.textContent = '✅ Correct!';
+      nextBtn.classList.add('show');
+      nextBtn.textContent = sb.idx === sb.questions.length - 1 ? '🏁 Result' : '➡️ Next';
+    } else {
+      fb.style.color = '#f87171';
+      fb.textContent = '❌ Order गलत है — फिर कोशिश करो';
+      nextBtn.classList.remove('show');
+    }
+  } else {
+    fb.textContent = sb.placed.filter(function(x) { return x; }).length + '/' + q.answer.length + ' words placed';
+    fb.style.color = '#94a3b8';
+    nextBtn.classList.remove('show');
+  }
+}
+
+function placeSBSlot(wordIdx) {
+  var sb = state.sentenceBuilder;
+  var q = sb.questions[sb.idx];
+  if (sb.usedIdx.indexOf(wordIdx) > -1) return;
+  if (sb.placed.length >= q.answer.length) return;
+  sb.placed.push(q.words[wordIdx]);
+  sb.usedIdx.push(wordIdx);
+  renderSBSlotsAndBank();
+}
+
+function removeSBSlot(slotIdx) {
+  var sb = state.sentenceBuilder;
+  if (slotIdx >= sb.placed.length) return;
+  sb.placed.splice(slotIdx, 1);
+  sb.usedIdx.splice(slotIdx, 1);
+  renderSBSlotsAndBank();
+}
+
+function nextSentenceBuilder() {
+  var sb = state.sentenceBuilder;
+  var q = sb.questions[sb.idx];
+  var isCorrect = sb.placed.every(function(v, i) { return v === q.answer[i]; });
+  if (isCorrect) {
+    sb.correct++;
+    sb.idx++;
+    if (sb.idx >= sb.questions.length) {
+      showSBResult();
+    } else {
+      renderSentenceBuilderQ();
+    }
+  }
+}
+
+function showSBResult() {
+  var sb = state.sentenceBuilder;
+  var total = sb.questions.length;
+  var pct = Math.round((sb.correct / total) * 100);
+  var emoji = '🏆', title = 'Excellent!';
+  if (pct < 40) { emoji = '🌱'; title = 'Keep Trying!'; }
+  else if (pct < 70) { emoji = '👍'; title = 'Good Job!'; }
+  else if (pct < 90) { emoji = '🔥'; title = 'Great!'; }
+  else { emoji = '👑'; title = 'Legendary!'; }
+
+  document.getElementById('game-content').innerHTML =
+    '<div class="result-card">' +
+    '<div class="result-emoji">' + emoji + '</div>' +
+    '<div class="result-title">' + title + '</div>' +
+    '<div class="result-stats">' +
+    '<div class="result-stat"><div class="result-stat-value">' + sb.correct + '/' + total + '</div><div class="result-stat-label">Correct</div></div>' +
+    '<div class="result-stat"><div class="result-stat-value">' + pct + '%</div><div class="result-stat-label">Accuracy</div></div>' +
+    '</div>' +
+    '<button class="btn" onclick="closeGame()">← Back</button>' +
+    '</div>';
+  document.getElementById('game-progress-fill').style.width = '100%';
 }
 
 // ═══════════════════════════════════════════════════════════
-// GAME ENGINE
+// MCQ GAME (for letters, sounds, verbs)
 // ═══════════════════════════════════════════════════════════
-function startGame(questions) {
+function startGame(questions, title, sub, returnFn) {
   if (!questions.length) { alert('No questions'); return; }
   state.gameQuestions = questions;
   state.gameIdx = 0;
   state.gameCorrect = 0;
   state.gameWrong = 0;
+  state.gameReturnFn = returnFn;
+
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('detail-page').classList.remove('active');
   document.getElementById('game-page').classList.add('active');
@@ -663,7 +765,7 @@ function renderGameQ() {
   var total = state.gameQuestions.length;
   document.getElementById('game-progress-fill').style.width = ((state.gameIdx + 1) / total * 100) + '%';
   var html = '<div class="game-question">';
-  if (q.emoji) html += '<span class="game-emoji">' + q.emoji + '</span>';
+  if (q.emoji) html += '<div style="font-size:2.5rem;margin-bottom:10px">' + q.emoji + '</div>';
   if (q.label) html += '<div class="game-label">' + q.label + '</div>';
   html += '<div class="game-question-text">' + q.question + '</div>';
   if (q.hint) html += '<div class="game-question-hint">' + q.hint + '</div>';
@@ -724,7 +826,7 @@ function showResult() {
     '<div class="result-stat"><div class="result-stat-value">' + pct + '%</div><div class="result-stat-label">Accuracy</div></div>' +
     '</div>' +
     '<button class="btn" onclick="restartGame()">🔁 Try Again</button>' +
-    '<button class="btn sec" onclick="openCard(' + state.currentCardIdx + ')">← Back</button>' +
+    '<button class="btn sec" onclick="closeGame()">← Back</button>' +
     '</div>';
   document.getElementById('game-progress-fill').style.width = '100%';
 }
@@ -734,6 +836,22 @@ function restartGame() {
   state.gameCorrect = 0;
   state.gameWrong = 0;
   renderGameQ();
+  window.scrollTo(0, 0);
+}
+
+function closeGame() {
+  document.getElementById('game-page').classList.remove('active');
+  if (state.gameReturnFn) {
+    var fn = state.gameReturnFn;
+    state.gameReturnFn = null;
+    fn();
+  } else if (state.sentenceBuilder && state.sentenceBuilder.returnFn) {
+    var fn2 = state.sentenceBuilder.returnFn;
+    state.sentenceBuilder = null;
+    fn2();
+  } else {
+    openCard(state.currentCardIdx);
+  }
   window.scrollTo(0, 0);
 }
 
@@ -749,14 +867,11 @@ function shuffle(arr) {
   return a;
 }
 
-function escapeJs(s) {
-  return String(s).replace(/'/g, "\\'");
-}
-
 // ═══════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════
 renderHome();
+console.log('📚 English Mastery ready');
 </script>
 </body>
 </html>
