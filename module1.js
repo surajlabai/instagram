@@ -1,8 +1,8 @@
-// module1.js — MODULE 1: Foundational English (COMPLETE)
-// Cards 1-5 with new structure
+// module1.js — MODULE 1: Foundational English (FINAL)
+// Cards 1-5 with 3-example structure + sentence builder data
 
 // ═══════════════════════════════════════════════════════════
-// CARDS 1, 2, 3 — Letters, IPA Sounds, Verbs A-Z
+// CARDS 1, 2, 3
 // ═══════════════════════════════════════════════════════════
 var MODULE1_CARDS = [
 
@@ -11,7 +11,7 @@ var MODULE1_CARDS = [
     id: 'letters',
     title: 'Letters (A-Z)',
     icon: '🔤',
-    desc: 'Capital + Small letters with sound & 3 examples',
+    desc: 'Capital + Small letters with 3 examples',
     type: 'letters',
     letters: [
       { capital: 'A', small: 'a', sound: 'ए', examples: ['Apple', 'Ant', 'Aeroplane'] },
@@ -48,7 +48,7 @@ var MODULE1_CARDS = [
     id: 'sounds',
     title: 'IPA Sounds',
     icon: '🔊',
-    desc: '20 Vowel + 24 Consonant sounds with 3 examples each',
+    desc: '20 Vowels + 24 Consonants',
     type: 'sounds',
     letters: [
       { capital: 'A', small: 'a', sound: 'ए', examples: ['Apple', 'Ant', 'Aeroplane'] },
@@ -141,7 +141,7 @@ var MODULE1_CARDS = [
     id: 'verbs',
     title: 'Verbs (A-Z)',
     icon: '⚡',
-    desc: 'A-Z verbs with V1, V2, V3 forms side by side',
+    desc: 'A-Z verbs with V1, V2, V3 side by side',
     type: 'verbs',
     groups: [
       { letter: 'A', verbs: [
@@ -570,7 +570,7 @@ var MODULE1_CARDS = [
 ];
 
 // ═══════════════════════════════════════════════════════════
-// CARD 4 — BE VERBS (with `words` array for sentence builder)
+// CARD 4 — BE VERBS
 // ═══════════════════════════════════════════════════════════
 var MODULE1_BEVERBS = {
   id: 'beverbs',
@@ -603,7 +603,8 @@ var MODULE1_BEVERBS = {
           { en: 'That is not a tree.', hi: 'वह पेड़ नहीं है।', words: ['That', 'is not', 'a tree'] },
           { en: 'My father is not a teacher.', hi: 'मेरे पिता शिक्षक नहीं हैं।', words: ['My father', 'is not', 'a teacher'] },
           { en: 'She is not from Delhi.', hi: 'वह दिल्ली से नहीं है।', words: ['She', 'is not', 'from Delhi'] },
-          { en: 'The sky is not blue.', hi: 'आसमान नीला नहीं है।', words: ['The sky', 'is not', 'blue'] }
+          { en: 'The sky is not blue.', hi: 'आसमान नीला नहीं है।', words: ['The sky', 'is not', 'blue'] },
+          { en: 'This is not easy.', hi: 'यह आसान नहीं है।', words: ['This', 'is not', 'easy'] }
         ],
         wh: [
           { en: 'Where is he?', hi: 'वह कहाँ है?', words: ['Where', 'is', 'he'] },
