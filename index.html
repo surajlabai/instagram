@@ -36,13 +36,21 @@
   .letter-big { font-size: 2rem; font-weight: 900; color: #60a5fa; margin-bottom: 4px; }
   .letter-small { font-size: 1.2rem; color: #94a3b8; margin-bottom: 6px; }
   .letter-sound { font-size: 0.8rem; color: #4ade80; font-weight: 700; }
-  .letter-examples { font-size: 0.65rem; color: #94a3b8; margin-top: 4px; }
+  .letter-examples { font-size: 0.62rem; color: #94a3b8; margin-top: 4px; line-height: 1.3; }
 
   /* LIST ITEM */
   .list-item { background: #131828; border: 1px solid #1e293b; border-radius: 12px; padding: 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
   .list-item:hover { border-color: #60a5fa; background: #1a2035; }
   .list-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
   .list-sub { font-size: 0.8rem; color: #94a3b8; }
+
+  /* MENU 2 OPTIONS */
+  .menu-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .menu-btn { background: #131828; border: 2px solid #1e293b; border-radius: 14px; padding: 20px 16px; cursor: pointer; transition: all 0.25s; text-align: center; }
+  .menu-btn:hover { border-color: #60a5fa; transform: translateY(-3px); }
+  .menu-btn .icon { font-size: 2rem; margin-bottom: 8px; }
+  .menu-btn .title { font-size: 0.95rem; font-weight: 800; margin-bottom: 4px; }
+  .menu-btn .sub { font-size: 0.75rem; color: #94a3b8; }
 
   /* SOUND CATEGORY */
   .sound-category { background: #131828; border: 2px solid #1e293b; border-radius: 16px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; gap: 16px; }
@@ -55,9 +63,9 @@
   /* SOUND ITEM */
   .sound-item { background: #131828; border: 2px solid #1e293b; border-radius: 14px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.25s; }
   .sound-item:hover { border-color: #60a5fa; transform: translateY(-4px); }
-  .sound-symbol { font-size: 1.6rem; font-weight: 900; color: #60a5fa; margin-bottom: 6px; }
-  .sound-desc { font-size: 0.85rem; color: #4ade80; font-weight: 700; margin-bottom: 6px; }
-  .sound-example { font-size: 0.75rem; color: #94a3b8; }
+  .sound-symbol { font-size: 1.5rem; font-weight: 900; color: #60a5fa; margin-bottom: 6px; }
+  .sound-desc { font-size: 0.82rem; color: #4ade80; font-weight: 700; margin-bottom: 6px; }
+  .sound-example { font-size: 0.68rem; color: #94a3b8; line-height: 1.3; }
 
   /* VERBS */
   .verb-letters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; justify-content: center; }
@@ -66,8 +74,7 @@
   .verb-letter-btn.active { background: #60a5fa; border-color: #60a5fa; color: #0a0e1a; }
   .verb-letter-btn.all-btn { width: 70px; font-size: 0.8rem; }
 
-  /* VERB ROW (V1/V2/V3 shown side by side) */
-  .verb-row { background: #131828; border: 1px solid #1e293b; border-radius: 12px; padding: 14px 16px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; display: grid; grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr; gap: 12px; align-items: center; }
+  .verb-row { background: #131828; border: 1px solid #1e293b; border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; transition: all 0.2s; display: grid; grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr; gap: 12px; align-items: center; }
   .verb-row:hover { border-color: #60a5fa; background: #1a2035; }
   .verb-row-v1 { font-size: 0.95rem; font-weight: 800; color: #fff; }
   .verb-row-v2 { font-size: 0.9rem; color: #60a5fa; font-weight: 700; }
@@ -107,8 +114,6 @@
   .sentence-slot { min-width: 60px; padding: 10px 14px; background: #1e293b; border-radius: 8px; font-size: 0.95rem; font-weight: 700; color: #fff; cursor: pointer; transition: all 0.2s; }
   .sentence-slot:hover { background: #334155; }
   .sentence-slot.filled { background: #60a5fa; color: #0a0e1a; }
-  .sentence-slot.correct { background: #4ade80; color: #0a0e1a; }
-  .sentence-slot.wrong { background: #f87171; color: #fff; }
 
   .word-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0; }
   .word-chip { padding: 10px 16px; background: #1e293b; border: 2px solid #334155; border-radius: 10px; font-size: 0.95rem; font-weight: 700; color: #fff; cursor: pointer; transition: all 0.2s; }
@@ -142,7 +147,7 @@
     .menu-row { grid-template-columns: 1fr 1fr; gap: 8px; }
     .menu-btn { padding: 14px 8px; }
     .letter-big { font-size: 1.6rem; }
-    .verb-row { grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 0.75rem; }
+    .verb-row { grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 0.72rem; padding: 10px; }
     .verb-row-hi { grid-column: 1/-1; }
   }
 </style>
@@ -150,7 +155,6 @@
 <body>
 
 <div class="container">
-  <!-- HOME PAGE -->
   <div class="home-page" id="home-page">
     <div class="header">
       <h1>🌱 English Mastery</h1>
@@ -159,7 +163,6 @@
     <div class="cards-grid" id="cards-grid"></div>
   </div>
 
-  <!-- DETAIL PAGE -->
   <div class="detail-page" id="detail-page">
     <button class="back-btn" onclick="goBack()">← Back</button>
     <div class="detail-header">
@@ -169,7 +172,6 @@
     <div id="detail-content"></div>
   </div>
 
-  <!-- GAME PAGE -->
   <div class="game-page" id="game-page">
     <button class="back-btn" onclick="closeGame()">← Back</button>
     <div class="game-progress"><div class="game-progress-fill" id="game-progress-fill"></div></div>
@@ -177,14 +179,8 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!-- MODULE LINKS — jab bhi nayi file upload karo, ye line add karo -->
-<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MODULE LINKS -->
 <script src="module1.js"></script>
-<!-- <script src="module2.js"></script> -->  <!-- Baad mein activate karo -->
-<!-- <script src="module3.js"></script> -->
-<!-- <script src="module4.js"></script> -->
-<!-- <script src="module5.js"></script> -->
 
 <script>
 // ═══════════════════════════════════════════════════════════
@@ -201,25 +197,19 @@ var state = {
   gameCorrect: 0,
   gameWrong: 0,
   gameReturnFn: null,
-  backStack: [],   // ← back button stack
+  backStack: [],
   sentenceBuilder: null
 };
 
 // ═══════════════════════════════════════════════════════════
-// COLLECT ALL CARDS from any module file
-// Har module file mein MODULE1_CARDS, MODULE1_BEVERBS, etc.
-// Agar aap MODULE2, MODULE3 upload karte ho toh wo bhi detect hoga
+// COLLECT ALL CARDS
 // ═══════════════════════════════════════════════════════════
 function getAllCards() {
   var cards = [];
-  // Module 1
   if (typeof MODULE1_CARDS !== 'undefined') cards = cards.concat(MODULE1_CARDS);
   if (typeof MODULE1_BEVERBS !== 'undefined') cards.push(MODULE1_BEVERBS);
   if (typeof MODULE1_MODERNVERBS !== 'undefined') cards.push(MODULE1_MODERNVERBS);
-  // Module 2 (agar file upload ki toh)
   if (typeof MODULE2_CARDS !== 'undefined') cards = cards.concat(MODULE2_CARDS);
-  if (typeof MODULE2_BEVERBS !== 'undefined') cards.push(MODULE2_BEVERBS);
-  // Module 3, 4, 5 — same pattern
   if (typeof MODULE3_CARDS !== 'undefined') cards = cards.concat(MODULE3_CARDS);
   if (typeof MODULE4_CARDS !== 'undefined') cards = cards.concat(MODULE4_CARDS);
   if (typeof MODULE5_CARDS !== 'undefined') cards = cards.concat(MODULE5_CARDS);
@@ -227,11 +217,9 @@ function getAllCards() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// BACK STACK (ek step back)
+// BACK STACK
 // ═══════════════════════════════════════════════════════════
-function pushBack(fn) {
-  state.backStack.push(fn);
-}
+function pushBack(fn) { state.backStack.push(fn); }
 
 function goBack() {
   if (state.backStack.length > 0) {
@@ -242,13 +230,8 @@ function goBack() {
   }
 }
 
-function goHome() {
-  state.backStack = [];
-  renderHome();
-}
-
 // ═══════════════════════════════════════════════════════════
-// HOME RENDER
+// HOME
 // ═══════════════════════════════════════════════════════════
 function renderHome() {
   state.backStack = [];
@@ -278,7 +261,7 @@ function openCard(idx) {
   var cards = getAllCards();
   state.currentCardIdx = idx;
   state.currentCard = cards[idx];
-  state.backStack = [renderHome];  // reset back stack
+  state.backStack = [renderHome];
   var c = state.currentCard;
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('game-page').classList.remove('active');
@@ -287,7 +270,7 @@ function openCard(idx) {
   document.getElementById('detail-sub').textContent = c.desc;
   var content = document.getElementById('detail-content');
   if (c.type === 'letters') content.innerHTML = renderLetters(c);
-  else if (c.type === 'sounds') content.innerHTML = renderSounds(c);
+  else if (c.type === 'sounds') content.innerHTML = renderSoundsMenu(c);
   else if (c.type === 'verbs') content.innerHTML = renderVerbs(c);
   else if (c.type === 'beverbs') content.innerHTML = renderBeVerbs(c);
   else if (c.type === 'modernverbs') content.innerHTML = renderModernVerbs(c);
@@ -302,7 +285,7 @@ function renderLetters(card) {
   return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Letter पर click करो — sound और practice</div>' +
     '<div class="letters-grid">' +
     card.letters.map(function(l, i) {
-      var ex = l.examples ? l.examples.slice(0, 3).join(', ') : l.word;
+      var ex = l.examples ? l.examples.slice(0, 3).join(', ') : '';
       return '<div class="letter-card" onclick="startLetterGame(' + i + ')">' +
         '<div class="letter-big">' + l.capital + '</div>' +
         '<div class="letter-small">' + l.small + '</div>' +
@@ -326,7 +309,7 @@ function startLetterGame(letterIdx) {
       emoji: '🔤',
       label: 'LETTER SOUND',
       question: '"' + item.capital + ' ' + item.small + '" का sound क्या है?',
-      hint: 'Examples: ' + (item.examples ? item.examples.join(', ') : item.word),
+      hint: 'Examples: ' + (item.examples ? item.examples.join(', ') : ''),
       options: shuffle([correct].concat(others.slice(0, 3).map(function(x) { return x.sound; }))),
       answer: correct
     };
@@ -335,43 +318,100 @@ function startLetterGame(letterIdx) {
 }
 
 // ═══════════════════════════════════════════════════════════
-// CARD 2: SOUNDS (Vowel + Consonant categories)
+// CARD 2: SOUNDS — with 2 menu options (IPA + Indian)
 // ═══════════════════════════════════════════════════════════
-function renderSounds(card) {
-  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Category चुनो — Vowel या Consonant</div>' +
-    card.sounds.map(function(cat, i) {
-      return '<div class="sound-category" onclick="openSoundCategory(' + i + ')">' +
-        '<div class="sound-cat-icon">' + cat.icon + '</div>' +
-        '<div class="sound-cat-info">' +
-        '<div class="sound-cat-title">' + cat.title + '</div>' +
-        '<div class="sound-cat-desc">' + cat.items.length + ' sounds with examples</div>' +
-        '</div>' +
-        '</div>';
-    }).join('');
+function renderSoundsMenu(card) {
+  return '<div style="text-align:center;margin-bottom:20px;color:#94a3b8;font-size:0.85rem">👇 Choose the type of sound practice</div>' +
+    '<div class="menu-row">' +
+    '<div class="menu-btn" onclick="openSoundType(\'ipa\')">' +
+    '<div class="icon">🔤</div>' +
+    '<div class="title">IPA Sound</div>' +
+    '<div class="sub">Phonetic Alphabet</div>' +
+    '</div>' +
+    '<div class="menu-btn" onclick="openSoundType(\'indian\')">' +
+    '<div class="icon">🇮🇳</div>' +
+    '<div class="title">Indian Vowel & Consonant</div>' +
+    '<div class="sub">Vowels + Consonants</div>' +
+    '</div>' +
+    '</div>';
 }
 
-function openSoundCategory(catIdx) {
-  var cat = state.currentCard.sounds[catIdx];
+function openSoundType(type) {
+  var card = state.currentCard;
   pushBack(function() { openCard(state.currentCardIdx); });
+  if (type === 'ipa') {
+    document.getElementById('detail-title').textContent = '🔤 IPA Sound';
+    document.getElementById('detail-sub').textContent = '20 Vowels + 24 Consonants';
+    document.getElementById('detail-content').innerHTML =
+      '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Category चुनो — Vowel या Consonant</div>' +
+      card.sounds.map(function(cat, i) {
+        return '<div class="sound-category" onclick="openIpaCategory(' + i + ')">' +
+          '<div class="sound-cat-icon">' + cat.icon + '</div>' +
+          '<div class="sound-cat-info">' +
+          '<div class="sound-cat-title">' + cat.title + '</div>' +
+          '<div class="sound-cat-desc">' + cat.items.length + ' sounds with 3 examples each</div>' +
+          '</div>' +
+          '</div>';
+      }).join('');
+  } else {
+    document.getElementById('detail-title').textContent = '🇮🇳 Indian Vowel & Consonant';
+    document.getElementById('detail-sub').textContent = '5 Vowels + 21 Consonants';
+    var indianVowels = [
+      { symbol: 'A', sound: 'ए', examples: ['Apple', 'Ant', 'Aeroplane'] },
+      { symbol: 'E', sound: 'ई', examples: ['Egg', 'Ear', 'Eye'] },
+      { symbol: 'I', sound: 'आइ', examples: ['Ice', 'Ink', 'Iron'] },
+      { symbol: 'O', sound: 'ओ', examples: ['Orange', 'Ox', 'Owl'] },
+      { symbol: 'U', sound: 'यू', examples: ['Umbrella', 'Uncle', 'Urn'] }
+    ];
+    var indianConsonants = [];
+    'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
+      var l = card.letters.find(function(x) { return x.capital === ch; });
+      if (l) indianConsonants.push({ symbol: ch, sound: l.sound, examples: l.examples });
+    });
+    document.getElementById('detail-content').innerHTML =
+      '<div style="text-align:center;margin-bottom:12px;color:#4ade80;font-weight:800;font-size:0.9rem">🅰️ Vowels</div>' +
+      '<div class="letters-grid">' +
+      indianVowels.map(function(item, i) {
+        return '<div class="sound-item" onclick="startIndianGame(\'vowel\', ' + i + ')">' +
+          '<div class="sound-symbol">' + item.symbol + '</div>' +
+          '<div class="sound-desc">' + item.sound + '</div>' +
+          '<div class="sound-example">' + item.examples.join(', ') + '</div>' +
+          '</div>';
+      }).join('') + '</div>' +
+      '<div style="text-align:center;margin:20px 0 12px;color:#60a5fa;font-weight:800;font-size:0.9rem">🅱️ Consonants</div>' +
+      '<div class="letters-grid">' +
+      indianConsonants.map(function(item, i) {
+        return '<div class="sound-item" onclick="startIndianGame(\'consonant\', ' + i + ')">' +
+          '<div class="sound-symbol">' + item.symbol + '</div>' +
+          '<div class="sound-desc">' + item.sound + '</div>' +
+          '<div class="sound-example">' + item.examples.join(', ') + '</div>' +
+          '</div>';
+      }).join('') + '</div>';
+  }
+  window.scrollTo(0, 0);
+}
+
+function openIpaCategory(catIdx) {
+  var cat = state.currentCard.sounds[catIdx];
+  pushBack(function() { openSoundType('ipa'); });
   document.getElementById('detail-title').textContent = cat.icon + ' ' + cat.title;
   document.getElementById('detail-sub').textContent = cat.items.length + ' sounds';
   document.getElementById('detail-content').innerHTML =
     '<div class="letters-grid">' +
     cat.items.map(function(item, i) {
-      var ex = item.examples ? item.examples.slice(0, 3).join(', ') : item.word;
-      return '<div class="sound-item" onclick="startSoundGame(' + catIdx + ', ' + i + ')">' +
+      return '<div class="sound-item" onclick="startIpaGame(' + catIdx + ', ' + i + ')">' +
         '<div class="sound-symbol">' + item.symbol + '</div>' +
         '<div class="sound-desc">' + item.sound + '</div>' +
-        '<div class="sound-example">' + ex + '</div>' +
+        '<div class="sound-example">' + item.examples.join(', ') + '</div>' +
         '</div>';
     }).join('') + '</div>' +
     '<div style="text-align:center;margin-top:20px;padding-bottom:40px">' +
-    '<button class="btn" onclick="startSoundGame(' + catIdx + ', 0)" style="max-width:300px;margin:0 auto">🎮 Practice ' + cat.title + '</button>' +
+    '<button class="btn" onclick="startIpaGame(' + catIdx + ', 0)" style="max-width:300px;margin:0 auto">🎮 Practice ' + cat.title + '</button>' +
     '</div>';
   window.scrollTo(0, 0);
 }
 
-function startSoundGame(catIdx, itemIdx) {
+function startIpaGame(catIdx, itemIdx) {
   var cat = state.currentCard.sounds[catIdx];
   var item = cat.items[itemIdx];
   var ordered = [item].concat(cat.items.filter(function(x) { return x.symbol !== item.symbol; }));
@@ -382,16 +422,50 @@ function startSoundGame(catIdx, itemIdx) {
       emoji: '🔊',
       label: cat.title.toUpperCase(),
       question: '"' + it.symbol + '" का sound क्या है?',
-      hint: 'Examples: ' + (it.examples ? it.examples.join(', ') : it.word),
+      hint: 'Examples: ' + it.examples.join(', '),
       options: shuffle([correct].concat(others.slice(0, 3).map(function(x) { return x.sound; }))),
       answer: correct
     };
   });
-  startGame(questions, '🔊 Sound Practice', cat.title, function() { openSoundCategory(catIdx); });
+  startGame(questions, '🔊 Sound Practice', cat.title, function() { openIpaCategory(catIdx); });
+}
+
+function startIndianGame(kind, idx) {
+  var card = state.currentCard;
+  var allItems = [];
+  if (kind === 'vowel') {
+    allItems = [
+      { symbol: 'A', sound: 'ए', examples: ['Apple', 'Ant', 'Aeroplane'] },
+      { symbol: 'E', sound: 'ई', examples: ['Egg', 'Ear', 'Eye'] },
+      { symbol: 'I', sound: 'आइ', examples: ['Ice', 'Ink', 'Iron'] },
+      { symbol: 'O', sound: 'ओ', examples: ['Orange', 'Ox', 'Owl'] },
+      { symbol: 'U', sound: 'यू', examples: ['Umbrella', 'Uncle', 'Urn'] }
+    ];
+  } else {
+    'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
+      var l = card.letters.find(function(x) { return x.capital === ch; });
+      if (l) allItems.push({ symbol: ch, sound: l.sound, examples: l.examples });
+    });
+  }
+  var item = allItems[idx];
+  var ordered = [item].concat(allItems.filter(function(x) { return x.symbol !== item.symbol; }));
+  var questions = ordered.map(function(it) {
+    var correct = it.sound;
+    var others = allItems.filter(function(x) { return x.sound !== correct; });
+    return {
+      emoji: kind === 'vowel' ? '🅰️' : '🅱️',
+      label: (kind === 'vowel' ? 'VOWEL' : 'CONSONANT') + ' SOUND',
+      question: '"' + it.symbol + '" का sound क्या है?',
+      hint: 'Examples: ' + it.examples.join(', '),
+      options: shuffle([correct].concat(others.slice(0, 3).map(function(x) { return x.sound; }))),
+      answer: correct
+    };
+  });
+  startGame(questions, '🔊 Indian Sound Practice', kind === 'vowel' ? 'Vowels' : 'Consonants', function() { openSoundType('indian'); });
 }
 
 // ═══════════════════════════════════════════════════════════
-// CARD 3: VERBS (V1/V2/V3 side by side)
+// CARD 3: VERBS
 // ═══════════════════════════════════════════════════════════
 function renderVerbs(card) {
   if (!card.groups || card.groups.length === 0) return '<p style="text-align:center;color:#94a3b8">No verbs yet</p>';
@@ -442,11 +516,9 @@ function startVerbPractice() {
   } else {
     card.groups.forEach(function(g) { verbs = verbs.concat(g.verbs); });
   }
-  // Limit to 10 verbs
   verbs = shuffle(verbs).slice(0, 10);
   var questions = [];
   verbs.forEach(function(v) {
-    // V2 question
     var othersV2 = verbs.filter(function(x) { return x.v2 !== v.v2; }).map(function(x) { return x.v2; });
     questions.push({
       emoji: '🔢',
@@ -456,7 +528,6 @@ function startVerbPractice() {
       options: shuffle([v.v2].concat(othersV2.slice(0, 3))),
       answer: v.v2
     });
-    // V3 question
     var othersV3 = verbs.filter(function(x) { return x.v3 !== v.v3; }).map(function(x) { return x.v3; });
     questions.push({
       emoji: '🔢',
@@ -471,7 +542,7 @@ function startVerbPractice() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// CARD 4: BE VERBS (with sentence builder practice)
+// CARD 4: BE VERBS
 // ═══════════════════════════════════════════════════════════
 function renderBeVerbs(card) {
   return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Verb पर click करो — meaning, usage, sentences और practice</div>' +
@@ -494,7 +565,6 @@ function openBeVerbDetail(idx) {
     '<div class="be-verb-meaning">' + v.hi + '</div>' +
     '<div class="be-verb-usage-text">' + v.usage + '</div>' +
     '</div>';
-  // 3 examples: simple, negative, wh
   ['simple', 'negative', 'wh'].forEach(function(type) {
     var label = type === 'simple' ? '✅ Simple' : type === 'negative' ? '❌ Negative' : '❓ WH Question';
     var ex = v.examples[type][0];
@@ -516,7 +586,7 @@ function startBeVerbPractice() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// CARD 5: MODERN VERBS (with sentence builder practice)
+// CARD 5: MODERN VERBS
 // ═══════════════════════════════════════════════════════════
 function renderModernVerbs(card) {
   return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Verb पर click करो — meaning, usage, sentences और practice</div>' +
@@ -561,34 +631,44 @@ function startModernVerbPractice() {
 
 // ═══════════════════════════════════════════════════════════
 // SENTENCE BUILDER GAME (Hindi → English, then English → Hindi)
+// WITH: 2-4 distractor words + retry same question on wrong
 // ═══════════════════════════════════════════════════════════
 function buildSentenceBuilderGame(verb, returnFn) {
-  // Gather all sentences from all 3 categories
   var allSimple = verb.examples.simple || [];
   var allNeg = verb.examples.negative || [];
   var allWh = verb.examples.wh || [];
-  // Pick 5 random (mix) — first 5 Hindi→English
   var hindiToEnglish = shuffle(allSimple.concat(allNeg)).slice(0, 5);
-  // Next 5 English→Hindi
   var englishToHindi = shuffle(allSimple.concat(allWh)).slice(0, 5);
+
+  var allWords = [];  // for distractors
+  allSimple.concat(allNeg).concat(allWh).forEach(function(s) {
+    if (s.words) s.words.forEach(function(w) {
+      var clean = w.toLowerCase().trim();
+      if (allWords.indexOf(clean) === -1) allWords.push(clean);
+    });
+  });
 
   var questions = [];
   hindiToEnglish.forEach(function(s) {
+    var answer = s.words ? s.words.slice() : s.en.split(' ');
+    var distractors = pickDistractors(allWords, answer, 2, 4);
     questions.push({
       mode: 'hindi-to-english',
       hindi: s.hi,
       english: s.en,
-      words: s.words ? shuffle(s.words.slice()) : s.en.split(' '),
-      answer: s.words ? s.words.slice() : s.en.split(' ')
+      words: shuffle(answer.concat(distractors)),
+      answer: answer
     });
   });
   englishToHindi.forEach(function(s) {
+    var answer = s.words ? s.words.slice() : s.en.split(' ');
+    var distractors = pickDistractors(allWords, answer, 2, 4);
     questions.push({
       mode: 'english-to-hindi',
       english: s.en,
       hindi: s.hi,
-      words: s.words ? shuffle(s.words.slice()) : s.en.split(' '),
-      answer: s.words ? s.words.slice() : s.en.split(' ')
+      words: shuffle(answer.concat(distractors)),
+      answer: answer
     });
   });
 
@@ -602,12 +682,23 @@ function buildSentenceBuilderGame(verb, returnFn) {
     returnFn: returnFn
   };
 
-  // Open game page
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('detail-page').classList.remove('active');
   document.getElementById('game-page').classList.add('active');
   renderSentenceBuilderQ();
   window.scrollTo(0, 0);
+}
+
+function pickDistractors(pool, answer, minCount, maxCount) {
+  var lowerAnswer = answer.map(function(w) { return w.toLowerCase().trim(); });
+  var available = pool.filter(function(w) { return lowerAnswer.indexOf(w.toLowerCase()) === -1; });
+  var count = minCount + Math.floor(Math.random() * (maxCount - minCount + 1));
+  var picked = [];
+  var shuffled = shuffle(available);
+  for (var i = 0; i < shuffled.length && picked.length < count; i++) {
+    if (picked.indexOf(shuffled[i]) === -1) picked.push(shuffled[i]);
+  }
+  return picked;
 }
 
 function renderSentenceBuilderQ() {
@@ -623,6 +714,7 @@ function renderSentenceBuilderQ() {
 
   sb.placed = [];
   sb.usedIdx = [];
+  sb.wrongAttempts = 0;
 
   var html = '<div class="game-question">' +
     '<div class="game-label">' + label + '</div>' +
@@ -647,7 +739,6 @@ function renderSBSlotsAndBank() {
 
   if (!slotsEl || !bankEl) return;
 
-  // Slots
   var slotsHtml = '';
   for (var i = 0; i < q.answer.length; i++) {
     var val = sb.placed[i];
@@ -656,13 +747,11 @@ function renderSBSlotsAndBank() {
   }
   slotsEl.innerHTML = slotsHtml;
 
-  // Bank
   bankEl.innerHTML = q.words.map(function(w, i) {
     var used = sb.usedIdx.indexOf(i) > -1;
     return '<div class="word-chip' + (used ? ' used' : '') + '" onclick="placeSBSlot(' + i + ')">' + w + '</div>';
   }).join('');
 
-  // Check if complete
   var complete = sb.placed.length === q.answer.length && sb.placed.every(function(v) { return v; });
   var fb = document.getElementById('sb-feedback');
   var nextBtn = document.getElementById('sb-next');
@@ -675,9 +764,16 @@ function renderSBSlotsAndBank() {
       nextBtn.classList.add('show');
       nextBtn.textContent = sb.idx === sb.questions.length - 1 ? '🏁 Result' : '➡️ Next';
     } else {
+      // Wrong — clear and let user retry (same question)
       fb.style.color = '#f87171';
       fb.textContent = '❌ Order गलत है — फिर कोशिश करो';
-      nextBtn.classList.remove('show');
+      sb.wrongAttempts++;
+      // Reset placed and used after short delay
+      setTimeout(function() {
+        sb.placed = [];
+        sb.usedIdx = [];
+        renderSBSlotsAndBank();
+      }, 900);
     }
   } else {
     fb.textContent = sb.placed.filter(function(x) { return x; }).length + '/' + q.answer.length + ' words placed';
@@ -711,11 +807,8 @@ function nextSentenceBuilder() {
   if (isCorrect) {
     sb.correct++;
     sb.idx++;
-    if (sb.idx >= sb.questions.length) {
-      showSBResult();
-    } else {
-      renderSentenceBuilderQ();
-    }
+    if (sb.idx >= sb.questions.length) showSBResult();
+    else renderSentenceBuilderQ();
   }
 }
 
@@ -743,7 +836,7 @@ function showSBResult() {
 }
 
 // ═══════════════════════════════════════════════════════════
-// MCQ GAME (for letters, sounds, verbs)
+// MCQ GAME (with retry-same-question on wrong)
 // ═══════════════════════════════════════════════════════════
 function startGame(questions, title, sub, returnFn) {
   if (!questions.length) { alert('No questions'); return; }
@@ -791,15 +884,21 @@ function pickAnswer(idx) {
     fb.style.color = '#4ade80';
     fb.textContent = '✅ Correct!';
     state.gameCorrect++;
+    document.getElementById('game-next').classList.add('show');
   } else {
     opts[idx].classList.add('wrong');
-    var correctIdx = q.options.indexOf(q.answer);
-    if (correctIdx >= 0) opts[correctIdx].classList.add('correct');
     fb.style.color = '#f87171';
-    fb.textContent = '❌ Answer: ' + q.answer;
-    state.gameWrong++;
+    fb.textContent = '❌ गलत — फिर कोशिश करो';
+    // Enable retry after 700ms
+    setTimeout(function() {
+      opts.forEach(function(o) {
+        o.classList.remove('wrong', 'correct');
+        o.style.pointerEvents = 'auto';
+      });
+      fb.textContent = '🔄 फिर से try करो';
+      fb.style.color = '#60a5fa';
+    }, 800);
   }
-  document.getElementById('game-next').classList.add('show');
 }
 
 function nextQ() {
