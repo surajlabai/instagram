@@ -1,8 +1,8 @@
-// module1.js — MODULE 1: Foundational English (COMPLETE)
-// Cards 1-5: Letters, IPA Sounds, Verbs, Be Verbs, Modern Verbs
+// module1.js — MODULE 1: Foundational English (NEW)
+// 5 Cards: Letters, IPA Sounds, Verbs A-Z, Be Verbs, Modern Verbs
 
 // ═══════════════════════════════════════════════════════════
-// CARD 1, 2, 3 — Letters, IPA Sounds, Verbs
+// CARD 1, 2, 3 — Letters, IPA Sounds, Verbs A-Z
 // ═══════════════════════════════════════════════════════════
 var MODULE1_CARDS = [
 
@@ -80,9 +80,7 @@ var MODULE1_CARDS = [
     ],
     sounds: [
       {
-        id: 'vowels',
-        title: 'Vowels',
-        icon: '🅰️',
+        id: 'vowels', title: 'Vowels', icon: '🅰️',
         items: [
           { symbol: '/iː/', sound: 'ई (long)', word: 'sheep' },
           { symbol: '/ɪ/', sound: 'इ (short)', word: 'sit' },
@@ -107,9 +105,7 @@ var MODULE1_CARDS = [
         ]
       },
       {
-        id: 'consonants',
-        title: 'Consonants',
-        icon: '🅱️',
+        id: 'consonants', title: 'Consonants', icon: '🅱️',
         items: [
           { symbol: '/p/', sound: 'प', word: 'pen' },
           { symbol: '/b/', sound: 'ब', word: 'book' },
@@ -140,7 +136,7 @@ var MODULE1_CARDS = [
     ]
   },
 
-  // CARD 3: VERBS (A-Z)
+  // CARD 3: VERBS A-Z
   {
     id: 'verbs',
     title: 'Verbs (A-Z)',
@@ -575,7 +571,7 @@ var MODULE1_CARDS = [
 ];
 
 // ═══════════════════════════════════════════════════════════
-// CARD 4 — BE VERBS (is, am, are, was, were, shall be, will be, has, have)
+// CARD 4 — BE VERBS (with examples.simple/negative/wh structure)
 // ═══════════════════════════════════════════════════════════
 var MODULE1_BEVERBS = {
   id: 'beverbs',
@@ -948,7 +944,7 @@ var MODULE1_BEVERBS = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// CARD 5 — MODERN VERBS (can, should, may, might, would, need, dare, must)
+// CARD 5 — MODERN VERBS
 // ═══════════════════════════════════════════════════════════
 var MODULE1_MODERNVERBS = {
   id: 'modernverbs',
