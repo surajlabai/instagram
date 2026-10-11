@@ -179,8 +179,11 @@
   </div>
 </div>
 
-<!-- MODULE LINKS -->
+<!-- MODULE LINKS (Yahan saare modules link kar diye gaye hain) -->
 <script src="module1.js"></script>
+<script src="module2.js"></script>
+<script src="module3.js"></script>
+<script src="module4.js"></script>
 
 <script>
 // ═══════════════════════════════════════════════════════════
@@ -202,16 +205,21 @@ var state = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// COLLECT ALL CARDS
+// COLLECT ALL CARDS (Yahan saare modules ka data collect hota hai)
 // ═══════════════════════════════════════════════════════════
 function getAllCards() {
   var cards = [];
+  // Module 1
   if (typeof MODULE1_CARDS !== 'undefined') cards = cards.concat(MODULE1_CARDS);
   if (typeof MODULE1_BEVERBS !== 'undefined') cards.push(MODULE1_BEVERBS);
   if (typeof MODULE1_MODERNVERBS !== 'undefined') cards.push(MODULE1_MODERNVERBS);
+  // Module 2
   if (typeof MODULE2_CARDS !== 'undefined') cards = cards.concat(MODULE2_CARDS);
+  // Module 3
   if (typeof MODULE3_CARDS !== 'undefined') cards = cards.concat(MODULE3_CARDS);
+  // Module 4
   if (typeof MODULE4_CARDS !== 'undefined') cards = cards.concat(MODULE4_CARDS);
+  // Module 5 (agar future me add karna ho)
   if (typeof MODULE5_CARDS !== 'undefined') cards = cards.concat(MODULE5_CARDS);
   return cards;
 }
