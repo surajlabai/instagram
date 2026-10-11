@@ -2,12 +2,9 @@
 // Cards 1-5 with 3-example structure + sentence builder data
 
 // ═══════════════════════════════════════════════════════════
-// CARDS 1, 2, 3
+// CARD 1 —  LETTERS
 // ═══════════════════════════════════════════════════════════
-var MODULE1_CARDS = [
-
-  // CARD 1: LETTERS
-  {
+var MODULE1_LETTERS = {
     id: 'letters',
     title: 'Letters (A-Z)',
     icon: '🔤',
@@ -43,109 +40,113 @@ var MODULE1_CARDS = [
     ]
   },
 
-  // CARD 2: IPA SOUNDS
-  {
-    id: 'sounds',
-    title: 'IPA Sounds',
-    icon: '🔊',
-    desc: '20 Vowels + 24 Consonants',
-    type: 'sounds',
-    letters: [
-      { capital: 'A', small: 'a', sound: 'ए', examples: ['Apple', 'Ant', 'Aeroplane'] },
-      { capital: 'E', small: 'e', sound: 'ई', examples: ['Egg', 'Ear', 'Eye'] },
-      { capital: 'I', small: 'i', sound: 'आइ', examples: ['Ice', 'Ink', 'Iron'] },
-      { capital: 'O', small: 'o', sound: 'ओ', examples: ['Orange', 'Ox', 'Owl'] },
-      { capital: 'U', small: 'u', sound: 'यू', examples: ['Umbrella', 'Uncle', 'Urn'] },
-      { capital: 'B', small: 'b', sound: 'बी', examples: ['Ball', 'Bat', 'Book'] },
-      { capital: 'C', small: 'c', sound: 'सी', examples: ['Cat', 'Car', 'Cup'] },
-      { capital: 'D', small: 'd', sound: 'डी', examples: ['Dog', 'Doll', 'Door'] },
-      { capital: 'F', small: 'f', sound: 'एफ़', examples: ['Fish', 'Fan', 'Flower'] },
-      { capital: 'G', small: 'g', sound: 'जी', examples: ['Goat', 'Gun', 'Glass'] },
-      { capital: 'H', small: 'h', sound: 'एच', examples: ['Hat', 'Hand', 'Horse'] },
-      { capital: 'J', small: 'j', sound: 'जे', examples: ['Jug', 'Jar', 'Jeep'] },
-      { capital: 'K', small: 'k', sound: 'के', examples: ['Kite', 'Key', 'King'] },
-      { capital: 'L', small: 'l', sound: 'एल', examples: ['Lion', 'Lamp', 'Leaf'] },
-      { capital: 'M', small: 'm', sound: 'एम', examples: ['Moon', 'Man', 'Mango'] },
-      { capital: 'N', small: 'n', sound: 'एन', examples: ['Nest', 'Nose', 'Net'] },
-      { capital: 'P', small: 'p', sound: 'पी', examples: ['Pen', 'Pig', 'Pot'] },
-      { capital: 'Q', small: 'q', sound: 'क्यू', examples: ['Queen', 'Quilt', 'Question'] },
-      { capital: 'R', small: 'r', sound: 'आर', examples: ['Rat', 'Rain', 'Road'] },
-      { capital: 'S', small: 's', sound: 'एस', examples: ['Sun', 'Star', 'Ship'] },
-      { capital: 'T', small: 't', sound: 'टी', examples: ['Tree', 'Table', 'Tiger'] },
-      { capital: 'V', small: 'v', sound: 'वी', examples: ['Van', 'Violin', 'Vase'] },
-      { capital: 'W', small: 'w', sound: 'डब्ल्यू', examples: ['Watch', 'Water', 'Window'] },
-      { capital: 'X', small: 'x', sound: 'एक्स', examples: ['Xylophone', 'X-ray', 'Xerox'] },
-      { capital: 'Y', small: 'y', sound: 'वाय', examples: ['Yak', 'Yam', 'Yarn'] },
-      { capital: 'Z', small: 'z', sound: 'ज़ेड', examples: ['Zebra', 'Zoo', 'Zip'] }
-    ],
-    sounds: [
-      {
-        id: 'vowels', title: 'Vowels', icon: '🅰️',
-        items: [
-          { symbol: '/iː/', sound: 'ई (long)', examples: ['sheep', 'see', 'tree'] },
-          { symbol: '/ɪ/', sound: 'इ (short)', examples: ['sit', 'big', 'fish'] },
-          { symbol: '/e/', sound: 'ए', examples: ['bed', 'pen', 'red'] },
-          { symbol: '/æ/', sound: 'कै', examples: ['cat', 'bat', 'map'] },
-          { symbol: '/ɑː/', sound: 'आ (long)', examples: ['car', 'star', 'far'] },
-          { symbol: '/ɒ/', sound: 'ऑ', examples: ['hot', 'pot', 'dog'] },
-          { symbol: '/ɔː/', sound: 'ओ (long)', examples: ['door', 'four', 'more'] },
-          { symbol: '/ʊ/', sound: 'उ (short)', examples: ['book', 'look', 'good'] },
-          { symbol: '/uː/', sound: 'ऊ (long)', examples: ['food', 'moon', 'school'] },
-          { symbol: '/ʌ/', sound: 'अ', examples: ['cup', 'bus', 'run'] },
-          { symbol: '/ɜː/', sound: 'अर्', examples: ['bird', 'girl', 'word'] },
-          { symbol: '/ə/', sound: 'अ (weak)', examples: ['about', 'sofa', 'banana'] },
-          { symbol: '/eɪ/', sound: 'एइ', examples: ['cake', 'day', 'name'] },
-          { symbol: '/aɪ/', sound: 'आइ', examples: ['bike', 'time', 'fly'] },
-          { symbol: '/ɔɪ/', sound: 'ऑइ', examples: ['boy', 'toy', 'coin'] },
-          { symbol: '/aʊ/', sound: 'आउ', examples: ['house', 'cow', 'now'] },
-          { symbol: '/əʊ/', sound: 'ओउ', examples: ['go', 'home', 'phone'] },
-          { symbol: '/ɪə/', sound: 'इअ', examples: ['here', 'near', 'fear'] },
-          { symbol: '/eə/', sound: 'एअ', examples: ['hair', 'care', 'where'] },
-          { symbol: '/ʊə/', sound: 'उअ', examples: ['tour', 'pure', 'sure'] }
-        ]
-      },
-      {
-        id: 'consonants', title: 'Consonants', icon: '🅱️',
-        items: [
-          { symbol: '/p/', sound: 'प', examples: ['pen', 'pig', 'top'] },
-          { symbol: '/b/', sound: 'ब', examples: ['book', 'bat', 'cab'] },
-          { symbol: '/t/', sound: 'ट', examples: ['tea', 'top', 'cat'] },
-          { symbol: '/d/', sound: 'ड', examples: ['dog', 'day', 'bed'] },
-          { symbol: '/k/', sound: 'क', examples: ['cat', 'key', 'back'] },
-          { symbol: '/g/', sound: 'ग', examples: ['go', 'game', 'bag'] },
-          { symbol: '/f/', sound: 'फ़', examples: ['fish', 'fan', 'leaf'] },
-          { symbol: '/v/', sound: 'व', examples: ['van', 'voice', 'love'] },
-          { symbol: '/θ/', sound: 'थ', examples: ['think', 'thin', 'math'] },
-          { symbol: '/ð/', sound: 'द', examples: ['this', 'that', 'mother'] },
-          { symbol: '/s/', sound: 'स', examples: ['sun', 'see', 'bus'] },
-          { symbol: '/z/', sound: 'ज़', examples: ['zoo', 'zip', 'buzz'] },
-          { symbol: '/ʃ/', sound: 'श', examples: ['she', 'ship', 'wash'] },
-          { symbol: '/ʒ/', sound: 'झ़', examples: ['vision', 'measure', 'beige'] },
-          { symbol: '/h/', sound: 'ह', examples: ['hat', 'hand', 'home'] },
-          { symbol: '/tʃ/', sound: 'च', examples: ['chair', 'church', 'watch'] },
-          { symbol: '/dʒ/', sound: 'ज', examples: ['jam', 'jump', 'bridge'] },
-          { symbol: '/m/', sound: 'म', examples: ['man', 'moon', 'come'] },
-          { symbol: '/n/', sound: 'न', examples: ['no', 'nose', 'sun'] },
-          { symbol: '/ŋ/', sound: 'ङ (नाक)', examples: ['sing', 'ring', 'king'] },
-          { symbol: '/l/', sound: 'ल', examples: ['love', 'lamp', 'ball'] },
-          { symbol: '/r/', sound: 'र', examples: ['red', 'run', 'car'] },
-          { symbol: '/j/', sound: 'य', examples: ['yes', 'you', 'boy'] },
-          { symbol: '/w/', sound: 'व', examples: ['wet', 'win', 'how'] }
-        ]
-      }
-    ]
-  },
+// CARD 2: IPA SOUNDS
+const ipaSoundsCard = {
+  id: 'sounds',
+  title: 'IPA Sounds',
+  icon: '🔊',
+  desc: '20 Vowels + 24 Consonants',
+  type: 'sounds',
+  letters: [
+    { capital: 'A', small: 'a', sound: 'ए', examples: ['Apple', 'Ant', 'Aeroplane'] },
+    { capital: 'E', small: 'e', sound: 'ई', examples: ['Egg', 'Ear', 'Eye'] },
+    { capital: 'I', small: 'i', sound: 'आइ', examples: ['Ice', 'Ink', 'Iron'] },
+    { capital: 'O', small: 'o', sound: 'ओ', examples: ['Orange', 'Ox', 'Owl'] },
+    { capital: 'U', small: 'u', sound: 'यू', examples: ['Umbrella', 'Uncle', 'Urn'] },
+    { capital: 'B', small: 'b', sound: 'बी', examples: ['Ball', 'Bat', 'Book'] },
+    { capital: 'C', small: 'c', sound: 'सी', examples: ['Cat', 'Car', 'Cup'] },
+    { capital: 'D', small: 'd', sound: 'डी', examples: ['Dog', 'Doll', 'Door'] },
+    { capital: 'F', small: 'f', sound: 'एफ़', examples: ['Fish', 'Fan', 'Flower'] },
+    { capital: 'G', small: 'g', sound: 'जी', examples: ['Goat', 'Gun', 'Glass'] },
+    { capital: 'H', small: 'h', sound: 'एच', examples: ['Hat', 'Hand', 'Horse'] },
+    { capital: 'J', small: 'j', sound: 'जे', examples: ['Jug', 'Jar', 'Jeep'] },
+    { capital: 'K', small: 'k', sound: 'के', examples: ['Kite', 'Key', 'King'] },
+    { capital: 'L', small: 'l', sound: 'एल', examples: ['Lion', 'Lamp', 'Leaf'] },
+    { capital: 'M', small: 'm', sound: 'एम', examples: ['Moon', 'Man', 'Mango'] },
+    { capital: 'N', small: 'n', sound: 'एन', examples: ['Nest', 'Nose', 'Net'] },
+    { capital: 'P', small: 'p', sound: 'पी', examples: ['Pen', 'Pig', 'Pot'] },
+    { capital: 'Q', small: 'q', sound: 'क्यू', examples: ['Queen', 'Quilt', 'Question'] },
+    { capital: 'R', small: 'r', sound: 'आर', examples: ['Rat', 'Rain', 'Road'] },
+    { capital: 'S', small: 's', sound: 'एस', examples: ['Sun', 'Star', 'Ship'] },
+    { capital: 'T', small: 't', sound: 'टी', examples: ['Tree', 'Table', 'Tiger'] },
+    { capital: 'V', small: 'v', sound: 'वी', examples: ['Van', 'Violin', 'Vase'] },
+    { capital: 'W', small: 'w', sound: 'डब्ल्यू', examples: ['Watch', 'Water', 'Window'] },
+    { capital: 'X', small: 'x', sound: 'एक्स', examples: ['Xylophone', 'X-ray', 'Xerox'] },
+    { capital: 'Y', small: 'y', sound: 'वाय', examples: ['Yak', 'Yam', 'Yarn'] },
+    { capital: 'Z', small: 'z', sound: 'ज़ेड', examples: ['Zebra', 'Zoo', 'Zip'] }
+  ],
+  sounds: [
+    {
+      id: 'vowels', 
+      title: 'Vowels', 
+      icon: '🅰️',
+      items: [
+        { symbol: '/iː/', sound: 'ई (long)', examples: ['sheep', 'see', 'tree'] },
+        { symbol: '/ɪ/', sound: 'इ (short)', examples: ['sit', 'big', 'fish'] },
+        { symbol: '/e/', sound: 'ए', examples: ['bed', 'pen', 'red'] },
+        { symbol: '/æ/', sound: 'कै', examples: ['cat', 'bat', 'map'] },
+        { symbol: '/ɑː/', sound: 'आ (long)', examples: ['car', 'star', 'far'] },
+        { symbol: '/ɒ/', sound: 'ऑ', examples: ['hot', 'pot', 'dog'] },
+        { symbol: '/ɔː/', sound: 'ओ (long)', examples: ['door', 'four', 'more'] },
+        { symbol: '/ʊ/', sound: 'उ (short)', examples: ['book', 'look', 'good'] },
+        { symbol: '/uː/', sound: 'ऊ (long)', examples: ['food', 'moon', 'school'] },
+        { symbol: '/ʌ/', sound: 'अ', examples: ['cup', 'bus', 'run'] },
+        { symbol: '/ɜː/', sound: 'अर्', examples: ['bird', 'girl', 'word'] },
+        { symbol: '/ə/', sound: 'अ (weak)', examples: ['about', 'sofa', 'banana'] },
+        { symbol: '/eɪ/', sound: 'एइ', examples: ['cake', 'day', 'name'] },
+        { symbol: '/aɪ/', sound: 'आइ', examples: ['bike', 'time', 'fly'] },
+        { symbol: '/ɔɪ/', sound: 'ऑइ', examples: ['boy', 'toy', 'coin'] },
+        { symbol: '/aʊ/', sound: 'आउ', examples: ['house', 'cow', 'now'] },
+        { symbol: '/əʊ/', sound: 'ओउ', examples: ['go', 'home', 'phone'] },
+        { symbol: '/ɪə/', sound: 'इअ', examples: ['here', 'near', 'fear'] },
+        { symbol: '/eə/', sound: 'एअ', examples: ['hair', 'care', 'where'] },
+        { symbol: '/ʊə/', sound: 'उअ', examples: ['tour', 'pure', 'sure'] }
+      ]
+    },
+    {
+      id: 'consonants', 
+      title: 'Consonants', 
+      icon: '🅱️',
+      items: [
+        { symbol: '/p/', sound: 'प', examples: ['pen', 'pig', 'top'] },
+        { symbol: '/b/', sound: 'ब', examples: ['book', 'bat', 'cab'] },
+        { symbol: '/t/', sound: 'ट', examples: ['tea', 'top', 'cat'] },
+        { symbol: '/d/', sound: 'ड', examples: ['dog', 'day', 'bed'] },
+        { symbol: '/k/', sound: 'क', examples: ['cat', 'key', 'back'] },
+        { symbol: '/g/', sound: 'ग', examples: ['go', 'game', 'bag'] },
+        { symbol: '/f/', sound: 'फ़', examples: ['fish', 'fan', 'leaf'] },
+        { symbol: '/v/', sound: 'व', examples: ['van', 'voice', 'love'] },
+        { symbol: '/θ/', sound: 'थ', examples: ['think', 'thin', 'math'] },
+        { symbol: '/ð/', sound: 'द', examples: ['this', 'that', 'mother'] },
+        { symbol: '/s/', sound: 'स', examples: ['sun', 'see', 'bus'] },
+        { symbol: '/z/', sound: 'ज़', examples: ['zoo', 'zip', 'buzz'] },
+        { symbol: '/ʃ/', sound: 'श', examples: ['she', 'ship', 'wash'] },
+        { symbol: '/ʒ/', sound: 'झ़', examples: ['vision', 'measure', 'beige'] },
+        { symbol: '/h/', sound: 'ह', examples: ['hat', 'hand', 'home'] },
+        { symbol: '/tʃ/', sound: 'च', examples: ['chair', 'church', 'watch'] },
+        { symbol: '/dʒ/', sound: 'ज', examples: ['jam', 'jump', 'bridge'] },
+        { symbol: '/m/', sound: 'म', examples: ['man', 'moon', 'come'] },
+        { symbol: '/n/', sound: 'न', examples: ['no', 'nose', 'sun'] },
+        { symbol: '/ŋ/', sound: 'ङ (नाक)', examples: ['sing', 'ring', 'king'] },
+        { symbol: '/l/', sound: 'ल', examples: ['love', 'lamp', 'ball'] },
+        { symbol: '/r/', sound: 'र', examples: ['red', 'run', 'car'] },
+        { symbol: '/j/', sound: 'य', examples: ['yes', 'you', 'boy'] },
+        { symbol: '/w/', sound: 'व', examples: ['wet', 'win', 'how'] }
+      ]
+    }
+  ]
+};
 
-  // CARD 3: VERBS A-Z
-  {
-    id: 'verbs',
-    title: 'Verbs (A-Z)',
-    icon: '⚡',
-    desc: 'A-Z verbs with V1, V2, V3 side by side',
-    type: 'verbs',
-    groups: [
+// CARD 3: VERBS A-Z
+const verbsCard = {
+  id: 'verbs',
+  title: 'Verbs (A-Z)',
+  icon: '⚡',
+  desc: 'A-Z verbs with V1, V2, V3 side by side',
+  type: 'verbs',
+  groups:
       { letter: 'A', verbs: [
-        { v1: 'abandon', v2: 'abandoned', v3: 'abandoned', hi: 'छोड़ देना' },
+{ v1: 'abandon', v2: 'abandoned', v3: 'abandoned', hi: 'छोड़ देना' },
 { v1: 'abase', v2: 'abased', v3: 'abased', hi: 'अपमानित करना' },
 { v1: 'abate', v2: 'abated', v3: 'abated', hi: 'कम करना' },
 { v1: 'abbreviate', v2: 'abbreviated', v3: 'abbreviated', hi: 'संक्षिप्त करना' },
@@ -415,9 +416,10 @@ var MODULE1_CARDS = [
 { v1: 'awake', v2: 'awaked', v3: 'awaked', hi: 'जागना' },
 { v1: 'ax', v2: 'axed', v3: 'axed', hi: 'कुल्हाड़ी से काटना' },
 { v1: 'axiomatize', v2: 'axiomatized', v3: 'axiomatized', hi: 'स्वयंसिद्ध बनाना' }
-      ]},
+]},
+  groups:
       { letter: 'B', verbs: [
-        { v1: 'babble', v2: 'babbled', v3: 'babbled', hi: 'बड़बड़ाना' },
+{ v1: 'babble', v2: 'babbled', v3: 'babbled', hi: 'बड़बड़ाना' },
 { v1: 'baby', v2: 'babied', v3: 'babied', hi: 'बच्चे की तरह देखभाल करना' },
 { v1: 'baby-sit', v2: 'baby-sat', v3: 'baby-sat', hi: 'बच्चों की देखभाल करना' },
 { v1: 'back', v2: 'backed', v3: 'backed', hi: 'समर्थन करना' },
@@ -843,6 +845,7 @@ var MODULE1_CARDS = [
 { v1: 'bypass', v2: 'bypassed', v3: 'bypassed', hi: 'बचकर निकलना' },
 { v1: 'byte', v2: 'byted', v3: 'byted', hi: 'काटना' }
       ]},
+     groups:
       { letter: 'C', verbs: [
         { v1: 'cabbage', v2: 'cabbaged', v3: 'cabbaged', hi: 'चुराना' },
 { v1: 'cabin', v2: 'cabined', v3: 'cabined', hi: 'कमरे में रखना' },
@@ -1367,8 +1370,9 @@ var MODULE1_CARDS = [
 { v1: 'cycle', v2: 'cycled', v3: 'cycled', hi: 'साइकिल चलाना' },
 { v1: 'cypher', v2: 'cyphered', v3: 'cyphered', hi: 'कूट लिखना' }
       ]},
-      { letter: 'D', verbs: [
-        { v1: 'dab', v2: 'dabbed', v3: 'dabbed', hi: 'थपथपाना' },
+      groups:
+      { letter: 'A', verbs: [
+{ v1: 'dab', v2: 'dabbed', v3: 'dabbed', hi: 'थपथपाना' },
 { v1: 'dabble', v2: 'dabbled', v3: 'dabbled', hi: 'थोड़ा-थोड़ा करना' },
 { v1: 'dad', v2: 'dadded', v3: 'dadded', hi: 'पिता बनना' },
 { v1: 'daddle', v2: 'daddled', v3: 'daddled', hi: 'धीरे चलना' },
@@ -1402,7 +1406,6 @@ var MODULE1_CARDS = [
 { v1: 'deacon', v2: 'deaconed', v3: 'deaconed', hi: 'धर्मोपदेशक बनना' },
 { v1: 'deactivate', v2: 'deactivated', v3: 'deactivated', hi: 'निष्क्रिय करना' },
 { v1: 'deaden', v2: 'deadened', v3: 'deadened', hi: 'सुन्न करना' },
-{ v1: 'deadhead', v2: 'deadheaded', v3: 'deadheaded', hi: 'मृत पुष्प हटाना' },
 { v1: 'deafen', v2: 'deafened', v3: 'deafened', hi: 'बहरा करना' },
 { v1: 'deal', v2: 'dealt', v3: 'dealt', hi: 'सौदा करना' },
 { v1: 'dear', v2: 'deared', v3: 'deared', hi: 'प्रिय बनाना' },
@@ -1683,7 +1686,6 @@ var MODULE1_CARDS = [
 { v1: 'disbud', v2: 'disbudded', v3: 'disbudded', hi: 'कली हटाना' },
 { v1: 'disburden', v2: 'disburdened', v3: 'disburdened', hi: 'बोझ हटाना' },
 { v1: 'disburse', v2: 'disbursed', v3: 'disbursed', hi: 'भुगतान करना' },
-{ v1: 'discard', v2: 'discarded', v3: 'discarded', hi: 'फेंक देना' },
 { v1: 'discern', v2: 'discerned', v3: 'discerned', hi: 'पहचानना' },
 { v1: 'discharge', v2: 'discharged', v3: 'discharged', hi: 'मुक्त करना' },
 { v1: 'discipline', v2: 'disciplined', v3: 'disciplined', hi: 'अनुशासित करना' },
@@ -1903,6 +1905,7 @@ var MODULE1_CARDS = [
 { v1: 'dynamite', v2: 'dynamited', v3: 'dynamited', hi: 'विस्फोट करना' },
 { v1: 'dysfunction', v2: 'dysfunctioned', v3: 'dysfunctioned', hi: 'खराबी होना' }
       ]},
+      groups:
       { letter: 'E', verbs: [
         { v1: 'earn', v2: 'earned', v3: 'earned', hi: 'कमाना' },
 { v1: 'earmark', v2: 'earmarked', v3: 'earmarked', hi: 'निर्धारित करना' },
@@ -2204,7 +2207,8 @@ var MODULE1_CARDS = [
 { v1: 'exuviate', v2: 'exuviated', v3: 'exuviated', hi: 'केंचुल छोड़ना' },
 { v1: 'eyeball', v2: 'eyeballed', v3: 'eyeballed', hi: 'घूरना' }
       ]},
-            { letter: 'F', verbs: [
+           groups:
+      { letter: 'F', verbs: [
         { v1: 'face', v2: 'faced', v3: 'faced', hi: 'सामना करना' },
         { v1: 'facilitate', v2: 'facilitated', v3: 'facilitated', hi: 'आसान बनाना' },
         { v1: 'fade', v2: 'faded', v3: 'faded', hi: 'फीका पड़ना / मुरझाना' },
@@ -2466,11 +2470,10 @@ var MODULE1_CARDS = [
         { v1: 'futz', v2: 'futzed', v3: 'futzed', hi: 'समय बर्बाद करना / छेड़छाड़ करना' },
         { v1: 'fuzz', v2: 'fuzzed', v3: 'fuzzed', hi: 'धुंधला करना / रोएं उठाना' }
       ]},
-      ]},
-           { letter: 'G', verbs: [
+       groups:
+      { letter: 'G', verbs: [
         { v1: 'gab', v2: 'gabbed', v3: 'gabbed', hi: 'बकवास करना / गपशप करना' },
-        { v1: 'gad', v2: 'gadded', v3: 'gadded', hi: 'इधर-उधर घूमना' },
-        { v1: 'gag', v2: 'gagged', v3: 'gagged', hi: 'मुंह बंद करना / उल्टी का मन होना' },
+        
         { v1: 'gain', v2: 'gained', v3: 'gained', hi: 'प्राप्त करना / लाभ कमाना' },
         { v1: 'gainsay', v2: 'gainsaid', v3: 'gainsaid', hi: 'विरोध करना / अस्वीकार करना' },
         { v1: 'gallop', v2: 'galloped', v3: 'galloped', hi: 'सरपट दौड़ना (घोड़े का)' },
@@ -2602,7 +2605,8 @@ var MODULE1_CARDS = [
         { v1: 'gyp', v2: 'gypped', v3: 'gypped', hi: 'ठगना / धोखा देना' },
         { v1: 'gyrate', v2: 'gyrated', v3: 'gyrated', hi: 'चक्कर काटना / घूमना' }
       ]},
-           { letter: 'H', verbs: [
+           groups:
+      { letter: 'H', verbs: [
         { v1: 'habituate', v2: 'habituated', v3: 'habituated', hi: 'आदत डालना' },
         { v1: 'hack', v2: 'hacked', v3: 'hacked', hi: 'काटना / हैक करना' },
         { v1: 'hail', v2: 'hailed', v3: 'hailed', hi: 'ओले गिरना / जयकार करना' },
@@ -2906,7 +2910,8 @@ var MODULE1_CARDS = [
         { v1: 'itemize', v2: 'itemized', v3: 'itemized', hi: 'मदवार सूची बनाना' },
         { v1: 'iterate', v2: 'iterated', v3: 'iterated', hi: 'बार-बार दोहराना' }
       ]},
-           { letter: 'J', verbs: [
+
+        { letter: 'J', verbs: [
         { v1: 'jab', v2: 'jabbed', v3: 'jabbed', hi: 'चुभाना / मुक्का मारना' },
         { v1: 'jabber', v2: 'jabbered', v3: 'jabbered', hi: 'जल्दी-जल्दी बड़बड़ाना' },
         { v1: 'jail', v2: 'jailed', v3: 'jailed', hi: 'कैद करना / जेल भेजना' },
@@ -2956,7 +2961,8 @@ var MODULE1_CARDS = [
         { v1: 'jut', v2: 'jutted', v3: 'jutted', hi: 'बाहर की ओर निकला होना' },
         { v1: 'juxtapose', v2: 'juxtaposed', v3: 'juxtaposed', hi: 'तुलना के लिए पास-पास रखना' }
       ]},
-            { letter: 'K', verbs: [
+            
+      { letter: 'K', verbs: [
         { v1: 'kalsomine', v2: 'kalsomined', v3: 'kalsomined', hi: 'सफेदी करना / चूना पोतना' },
         { v1: 'kangaroo', v2: 'kangarooed', v3: 'kangarooed', hi: 'कंगारू का शिकार करना' },
         { v1: 'kart', v2: 'karted', v3: 'karted', hi: 'गो-कार्ट चलाना' },
@@ -3058,7 +3064,8 @@ var MODULE1_CARDS = [
         { v1: 'kyte', v2: 'kyted', v3: 'kyted', hi: 'पेट भरना (स्कॉटिश शब्द)' },
         { v1: 'kythe', v2: 'kythed', v3: 'kythed', hi: 'प्रकट करना / सामने लाना' }
       ]},
-           { letter: 'L', verbs: [
+          
+      { letter: 'L', verbs: [
         { v1: 'label', v2: 'labeled', v3: 'labeled', hi: 'लेबल लगाना / नाम देना' },
         { v1: 'labor', v2: 'labored', v3: 'labored', hi: 'मेहनत करना' },
         { v1: 'lace', v2: 'laced', v3: 'laced', hi: 'फीता बांधना' },
@@ -3186,7 +3193,8 @@ var MODULE1_CARDS = [
         { v1: 'luxuriate', v2: 'luxuriated', v3: 'luxuriated', hi: 'विलासिता का आनंद लेना' },
         { v1: 'lynch', v2: 'lynched', v3: 'lynched', hi: 'बिना मुकदमे के भीड़ द्वारा मार डालना' }
       ]},
-           { letter: 'M', verbs: [
+          
+      { letter: 'M', verbs: [
         { v1: 'macerate', v2: 'macerated', v3: 'macerated', hi: 'भिगोकर नरम करना' },
         { v1: 'machine', v2: 'machined', v3: 'machined', hi: 'मशीन से बनाना या काटना' },
         { v1: 'madden', v2: 'maddened', v3: 'maddened', hi: 'पागल कर देना / गुस्सा दिलाना' },
@@ -3358,7 +3366,8 @@ var MODULE1_CARDS = [
         { v1: 'mystify', v2: 'mystified', v3: 'mystified', hi: 'रहस्यमय बनाना / उलझन में डालना' },
         { v1: 'mythicize', v2: 'mythicized', v3: 'mythicized', hi: 'पौराणिक कथाओं में बदलना' }
       ]},
-            { letter: 'N', verbs: [
+groups:
+      { letter: 'N', verbs: [
         { v1: 'nab', v2: 'nabbed', v3: 'nabbed', hi: 'दबोचना / रंगे हाथों पकड़ना' },
         { v1: 'nag', v2: 'nagged', v3: 'nagged', hi: 'दोष निकालना / पीछे पड़ना' },
         { v1: 'nail', v2: 'nailed', v3: 'nailed', hi: 'कील ठोकना / पकड़ लेना' },
