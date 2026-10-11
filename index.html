@@ -13,17 +13,15 @@
   .header h1 { font-size: 2rem; color: #60a5fa; margin-bottom: 8px; }
   .header p { color: #94a3b8; }
   .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 30px; }
-  .card { background: #131828; border: 1px solid #1e293b; border-radius: 16px; padding: 24px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+  .card { background: #131828; border: 1px solid #1e293b; border-radius: 16px; padding: 24px; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
   .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #60a5fa, #a78bfa); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
   .card:hover::before { transform: scaleX(1); }
   .card:hover { border-color: #60a5fa; transform: translateY(-6px); box-shadow: 0 20px 40px rgba(96,165,250,0.15); }
-  .card-icon { font-size: 2rem; margin-bottom: 12px; transition: transform 0.3s; }
-  .card:hover .card-icon { transform: scale(1.15) rotate(-5deg); }
+  .card-icon { font-size: 2rem; margin-bottom: 12px; }
   .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
   .card-desc { font-size: 0.85rem; color: #94a3b8; line-height: 1.5; }
   .card.disabled { opacity: 0.5; cursor: not-allowed; }
-  .card.disabled:hover { border-color: #1e293b; transform: none; box-shadow: none; }
-  .card.disabled:hover::before { transform: scaleX(0); }
+  .card.disabled:hover { border-color: #1e293b; transform: none; }
   .badge { display: inline-block; background: #1e293b; color: #94a3b8; font-size: 0.7rem; padding: 4px 10px; border-radius: 20px; margin-top: 10px; font-weight: 700; }
   .badge.ready { background: linear-gradient(135deg, #064e3b, #065f46); color: #4ade80; }
 
@@ -43,13 +41,11 @@
   .list-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
   .list-sub { font-size: 0.8rem; color: #94a3b8; }
 
-  .topic-item { background: linear-gradient(135deg, #131828, #1a2035); border: 2px solid #1e293b; border-radius: 16px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 16px; position: relative; overflow: hidden; }
-  .topic-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at left, rgba(96,165,250,0.1), transparent 60%); opacity: 0; transition: opacity 0.3s; }
-  .topic-item:hover::before { opacity: 1; }
+  .topic-item { background: linear-gradient(135deg, #131828, #1a2035); border: 2px solid #1e293b; border-radius: 16px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 16px; }
   .topic-item:hover { border-color: #60a5fa; transform: translateX(6px); }
   .topic-icon { font-size: 1.8rem; width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, #1e3a5f, #2a1a4a); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s; }
   .topic-item:hover .topic-icon { transform: scale(1.1) rotate(-5deg); }
-  .topic-info { flex: 1; position: relative; z-index: 1; }
+  .topic-info { flex: 1; }
   .topic-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
   .topic-intro { font-size: 0.82rem; color: #94a3b8; }
   .topic-count { font-size: 0.72rem; color: #4ade80; font-weight: 700; margin-top: 6px; }
@@ -58,76 +54,101 @@
   .topic-item.color-green .topic-icon { background: linear-gradient(135deg, #064e3b, #065f46); }
   .topic-item.color-purple .topic-icon { background: linear-gradient(135deg, #4c1d95, #7c3aed); }
   .topic-item.color-orange .topic-icon { background: linear-gradient(135deg, #7c2d12, #ea580c); }
-  .topic-item.color-pink .topic-icon { background: linear-gradient(135deg, #831843, #db2777); }
-  .topic-item.color-yellow .topic-icon { background: linear-gradient(135deg, #78350f, #d97706); }
-  .topic-item.color-red .topic-icon { background: linear-gradient(135deg, #7f1d1d, #dc2626); }
-  .topic-item.color-cyan .topic-icon { background: linear-gradient(135deg, #164e63, #0891b2); }
 
-  .lesson-card { background: #131828; border: 1px solid #1e293b; border-radius: 14px; padding: 20px; margin-bottom: 16px; transition: all 0.3s; }
-  .lesson-card:hover { border-color: #334155; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+  .lesson-card { background: #131828; border: 1px solid #1e293b; border-radius: 14px; padding: 20px; margin-bottom: 16px; }
   .lesson-title { font-size: 1.1rem; font-weight: 800; color: #60a5fa; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #1e293b; display: flex; align-items: center; gap: 10px; }
   .lesson-title .step-num { background: linear-gradient(135deg, #60a5fa, #a78bfa); color: #0a0e1a; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 900; }
   .lesson-content { font-size: 0.92rem; color: #cbd5e1; line-height: 1.8; }
-  .lesson-content p { margin-bottom: 8px; }
 
   .structure-box { background: linear-gradient(135deg, #0f1420, #1a2035); border-left: 4px solid #a78bfa; border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
-  .structure-label { font-size: 0.7rem; color: #a78bfa; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; margin-bottom: 6px; }
   .structure-text { font-size: 1rem; color: #fff; font-weight: 700; font-family: 'Courier New', monospace; }
 
-  .example-row { background: linear-gradient(135deg, #0f1420, #131828); border: 1px solid #1e293b; border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; transition: all 0.2s; position: relative; overflow: hidden; }
-  .example-row::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 3px; background: linear-gradient(180deg, #60a5fa, #a78bfa); transform: scaleY(0); transition: transform 0.3s; transform-origin: top; }
-  .example-row:hover::before { transform: scaleY(1); }
-  .example-row:hover { border-color: #60a5fa; background: #1a2035; }
+  .example-row { background: linear-gradient(135deg, #0f1420, #131828); border: 1px solid #1e293b; border-radius: 10px; padding: 12px 16px; margin-bottom: 8px; }
   .example-en { font-size: 0.95rem; color: #fff; font-weight: 700; margin-bottom: 4px; }
   .example-hi { font-size: 0.85rem; color: #94a3b8; }
+  .example-note { font-size: 0.78rem; color: #a78bfa; margin-top: 6px; font-style: italic; }
 
   .forms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 14px 0; }
-  .form-card { background: linear-gradient(135deg, #0f1420, #1a2035); border: 1px solid #1e293b; border-radius: 10px; padding: 12px 14px; transition: all 0.2s; }
-  .form-card:hover { border-color: #a78bfa; transform: translateY(-2px); }
+  .form-card { background: linear-gradient(135deg, #0f1420, #1a2035); border: 1px solid #1e293b; border-radius: 10px; padding: 12px 14px; }
   .form-type { font-size: 0.7rem; color: #a78bfa; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-bottom: 6px; }
   .form-formula { font-size: 0.82rem; color: #fbbf24; font-weight: 700; font-family: 'Courier New', monospace; margin-bottom: 6px; }
   .form-example { font-size: 0.82rem; color: #cbd5e1; font-style: italic; }
+  .form-explain { font-size: 0.72rem; color: #94a3b8; margin-top: 4px; }
 
   .practice-btn-wrap { text-align: center; margin: 24px 0 40px; }
   .practice-btn { padding: 16px 40px; background: linear-gradient(135deg, #60a5fa, #a78bfa); border: none; color: #fff; font-size: 1rem; font-weight: 800; border-radius: 14px; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(96,165,250,0.3); }
   .practice-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(96,165,250,0.5); }
 
+  /* PRACTICE MENU */
+  .practice-menu { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 20px 0; }
+  .practice-level-btn { background: linear-gradient(135deg, #131828, #1a2035); border: 2px solid #1e293b; border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 16px; text-align: left; color: #fff; }
+  .practice-level-btn:hover { transform: translateX(6px); }
+  .practice-level-btn.basic { border-left: 4px solid #4ade80; }
+  .practice-level-btn.basic:hover { border-color: #4ade80; background: linear-gradient(135deg, #1a3a1a, #064e3b); }
+  .practice-level-btn.hard { border-left: 4px solid #fbbf24; }
+  .practice-level-btn.hard:hover { border-color: #fbbf24; background: linear-gradient(135deg, #3a2a10, #78350f); }
+  .practice-level-btn.advance { border-left: 4px solid #f472b6; }
+  .practice-level-btn.advance:hover { border-color: #f472b6; background: linear-gradient(135deg, #3a1a2a, #831843); }
+  .practice-level-icon { font-size: 1.8rem; width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: #0f1420; }
+  .practice-level-info { flex: 1; }
+  .practice-level-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+  .practice-level-desc { font-size: 0.82rem; color: #94a3b8; }
+
+  /* GAME */
   .game-page { display: none; }
   .game-page.active { display: block; animation: fadeSlide 0.4s ease; }
   .game-progress { background: #131828; border-radius: 100px; height: 8px; margin-bottom: 20px; overflow: hidden; }
-  .game-progress-fill { background: linear-gradient(90deg, #60a5fa, #a78bfa); height: 100%; width: 0; transition: width 0.4s; border-radius: 100px; }
+  .game-progress-fill { background: linear-gradient(90deg, #60a5fa, #a78bfa); height: 100%; width: 0; transition: width 0.4s; }
   .game-question { background: #131828; border: 1px solid #334155; border-radius: 20px; padding: 30px 24px; text-align: center; margin-bottom: 20px; }
   .game-label { font-size: 0.7rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; font-weight: 800; }
   .game-question-text { font-size: 1.3rem; font-weight: 800; line-height: 1.5; margin-bottom: 8px; }
   .game-options { display: flex; flex-direction: column; gap: 10px; }
   .game-option { background: #131828; border: 2px solid #1e293b; border-radius: 14px; padding: 16px 20px; cursor: pointer; transition: all 0.25s; font-size: 1rem; font-weight: 700; text-align: left; color: #fff; display: flex; align-items: center; gap: 12px; }
   .game-option:hover { border-color: #60a5fa; transform: translateX(6px); }
-  .game-option.correct { border-color: #4ade80; background: linear-gradient(135deg, #1a3a1a, #064e3b); color: #4ade80; animation: pulse 0.5s; }
-  .game-option.wrong { border-color: #f87171; background: linear-gradient(135deg, #3a1a1a, #7f1d1d); color: #f87171; animation: shake 0.5s; }
-  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-  @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
+  .game-option.correct { border-color: #4ade80; background: #1a3a1a; color: #4ade80; }
+  .game-option.wrong { border-color: #f87171; background: #3a1a1a; color: #f87171; }
   .game-option-letter { width: 32px; height: 32px; border-radius: 8px; background: #1e293b; display: flex; align-items: center; justify-content: center; font-weight: 900; flex-shrink: 0; }
 
-  .game-feedback { text-align: center; font-size: 1rem; font-weight: 800; margin: 16px 0; min-height: 24px; }
-  .game-next { width: 100%; padding: 16px; background: linear-gradient(135deg, #60a5fa, #a78bfa); border: none; color: #fff; font-size: 1rem; font-weight: 800; border-radius: 14px; cursor: pointer; display: none; transition: all 0.3s; }
+  /* WORD BUILDER GAME (Hard/Advance) */
+  .wb-prompt { background: linear-gradient(135deg, #0f1420, #1a2035); border: 2px solid #334155; border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 16px; }
+  .wb-prompt-label { font-size: 0.72rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; margin-bottom: 10px; }
+  .wb-prompt-text { font-size: 1.4rem; font-weight: 800; color: #fff; line-height: 1.5; }
+  .wb-slots { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 60px; padding: 16px; background: #0f1420; border-radius: 14px; border: 2px dashed #334155; margin-bottom: 16px; }
+  .wb-slot { min-width: 60px; padding: 10px 16px; background: #1e293b; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+  .wb-slot:hover { background: #334155; }
+  .wb-slot.filled { background: linear-gradient(135deg, #60a5fa, #a78bfa); color: #0a0e1a; }
+  .wb-slot.filled:hover { transform: scale(1.05); }
+  .wb-slot.correct { background: #4ade80; color: #0a0e1a; }
+  .wb-slot.wrong { background: #f87171; color: #fff; }
+
+  .wb-bank { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 16px; }
+  .wb-word { padding: 12px 18px; background: #1e293b; border: 2px solid #334155; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+  .wb-word:hover { border-color: #60a5fa; transform: translateY(-3px); }
+  .wb-word.used { opacity: 0.25; pointer-events: none; }
+
+  .wb-feedback { text-align: center; font-size: 1rem; font-weight: 800; margin: 16px 0; min-height: 24px; }
+  .wb-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+  .wb-btn { padding: 14px; border-radius: 12px; border: none; font-size: 0.95rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
+  .wb-btn.check { background: linear-gradient(135deg, #4ade80, #22c55e); color: #0a0e1a; }
+  .wb-btn.clear { background: #1e293b; color: #fff; }
+  .wb-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .wb-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .game-next { width: 100%; padding: 16px; background: linear-gradient(135deg, #60a5fa, #a78bfa); border: none; color: #fff; font-size: 1rem; font-weight: 800; border-radius: 14px; cursor: pointer; display: none; margin-top: 12px; }
   .game-next.show { display: block; }
 
   .result-card { background: #131828; border: 1px solid #334155; border-radius: 20px; padding: 40px 24px; text-align: center; }
-  .result-emoji { font-size: 4rem; margin-bottom: 16px; animation: bounce 0.6s; }
-  @keyframes bounce { 0% { transform: scale(0); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+  .result-emoji { font-size: 4rem; margin-bottom: 16px; }
   .result-title { font-size: 1.8rem; font-weight: 900; margin-bottom: 8px; color: #60a5fa; }
   .result-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
   .result-stat { background: #0f1420; border-radius: 12px; padding: 16px; }
   .result-stat-value { font-size: 1.6rem; font-weight: 900; color: #60a5fa; }
   .result-stat-label { font-size: 0.75rem; color: #94a3b8; margin-top: 4px; text-transform: uppercase; }
 
-  .btn { width: 100%; padding: 14px; border-radius: 12px; background: linear-gradient(135deg, #60a5fa, #a78bfa); border: none; color: #fff; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-bottom: 10px; transition: all 0.2s; }
+  .btn { width: 100%; padding: 14px; border-radius: 12px; background: linear-gradient(135deg, #60a5fa, #a78bfa); border: none; color: #fff; font-size: 0.95rem; font-weight: 800; cursor: pointer; margin-bottom: 10px; }
   .btn.sec { background: #1e293b; }
-  .btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
   .empty-state { text-align: center; padding: 60px 20px; color: #4a5568; }
-  .empty-icon { font-size: 3rem; margin-bottom: 14px; opacity: 0.5; }
-  .empty-text { font-size: 0.9rem; line-height: 1.6; }
 
   @media (max-width: 640px) {
     .header h1 { font-size: 1.5rem; }
@@ -179,9 +200,7 @@
 <script src="module5.js" onerror="handleLoadError('module5.js')"></script>
 
 <script>
-function handleLoadError(filename) {
-  console.warn("⚠️ " + filename + " load nahi ho payi.");
-}
+function handleLoadError(f) { console.warn("⚠️ " + f + " load nahi ho payi."); }
 
 var state = {
   currentModuleId: null,
@@ -199,7 +218,7 @@ var state = {
   gameWrong: 0,
   gameReturnFn: null,
   backStack: [],
-  sentenceBuilder: null
+  wordBuilder: null
 };
 
 var MODULE_DEFS = [
@@ -213,19 +232,16 @@ var MODULE_DEFS = [
 function getCardsForModule(moduleId) {
   var num = moduleId.replace('module', '');
   var cards = [];
-
   var lettersVar = window['MODULE' + num + '_LETTERS'];
   var soundsVar  = window['MODULE' + num + '_SOUNDS'];
   var verbsVar   = window['MODULE' + num + '_VERBS'];
   var beVar      = window['MODULE' + num + '_BEVERBS'];
   var modVar     = window['MODULE' + num + '_MODERNVERBS'];
-
   if (lettersVar) cards.push(lettersVar);
   if (soundsVar)  cards.push(soundsVar);
   if (verbsVar)   cards.push(verbsVar);
   if (beVar)      cards.push(beVar);
   if (modVar)     cards.push(modVar);
-
   var singleVar = window['MODULE' + num];
   if (singleVar && typeof singleVar === 'object' && singleVar.topics && Array.isArray(singleVar.topics)) {
     if (cards.length === 0) {
@@ -234,9 +250,7 @@ function getCardsForModule(moduleId) {
         title: singleVar.title || ('Module ' + num),
         icon: singleVar.icon || '📖',
         desc: singleVar.sub || singleVar.desc || 'Topics & Lessons',
-        type: 'topics',
-        topics: singleVar.topics,
-        moduleData: singleVar
+        type: 'topics', topics: singleVar.topics, moduleData: singleVar
       });
     }
   }
@@ -244,15 +258,7 @@ function getCardsForModule(moduleId) {
 }
 
 function pushBack(fn) { state.backStack.push(fn); }
-
-function goBack() {
-  if (state.backStack.length > 0) {
-    var fn = state.backStack.pop();
-    fn();
-  } else {
-    goHome();
-  }
-}
+function goBack() { if (state.backStack.length > 0) { var fn = state.backStack.pop(); fn(); } else { goHome(); } }
 
 function goHome() {
   state.backStack = [];
@@ -278,43 +284,33 @@ function renderModules() {
     return '<div class="' + cls + '" onclick="' + onclick + '">' +
       '<div class="card-icon">' + m.icon + '</div>' +
       '<div class="card-title">' + m.title + '</div>' +
-      '<div class="card-desc">' + m.desc + '</div>' +
-      badge +
-      '</div>';
+      '<div class="card-desc">' + m.desc + '</div>' + badge + '</div>';
   }).join('');
 }
 
 function openModule(moduleId) {
   state.currentModuleId = moduleId;
   state.backStack = [goHome];
-
   var def = MODULE_DEFS.find(function(m) { return m.id === moduleId; });
   var cards = getCardsForModule(moduleId);
-
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('module-page').style.display = 'block';
   document.getElementById('detail-page').classList.remove('active');
   document.getElementById('game-page').classList.remove('active');
-
   document.getElementById('module-title').textContent = def.icon + ' ' + def.title;
   document.getElementById('module-sub').textContent = cards.length + ' card' + (cards.length > 1 ? 's' : '') + ' available';
-
   renderCardsInModule(cards);
   window.scrollTo(0, 0);
 }
 
 function renderCardsInModule(cards) {
   var grid = document.getElementById('cards-grid');
-  if (cards.length === 0) {
-    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📚</div><div class="empty-text">No cards yet.</div></div>';
-    return;
-  }
+  if (cards.length === 0) { grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">No cards</div>'; return; }
   grid.innerHTML = cards.map(function(c, i) {
     return '<div class="card" onclick="openCard(' + i + ')">' +
       '<div class="card-icon">' + (c.icon || '📖') + '</div>' +
       '<div class="card-title">' + c.title + '</div>' +
-      '<div class="card-desc">' + c.desc + '</div>' +
-      '</div>';
+      '<div class="card-desc">' + c.desc + '</div></div>';
   }).join('');
 }
 
@@ -322,19 +318,14 @@ function openCard(idx) {
   var cards = getCardsForModule(state.currentModuleId);
   state.currentCardIdx = idx;
   state.currentCard = cards[idx];
-  state.backStack = [
-    function() { openModule(state.currentModuleId); },
-    goHome
-  ];
+  state.backStack = [function() { openModule(state.currentModuleId); }, goHome];
   var c = state.currentCard;
-
   document.getElementById('home-page').style.display = 'none';
   document.getElementById('module-page').style.display = 'none';
   document.getElementById('game-page').classList.remove('active');
   document.getElementById('detail-page').classList.add('active');
   document.getElementById('detail-title').textContent = (c.icon || '') + ' ' + c.title;
   document.getElementById('detail-sub').textContent = c.desc;
-
   var content = document.getElementById('detail-content');
   if (c.type === 'letters') content.innerHTML = renderLetters(c);
   else if (c.type === 'sounds') content.innerHTML = renderSoundsMenu(c);
@@ -347,12 +338,10 @@ function openCard(idx) {
 }
 
 // ═══════════════════════════════════════════════════════
-// TOPICS LIST — Level 1
+// TOPICS LIST
 // ═══════════════════════════════════════════════════════
 function renderTopicsList(card) {
-  if (!card.topics || card.topics.length === 0) {
-    return '<p style="text-align:center;color:#94a3b8">No topics yet</p>';
-  }
+  if (!card.topics || card.topics.length === 0) return '<p style="text-align:center">No topics</p>';
   return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Topic par click karo</div>' +
     card.topics.map(function(t, i) {
       var subsCount = t.subtopics ? t.subtopics.length : 0;
@@ -363,24 +352,18 @@ function renderTopicsList(card) {
         '<div class="topic-title">' + t.title + '</div>' +
         '<div class="topic-intro">' + (t.intro || '') + '</div>' +
         '<div class="topic-count">📚 ' + subsCount + ' types</div>' +
-        '</div>' +
-        '</div>';
+        '</div></div>';
     }).join('');
 }
 
-// ═══════════════════════════════════════════════════════
-// TOPIC → SUBTOPICS LIST — Level 2
-// ═══════════════════════════════════════════════════════
 function openTopic(topicIdx) {
   state.currentTopicIdx = topicIdx;
   state.currentSubtopicIdx = 0;
   state.currentSubsubIdx = 0;
   pushBack(function() { openCard(state.currentCardIdx); });
   var topic = state.currentCard.topics[topicIdx];
-
   document.getElementById('detail-title').textContent = (topic.icon || '📌') + ' ' + topic.title;
   document.getElementById('detail-sub').textContent = topic.intro || '';
-
   if (topic.subtopics && topic.subtopics.length) {
     document.getElementById('detail-content').innerHTML = renderSubtopicList(topic);
   } else {
@@ -401,26 +384,19 @@ function renderSubtopicList(topic) {
         '<div class="topic-icon">' + (s.icon || '📌') + '</div>' +
         '<div class="topic-info">' +
         '<div class="topic-title">' + s.title + '</div>' +
-        '<div class="topic-intro">' + (s.intro || '') + '</div>' +
-        extraInfo +
-        '</div>' +
-        '</div>';
+        '<div class="topic-intro">' + (s.intro || '') + '</div>' + extraInfo +
+        '</div></div>';
     }).join('');
 }
 
-// ═══════════════════════════════════════════════════════
-// SUBTOPIC → SUB-SUBTOPICS — Level 3
-// ═══════════════════════════════════════════════════════
 function openSubtopic(subIdx) {
   state.currentSubtopicIdx = subIdx;
   state.currentSubsubIdx = 0;
   pushBack(function() { openTopic(state.currentTopicIdx); });
   var topic = state.currentCard.topics[state.currentTopicIdx];
   var sub = topic.subtopics[subIdx];
-
   document.getElementById('detail-title').textContent = (sub.icon || '📌') + ' ' + sub.title;
   document.getElementById('detail-sub').textContent = sub.intro || '';
-
   if (sub.subtopics && sub.subtopics.length) {
     document.getElementById('detail-content').innerHTML = renderSubsubList(sub);
   } else {
@@ -438,8 +414,7 @@ function renderSubsubList(sub) {
         '<div class="topic-title">' + s.title + '</div>' +
         '<div class="topic-intro">' + (s.intro || '') + '</div>' +
         '<div class="topic-count">📖 Lesson + Practice</div>' +
-        '</div>' +
-        '</div>';
+        '</div></div>';
     }).join('');
 }
 
@@ -449,7 +424,6 @@ function openSubsub(subsubIdx) {
   var topic = state.currentCard.topics[state.currentTopicIdx];
   var sub = topic.subtopics[state.currentSubtopicIdx];
   var subsub = sub.subtopics[subsubIdx];
-
   document.getElementById('detail-title').textContent = (subsub.icon || '📌') + ' ' + subsub.title;
   document.getElementById('detail-sub').textContent = subsub.intro || '';
   document.getElementById('detail-content').innerHTML = renderSubtopicDetail(subsub);
@@ -457,101 +431,123 @@ function openSubsub(subsubIdx) {
 }
 
 // ═══════════════════════════════════════════════════════
-// SUBTOPIC DETAIL — Final level content
+// SUBTOPIC DETAIL
 // ═══════════════════════════════════════════════════════
 function renderSubtopicDetail(sub) {
   var html = '';
 
   // 1. DEFINITION
   if (sub.definition) {
-    html += '<div class="lesson-card">' +
-      '<div class="lesson-title"><span class="step-num">1</span> 📖 Definition</div>' +
-      '<div class="lesson-content">' + sub.definition + '</div>' +
-      '</div>';
+    html += '<div class="lesson-card"><div class="lesson-title"><span class="step-num">1</span> 📖 Definition</div>' +
+      '<div class="lesson-content">' + sub.definition + '</div></div>';
   }
 
   // 2. USAGE
   if (sub.usage) {
-    html += '<div class="lesson-card">' +
-      '<div class="lesson-title"><span class="step-num">2</span> 💡 Kahan Use Hota Hai</div>' +
-      '<div class="lesson-content">' + sub.usage + '</div>' +
-      '</div>';
+    html += '<div class="lesson-card"><div class="lesson-title"><span class="step-num">2</span> 💡 Kahan Use Hota Hai</div>' +
+      '<div class="lesson-content">' + sub.usage + '</div></div>';
   }
 
   // 3. RULE
   if (sub.rule) {
-    html += '<div class="lesson-card">' +
-      '<div class="lesson-title"><span class="step-num">3</span> 📐 Banane Ka Niyam</div>' +
-      '<div class="structure-box">' +
-      '<div class="structure-text">' + sub.rule + '</div>' +
-      '</div>' +
-      '</div>';
+    html += '<div class="lesson-card"><div class="lesson-title"><span class="step-num">3</span> 📐 Banane Ka Niyam</div>' +
+      '<div class="structure-box"><div class="structure-text">' + sub.rule + '</div></div>';
+    if (sub.ruleExplain) {
+      html += '<div style="margin-top:12px;padding:12px;background:#0f1420;border-radius:10px;border-left:3px solid #4ade80">' +
+        '<div style="font-size:0.72rem;color:#4ade80;text-transform:uppercase;letter-spacing:1px;font-weight:800;margin-bottom:6px">ℹ️ Rule Explain</div>' +
+        '<div style="font-size:0.85rem;color:#cbd5e1;line-height:1.7">' + sub.ruleExplain + '</div></div>';
+    }
+    html += '</div>';
   }
 
-  // 4. RECOGNITION (tense)
+  // 4. RECOGNITION
   if (sub.recognition) {
-    html += '<div class="lesson-card">' +
-      '<div class="lesson-title">🔍 Pehchaan Ka Niyam</div>' +
-      '<div class="lesson-content">' + sub.recognition + '</div>' +
-      '</div>';
+    html += '<div class="lesson-card"><div class="lesson-title">🔍 Pehchaan Ka Niyam</div>' +
+      '<div class="lesson-content">' + sub.recognition + '</div></div>';
   }
 
-  // 5. STRUCTURE with examples
+  // 5. STRUCTURE
   if (sub.structure && sub.structure.length) {
-    html += '<div class="lesson-card">' +
-      '<div class="lesson-title">🎯 Structure with Examples</div>' +
-      '<div class="forms-grid">';
+    html += '<div class="lesson-card"><div class="lesson-title">🎯 Structure with Examples</div><div class="forms-grid">';
     sub.structure.forEach(function(f) {
       html += '<div class="form-card">' +
         '<div class="form-type">' + f.type + '</div>' +
         '<div class="form-formula">' + f.formula + '</div>' +
-        '<div class="form-example">' + f.example + '</div>' +
-        '</div>';
+        '<div class="form-example">' + f.example + '</div>';
+      if (f.exampleExplain) {
+        html += '<div class="form-explain">💡 ' + f.exampleExplain + '</div>';
+      }
+      html += '</div>';
     });
     html += '</div></div>';
   }
 
   // 6. EXAMPLES
   if (sub.examples) {
-    if (sub.examples.simple && sub.examples.simple.length) {
-      html += '<div class="lesson-card"><div class="lesson-title">✅ Simple Examples</div>';
-      sub.examples.simple.forEach(function(ex) {
-        html += '<div class="example-row"><div class="example-en">' + ex.en + '</div><div class="example-hi">' + ex.hi + '</div></div>';
-      });
-      html += '</div>';
-    }
-    if (sub.examples.negative && sub.examples.negative.length) {
-      html += '<div class="lesson-card"><div class="lesson-title">❌ Negative Examples</div>';
-      sub.examples.negative.forEach(function(ex) {
-        html += '<div class="example-row"><div class="example-en">' + ex.en + '</div><div class="example-hi">' + ex.hi + '</div></div>';
-      });
-      html += '</div>';
-    }
-    if (sub.examples.wh && sub.examples.wh.length) {
-      html += '<div class="lesson-card"><div class="lesson-title">❓ WH-Question Examples</div>';
-      sub.examples.wh.forEach(function(ex) {
-        html += '<div class="example-row"><div class="example-en">' + ex.en + '</div><div class="example-hi">' + ex.hi + '</div></div>';
-      });
-      html += '</div>';
-    }
+    ['simple', 'negative', 'wh'].forEach(function(type) {
+      if (sub.examples[type] && sub.examples[type].length) {
+        var label = type === 'simple' ? '✅ Simple Examples' : type === 'negative' ? '❌ Negative Examples' : '❓ WH-Question Examples';
+        html += '<div class="lesson-card"><div class="lesson-title">' + label + '</div>';
+        sub.examples[type].forEach(function(ex) {
+          html += '<div class="example-row">' +
+            '<div class="example-en">' + ex.en + '</div>' +
+            '<div class="example-hi">' + ex.hi + '</div>';
+          if (ex.note) {
+            html += '<div class="example-note">💡 ' + ex.note + '</div>';
+          }
+          html += '</div>';
+        });
+        html += '</div>';
+      }
+    });
   }
 
-  // 7. PRACTICE BUTTON
-  if (sub.practice && sub.practice.length) {
-    html += '<div class="practice-btn-wrap">' +
-      '<button class="practice-btn" onclick="startTopicPractice()">🎮 Practice ' + sub.practice.length + ' Questions</button>' +
-      '</div>';
+  // 7. PRACTICE MENU (Basic / Hard / Advance)
+  if (sub.practice) {
+    var hasBasic = sub.practice.basic && sub.practice.basic.length > 0;
+    var hasHard = sub.practice.hard && sub.practice.hard.length > 0;
+    var hasAdvance = sub.practice.advance && sub.practice.advance.length > 0;
+
+    if (hasBasic || hasHard || hasAdvance) {
+      html += '<div class="lesson-card"><div class="lesson-title">🎮 Practice</div>';
+      html += '<div class="practice-menu">';
+
+      if (hasBasic) {
+        html += '<button class="practice-level-btn basic" onclick="startPractice(\'basic\')">' +
+          '<div class="practice-level-icon">📝</div>' +
+          '<div class="practice-level-info">' +
+          '<div class="practice-level-title">Basic</div>' +
+          '<div class="practice-level-desc">MCQ — Fill in the blank (' + sub.practice.basic.length + ' questions)</div>' +
+          '</div></button>';
+      }
+      if (hasHard) {
+        html += '<button class="practice-level-btn hard" onclick="startPractice(\'hard\')">' +
+          '<div class="practice-level-icon">🔥</div>' +
+          '<div class="practice-level-info">' +
+          '<div class="practice-level-title">Hard</div>' +
+          '<div class="practice-level-desc">Hindi → English — Arrange words (' + sub.practice.hard.length + ' sentences)</div>' +
+          '</div></button>';
+      }
+      if (hasAdvance) {
+        html += '<button class="practice-level-btn advance" onclick="startPractice(\'advance\')">' +
+          '<div class="practice-level-icon">👑</div>' +
+          '<div class="practice-level-info">' +
+          '<div class="practice-level-title">Advance</div>' +
+          '<div class="practice-level-desc">English → Hindi — Arrange words (' + sub.practice.advance.length + ' sentences)</div>' +
+          '</div></button>';
+      }
+      html += '</div></div>';
+    }
   }
 
   return html;
 }
 
 // ═══════════════════════════════════════════════════════
-// PRACTICE FROM SUBTOPIC
+// START PRACTICE (level choose)
 // ═══════════════════════════════════════════════════════
-function startTopicPractice() {
+function startPractice(level) {
   var target = state.currentCard.topics[state.currentTopicIdx];
-
   if (target.subtopics && target.subtopics[state.currentSubtopicIdx]) {
     var sub = target.subtopics[state.currentSubtopicIdx];
     if (sub.subtopics && sub.subtopics[state.currentSubsubIdx]) {
@@ -560,44 +556,351 @@ function startTopicPractice() {
       target = sub;
     }
   }
-
-  if (!target || !target.practice || !target.practice.length) {
-    alert('No practice questions');
+  if (!target || !target.practice || !target.practice[level]) {
+    alert('No ' + level + ' practice available');
     return;
   }
 
-  var questions = target.practice.map(function(p) {
-    return {
-      emoji: '❓',
-      label: 'MCQ',
-      question: p.q,
-      options: shuffle(p.options.slice()),
-      answer: p.answer
-    };
-  });
-
-  startGame(questions, '🎮 Practice', target.title, function() {
+  var returnFn = function() {
     document.getElementById('detail-title').textContent = (target.icon || '') + ' ' + target.title;
     document.getElementById('detail-sub').textContent = target.intro || '';
     document.getElementById('detail-content').innerHTML = renderSubtopicDetail(target);
+  };
+
+  if (level === 'basic') {
+    // MCQ Game
+    var questions = target.practice.basic.map(function(p) {
+      return {
+        emoji: '📝', label: 'BASIC — MCQ',
+        question: p.q,
+        options: shuffle(p.options.slice()),
+        answer: p.answer
+      };
+    });
+    startGame(questions, '📝 Basic Practice', target.title, returnFn);
+  } else if (level === 'hard') {
+    // Word Builder: Hindi → English
+    var sentences = target.practice.hard.map(function(item) {
+      return {
+        prompt: item.hindi,
+        promptLabel: '🇮🇳 Hindi → English',
+        answer: item.english.split(/\s+/),
+        bank: shuffle(item.words.slice())
+      };
+    });
+    startWordBuilder(sentences, '🔥 Hard Practice', target.title, 'Hindi → English', returnFn);
+  } else if (level === 'advance') {
+    // Word Builder: English → Hindi
+    var sentences = target.practice.advance.map(function(item) {
+      return {
+        prompt: item.english,
+        promptLabel: '🇬🇧 English → Hindi',
+        answer: item.hindi.split(/\s+/),
+        bank: shuffle(item.words.slice())
+      };
+    });
+    startWordBuilder(sentences, '👑 Advance Practice', target.title, 'English → Hindi', returnFn);
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// MCQ GAME
+// ═══════════════════════════════════════════════════════
+function startGame(questions, title, sub, returnFn) {
+  if (!questions.length) { alert('No questions'); return; }
+  state.gameQuestions = questions;
+  state.gameIdx = 0; state.gameCorrect = 0; state.gameWrong = 0;
+  state.gameReturnFn = returnFn;
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('module-page').style.display = 'none';
+  document.getElementById('detail-page').classList.remove('active');
+  document.getElementById('game-page').classList.add('active');
+  renderGameQ();
+  window.scrollTo(0, 0);
+}
+
+function renderGameQ() {
+  var q = state.gameQuestions[state.gameIdx];
+  var total = state.gameQuestions.length;
+  document.getElementById('game-progress-fill').style.width = ((state.gameIdx + 1) / total * 100) + '%';
+  var html = '<div class="game-question">';
+  if (q.emoji) html += '<div style="font-size:2.5rem;margin-bottom:10px">' + q.emoji + '</div>';
+  if (q.label) html += '<div class="game-label">' + q.label + '</div>';
+  html += '<div class="game-question-text">' + q.question + '</div>';
+  html += '</div><div class="game-options">';
+  q.options.forEach(function(o, i) {
+    html += '<div class="game-option" onclick="pickAnswer(' + i + ')">' +
+      '<div class="game-option-letter">' + String.fromCharCode(65+i) + '</div>' +
+      '<div>' + o + '</div></div>';
   });
+  html += '</div><div style="text-align:center;font-size:1rem;font-weight:800;margin:16px 0;min-height:24px" id="game-feedback"></div>' +
+    '<button class="game-next" id="game-next" onclick="nextQ()">' +
+    (state.gameIdx === total - 1 ? '🏁 Result' : '➡️ Next') + '</button>';
+  document.getElementById('game-content').innerHTML = html;
+}
+
+function pickAnswer(idx) {
+  var q = state.gameQuestions[state.gameIdx];
+  var opts = document.querySelectorAll('.game-option');
+  opts.forEach(function(o) { o.style.pointerEvents = 'none'; });
+  var fb = document.getElementById('game-feedback');
+  if (q.options[idx] === q.answer) {
+    opts[idx].classList.add('correct');
+    fb.style.color = '#4ade80'; fb.textContent = '✅ Correct!';
+    state.gameCorrect++;
+    document.getElementById('game-next').classList.add('show');
+  } else {
+    opts[idx].classList.add('wrong');
+    fb.style.color = '#f87171'; fb.textContent = '❌ Galat — ' + q.answer;
+    setTimeout(function() {
+      opts.forEach(function(o) { o.classList.remove('wrong'); o.style.pointerEvents = 'auto'; });
+      fb.textContent = '🔄 Phir try karo'; fb.style.color = '#60a5fa';
+    }, 1200);
+  }
+}
+
+function nextQ() {
+  state.gameIdx++;
+  if (state.gameIdx >= state.gameQuestions.length) showResult();
+  else renderGameQ();
+}
+
+// ═══════════════════════════════════════════════════════
+// WORD BUILDER GAME (Hard & Advance)
+// ═══════════════════════════════════════════════════════
+function startWordBuilder(sentences, title, sub, direction, returnFn) {
+  if (!sentences.length) { alert('No sentences'); return; }
+  state.wordBuilder = {
+    sentences: sentences,
+    idx: 0,
+    correct: 0,
+    placed: [],
+    usedIdx: [],
+    title: title,
+    direction: direction,
+    returnFn: returnFn
+  };
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('module-page').style.display = 'none';
+  document.getElementById('detail-page').classList.remove('active');
+  document.getElementById('game-page').classList.add('active');
+  renderWordBuilderQ();
+  window.scrollTo(0, 0);
+}
+
+function renderWordBuilderQ() {
+  var wb = state.wordBuilder;
+  var q = wb.sentences[wb.idx];
+  var total = wb.sentences.length;
+  document.getElementById('game-progress-fill').style.width = ((wb.idx + 1) / total * 100) + '%';
+
+  wb.placed = [];
+  wb.usedIdx = [];
+
+  var html = '<div class="wb-prompt">' +
+    '<div class="wb-prompt-label">' + q.promptLabel + '</div>' +
+    '<div class="wb-prompt-text">' + q.prompt + '</div>' +
+    '</div>' +
+    '<div class="wb-slots" id="wb-slots"></div>' +
+    '<div class="wb-bank" id="wb-bank"></div>' +
+    '<div class="wb-feedback" id="wb-feedback">Select words from below to build the sentence</div>' +
+    '<div class="wb-controls">' +
+    '<button class="wb-btn clear" onclick="clearWordBuilder()">🔄 Clear</button>' +
+    '<button class="wb-btn check" id="wb-check" onclick="checkWordBuilder()" disabled>✓ Check</button>' +
+    '</div>' +
+    '<button class="game-next" id="wb-next" onclick="nextWordBuilder()">' +
+    (wb.idx === total - 1 ? '🏁 Result' : '➡️ Next') + '</button>';
+
+  document.getElementById('game-content').innerHTML = html;
+  renderWBSlotsAndBank();
+}
+
+function renderWBSlotsAndBank() {
+  var wb = state.wordBuilder;
+  var q = wb.sentences[wb.idx];
+  var slotsEl = document.getElementById('wb-slots');
+  var bankEl = document.getElementById('wb-bank');
+  if (!slotsEl || !bankEl) return;
+
+  // Slots
+  var slotsHtml = '';
+  if (wb.placed.length === 0) {
+    slotsHtml = '<div style="color:#4a5568;font-size:0.9rem;padding:16px">👇 Neeche se words chuno</div>';
+  } else {
+    wb.placed.forEach(function(w, i) {
+      var cls = 'wb-slot filled';
+      if (wb.checked) {
+        cls += (w === q.answer[i]) ? ' correct' : ' wrong';
+      }
+      slotsHtml += '<div class="' + cls + '" onclick="removeWBWord(' + i + ')">' + w + '</div>';
+    });
+  }
+  slotsEl.innerHTML = slotsHtml;
+
+  // Bank
+  var bankHtml = '';
+  q.bank.forEach(function(w, i) {
+    var used = wb.usedIdx.indexOf(i) > -1;
+    bankHtml += '<div class="wb-word' + (used ? ' used' : '') + '" onclick="placeWBWord(' + i + ')">' + w + '</div>';
+  });
+  bankEl.innerHTML = bankHtml;
+
+  // Check button enable/disable
+  var checkBtn = document.getElementById('wb-check');
+  if (checkBtn) {
+    checkBtn.disabled = (wb.placed.length === 0 || wb.checked);
+  }
+}
+
+function placeWBWord(bankIdx) {
+  var wb = state.wordBuilder;
+  if (wb.usedIdx.indexOf(bankIdx) > -1) return;
+  if (wb.checked) return;
+  wb.placed.push(wb.sentences[wb.idx].bank[bankIdx]);
+  wb.usedIdx.push(bankIdx);
+  renderWBSlotsAndBank();
+}
+
+function removeWBWord(slotIdx) {
+  var wb = state.wordBuilder;
+  if (wb.checked) return;
+  if (slotIdx >= wb.placed.length) return;
+  wb.placed.splice(slotIdx, 1);
+  wb.usedIdx.splice(slotIdx, 1);
+  renderWBSlotsAndBank();
+}
+
+function clearWordBuilder() {
+  var wb = state.wordBuilder;
+  if (wb.checked) return;
+  wb.placed = [];
+  wb.usedIdx = [];
+  renderWBSlotsAndBank();
+}
+
+function checkWordBuilder() {
+  var wb = state.wordBuilder;
+  var q = wb.sentences[wb.idx];
+  var fb = document.getElementById('wb-feedback');
+
+  // Pad missing words for comparison
+  var userAnswer = wb.placed.slice();
+  var correctAnswer = q.answer.slice();
+
+  // Compare
+  var isCorrect = userAnswer.length === correctAnswer.length &&
+                  userAnswer.every(function(w, i) { return w === correctAnswer[i]; });
+
+  wb.checked = true;
+  renderWBSlotsAndBank();
+
+  if (isCorrect) {
+    fb.style.color = '#4ade80';
+    fb.textContent = '✅ Sahi! Perfect!';
+    wb.correct++;
+    document.getElementById('wb-next').classList.add('show');
+  } else {
+    fb.style.color = '#f87171';
+    fb.innerHTML = '❌ Galat. Sahi jawab: <br><b style="color:#4ade80">' + correctAnswer.join(' ') + '</b>';
+    // Auto-fill correct answer
+    wb.placed = correctAnswer;
+    renderWBSlotsAndBank();
+    // Show next button after delay
+    setTimeout(function() {
+      document.getElementById('wb-next').classList.add('show');
+    }, 1500);
+  }
+}
+
+function nextWordBuilder() {
+  var wb = state.wordBuilder;
+  wb.idx++;
+  wb.checked = false;
+  wb.placed = [];
+  wb.usedIdx = [];
+  if (wb.idx >= wb.sentences.length) {
+    showWBResult();
+  } else {
+    renderWordBuilderQ();
+  }
+}
+
+function showWBResult() {
+  var wb = state.wordBuilder;
+  var total = wb.sentences.length;
+  var pct = Math.round((wb.correct / total) * 100);
+  var emoji = pct < 40 ? '🌱' : pct < 70 ? '👍' : pct < 90 ? '🔥' : '👑';
+  var title = pct < 40 ? 'Keep Trying!' : pct < 70 ? 'Good Job!' : pct < 90 ? 'Great!' : 'Legendary!';
+
+  document.getElementById('game-content').innerHTML =
+    '<div class="result-card">' +
+    '<div class="result-emoji">' + emoji + '</div>' +
+    '<div class="result-title">' + title + '</div>' +
+    '<div class="result-stats">' +
+    '<div class="result-stat"><div class="result-stat-value">' + wb.correct + '/' + total + '</div><div class="result-stat-label">Correct</div></div>' +
+    '<div class="result-stat"><div class="result-stat-value">' + pct + '%</div><div class="result-stat-label">Accuracy</div></div>' +
+    '</div>' +
+    '<button class="btn" onclick="closeGame()">← Back</button></div>';
+  document.getElementById('game-progress-fill').style.width = '100%';
+}
+
+// ═══════════════════════════════════════════════════════
+// RESULT (MCQ)
+// ═══════════════════════════════════════════════════════
+function showResult() {
+  var total = state.gameQuestions.length;
+  var correct = state.gameCorrect;
+  var pct = Math.round((correct / total) * 100);
+  var emoji = pct < 40 ? '🌱' : pct < 70 ? '👍' : pct < 90 ? '🔥' : '👑';
+  var title = pct < 40 ? 'Keep Trying!' : pct < 70 ? 'Good Job!' : pct < 90 ? 'Great!' : 'Legendary!';
+  document.getElementById('game-content').innerHTML =
+    '<div class="result-card">' +
+    '<div class="result-emoji">' + emoji + '</div>' +
+    '<div class="result-title">' + title + '</div>' +
+    '<div class="result-stats">' +
+    '<div class="result-stat"><div class="result-stat-value">' + correct + '/' + total + '</div><div class="result-stat-label">Correct</div></div>' +
+    '<div class="result-stat"><div class="result-stat-value">' + pct + '%</div><div class="result-stat-label">Accuracy</div></div>' +
+    '</div>' +
+    '<button class="btn" onclick="restartGame()">🔁 Try Again</button>' +
+    '<button class="btn sec" onclick="closeGame()">← Back</button></div>';
+  document.getElementById('game-progress-fill').style.width = '100%';
+}
+
+function restartGame() {
+  state.gameIdx = 0; state.gameCorrect = 0; state.gameWrong = 0;
+  renderGameQ();
+  window.scrollTo(0, 0);
+}
+
+function closeGame() {
+  document.getElementById('game-page').classList.remove('active');
+  if (state.gameReturnFn) {
+    var fn = state.gameReturnFn;
+    state.gameReturnFn = null;
+    fn();
+  } else if (state.wordBuilder && state.wordBuilder.returnFn) {
+    var fn2 = state.wordBuilder.returnFn;
+    state.wordBuilder = null;
+    fn2();
+  } else {
+    openCard(state.currentCardIdx);
+  }
+  window.scrollTo(0, 0);
 }
 
 // ═══════════════════════════════════════════════════════
 // MODULE 1 RENDERERS (Letters, Sounds, Verbs, Be, Modern)
 // ═══════════════════════════════════════════════════════
 function renderLetters(card) {
-  if (!card.letters) return '<p style="text-align:center;color:#94a3b8">No letters</p>';
-  return '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Letter par click karo</div>' +
-    '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px;">' +
+  if (!card.letters) return '<p style="text-align:center">No letters</p>';
+  return '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px">' +
     card.letters.map(function(l, i) {
       var ex = l.examples ? l.examples.slice(0, 3).join(', ') : '';
       return '<div class="list-item" style="text-align:center" onclick="startLetterGame(' + i + ')">' +
         '<div style="font-size:1.8rem;font-weight:900;color:#60a5fa">' + l.capital + '</div>' +
         '<div style="font-size:1.1rem;color:#94a3b8">' + l.small + '</div>' +
         '<div style="font-size:0.8rem;color:#4ade80;font-weight:700">' + l.sound + '</div>' +
-        '<div style="font-size:0.65rem;color:#94a3b8;margin-top:4px">' + ex + '</div>' +
-        '</div>';
+        '<div style="font-size:0.65rem;color:#94a3b8;margin-top:4px">' + ex + '</div></div>';
     }).join('') + '</div>' +
     '<div class="practice-btn-wrap"><button class="practice-btn" onclick="startLetterGame(0)">🎮 Practice All Letters</button></div>';
 }
@@ -621,18 +924,14 @@ function startLetterGame(letterIdx) {
 }
 
 function renderSoundsMenu(card) {
-  return '<div style="text-align:center;margin-bottom:20px;color:#94a3b8;font-size:0.85rem">👇 Choose type</div>' +
-    '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">' +
-    '<div class="list-item" onclick="openSoundType(\'ipa\')" style="text-align:center">' +
-    '<div style="font-size:2rem;margin-bottom:8px">🔤</div>' +
-    '<div class="list-title">IPA Sound</div>' +
-    '<div class="list-sub">Phonetic Alphabet</div>' +
-    '</div>' +
-    '<div class="list-item" onclick="openSoundType(\'indian\')" style="text-align:center">' +
-    '<div style="font-size:2rem;margin-bottom:8px">🇮🇳</div>' +
-    '<div class="list-title">Indian Vowel & Consonant</div>' +
-    '<div class="list-sub">Vowels + Consonants</div>' +
-    '</div></div>';
+  return '<div class="practice-menu">' +
+    '<button class="practice-level-btn basic" onclick="openSoundType(\'ipa\')">' +
+    '<div class="practice-level-icon">🔤</div>' +
+    '<div class="practice-level-info"><div class="practice-level-title">IPA Sound</div><div class="practice-level-desc">Phonetic Alphabet</div></div></button>' +
+    '<button class="practice-level-btn hard" onclick="openSoundType(\'indian\')">' +
+    '<div class="practice-level-icon">🇮🇳</div>' +
+    '<div class="practice-level-info"><div class="practice-level-title">Indian Vowel & Consonant</div><div class="practice-level-desc">Vowels + Consonants</div></div></button>' +
+    '</div>';
 }
 
 function openSoundType(type) {
@@ -642,50 +941,42 @@ function openSoundType(type) {
     document.getElementById('detail-title').textContent = '🔤 IPA Sound';
     document.getElementById('detail-sub').textContent = '20 Vowels + 24 Consonants';
     var sounds = card.sounds || [];
-    document.getElementById('detail-content').innerHTML =
-      '<div style="text-align:center;margin-bottom:16px;color:#94a3b8;font-size:0.85rem">👇 Choose category</div>' +
-      sounds.map(function(cat, i) {
-        return '<div class="topic-item color-blue" onclick="openIpaCategory(' + i + ')">' +
-          '<div class="topic-icon">' + (cat.icon || '🔊') + '</div>' +
-          '<div class="topic-info">' +
-          '<div class="topic-title">' + cat.title + '</div>' +
-          '<div class="topic-intro">' + (cat.items ? cat.items.length : 0) + ' sounds</div>' +
-          '</div></div>';
-      }).join('');
+    document.getElementById('detail-content').innerHTML = sounds.map(function(cat, i) {
+      return '<div class="topic-item color-blue" onclick="openIpaCategory(' + i + ')">' +
+        '<div class="topic-icon">' + (cat.icon || '🔊') + '</div>' +
+        '<div class="topic-info"><div class="topic-title">' + cat.title + '</div>' +
+        '<div class="topic-intro">' + (cat.items ? cat.items.length : 0) + ' sounds</div></div></div>';
+    }).join('');
   } else {
     document.getElementById('detail-title').textContent = '🇮🇳 Indian Vowel & Consonant';
     document.getElementById('detail-sub').textContent = '5 Vowels + 21 Consonants';
-    var indianVowels = [
-      { symbol: 'A', sound: 'ए', examples: ['Apple', 'Ant', 'Aeroplane'] },
-      { symbol: 'E', sound: 'ई', examples: ['Egg', 'Ear', 'Eye'] },
-      { symbol: 'I', sound: 'आइ', examples: ['Ice', 'Ink', 'Iron'] },
-      { symbol: 'O', sound: 'ओ', examples: ['Orange', 'Ox', 'Owl'] },
-      { symbol: 'U', sound: 'यू', examples: ['Umbrella', 'Uncle', 'Urn'] }
+    var vowels = [
+      { symbol: 'A', sound: 'ए', examples: ['Apple', 'Ant'] },
+      { symbol: 'E', sound: 'ई', examples: ['Egg', 'Ear'] },
+      { symbol: 'I', sound: 'आइ', examples: ['Ice', 'Ink'] },
+      { symbol: 'O', sound: 'ओ', examples: ['Orange', 'Ox'] },
+      { symbol: 'U', sound: 'यू', examples: ['Umbrella', 'Uncle'] }
     ];
-    var indianConsonants = [];
+    var consonants = [];
     var lettersSrc = card.letters || [];
     'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
       var l = lettersSrc.find(function(x) { return x.capital === ch; });
-      if (l) indianConsonants.push({ symbol: ch, sound: l.sound, examples: l.examples });
+      if (l) consonants.push({ symbol: ch, sound: l.sound, examples: l.examples });
     });
     document.getElementById('detail-content').innerHTML =
-      '<div style="text-align:center;margin-bottom:12px;color:#4ade80;font-weight:800;font-size:0.9rem">🅰️ Vowels</div>' +
+      '<div style="text-align:center;margin-bottom:12px;color:#4ade80;font-weight:800">🅰️ Vowels</div>' +
       '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px">' +
-      indianVowels.map(function(item, i) {
+      vowels.map(function(item, i) {
         return '<div class="list-item" style="text-align:center" onclick="startIndianGame(\'vowel\', ' + i + ')">' +
           '<div style="font-size:1.5rem;font-weight:900;color:#60a5fa">' + item.symbol + '</div>' +
-          '<div style="font-size:0.82rem;color:#4ade80;font-weight:700">' + item.sound + '</div>' +
-          '<div style="font-size:0.68rem;color:#94a3b8">' + item.examples.join(', ') + '</div>' +
-          '</div>';
+          '<div style="font-size:0.82rem;color:#4ade80;font-weight:700">' + item.sound + '</div></div>';
       }).join('') + '</div>' +
-      '<div style="text-align:center;margin:20px 0 12px;color:#60a5fa;font-weight:800;font-size:0.9rem">🅱️ Consonants</div>' +
+      '<div style="text-align:center;margin:20px 0 12px;color:#60a5fa;font-weight:800">🅱️ Consonants</div>' +
       '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px">' +
-      indianConsonants.map(function(item, i) {
+      consonants.map(function(item, i) {
         return '<div class="list-item" style="text-align:center" onclick="startIndianGame(\'consonant\', ' + i + ')">' +
           '<div style="font-size:1.5rem;font-weight:900;color:#60a5fa">' + item.symbol + '</div>' +
-          '<div style="font-size:0.82rem;color:#4ade80;font-weight:700">' + item.sound + '</div>' +
-          '<div style="font-size:0.68rem;color:#94a3b8">' + item.examples.join(', ') + '</div>' +
-          '</div>';
+          '<div style="font-size:0.82rem;color:#4ade80;font-weight:700">' + item.sound + '</div></div>';
       }).join('') + '</div>';
   }
   window.scrollTo(0, 0);
@@ -701,11 +992,8 @@ function openIpaCategory(catIdx) {
     cat.items.map(function(item, i) {
       return '<div class="list-item" style="text-align:center" onclick="startIpaGame(' + catIdx + ', ' + i + ')">' +
         '<div style="font-size:1.5rem;font-weight:900;color:#60a5fa">' + item.symbol + '</div>' +
-        '<div style="font-size:0.82rem;color:#4ade80;font-weight:700">' + item.sound + '</div>' +
-        '<div style="font-size:0.68rem;color:#94a3b8">' + item.examples.join(', ') + '</div>' +
-        '</div>';
-    }).join('') + '</div>' +
-    '<div class="practice-btn-wrap"><button class="practice-btn" onclick="startIpaGame(' + catIdx + ', 0)">🎮 Practice ' + cat.title + '</button></div>';
+        '<div style="font-size:0.82rem;color:#4ade80;font-weight:700">' + item.sound + '</div></div>';
+    }).join('') + '</div>';
   window.scrollTo(0, 0);
 }
 
@@ -719,7 +1007,6 @@ function startIpaGame(catIdx, itemIdx) {
     return {
       emoji: '🔊', label: cat.title.toUpperCase(),
       question: '"' + it.symbol + '" ka sound kya hai?',
-      hint: 'Examples: ' + it.examples.join(', '),
       options: shuffle([correct].concat(others.slice(0, 3).map(function(x) { return x.sound; }))),
       answer: correct
     };
@@ -759,7 +1046,7 @@ function startIndianGame(kind, idx) {
 }
 
 function renderVerbs(card) {
-  if (!card.groups || card.groups.length === 0) return '<p style="text-align:center;color:#94a3b8">No verbs yet</p>';
+  if (!card.groups || card.groups.length === 0) return '<p style="text-align:center">No verbs</p>';
   var html = '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;justify-content:center">' +
     '<button class="btn" style="width:auto;padding:8px 16px;font-size:0.8rem" onclick="showVerbs(\'all\')">ALL</button>' +
     card.groups.map(function(g) {
@@ -775,21 +1062,16 @@ function showVerbs(letter) {
   state.currentVerbLetter = letter;
   var card = state.currentCard;
   var verbs = [];
-  if (letter === 'all') {
-    card.groups.forEach(function(g) { verbs = verbs.concat(g.verbs); });
-  } else {
-    var group = card.groups.find(function(g) { return g.letter === letter; });
-    verbs = group ? group.verbs : [];
-  }
+  if (letter === 'all') card.groups.forEach(function(g) { verbs = verbs.concat(g.verbs); });
+  else { var g = card.groups.find(function(x) { return x.letter === letter; }); verbs = g ? g.verbs : []; }
   var el = document.getElementById('verbs-list');
   if (!el) return;
   el.innerHTML = verbs.map(function(v) {
-    return '<div class="example-row" style="display:grid;grid-template-columns:1.5fr 1.5fr 1.5fr 1.5fr;gap:12px;align-items:center">' +
-      '<div style="font-weight:800;color:#fff">' + v.v1 + '</div>' +
-      '<div style="color:#60a5fa;font-weight:700">' + v.v2 + '</div>' +
-      '<div style="color:#a78bfa;font-weight:700">' + v.v3 + '</div>' +
-      '<div style="color:#4ade80;font-weight:700">' + v.hi + '</div>' +
-      '</div>';
+    return '<div class="example-row" style="display:grid;grid-template-columns:1.5fr 1.5fr 1.5fr 1.5fr;gap:12px">' +
+      '<div style="font-weight:800">' + v.v1 + '</div>' +
+      '<div style="color:#60a5fa">' + v.v2 + '</div>' +
+      '<div style="color:#a78bfa">' + v.v3 + '</div>' +
+      '<div style="color:#4ade80">' + v.hi + '</div></div>';
   }).join('');
 }
 
@@ -806,12 +1088,7 @@ function startVerbPractice() {
   var questions = [];
   verbs.forEach(function(v) {
     var othersV2 = verbs.filter(function(x) { return x.v2 !== v.v2; }).map(function(x) { return x.v2; });
-    questions.push({
-      emoji: '🔢', label: 'V2 (PAST)',
-      question: '"' + v.v1 + '" ka V2 kya hai?',
-      options: shuffle([v.v2].concat(othersV2.slice(0, 3))),
-      answer: v.v2
-    });
+    questions.push({ emoji: '🔢', label: 'V2 (PAST)', question: '"' + v.v1 + '" ka V2?', options: shuffle([v.v2].concat(othersV2.slice(0, 3))), answer: v.v2 });
   });
   startGame(questions, '🎮 Verb Practice', 'V2', function() { openCard(state.currentCardIdx); });
 }
@@ -821,8 +1098,7 @@ function renderBeVerbs(card) {
     card.verbs.map(function(v, i) {
       return '<div class="list-item" onclick="openBeVerbDetail(' + i + ')">' +
         '<div class="list-title">' + v.word + ' <span style="color:#4ade80">= ' + v.hi + '</span></div>' +
-        '<div class="list-sub">' + v.usage + '</div>' +
-        '</div>';
+        '<div class="list-sub">' + v.usage + '</div></div>';
     }).join('');
 }
 
@@ -835,22 +1111,15 @@ function openBeVerbDetail(idx) {
   var html = '<div style="text-align:center;padding:24px;border-radius:16px;background:linear-gradient(135deg,#1e3a5f,#2a1a4a);margin-bottom:20px">' +
     '<div style="font-size:2.5rem;font-weight:900;color:#60a5fa;margin-bottom:8px">' + v.word + '</div>' +
     '<div style="font-size:1.3rem;font-weight:800;color:#4ade80;margin-bottom:8px">' + v.hi + '</div>' +
-    '<div style="font-size:0.9rem;color:#cbd5e1">' + v.usage + '</div>' +
-    '</div>';
+    '<div style="font-size:0.9rem;color:#cbd5e1">' + v.usage + '</div></div>';
   ['simple', 'negative', 'wh'].forEach(function(type) {
-    var label = type === 'simple' ? '✅ Simple' : type === 'negative' ? '❌ Negative' : '❓ WH Question';
+    var label = type === 'simple' ? '✅ Simple' : type === 'negative' ? '❌ Negative' : '❓ WH';
     var ex = v.examples[type][0];
     html += '<div class="lesson-card"><div class="lesson-title">' + label + '</div>' +
       '<div class="example-row"><div class="example-en">' + ex.en + '</div><div class="example-hi">' + ex.hi + '</div></div></div>';
   });
-  html += '<div class="practice-btn-wrap"><button class="practice-btn" onclick="startBeVerbPractice()">🎮 Practice ' + v.word + '</button></div>';
   document.getElementById('detail-content').innerHTML = html;
   window.scrollTo(0, 0);
-}
-
-function startBeVerbPractice() {
-  var v = state.currentCard.verbs[state.currentBeVerbIdx];
-  buildSentenceBuilderGame(v, function() { openBeVerbDetail(state.currentBeVerbIdx); });
 }
 
 function renderModernVerbs(card) {
@@ -858,8 +1127,7 @@ function renderModernVerbs(card) {
     card.verbs.map(function(v, i) {
       return '<div class="list-item" onclick="openModernVerbDetail(' + i + ')">' +
         '<div class="list-title">' + v.word + ' <span style="color:#4ade80">= ' + v.hi + '</span></div>' +
-        '<div class="list-sub">' + v.usage + '</div>' +
-        '</div>';
+        '<div class="list-sub">' + v.usage + '</div></div>';
     }).join('');
 }
 
@@ -872,271 +1140,14 @@ function openModernVerbDetail(idx) {
   var html = '<div style="text-align:center;padding:24px;border-radius:16px;background:linear-gradient(135deg,#1e3a5f,#2a1a4a);margin-bottom:20px">' +
     '<div style="font-size:2.5rem;font-weight:900;color:#60a5fa;margin-bottom:8px">' + v.word + '</div>' +
     '<div style="font-size:1.3rem;font-weight:800;color:#4ade80;margin-bottom:8px">' + v.hi + '</div>' +
-    '<div style="font-size:0.9rem;color:#cbd5e1">' + v.usage + '</div>' +
-    '</div>';
+    '<div style="font-size:0.9rem;color:#cbd5e1">' + v.usage + '</div></div>';
   ['simple', 'negative', 'wh'].forEach(function(type) {
-    var label = type === 'simple' ? '✅ Simple' : type === 'negative' ? '❌ Negative' : '❓ WH Question';
+    var label = type === 'simple' ? '✅ Simple' : type === 'negative' ? '❌ Negative' : '❓ WH';
     var ex = v.examples[type][0];
     html += '<div class="lesson-card"><div class="lesson-title">' + label + '</div>' +
       '<div class="example-row"><div class="example-en">' + ex.en + '</div><div class="example-hi">' + ex.hi + '</div></div></div>';
   });
-  html += '<div class="practice-btn-wrap"><button class="practice-btn" onclick="startModernVerbPractice()">🎮 Practice ' + v.word + '</button></div>';
   document.getElementById('detail-content').innerHTML = html;
-  window.scrollTo(0, 0);
-}
-
-function startModernVerbPractice() {
-  var v = state.currentCard.verbs[state.currentModernVerbIdx];
-  buildSentenceBuilderGame(v, function() { openModernVerbDetail(state.currentModernVerbIdx); });
-}
-
-function buildSentenceBuilderGame(verb, returnFn) {
-  var allSimple = verb.examples.simple || [];
-  var allNeg = verb.examples.negative || [];
-  var allWh = verb.examples.wh || [];
-  var hindiToEnglish = shuffle(allSimple.concat(allNeg)).slice(0, 5);
-  var englishToHindi = shuffle(allSimple.concat(allWh)).slice(0, 5);
-  var allWords = [];
-  allSimple.concat(allNeg).concat(allWh).forEach(function(s) {
-    if (s.words) s.words.forEach(function(w) {
-      var clean = w.toLowerCase().trim();
-      if (allWords.indexOf(clean) === -1) allWords.push(clean);
-    });
-  });
-  var questions = [];
-  hindiToEnglish.forEach(function(s) {
-    var answer = s.words ? s.words.slice() : s.en.split(' ');
-    var distractors = pickDistractors(allWords, answer, 2, 4);
-    questions.push({ mode: 'hindi-to-english', hindi: s.hi, english: s.en, words: shuffle(answer.concat(distractors)), answer: answer });
-  });
-  englishToHindi.forEach(function(s) {
-    var answer = s.words ? s.words.slice() : s.en.split(' ');
-    var distractors = pickDistractors(allWords, answer, 2, 4);
-    questions.push({ mode: 'english-to-hindi', english: s.en, hindi: s.hi, words: shuffle(answer.concat(distractors)), answer: answer });
-  });
-  state.sentenceBuilder = { questions: questions, idx: 0, correct: 0, wrong: 0, placed: [], usedIdx: [], returnFn: returnFn };
-  document.getElementById('home-page').style.display = 'none';
-  document.getElementById('module-page').style.display = 'none';
-  document.getElementById('detail-page').classList.remove('active');
-  document.getElementById('game-page').classList.add('active');
-  renderSentenceBuilderQ();
-  window.scrollTo(0, 0);
-}
-
-function pickDistractors(pool, answer, minCount, maxCount) {
-  var lowerAnswer = answer.map(function(w) { return w.toLowerCase().trim(); });
-  var available = pool.filter(function(w) { return lowerAnswer.indexOf(w.toLowerCase()) === -1; });
-  var count = minCount + Math.floor(Math.random() * (maxCount - minCount + 1));
-  var picked = [];
-  var shuffled = shuffle(available);
-  for (var i = 0; i < shuffled.length && picked.length < count; i++) {
-    if (picked.indexOf(shuffled[i]) === -1) picked.push(shuffled[i]);
-  }
-  return picked;
-}
-
-function renderSentenceBuilderQ() {
-  var sb = state.sentenceBuilder;
-  var q = sb.questions[sb.idx];
-  var total = sb.questions.length;
-  document.getElementById('game-progress-fill').style.width = ((sb.idx + 1) / total * 100) + '%';
-  var isHindi = q.mode === 'hindi-to-english';
-  var label = isHindi ? '🇮🇳 Hindi → English' : '🇬🇧 English → Hindi';
-  var promptText = isHindi ? q.hindi : q.english;
-  sb.placed = []; sb.usedIdx = [];
-  var html = '<div class="game-question">' +
-    '<div class="game-label">' + label + '</div>' +
-    '<div style="font-size:1.3rem;font-weight:800;color:#4ade80;text-align:center">' + promptText + '</div>' +
-    '</div>' +
-    '<div id="sb-slots" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0;min-height:50px;padding:12px;background:#0f1420;border-radius:12px;border:2px dashed #334155"></div>' +
-    '<div id="sb-bank" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:20px 0"></div>' +
-    '<div class="game-feedback" id="sb-feedback"></div>' +
-    '<button class="game-next" id="sb-next" onclick="nextSentenceBuilder()">Next</button>';
-  document.getElementById('game-content').innerHTML = html;
-  renderSBSlotsAndBank();
-}
-
-function renderSBSlotsAndBank() {
-  var sb = state.sentenceBuilder;
-  var q = sb.questions[sb.idx];
-  var slotsEl = document.getElementById('sb-slots');
-  var bankEl = document.getElementById('sb-bank');
-  if (!slotsEl || !bankEl) return;
-  var slotsHtml = '';
-  for (var i = 0; i < q.answer.length; i++) {
-    var val = sb.placed[i];
-    slotsHtml += '<div style="min-width:60px;padding:10px 14px;background:' + (val ? '#60a5fa' : '#1e293b') + ';border-radius:8px;font-size:0.95rem;font-weight:700;color:' + (val ? '#0a0e1a' : '#fff') + ';cursor:pointer" onclick="removeSBSlot(' + i + ')">' + (val || '?') + '</div>';
-  }
-  slotsEl.innerHTML = slotsHtml;
-  bankEl.innerHTML = q.words.map(function(w, i) {
-    var used = sb.usedIdx.indexOf(i) > -1;
-    return '<div style="padding:10px 16px;background:#1e293b;border:2px solid #334155;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;' + (used ? 'opacity:0.25;pointer-events:none' : '') + '" onclick="placeSBSlot(' + i + ')">' + w + '</div>';
-  }).join('');
-  var complete = sb.placed.length === q.answer.length && sb.placed.every(function(v) { return v; });
-  var fb = document.getElementById('sb-feedback');
-  var nextBtn = document.getElementById('sb-next');
-  if (complete) {
-    var isCorrect = sb.placed.every(function(v, i) { return v === q.answer[i]; });
-    if (isCorrect) {
-      fb.style.color = '#4ade80'; fb.textContent = '✅ Correct!';
-      nextBtn.classList.add('show');
-    } else {
-      fb.style.color = '#f87171'; fb.textContent = '❌ Galat';
-      setTimeout(function() { sb.placed = []; sb.usedIdx = []; renderSBSlotsAndBank(); }, 900);
-    }
-  } else {
-    fb.textContent = sb.placed.filter(function(x) { return x; }).length + '/' + q.answer.length + ' placed';
-    fb.style.color = '#94a3b8';
-    nextBtn.classList.remove('show');
-  }
-}
-
-function placeSBSlot(wordIdx) {
-  var sb = state.sentenceBuilder;
-  var q = sb.questions[sb.idx];
-  if (sb.usedIdx.indexOf(wordIdx) > -1) return;
-  if (sb.placed.length >= q.answer.length) return;
-  sb.placed.push(q.words[wordIdx]);
-  sb.usedIdx.push(wordIdx);
-  renderSBSlotsAndBank();
-}
-
-function removeSBSlot(slotIdx) {
-  var sb = state.sentenceBuilder;
-  if (slotIdx >= sb.placed.length) return;
-  sb.placed.splice(slotIdx, 1);
-  sb.usedIdx.splice(slotIdx, 1);
-  renderSBSlotsAndBank();
-}
-
-function nextSentenceBuilder() {
-  var sb = state.sentenceBuilder;
-  var q = sb.questions[sb.idx];
-  var isCorrect = sb.placed.every(function(v, i) { return v === q.answer[i]; });
-  if (isCorrect) {
-    sb.correct++;
-    sb.idx++;
-    if (sb.idx >= sb.questions.length) showSBResult();
-    else renderSentenceBuilderQ();
-  }
-}
-
-function showSBResult() {
-  var sb = state.sentenceBuilder;
-  var total = sb.questions.length;
-  var pct = Math.round((sb.correct / total) * 100);
-  var emoji = pct < 40 ? '🌱' : pct < 70 ? '👍' : pct < 90 ? '🔥' : '👑';
-  var title = pct < 40 ? 'Keep Trying!' : pct < 70 ? 'Good Job!' : pct < 90 ? 'Great!' : 'Legendary!';
-  document.getElementById('game-content').innerHTML =
-    '<div class="result-card">' +
-    '<div class="result-emoji">' + emoji + '</div>' +
-    '<div class="result-title">' + title + '</div>' +
-    '<div class="result-stats">' +
-    '<div class="result-stat"><div class="result-stat-value">' + sb.correct + '/' + total + '</div><div class="result-stat-label">Correct</div></div>' +
-    '<div class="result-stat"><div class="result-stat-value">' + pct + '%</div><div class="result-stat-label">Accuracy</div></div>' +
-    '</div>' +
-    '<button class="btn" onclick="closeGame()">← Back</button></div>';
-}
-
-function startGame(questions, title, sub, returnFn) {
-  if (!questions.length) { alert('No questions'); return; }
-  state.gameQuestions = questions;
-  state.gameIdx = 0; state.gameCorrect = 0; state.gameWrong = 0;
-  state.gameReturnFn = returnFn;
-  document.getElementById('home-page').style.display = 'none';
-  document.getElementById('module-page').style.display = 'none';
-  document.getElementById('detail-page').classList.remove('active');
-  document.getElementById('game-page').classList.add('active');
-  renderGameQ();
-  window.scrollTo(0, 0);
-}
-
-function renderGameQ() {
-  var q = state.gameQuestions[state.gameIdx];
-  var total = state.gameQuestions.length;
-  document.getElementById('game-progress-fill').style.width = ((state.gameIdx + 1) / total * 100) + '%';
-  var html = '<div class="game-question">';
-  if (q.emoji) html += '<div style="font-size:2.5rem;margin-bottom:10px">' + q.emoji + '</div>';
-  if (q.label) html += '<div class="game-label">' + q.label + '</div>';
-  html += '<div class="game-question-text">' + q.question + '</div>';
-  if (q.hint) html += '<div style="font-size:0.9rem;color:#94a3b8;margin-top:8px">' + q.hint + '</div>';
-  html += '</div><div class="game-options">';
-  q.options.forEach(function(o, i) {
-    html += '<div class="game-option" onclick="pickAnswer(' + i + ')">' +
-      '<div class="game-option-letter">' + String.fromCharCode(65+i) + '</div>' +
-      '<div>' + o + '</div></div>';
-  });
-  html += '</div><div class="game-feedback" id="game-feedback"></div>' +
-    '<button class="game-next" id="game-next" onclick="nextQ()">' +
-    (state.gameIdx === total - 1 ? '🏁 Result' : '➡️ Next') + '</button>';
-  document.getElementById('game-content').innerHTML = html;
-}
-
-function pickAnswer(idx) {
-  var q = state.gameQuestions[state.gameIdx];
-  var opts = document.querySelectorAll('.game-option');
-  opts.forEach(function(o) { o.style.pointerEvents = 'none'; });
-  var fb = document.getElementById('game-feedback');
-  if (q.options[idx] === q.answer) {
-    opts[idx].classList.add('correct');
-    fb.style.color = '#4ade80'; fb.textContent = '✅ Correct!';
-    state.gameCorrect++;
-    document.getElementById('game-next').classList.add('show');
-  } else {
-    opts[idx].classList.add('wrong');
-    fb.style.color = '#f87171'; fb.textContent = '❌ Galat';
-    setTimeout(function() {
-      opts.forEach(function(o) { o.classList.remove('wrong'); o.style.pointerEvents = 'auto'; });
-      fb.textContent = '🔄 Phir try karo';
-      fb.style.color = '#60a5fa';
-    }, 800);
-  }
-}
-
-function nextQ() {
-  state.gameIdx++;
-  if (state.gameIdx >= state.gameQuestions.length) showResult();
-  else renderGameQ();
-}
-
-function showResult() {
-  var total = state.gameQuestions.length;
-  var correct = state.gameCorrect;
-  var pct = Math.round((correct / total) * 100);
-  var emoji = pct < 40 ? '🌱' : pct < 70 ? '👍' : pct < 90 ? '🔥' : '👑';
-  var title = pct < 40 ? 'Keep Trying!' : pct < 70 ? 'Good Job!' : pct < 90 ? 'Great!' : 'Legendary!';
-  document.getElementById('game-content').innerHTML =
-    '<div class="result-card">' +
-    '<div class="result-emoji">' + emoji + '</div>' +
-    '<div class="result-title">' + title + '</div>' +
-    '<div class="result-stats">' +
-    '<div class="result-stat"><div class="result-stat-value">' + correct + '/' + total + '</div><div class="result-stat-label">Correct</div></div>' +
-    '<div class="result-stat"><div class="result-stat-value">' + pct + '%</div><div class="result-stat-label">Accuracy</div></div>' +
-    '</div>' +
-    '<button class="btn" onclick="restartGame()">🔁 Try Again</button>' +
-    '<button class="btn sec" onclick="closeGame()">← Back</button></div>';
-  document.getElementById('game-progress-fill').style.width = '100%';
-}
-
-function restartGame() {
-  state.gameIdx = 0; state.gameCorrect = 0; state.gameWrong = 0;
-  renderGameQ();
-  window.scrollTo(0, 0);
-}
-
-function closeGame() {
-  document.getElementById('game-page').classList.remove('active');
-  if (state.gameReturnFn) {
-    var fn = state.gameReturnFn;
-    state.gameReturnFn = null;
-    fn();
-  } else if (state.sentenceBuilder && state.sentenceBuilder.returnFn) {
-    var fn2 = state.sentenceBuilder.returnFn;
-    state.sentenceBuilder = null;
-    fn2();
-  } else {
-    openCard(state.currentCardIdx);
-  }
   window.scrollTo(0, 0);
 }
 
