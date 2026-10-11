@@ -160,6 +160,7 @@
       <h1>🌱 English Mastery</h1>
       <p>All Modules · Learn & Play</p>
     </div>
+    <div id="error-box" style="display:none; background:#3a1a1a; border:1px solid #f87171; color:#f87171; padding:16px; border-radius:12px; margin-bottom:20px; text-align:center; font-size:0.9rem;"></div>
     <div class="cards-grid" id="cards-grid"></div>
   </div>
 
@@ -179,13 +180,25 @@
   </div>
 </div>
 
-<!-- MODULE LINKS (Yahan saare modules link kar diye gaye hain) -->
-<script src="module1.js"></script>
-<script src="module2.js"></script>
-<script src="module3.js"></script>
-<script src="module4.js"></script>
+<!-- MODULE LINKS -->
+<script src="module1.js" onerror="handleLoadError('module1.js')"></script>
+<script src="module2.js" onerror="handleLoadError('module2.js')"></script>
+<script src="module3.js" onerror="handleLoadError('module3.js')"></script>
+<script src="module4.js" onerror="handleLoadError('module4.js')"></script>
 
 <script>
+// ═══════════════════════════════════════════════════════════
+// ERROR HANDLER (Agar koi module file missing ho)
+// ═══════════════════════════════════════════════════════════
+function handleLoadError(filename) {
+  console.error("❌ Error: " + filename + " load nahi ho payi. Check karein ki file GitHub par upload hai ya nahi.");
+  var errBox = document.getElementById('error-box');
+  if (errBox) {
+    errBox.style.display = 'block';
+    errBox.innerHTML = "⚠️ <b>" + filename + "</b> load nahi ho payi. Kripya check karein ki ye file GitHub par upload hai ya nahi.";
+  }
+}
+
 // ═══════════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════════
@@ -245,10 +258,20 @@ function renderHome() {
   state.backStack = [];
   var cards = getAllCards();
   var grid = document.getElementById('cards-grid');
+  var errBox = document.getElementById('error-box');
+  
   if (cards.length === 0) {
-    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📚</div><div class="empty-text">No modules loaded.<br>Upload module1.js to start.</div></div>';
+    if (errBox && errBox.style.display === 'block') {
+      // Error already shown by onerror
+    } else {
+      grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📚</div><div class="empty-text">No modules loaded.<br>Upload module1.js to start.</div></div>';
+    }
     return;
   }
+  
+  // Agar cards mil gaye, toh error box chhupa do
+  if (errBox) errBox.style.display = 'none';
+  
   grid.innerHTML = cards.map(function(c, i) {
     return '<div class="card" onclick="openCard(' + i + ')">' +
       '<div class="card-icon">' + (c.icon || '📖') + '</div>' +
