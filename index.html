@@ -136,9 +136,6 @@
   .btn.sec { background: #1e293b; }
   .btn:hover { opacity: 0.9; }
 
-  .practice-btn { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 14px 40px; border-radius: 100px; background: #60a5fa; border: none; color: #fff; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 10px 30px rgba(96,165,250,0.4); z-index: 100; }
-  .practice-btn:hover { transform: translateX(-50%) translateY(-3px); }
-
   .empty-state { text-align: center; padding: 60px 20px; color: #4a5568; }
   .empty-icon { font-size: 3rem; margin-bottom: 14px; opacity: 0.5; }
   .empty-text { font-size: 0.9rem; line-height: 1.6; }
@@ -181,7 +178,7 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
-<!-- MODULE FILES — 5 SLOTS (jo milega wahi load hoga)          -->
+<!-- MODULE FILES — 5 SLOTS                                     -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <script src="module1.js" onerror="handleLoadError('module1.js')"></script>
 <script src="module2.js" onerror="handleLoadError('module2.js')"></script>
@@ -191,10 +188,10 @@
 
 <script>
 // ═══════════════════════════════════════════════════════════
-// ERROR HANDLER (Agar koi module file missing ho)
+// ERROR HANDLER
 // ═══════════════════════════════════════════════════════════
 function handleLoadError(filename) {
-  console.warn("⚠️ " + filename + " load nahi ho payi. Check karein ki file upload hai ya nahi.");
+  console.warn("⚠️ " + filename + " load nahi ho payi.");
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -216,33 +213,43 @@ var state = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// COLLECT ALL CARDS (Har module se data collect karo)
+// COLLECT ALL CARDS — FIXED VARIABLE NAMES
 // ═══════════════════════════════════════════════════════════
 function getAllCards() {
   var cards = [];
 
-  // Module 1
-  if (typeof MODULE1_CARDS !== 'undefined') cards = cards.concat(MODULE1_CARDS);
+  // -------- MODULE 1 --------
+  if (typeof MODULE1_LETTERS !== 'undefined') cards.push(MODULE1_LETTERS);
+  if (typeof MODULE1_SOUNDS !== 'undefined') cards.push(MODULE1_SOUNDS);
+  if (typeof MODULE1_VERBS !== 'undefined') cards.push(MODULE1_VERBS);
   if (typeof MODULE1_BEVERBS !== 'undefined') cards.push(MODULE1_BEVERBS);
   if (typeof MODULE1_MODERNVERBS !== 'undefined') cards.push(MODULE1_MODERNVERBS);
 
-  // Module 2
-  if (typeof MODULE2_CARDS !== 'undefined') cards = cards.concat(MODULE2_CARDS);
+  // -------- MODULE 2 --------
+  if (typeof MODULE2_LETTERS !== 'undefined') cards.push(MODULE2_LETTERS);
+  if (typeof MODULE2_SOUNDS !== 'undefined') cards.push(MODULE2_SOUNDS);
+  if (typeof MODULE2_VERBS !== 'undefined') cards.push(MODULE2_VERBS);
   if (typeof MODULE2_BEVERBS !== 'undefined') cards.push(MODULE2_BEVERBS);
   if (typeof MODULE2_MODERNVERBS !== 'undefined') cards.push(MODULE2_MODERNVERBS);
 
-  // Module 3
-  if (typeof MODULE3_CARDS !== 'undefined') cards = cards.concat(MODULE3_CARDS);
+  // -------- MODULE 3 --------
+  if (typeof MODULE3_LETTERS !== 'undefined') cards.push(MODULE3_LETTERS);
+  if (typeof MODULE3_SOUNDS !== 'undefined') cards.push(MODULE3_SOUNDS);
+  if (typeof MODULE3_VERBS !== 'undefined') cards.push(MODULE3_VERBS);
   if (typeof MODULE3_BEVERBS !== 'undefined') cards.push(MODULE3_BEVERBS);
   if (typeof MODULE3_MODERNVERBS !== 'undefined') cards.push(MODULE3_MODERNVERBS);
 
-  // Module 4
-  if (typeof MODULE4_CARDS !== 'undefined') cards = cards.concat(MODULE4_CARDS);
+  // -------- MODULE 4 --------
+  if (typeof MODULE4_LETTERS !== 'undefined') cards.push(MODULE4_LETTERS);
+  if (typeof MODULE4_SOUNDS !== 'undefined') cards.push(MODULE4_SOUNDS);
+  if (typeof MODULE4_VERBS !== 'undefined') cards.push(MODULE4_VERBS);
   if (typeof MODULE4_BEVERBS !== 'undefined') cards.push(MODULE4_BEVERBS);
   if (typeof MODULE4_MODERNVERBS !== 'undefined') cards.push(MODULE4_MODERNVERBS);
 
-  // Module 5
-  if (typeof MODULE5_CARDS !== 'undefined') cards = cards.concat(MODULE5_CARDS);
+  // -------- MODULE 5 --------
+  if (typeof MODULE5_LETTERS !== 'undefined') cards.push(MODULE5_LETTERS);
+  if (typeof MODULE5_SOUNDS !== 'undefined') cards.push(MODULE5_SOUNDS);
+  if (typeof MODULE5_VERBS !== 'undefined') cards.push(MODULE5_VERBS);
   if (typeof MODULE5_BEVERBS !== 'undefined') cards.push(MODULE5_BEVERBS);
   if (typeof MODULE5_MODERNVERBS !== 'undefined') cards.push(MODULE5_MODERNVERBS);
 
