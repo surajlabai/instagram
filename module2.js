@@ -1,716 +1,540 @@
 // ═══════════════════════════════════════════════════════════
-// module2.js — Module 2: Intermediate English (UPGRADED)
-// ═══════════════════════════════════════════════════════════
-// Structure:
-//   MODULE2 = {
-//     id, badge, title, sub, icon, desc,
-//     topics: [ { id, title, icon, intro, lessons, practice } ]
-//   }
-//
-// Supported lesson example types (HTML auto-detect karega):
-//   1. { sentence, hi }           → Modals/Conditionals
-//   2. { word1, word2 }           → Synonyms/Antonyms
-//   3. { active, passive }        → Voice
-//   4. { before, after }          → Tenses
-//   5. { rule, examples: [...] }  → Prepositions/Articles
-//   6. { correct, wrong, why }    → Punctuation/Correction
+// module2.js — Module 2: Grammar Foundation
+// Structure: Sentence, Clause, Tense (with 4 sub-types each)
 // ═══════════════════════════════════════════════════════════
 
-const MODULE2 = {
+var MODULE2 = {
   id: 'm2',
   badge: 'Module 2',
-  title: 'Intermediate English',
-  sub: 'Sentence Building & Confidence',
+  title: 'Grammar Foundation',
+  sub: 'Sentence · Clause · Tense',
   icon: '🔥',
-  desc: 'Develop grammatical accuracy and confidence.',
+  desc: 'Master the building blocks of English grammar',
   topics: [
 
-    // ═══════════════════════════════════════════
-    // TOPIC 1: Modals
-    // ═══════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
+    // TOPIC 1: SENTENCE
+    // ═══════════════════════════════════════════════════════
     {
-      id: 'modals',
-      title: 'Modals (can, could, may...)',
-      icon: '🎭',
-      intro: 'सीखो modal verbs — can, could, may, might, should, must',
-      lessons: [
+      id: 'sentence',
+      title: 'Sentence',
+      icon: '📝',
+      color: 'blue',
+      intro: 'Sentence ke 4 types — Assertive, Interrogative, Imperative, Exclamatory',
+      subtopics: [
         {
-          title: 'Step 1: Can (Ability)',
-          type: 'info',
-          content: '<p><b>Can</b> = सकता है (ability — वर्तमान में)</p><p>Structure: Subject + can + V1</p>',
+          id: 'assertive',
+          title: 'Assertive Sentence',
+          icon: '📢',
+          intro: 'Statement — साधारण वाक्य (सच या झूठ बताने वाला)',
+          structure: 'Subject + Verb + Object + .',
+          usage: 'किसी बात को बताने या statement देने के लिए use होता है।',
           examples: [
-            { sentence: 'I can swim.', hi: 'मैं तैर सकता हूँ' },
-            { sentence: 'She can sing.', hi: 'वह गा सकती है' },
-            { sentence: 'He can drive.', hi: 'वह गाड़ी चला सकता है' },
-            { sentence: 'We can help you.', hi: 'हम तुम्हारी मदद कर सकते हैं' },
-            { sentence: 'They can come.', hi: 'वे आ सकते हैं' },
-            { sentence: 'Can you speak English?', hi: 'क्या तुम English बोल सकते हो?' },
-            { sentence: 'I cannot (can\'t) swim.', hi: 'मैं तैर नहीं सकता' },
-            { sentence: 'She can dance very well.', hi: 'वह बहुत अच्छा नाच सकती है' }
+            // 👇 AAP YAHAN APNE EXAMPLES ADD KARO
+            { en: 'I am a student.', hi: 'मैं एक छात्र हूँ।' },
+            { en: 'She lives in Delhi.', hi: 'वह दिल्ली में रहती है।' },
+            { en: 'The sun rises in the east.', hi: 'सूरज पूर्व में उगता है।' },
+            { en: 'Ram eats an apple.', hi: 'राम सेब खाता है।' }
+          ],
+          practice: [
+            { type: 'mcq', q: 'Which is an assertive sentence?', options: ['What is your name?', 'I am a doctor.', 'Close the door.', 'What a beautiful day!'], answer: 'I am a doctor.' },
+            { type: 'mcq', q: 'Which is an assertive sentence?', options: ['She is my sister.', 'Are you happy?', 'Please sit down.', 'How nice!'], answer: 'She is my sister.' },
+            { type: 'mcq', q: 'Which is an assertive sentence?', options: ['Come here.', 'Where do you live?', 'He plays cricket.', 'Wow!'], answer: 'He plays cricket.' },
+            { type: 'mcq', q: 'Which is an assertive sentence?', options: ['I love India.', 'Do you love India?', 'Love India!', 'Where is India?'], answer: 'I love India.' },
+            { type: 'mcq', q: 'Which is an assertive sentence?', options: ['What a day!', 'Sit down.', 'The earth is round.', 'Is the earth round?'], answer: 'The earth is round.' }
           ]
         },
         {
-          title: 'Step 2: Could (Past Ability / Polite)',
-          type: 'info',
-          content: '<p><b>Could</b> = सकता था (past ability) / क्या मैं...? (polite request)</p>',
+          id: 'interrogative',
+          title: 'Interrogative Sentence',
+          icon: '❓',
+          intro: 'Question — सवाल पूछने वाला वाक्य',
+          structure: 'Helping Verb + Subject + Main Verb + ?',
+          usage: 'कुछ पूछने या जानने के लिए use होता है।',
           examples: [
-            { sentence: 'I could swim when I was young.', hi: 'मैं जवान था तब तैर सकता था' },
-            { sentence: 'Could you help me, please?', hi: 'क्या आप मेरी मदद कर सकते हैं?' },
-            { sentence: 'She could speak French.', hi: 'वह French बोल सकती थी' },
-            { sentence: 'Could I use your phone?', hi: 'क्या मैं आपका फोन use कर सकता हूँ?' },
-            { sentence: 'We could not come yesterday.', hi: 'हम कल नहीं आ सकते थे' }
+            { en: 'What is your name?', hi: 'तुम्हारा नाम क्या है?' },
+            { en: 'Where do you live?', hi: 'तुम कहाँ रहते हो?' },
+            { en: 'Are you happy?', hi: 'क्या तुम खुश हो?' },
+            { en: 'Can you swim?', hi: 'क्या तुम तैर सकते हो?' }
+          ],
+          practice: [
+            { type: 'mcq', q: 'Which is interrogative?', options: ['I am fine.', 'How are you?', 'Sit down.', 'Wow!'], answer: 'How are you?' },
+            { type: 'mcq', q: 'Which is interrogative?', options: ['Where is my pen?', 'This is my pen.', 'Give me pen.', 'Nice pen!'], answer: 'Where is my pen?' },
+            { type: 'mcq', q: 'Which is interrogative?', options: ['I love tea.', 'Do you love tea?', 'Love tea!', 'Tea is good.'], answer: 'Do you love tea?' },
+            { type: 'mcq', q: 'Which is interrogative?', options: ['She sings well.', 'Does she sing well?', 'Sing well!', 'What a singer!'], answer: 'Does she sing well?' },
+            { type: 'mcq', q: 'Which is interrogative?', options: ['Close the door.', 'Is the door closed?', 'The door is closed.', 'Door closed!'], answer: 'Is the door closed?' }
           ]
         },
         {
-          title: 'Step 3: May (Permission)',
-          type: 'info',
-          content: '<p><b>May</b> = सकता है (formal permission) / शायद (possibility)</p>',
+          id: 'imperative',
+          title: 'Imperative Sentence',
+          icon: '👉',
+          intro: 'Command / Request / Advice — आदेश, निवेदन या सलाह',
+          structure: 'Verb (base form) + Object + .',
+          usage: 'किसी को कुछ करने का आदेश, request या advice देने के लिए।',
           examples: [
-            { sentence: 'May I come in?', hi: 'क्या मैं अंदर आ सकता हूँ?' },
-            { sentence: 'May I sit here?', hi: 'क्या मैं यहाँ बैठ सकता हूँ?' },
-            { sentence: 'You may go now.', hi: 'तुम अब जा सकते हो' },
-            { sentence: 'May I ask a question?', hi: 'क्या मैं सवाल पूछ सकता हूँ?' },
-            { sentence: 'May I use your pen?', hi: 'क्या मैं तुम्हारा पेन use कर सकता हूँ?' },
-            { sentence: 'It may rain today.', hi: 'आज बारिश हो सकती है' }
+            { en: 'Close the door.', hi: 'दरवाज़ा बंद करो।' },
+            { en: 'Please help me.', hi: 'कृपया मेरी मदद करो।' },
+            { en: 'Do not smoke here.', hi: 'यहाँ धूम्रपान न करें।' },
+            { en: 'Always speak the truth.', hi: 'हमेशा सच बोलो।' }
+          ],
+          practice: [
+            { type: 'mcq', q: 'Which is imperative?', options: ['I am here.', 'Come here.', 'Are you here?', 'Wow, here!'], answer: 'Come here.' },
+            { type: 'mcq', q: 'Which is imperative?', options: ['She sings.', 'Please sing a song.', 'Does she sing?', 'What a song!'], answer: 'Please sing a song.' },
+            { type: 'mcq', q: 'Which is imperative?', options: ['Sit down.', 'He sits.', 'Is he sitting?', 'How he sits!'], answer: 'Sit down.' },
+            { type: 'mcq', q: 'Which is imperative?', options: ['I eat rice.', 'Eat your food.', 'Do you eat rice?', 'What a meal!'], answer: 'Eat your food.' },
+            { type: 'mcq', q: 'Which is imperative?', options: ['Study hard.', 'He studies hard.', 'Does he study?', 'How hard!'], answer: 'Study hard.' }
           ]
         },
         {
-          title: 'Step 4: Might (Possibility)',
-          type: 'info',
-          content: '<p><b>Might</b> = शायद (weak possibility — may se kam)</p>',
+          id: 'exclamatory',
+          title: 'Exclamatory Sentence',
+          icon: '😲',
+          intro: 'Strong Feeling — अचानक भावना या आश्चर्य',
+          structure: 'What / How + ... + !',
+          usage: 'खुशी, दुख, आश्चर्य, गुस्सा — strong feelings दिखाने के लिए।',
           examples: [
-            { sentence: 'It might rain tomorrow.', hi: 'कल शायद बारिश हो' },
-            { sentence: 'She might come to the party.', hi: 'वह शायद पार्टी में आए' },
-            { sentence: 'He might be at home.', hi: 'वह शायद घर पर हो' },
-            { sentence: 'They might not agree.', hi: 'वे शायद न मानें' },
-            { sentence: 'I might go to Delhi next week.', hi: 'मैं अगले हफ्ते दिल्ली जा सकता हूँ' }
-          ]
-        },
-        {
-          title: 'Step 5: Should (Advice)',
-          type: 'info',
-          content: '<p><b>Should</b> = चाहिए (advice / suggestion)</p>',
-          examples: [
-            { sentence: 'You should study hard.', hi: 'तुम्हें मेहनत करनी चाहिए' },
-            { sentence: 'You should see a doctor.', hi: 'तुम्हें डॉक्टर को दिखाना चाहिए' },
-            { sentence: 'We should help others.', hi: 'हमें दूसरों की मदद करनी चाहिए' },
-            { sentence: 'She should rest.', hi: 'उसे आराम करना चाहिए' },
-            { sentence: 'They should come early.', hi: 'उन्हें जल्दी आना चाहिए' },
-            { sentence: 'You should not smoke.', hi: 'तुम्हें धूम्रपान नहीं करना चाहिए' }
-          ]
-        },
-        {
-          title: 'Step 6: Must (Obligation)',
-          type: 'info',
-          content: '<p><b>Must</b> = ज़रूर / चाहिए (strong obligation / necessity)</p>',
-          examples: [
-            { sentence: 'You must wear a helmet.', hi: 'तुम्हें हेलमेट पहनना ज़रूरी है' },
-            { sentence: 'I must finish this work today.', hi: 'मुझे आज यह काम खत्म करना है' },
-            { sentence: 'You must not smoke here.', hi: 'यहाँ धूम्रपान निषेध है' },
-            { sentence: 'She must be tired.', hi: 'वह ज़रूर थकी होगी' },
-            { sentence: 'We must respect our parents.', hi: 'हमें अपने माता-पिता का सम्मान करना चाहिए' }
+            { en: 'What a beautiful day!', hi: 'क्या सुंदर दिन है!' },
+            { en: 'How nice she is!', hi: 'वह कितनी अच्छी है!' },
+            { en: 'Wow! That is amazing!', hi: 'वाह! यह अद्भुत है!' },
+            { en: 'Alas! I lost my wallet.', hi: 'हाय! मेरा बटुआ खो गया।' }
+          ],
+          practice: [
+            { type: 'mcq', q: 'Which is exclamatory?', options: ['I am happy.', 'Am I happy?', 'Be happy.', 'What a happy day!'], answer: 'What a happy day!' },
+            { type: 'mcq', q: 'Which is exclamatory?', options: ['How beautiful!', 'She is beautiful.', 'Is she beautiful?', 'Be beautiful.'], answer: 'How beautiful!' },
+            { type: 'mcq', q: 'Which is exclamatory?', options: ['I am tired.', 'Alas! I am tired.', 'Am I tired?', 'Do not be tired.'], answer: 'Alas! I am tired.' },
+            { type: 'mcq', q: 'Which is exclamatory?', options: ['Wow! Great job!', 'He did a great job.', 'Did he do it?', 'Do it.'], answer: 'Wow! Great job!' },
+            { type: 'mcq', q: 'Which is exclamatory?', options: ['What a lovely song!', 'She sings well.', 'Does she sing?', 'Sing now.'], answer: 'What a lovely song!' }
           ]
         }
-      ],
-      practice: [
-        { type: 'mcq', q: 'I ___ swim very well.', options: ['can', 'may', 'should', 'must'], answer: 'can' },
-        { type: 'mcq', q: '___ I come in?', options: ['Can', 'May', 'Should', 'Must'], answer: 'May' },
-        { type: 'mcq', q: 'You ___ see a doctor.', options: ['can', 'may', 'should', 'must'], answer: 'should' },
-        { type: 'mcq', q: 'She ___ sing beautifully.', options: ['can', 'may', 'should', 'must'], answer: 'can' },
-        { type: 'mcq', q: 'You ___ study hard.', options: ['can', 'may', 'should', 'must'], answer: 'should' },
-        { type: 'mcq', q: 'It ___ rain tomorrow.', options: ['can', 'might', 'should', 'must'], answer: 'might' },
-        { type: 'mcq', q: 'You ___ wear a helmet.', options: ['can', 'may', 'should', 'must'], answer: 'must' },
-        { type: 'mcq', q: '___ you help me, please?', options: ['Could', 'May', 'Should', 'Must'], answer: 'Could' },
-        { type: 'mcq', q: 'I ___ swim when I was young.', options: ['can', 'could', 'may', 'must'], answer: 'could' },
-        { type: 'mcq', q: 'We ___ respect our parents.', options: ['can', 'may', 'must', 'might'], answer: 'must' }
       ]
     },
 
-    // ═══════════════════════════════════════════
-    // TOPIC 2: Synonyms
-    // ═══════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
+    // TOPIC 2: CLAUSE
+    // ═══════════════════════════════════════════════════════
     {
-      id: 'synonyms',
-      title: 'Synonyms',
-      icon: '📖',
-      intro: 'सीखो same meaning वाले words',
-      lessons: [
+      id: 'clause',
+      title: 'Clause',
+      icon: '🔗',
+      color: 'green',
+      intro: 'Clause ke 2 types — Independent aur Dependent clause',
+      subtopics: [
         {
-          title: 'Step 1: Basic Synonyms',
-          type: 'info',
-          content: '<p><b>Synonyms</b> = Same meaning वाले words</p>',
+          id: 'independent',
+          title: 'Independent Clause',
+          icon: '🟢',
+          intro: 'वह clause जो अपने आप में पूरा sentence बन सके',
+          structure: 'Subject + Verb + (Object) — complete sentence',
+          usage: 'यह अपने आप में पूर्ण वाक्य होता है। इसका मतलब समझ आता है।',
           examples: [
-            { word1: 'Happy', word2: 'Joyful' },
-            { word1: 'Big', word2: 'Large' },
-            { word1: 'Fast', word2: 'Quick' },
-            { word1: 'Smart', word2: 'Clever' },
-            { word1: 'Beautiful', word2: 'Pretty' },
-            { word1: 'Small', word2: 'Tiny' },
-            { word1: 'Begin', word2: 'Start' },
-            { word1: 'End', word2: 'Finish' }
+            { en: 'I love India.', hi: 'मुझे भारत से प्यार है। (पूरा वाक्य)' },
+            { en: 'She sings well.', hi: 'वह अच्छा गाती है। (पूरा वाक्य)' },
+            { en: 'Ram eats rice.', hi: 'राम चावल खाता है। (पूरा वाक्य)' },
+            { en: 'The sun rises in the east.', hi: 'सूरज पूर्व में उगता है।' }
+          ],
+          practice: [
+            { type: 'mcq', q: 'Which is an independent clause?', options: ['Because I was tired', 'I went to bed', 'When he came', 'If it rains'], answer: 'I went to bed' },
+            { type: 'mcq', q: 'Which is an independent clause?', options: ['Although she tried', 'She failed', 'Since morning', 'While walking'], answer: 'She failed' },
+            { type: 'mcq', q: 'Which is an independent clause?', options: ['I love tea', 'Because I love tea', 'When I love tea', 'If I love tea'], answer: 'I love tea' },
+            { type: 'mcq', q: 'Which is an independent clause?', options: ['He is smart', 'Though he is smart', 'If he is smart', 'As he is smart'], answer: 'He is smart' },
+            { type: 'mcq', q: 'Which is an independent clause?', options: ['The dog barks', 'Because the dog barks', 'When the dog barks', 'Although the dog barks'], answer: 'The dog barks' }
           ]
         },
         {
-          title: 'Step 2: Advanced Synonyms',
-          type: 'info',
-          content: '<p>Advanced words के synonyms — writing को powerful बनाओ</p>',
+          id: 'dependent',
+          title: 'Dependent Clause',
+          icon: '🔴',
+          intro: 'वह clause जो अकेले पूरा sentence नहीं बन सकता',
+          structure: 'Subordinating Conjunction (because, if, when...) + Subject + Verb',
+          usage: 'यह अकेले पूरा अर्थ नहीं देता। इसके लिए independent clause चाहिए।',
           examples: [
-            { word1: 'Important', word2: 'Crucial' },
-            { word1: 'Difficult', word2: 'Challenging' },
-            { word1: 'Interesting', word2: 'Fascinating' },
-            { word1: 'Angry', word2: 'Furious' },
-            { word1: 'Scared', word2: 'Terrified' },
-            { word1: 'Tired', word2: 'Exhausted' },
-            { word1: 'Rich', word2: 'Wealthy' },
-            { word1: 'Brave', word2: 'Courageous' }
+            { en: 'Because I was tired...', hi: 'क्योंकि मैं थका था... (अधूरा)' },
+            { en: 'When he came...', hi: 'जब वह आया... (अधूरा)' },
+            { en: 'If it rains...', hi: 'अगर बारिश हो... (अधूरा)' },
+            { en: 'Although she tried...', hi: 'हालांकि उसने कोशिश की... (अधूरा)' }
+          ],
+          practice: [
+            { type: 'mcq', q: 'Which is a dependent clause?', options: ['I am fine', 'Because I am fine', 'She sings', 'He runs'], answer: 'Because I am fine' },
+            { type: 'mcq', q: 'Which is a dependent clause?', options: ['When I was young', 'I was young', 'She was there', 'We played'], answer: 'When I was young' },
+            { type: 'mcq', q: 'Which is a dependent clause?', options: ['If you study', 'You study', 'Study hard', 'I study'], answer: 'If you study' },
+            { type: 'mcq', q: 'Which is a dependent clause?', options: ['Although he is rich', 'He is rich', 'He has money', 'Money is good'], answer: 'Although he is rich' },
+            { type: 'mcq', q: 'Which is a dependent clause?', options: ['Since morning', 'The sun rises', 'I woke up', 'Birds sing'], answer: 'Since morning' }
           ]
         }
-      ],
-      practice: [
-        { type: 'mcq', q: 'Synonym of "Happy"?', options: ['Sad', 'Joyful', 'Angry', 'Tired'], answer: 'Joyful' },
-        { type: 'mcq', q: 'Synonym of "Big"?', options: ['Small', 'Large', 'Tiny', 'Short'], answer: 'Large' },
-        { type: 'mcq', q: 'Synonym of "Fast"?', options: ['Slow', 'Quick', 'Late', 'Heavy'], answer: 'Quick' },
-        { type: 'mcq', q: 'Synonym of "Smart"?', options: ['Dull', 'Clever', 'Lazy', 'Weak'], answer: 'Clever' },
-        { type: 'mcq', q: 'Synonym of "Beautiful"?', options: ['Ugly', 'Pretty', 'Bad', 'Old'], answer: 'Pretty' },
-        { type: 'mcq', q: 'Synonym of "Important"?', options: ['Useless', 'Crucial', 'Boring', 'Easy'], answer: 'Crucial' },
-        { type: 'mcq', q: 'Synonym of "Angry"?', options: ['Calm', 'Furious', 'Happy', 'Sleepy'], answer: 'Furious' },
-        { type: 'mcq', q: 'Synonym of "Tired"?', options: ['Fresh', 'Exhausted', 'Active', 'Energetic'], answer: 'Exhausted' },
-        { type: 'mcq', q: 'Synonym of "Brave"?', options: ['Coward', 'Courageous', 'Weak', 'Scared'], answer: 'Courageous' },
-        { type: 'mcq', q: 'Synonym of "Begin"?', options: ['End', 'Start', 'Stop', 'Close'], answer: 'Start' }
       ]
     },
 
-    // ═══════════════════════════════════════════
-    // TOPIC 3: Antonyms
-    // ═══════════════════════════════════════════
+    // ═══════════════════════════════════════════════════════
+    // TOPIC 3: TENSE
+    // ═══════════════════════════════════════════════════════
     {
-      id: 'antonyms',
-      title: 'Antonyms',
-      icon: '🔄',
-      intro: 'सीखो opposite meaning वाले words',
-      lessons: [
-        {
-          title: 'Step 1: Basic Antonyms',
-          type: 'info',
-          content: '<p><b>Antonyms</b> = Opposite meaning वाले words</p>',
-          examples: [
-            { word1: 'Hot', word2: 'Cold' },
-            { word1: 'Big', word2: 'Small' },
-            { word1: 'Happy', word2: 'Sad' },
-            { word1: 'Fast', word2: 'Slow' },
-            { word1: 'Day', word2: 'Night' },
-            { word1: 'Up', word2: 'Down' },
-            { word1: 'Open', word2: 'Close' },
-            { word1: 'Rich', word2: 'Poor' }
-          ]
-        },
-        {
-          title: 'Step 2: Advanced Antonyms',
-          type: 'info',
-          content: '<p>Advanced opposite words</p>',
-          examples: [
-            { word1: 'Ancient', word2: 'Modern' },
-            { word1: 'Victory', word2: 'Defeat' },
-            { word1: 'Generous', word2: 'Miserly' },
-            { word1: 'Brave', word2: 'Cowardly' },
-            { word1: 'Increase', word2: 'Decrease' },
-            { word1: 'Accept', word2: 'Reject' },
-            { word1: 'Expand', word2: 'Contract' },
-            { word1: 'Praise', word2: 'Criticize' }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: 'Antonym of "Hot"?', options: ['Warm', 'Cold', 'Boiling', 'Sunny'], answer: 'Cold' },
-        { type: 'mcq', q: 'Antonym of "Big"?', options: ['Large', 'Small', 'Huge', 'Giant'], answer: 'Small' },
-        { type: 'mcq', q: 'Antonym of "Happy"?', options: ['Joyful', 'Sad', 'Glad', 'Cheerful'], answer: 'Sad' },
-        { type: 'mcq', q: 'Antonym of "Fast"?', options: ['Quick', 'Slow', 'Rapid', 'Swift'], answer: 'Slow' },
-        { type: 'mcq', q: 'Antonym of "Day"?', options: ['Morning', 'Night', 'Noon', 'Evening'], answer: 'Night' },
-        { type: 'mcq', q: 'Antonym of "Ancient"?', options: ['Old', 'Modern', 'Past', 'Historic'], answer: 'Modern' },
-        { type: 'mcq', q: 'Antonym of "Victory"?', options: ['Win', 'Defeat', 'Success', 'Triumph'], answer: 'Defeat' },
-        { type: 'mcq', q: 'Antonym of "Accept"?', options: ['Take', 'Reject', 'Receive', 'Agree'], answer: 'Reject' },
-        { type: 'mcq', q: 'Antonym of "Increase"?', options: ['Grow', 'Decrease', 'Rise', 'Expand'], answer: 'Decrease' },
-        { type: 'mcq', q: 'Antonym of "Praise"?', options: ['Applaud', 'Criticize', 'Admire', 'Respect'], answer: 'Criticize' }
-      ]
-    },
-
-    // ═══════════════════════════════════════════
-    // TOPIC 4: Active & Passive Voice
-    // ═══════════════════════════════════════════
-    {
-      id: 'voice',
-      title: 'Active & Passive Voice',
-      icon: '🗣️',
-      intro: 'सीखो active से passive बनाना',
-      lessons: [
-        {
-          title: 'Step 1: Active vs Passive — Present Simple',
-          type: 'info',
-          content: `
-            <p><b>Active:</b> Subject + V1/V-s + Object (Ram eats an apple)</p>
-            <p><b>Passive:</b> Object + is/am/are + V3 + by Subject (An apple is eaten by Ram)</p>
-          `,
-          examples: [
-            { active: 'Ram eats an apple.', passive: 'An apple is eaten by Ram.' },
-            { active: 'She reads a book.', passive: 'A book is read by her.' },
-            { active: 'They play cricket.', passive: 'Cricket is played by them.' },
-            { active: 'He writes a letter.', passive: 'A letter is written by him.' },
-            { active: 'I drink water.', passive: 'Water is drunk by me.' }
-          ]
-        },
-        {
-          title: 'Step 2: Active vs Passive — Past Simple',
-          type: 'info',
-          content: `
-            <p><b>Active:</b> Subject + V2 + Object</p>
-            <p><b>Passive:</b> Object + was/were + V3 + by Subject</p>
-          `,
-          examples: [
-            { active: 'Ram ate an apple.', passive: 'An apple was eaten by Ram.' },
-            { active: 'She wrote a letter.', passive: 'A letter was written by her.' },
-            { active: 'They played cricket.', passive: 'Cricket was played by them.' },
-            { active: 'He broke the glass.', passive: 'The glass was broken by him.' },
-            { active: 'I saw a bird.', passive: 'A bird was seen by me.' }
-          ]
-        },
-        {
-          title: 'Step 3: Active vs Passive — Future Simple',
-          type: 'info',
-          content: `
-            <p><b>Active:</b> Subject + will + V1 + Object</p>
-            <p><b>Passive:</b> Object + will be + V3 + by Subject</p>
-          `,
-          examples: [
-            { active: 'Ram will eat an apple.', passive: 'An apple will be eaten by Ram.' },
-            { active: 'She will write a letter.', passive: 'A letter will be written by her.' },
-            { active: 'They will play cricket.', passive: 'Cricket will be played by them.' },
-            { active: 'He will buy a car.', passive: 'A car will be bought by him.' },
-            { active: 'I will finish the work.', passive: 'The work will be finished by me.' }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: 'Passive of "Ram eats an apple"?', options: ['An apple is eaten by Ram', 'Apple eaten Ram', 'Ram is eaten by apple', 'An apple eats Ram'], answer: 'An apple is eaten by Ram' },
-        { type: 'mcq', q: 'Passive of "She reads a book"?', options: ['A book is read by her', 'Book reads she', 'She is read by book', 'A book reads her'], answer: 'A book is read by her' },
-        { type: 'mcq', q: 'Passive of "They play cricket"?', options: ['Cricket is played by them', 'Cricket plays them', 'They are played by cricket', 'Cricket play they'], answer: 'Cricket is played by them' },
-        { type: 'mcq', q: 'Passive of "He writes a letter"?', options: ['A letter is written by him', 'Letter writes him', 'He is written by letter', 'A letter writes he'], answer: 'A letter is written by him' },
-        { type: 'mcq', q: 'Passive of "I drink water"?', options: ['Water is drunk by me', 'Water drinks me', 'I am drunk by water', 'Water drink I'], answer: 'Water is drunk by me' },
-        { type: 'mcq', q: 'Passive of "Ram ate an apple"?', options: ['An apple was eaten by Ram', 'An apple is eaten by Ram', 'An apple eaten Ram', 'Ram ate apple'], answer: 'An apple was eaten by Ram' },
-        { type: 'mcq', q: 'Passive of "She wrote a letter"?', options: ['A letter was written by her', 'A letter is written by her', 'Letter wrote she', 'She written letter'], answer: 'A letter was written by her' },
-        { type: 'mcq', q: 'Passive of "He broke the glass"?', options: ['The glass was broken by him', 'Glass breaks him', 'The glass is broken by him', 'He breaks glass'], answer: 'The glass was broken by him' },
-        { type: 'mcq', q: 'Passive of "Ram will eat an apple"?', options: ['An apple will be eaten by Ram', 'An apple is eaten by Ram', 'An apple was eaten by Ram', 'Ram will eat apple'], answer: 'An apple will be eaten by Ram' },
-        { type: 'mcq', q: 'Passive of "She will write a letter"?', options: ['A letter will be written by her', 'A letter is written by her', 'A letter was written by her', 'Letter write she'], answer: 'A letter will be written by her' }
-      ]
-    },
-
-    // ═══════════════════════════════════════════
-    // TOPIC 5: Conditionals
-    // ═══════════════════════════════════════════
-    {
-      id: 'conditionals',
-      title: 'Conditionals',
-      icon: '❓',
-      intro: 'सीखो if वाले sentences (3 types)',
-      lessons: [
-        {
-          title: 'Step 1: First Conditional (Real / Possible)',
-          type: 'info',
-          content: `
-            <p><b>Structure:</b> If + Present Simple, will + V1</p>
-            <p>Real possible situations के लिए</p>
-          `,
-          examples: [
-            { sentence: 'If it rains, I will stay home.', hi: 'अगर बारिश होगी, मैं घर रहूँगा' },
-            { sentence: 'If you study, you will pass.', hi: 'अगर तुम पढ़ोगे, पास होगे' },
-            { sentence: 'If she comes, I will meet her.', hi: 'अगर वो आएगी, मैं मिलूँगा' },
-            { sentence: 'If we hurry, we will catch the train.', hi: 'अगर हम जल्दी करेंगे, ट्रेन पकड़ेंगे' },
-            { sentence: 'If they call, I will answer.', hi: 'अगर वे कॉल करेंगे, मैं जवाब दूँगा' }
-          ]
-        },
-        {
-          title: 'Step 2: Second Conditional (Imaginary)',
-          type: 'info',
-          content: `
-            <p><b>Structure:</b> If + Past Simple, would + V1</p>
-            <p>Imaginary / unreal situations के लिए (जो हो नहीं सकती)</p>
-          `,
-          examples: [
-            { sentence: 'If I were rich, I would buy a car.', hi: 'अगर मैं अमीर होता, कार खरीदता' },
-            { sentence: 'If I had wings, I would fly.', hi: 'अगर मेरे पंख होते, मैं उड़ता' },
-            { sentence: 'If she knew, she would tell us.', hi: 'अगर उसे पता होता, वह बताती' },
-            { sentence: 'If I won the lottery, I would travel.', hi: 'अगर मैं लॉटरी जीतता, घूमने जाता' },
-            { sentence: 'If he were here, he would help.', hi: 'अगर वह यहाँ होता, मदद करता' }
-          ]
-        },
-        {
-          title: 'Step 3: Third Conditional (Past Regret)',
-          type: 'info',
-          content: `
-            <p><b>Structure:</b> If + had + V3, would have + V3</p>
-            <p>Past में जो हो नहीं सका, उसके लिए (regret)</p>
-          `,
-          examples: [
-            { sentence: 'If I had studied, I would have passed.', hi: 'अगर मैंने पढ़ाई की होती, पास हो जाता' },
-            { sentence: 'If she had come, I would have met her.', hi: 'अगर वह आई होती, मैं मिल लेता' },
-            { sentence: 'If we had left early, we would have caught the train.', hi: 'अगर हम जल्दी निकले होते, ट्रेन पकड़ लेते' },
-            { sentence: 'If he had tried, he would have won.', hi: 'अगर उसने कोशिश की होती, जीत जाता' },
-            { sentence: 'If they had told me, I would have helped.', hi: 'अगर उन्होंने बताया होता, मैं मदद करता' }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: 'If it ___, I will stay home.', options: ['rain', 'rains', 'rained', 'raining'], answer: 'rains' },
-        { type: 'mcq', q: 'If you study, you ___ pass.', options: ['will', 'would', 'are', 'were'], answer: 'will' },
-        { type: 'mcq', q: 'If she ___, I will meet her.', options: ['come', 'comes', 'came', 'coming'], answer: 'comes' },
-        { type: 'mcq', q: 'If we hurry, we ___ catch the train.', options: ['will', 'would', 'were', 'are'], answer: 'will' },
-        { type: 'mcq', q: 'If they ___, I will answer.', options: ['call', 'calls', 'called', 'calling'], answer: 'call' },
-        { type: 'mcq', q: 'If I ___ rich, I would buy a car.', options: ['am', 'was', 'were', 'be'], answer: 'were' },
-        { type: 'mcq', q: 'If I had wings, I ___ fly.', options: ['will', 'would', 'am', 'was'], answer: 'would' },
-        { type: 'mcq', q: 'If I had studied, I ___ passed.', options: ['will have', 'would have', 'had', 'have'], answer: 'would have' },
-        { type: 'mcq', q: 'If she ___ come, I would have met her.', options: ['has', 'had', 'have', 'having'], answer: 'had' },
-        { type: 'mcq', q: 'If he ___ tried, he would have won.', options: ['has', 'had', 'have', 'was'], answer: 'had' }
-      ]
-    },
-
-    // ═══════════════════════════════════════════
-    // TOPIC 6: Tenses (NEW!)
-    // ═══════════════════════════════════════════
-    {
-      id: 'tenses',
-      title: 'Tenses Overview',
+      id: 'tense',
+      title: 'Tense',
       icon: '⏰',
-      intro: 'सीखो 12 tenses — Present, Past, Future',
-      lessons: [
+      color: 'purple',
+      intro: 'Tense ke 3 main types — Present, Past, Future',
+      subtopics: [
+        // ─── PRESENT ───
         {
-          title: 'Step 1: Present Simple',
-          type: 'info',
-          content: '<p><b>Present Simple:</b> Habitual actions, facts</p><p>Structure: Subject + V1/V-s + Object</p>',
-          examples: [
-            { sentence: 'I eat rice every day.', hi: 'मैं रोज़ चावल खाता हूँ' },
-            { sentence: 'She goes to school.', hi: 'वह स्कूल जाती है' },
-            { sentence: 'The sun rises in the east.', hi: 'सूरज पूर्व में उगता है' },
-            { sentence: 'We play cricket on Sundays.', hi: 'हम रविवार को क्रिकेट खेलते हैं' }
+          id: 'present',
+          title: 'Present Tense',
+          icon: '🟢',
+          intro: 'वर्तमान काल — अभी हो रहा है',
+          subtopics: [
+            {
+              id: 'present-simple',
+              title: 'Present Simple',
+              icon: '1️⃣',
+              intro: 'आदत, सच या नियमित काम',
+              structure: 'S + V1/V5 + O',
+              usage: 'Daily routine, habits, universal truths के लिए।',
+              forms: [
+                { type: 'Simple',      formula: 'S + V1/V5 + O',       example: 'I eat rice.' },
+                { type: 'Negative',    formula: 'S + do/does + not + V1 + O', example: 'I do not eat rice.' },
+                { type: 'Interrogative', formula: 'Do/Does + S + V1 + O?',     example: 'Do you eat rice?' },
+                { type: 'WH Question', formula: 'WH + do/does + S + V1 + O?', example: 'What do you eat?' }
+              ],
+              examples: [
+                { en: 'I eat rice every day.', hi: 'मैं रोज़ चावल खाता हूँ।' },
+                { en: 'She goes to school.', hi: 'वह स्कूल जाती है।' },
+                { en: 'The sun rises in the east.', hi: 'सूरज पूर्व में उगता है।' },
+                { en: 'We play cricket on Sundays.', hi: 'हम रविवार को क्रिकेट खेलते हैं।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ rice every day.', options: ['eat', 'eats', 'eating', 'ate'], answer: 'eat' },
+                { type: 'mcq', q: 'She ___ to school.', options: ['go', 'goes', 'going', 'went'], answer: 'goes' },
+                { type: 'mcq', q: 'He ___ not like tea.', options: ['do', 'does', 'is', 'are'], answer: 'does' },
+                { type: 'mcq', q: '___ you play cricket?', options: ['Do', 'Does', 'Is', 'Are'], answer: 'Do' },
+                { type: 'mcq', q: 'What ___ she eat?', options: ['do', 'does', 'is', 'are'], answer: 'does' }
+              ]
+            },
+            {
+              id: 'present-continuous',
+              title: 'Present Continuous',
+              icon: '2️⃣',
+              intro: 'अभी हो रहा है',
+              structure: 'S + is/am/are + V-ing + O',
+              usage: 'जो काम अभी चल रहा है।',
+              forms: [
+                { type: 'Simple',      formula: 'S + is/am/are + V-ing + O', example: 'I am eating rice.' },
+                { type: 'Negative',    formula: 'S + is/am/are + not + V-ing + O', example: 'I am not eating rice.' },
+                { type: 'Interrogative', formula: 'Is/Am/Are + S + V-ing + O?', example: 'Are you eating rice?' },
+                { type: 'WH Question', formula: 'WH + is/am/are + S + V-ing + O?', example: 'What are you eating?' }
+              ],
+              examples: [
+                { en: 'I am eating rice now.', hi: 'मैं अभी चावल खा रहा हूँ।' },
+                { en: 'She is reading a book.', hi: 'वह किताब पढ़ रही है।' },
+                { en: 'They are playing football.', hi: 'वे फुटबॉल खेल रहे हैं।' },
+                { en: 'It is raining outside.', hi: 'बाहर बारिश हो रही है।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ eating rice now.', options: ['am', 'is', 'are', 'was'], answer: 'am' },
+                { type: 'mcq', q: 'She ___ reading a book.', options: ['am', 'is', 'are', 'were'], answer: 'is' },
+                { type: 'mcq', q: 'They ___ playing football.', options: ['am', 'is', 'are', 'was'], answer: 'are' },
+                { type: 'mcq', q: 'It ___ raining outside.', options: ['am', 'is', 'are', 'were'], answer: 'is' },
+                { type: 'mcq', q: 'What ___ you doing?', options: ['am', 'is', 'are', 'was'], answer: 'are' }
+              ]
+            },
+            {
+              id: 'present-perfect',
+              title: 'Present Perfect',
+              icon: '3️⃣',
+              intro: 'काम पूरा हो चुका है (अभी-अभी)',
+              structure: 'S + has/have + V3 + O',
+              usage: 'जो काम अभी-अभी पूरा हुआ या जिसका असर अभी है।',
+              forms: [
+                { type: 'Simple',      formula: 'S + has/have + V3 + O', example: 'I have eaten rice.' },
+                { type: 'Negative',    formula: 'S + has/have + not + V3 + O', example: 'I have not eaten rice.' },
+                { type: 'Interrogative', formula: 'Has/Have + S + V3 + O?', example: 'Have you eaten rice?' },
+                { type: 'WH Question', formula: 'WH + has/have + S + V3 + O?', example: 'What have you eaten?' }
+              ],
+              examples: [
+                { en: 'I have eaten my lunch.', hi: 'मैंने दोपहर का खाना खा लिया।' },
+                { en: 'She has finished her work.', hi: 'उसने अपना काम पूरा कर लिया।' },
+                { en: 'They have gone to Delhi.', hi: 'वे दिल्ली गए हैं।' },
+                { en: 'I have never seen a lion.', hi: 'मैंने कभी शेर नहीं देखा।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ eaten my lunch.', options: ['has', 'have', 'had', 'having'], answer: 'have' },
+                { type: 'mcq', q: 'She ___ finished her work.', options: ['has', 'have', 'had', 'having'], answer: 'has' },
+                { type: 'mcq', q: 'They ___ gone to Delhi.', options: ['has', 'have', 'had', 'having'], answer: 'have' },
+                { type: 'mcq', q: 'I have never ___ a lion.', options: ['see', 'saw', 'seen', 'seeing'], answer: 'seen' },
+                { type: 'mcq', q: '___ you finished your work?', options: ['Has', 'Have', 'Had', 'Having'], answer: 'Have' }
+              ]
+            },
+            {
+              id: 'present-perfect-continuous',
+              title: 'Present Perfect Continuous',
+              icon: '4️⃣',
+              intro: 'काम पहले से चल रहा है और अभी भी चल रहा है',
+              structure: 'S + has/have been + V-ing + since/for + time',
+              usage: 'जो काम past में शुरू हुआ और अभी भी जारी है।',
+              forms: [
+                { type: 'Simple',      formula: 'S + has/have been + V-ing + since/for + time', example: 'I have been eating for 2 hours.' },
+                { type: 'Negative',    formula: 'S + has/have not been + V-ing + ...', example: 'I have not been eating.' },
+                { type: 'Interrogative', formula: 'Has/Have + S + been + V-ing + ...?', example: 'Have you been eating?' },
+                { type: 'WH Question', formula: 'WH + has/have + S + been + V-ing + ...?', example: 'How long have you been eating?' }
+              ],
+              examples: [
+                { en: 'I have been studying for 2 hours.', hi: 'मैं 2 घंटे से पढ़ रहा हूँ।' },
+                { en: 'She has been working since morning.', hi: 'वह सुबह से काम कर रही है।' },
+                { en: 'It has been raining since last night.', hi: 'कल रात से बारिश हो रही है।' },
+                { en: 'They have been playing since 4 pm.', hi: 'वे 4 बजे से खेल रहे हैं।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ studying for 2 hours.', options: ['has been', 'have been', 'had been', 'am'], answer: 'have been' },
+                { type: 'mcq', q: 'She ___ working since morning.', options: ['has been', 'have been', 'had been', 'is'], answer: 'has been' },
+                { type: 'mcq', q: 'It ___ raining since last night.', options: ['has been', 'have been', 'had been', 'was'], answer: 'has been' },
+                { type: 'mcq', q: 'They have been ___ since 4 pm.', options: ['play', 'plays', 'playing', 'played'], answer: 'playing' },
+                { type: 'mcq', q: 'How long ___ you been studying?', options: ['has', 'have', 'had', 'having'], answer: 'have' }
+              ]
+            }
           ]
         },
+        // ─── PAST ───
         {
-          title: 'Step 2: Present Continuous',
-          type: 'info',
-          content: '<p><b>Present Continuous:</b> Action happening now</p><p>Structure: Subject + is/am/are + V-ing</p>',
-          examples: [
-            { sentence: 'I am eating rice now.', hi: 'मैं अभी चावल खा रहा हूँ' },
-            { sentence: 'She is reading a book.', hi: 'वह किताब पढ़ रही है' },
-            { sentence: 'They are playing football.', hi: 'वे फुटबॉल खेल रहे हैं' },
-            { sentence: 'It is raining outside.', hi: 'बाहर बारिश हो रही है' }
+          id: 'past',
+          title: 'Past Tense',
+          icon: '🔵',
+          intro: 'भूतकाल — पहले हो चुका है',
+          subtopics: [
+            {
+              id: 'past-simple',
+              title: 'Past Simple',
+              icon: '1️⃣',
+              intro: 'पहले हो चुका काम',
+              structure: 'S + V2 + O',
+              usage: 'जो काम past में पूरा हो गया।',
+              forms: [
+                { type: 'Simple',      formula: 'S + V2 + O', example: 'I ate rice.' },
+                { type: 'Negative',    formula: 'S + did not + V1 + O', example: 'I did not eat rice.' },
+                { type: 'Interrogative', formula: 'Did + S + V1 + O?', example: 'Did you eat rice?' },
+                { type: 'WH Question', formula: 'WH + did + S + V1 + O?', example: 'What did you eat?' }
+              ],
+              examples: [
+                { en: 'I ate rice yesterday.', hi: 'मैंने कल चावल खाया।' },
+                { en: 'She went to school.', hi: 'वह स्कूल गई।' },
+                { en: 'They played football.', hi: 'उन्होंने फुटबॉल खेला।' },
+                { en: 'It rained heavily last night.', hi: 'कल रात तेज़ बारिश हुई।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ rice yesterday.', options: ['eat', 'eats', 'ate', 'eaten'], answer: 'ate' },
+                { type: 'mcq', q: 'She ___ to school yesterday.', options: ['go', 'goes', 'went', 'gone'], answer: 'went' },
+                { type: 'mcq', q: 'They ___ football last Sunday.', options: ['play', 'plays', 'played', 'playing'], answer: 'played' },
+                { type: 'mcq', q: 'I did not ___ rice.', options: ['eat', 'ate', 'eaten', 'eating'], answer: 'eat' },
+                { type: 'mcq', q: '___ you go to school?', options: ['Do', 'Does', 'Did', 'Are'], answer: 'Did' }
+              ]
+            },
+            {
+              id: 'past-continuous',
+              title: 'Past Continuous',
+              icon: '2️⃣',
+              intro: 'पहले चल रहा था',
+              structure: 'S + was/were + V-ing + O',
+              usage: 'जो काम past में किसी समय चल रहा था।',
+              forms: [
+                { type: 'Simple',      formula: 'S + was/were + V-ing + O', example: 'I was eating rice.' },
+                { type: 'Negative',    formula: 'S + was/were + not + V-ing + O', example: 'I was not eating rice.' },
+                { type: 'Interrogative', formula: 'Was/Were + S + V-ing + O?', example: 'Were you eating rice?' },
+                { type: 'WH Question', formula: 'WH + was/were + S + V-ing + O?', example: 'What were you eating?' }
+              ],
+              examples: [
+                { en: 'I was eating rice at 8 pm.', hi: 'मैं 8 बजे चावल खा रहा था।' },
+                { en: 'She was reading a book.', hi: 'वह किताब पढ़ रही थी।' },
+                { en: 'They were playing cricket.', hi: 'वे क्रिकेट खेल रहे थे।' },
+                { en: 'It was raining all night.', hi: 'पूरी रात बारिश हो रही थी।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ eating rice at 8 pm.', options: ['am', 'is', 'was', 'were'], answer: 'was' },
+                { type: 'mcq', q: 'She ___ reading a book.', options: ['am', 'is', 'was', 'were'], answer: 'was' },
+                { type: 'mcq', q: 'They ___ playing cricket.', options: ['am', 'is', 'was', 'were'], answer: 'were' },
+                { type: 'mcq', q: 'It was ___ all night.', options: ['rain', 'rains', 'raining', 'rained'], answer: 'raining' },
+                { type: 'mcq', q: 'What ___ you doing?', options: ['was', 'were', 'are', 'is'], answer: 'were' }
+              ]
+            },
+            {
+              id: 'past-perfect',
+              title: 'Past Perfect',
+              icon: '3️⃣',
+              intro: 'पहले ही हो चुका था',
+              structure: 'S + had + V3 + O',
+              usage: 'जो काम past में किसी और काम से पहले पूरा हो चुका था।',
+              forms: [
+                { type: 'Simple',      formula: 'S + had + V3 + O', example: 'I had eaten rice.' },
+                { type: 'Negative',    formula: 'S + had not + V3 + O', example: 'I had not eaten rice.' },
+                { type: 'Interrogative', formula: 'Had + S + V3 + O?', example: 'Had you eaten rice?' },
+                { type: 'WH Question', formula: 'WH + had + S + V3 + O?', example: 'What had you eaten?' }
+              ],
+              examples: [
+                { en: 'I had eaten before he came.', hi: 'मैं खा चुका था उसके आने से पहले।' },
+                { en: 'She had finished her work.', hi: 'उसने अपना काम पूरा कर लिया था।' },
+                { en: 'The train had left before we reached.', hi: 'हमारे पहुँचने से पहले ट्रेन चली गई थी।' },
+                { en: 'They had already gone.', hi: 'वे पहले ही जा चुके थे।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ eaten before he came.', options: ['has', 'have', 'had', 'having'], answer: 'had' },
+                { type: 'mcq', q: 'She ___ finished her work.', options: ['has', 'have', 'had', 'having'], answer: 'had' },
+                { type: 'mcq', q: 'The train had ___ before we reached.', options: ['leave', 'leaves', 'left', 'leaving'], answer: 'left' },
+                { type: 'mcq', q: 'I had not ___ rice.', options: ['eat', 'ate', 'eaten', 'eating'], answer: 'eaten' },
+                { type: 'mcq', q: '___ you eaten before coming?', options: ['Has', 'Have', 'Had', 'Having'], answer: 'Had' }
+              ]
+            },
+            {
+              id: 'past-perfect-continuous',
+              title: 'Past Perfect Continuous',
+              icon: '4️⃣',
+              intro: 'पहले से चल रहा था (किसी समय तक)',
+              structure: 'S + had been + V-ing + since/for + time',
+              usage: 'जो काम past में किसी समय से चल रहा था।',
+              forms: [
+                { type: 'Simple',      formula: 'S + had been + V-ing + ...', example: 'I had been eating for 2 hours.' },
+                { type: 'Negative',    formula: 'S + had not been + V-ing + ...', example: 'I had not been eating.' },
+                { type: 'Interrogative', formula: 'Had + S + been + V-ing + ...?', example: 'Had you been eating?' },
+                { type: 'WH Question', formula: 'WH + had + S + been + V-ing + ...?', example: 'How long had you been eating?' }
+              ],
+              examples: [
+                { en: 'I had been studying for 2 hours.', hi: 'मैं 2 घंटे से पढ़ रहा था।' },
+                { en: 'She had been working since morning.', hi: 'वह सुबह से काम कर रही थी।' },
+                { en: 'It had been raining since last night.', hi: 'कल रात से बारिश हो रही थी।' },
+                { en: 'They had been playing since 4 pm.', hi: 'वे 4 बजे से खेल रहे थे।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ studying for 2 hours.', options: ['has been', 'have been', 'had been', 'am'], answer: 'had been' },
+                { type: 'mcq', q: 'She ___ working since morning.', options: ['has been', 'have been', 'had been', 'is'], answer: 'had been' },
+                { type: 'mcq', q: 'It had been ___ since last night.', options: ['rain', 'rains', 'raining', 'rained'], answer: 'raining' },
+                { type: 'mcq', q: 'They had been ___ since 4 pm.', options: ['play', 'plays', 'playing', 'played'], answer: 'playing' },
+                { type: 'mcq', q: 'How long ___ you been studying?', options: ['has', 'have', 'had', 'having'], answer: 'had' }
+              ]
+            }
           ]
         },
+        // ─── FUTURE ───
         {
-          title: 'Step 3: Present Perfect',
-          type: 'info',
-          content: '<p><b>Present Perfect:</b> Just completed / experience</p><p>Structure: Subject + has/have + V3</p>',
-          examples: [
-            { sentence: 'I have eaten my lunch.', hi: 'मैंने दोपहर का खाना खा लिया' },
-            { sentence: 'She has finished her work.', hi: 'उसने अपना काम पूरा कर लिया' },
-            { sentence: 'They have gone to Delhi.', hi: 'वे दिल्ली गए हैं' },
-            { sentence: 'I have never seen a lion.', hi: 'मैंने कभी शेर नहीं देखा' }
-          ]
-        },
-        {
-          title: 'Step 4: Past Simple',
-          type: 'info',
-          content: '<p><b>Past Simple:</b> Completed action in past</p><p>Structure: Subject + V2 + Object</p>',
-          examples: [
-            { sentence: 'I ate rice yesterday.', hi: 'मैंने कल चावल खाया' },
-            { sentence: 'She went to school.', hi: 'वह स्कूल गई' },
-            { sentence: 'They played football.', hi: 'उन्होंने फुटबॉल खेला' },
-            { sentence: 'It rained heavily last night.', hi: 'कल रात तेज़ बारिश हुई' }
-          ]
-        },
-        {
-          title: 'Step 5: Past Continuous',
-          type: 'info',
-          content: '<p><b>Past Continuous:</b> Action was happening in past</p><p>Structure: Subject + was/were + V-ing</p>',
-          examples: [
-            { sentence: 'I was eating rice at 8 pm.', hi: 'मैं 8 बजे चावल खा रहा था' },
-            { sentence: 'She was reading a book.', hi: 'वह किताब पढ़ रही थी' },
-            { sentence: 'They were playing cricket.', hi: 'वे क्रिकेट खेल रहे थे' },
-            { sentence: 'It was raining all night.', hi: 'पूरी रात बारिश हो रही थी' }
-          ]
-        },
-        {
-          title: 'Step 6: Past Perfect',
-          type: 'info',
-          content: '<p><b>Past Perfect:</b> Action completed before another past action</p><p>Structure: Subject + had + V3</p>',
-          examples: [
-            { sentence: 'I had eaten before he came.', hi: 'मैं खा चुका था उसके आने से पहले' },
-            { sentence: 'She had finished her work.', hi: 'उसने अपना काम पूरा कर लिया था' },
-            { sentence: 'The train had left before we reached.', hi: 'हमारे पहुँचने से पहले ट्रेन चली गई थी' },
-            { sentence: 'They had already gone.', hi: 'वे पहले ही जा चुके थे' }
-          ]
-        },
-        {
-          title: 'Step 7: Future Simple',
-          type: 'info',
-          content: '<p><b>Future Simple:</b> Action will happen in future</p><p>Structure: Subject + will + V1</p>',
-          examples: [
-            { sentence: 'I will eat rice tomorrow.', hi: 'मैं कल चावल खाऊँगा' },
-            { sentence: 'She will go to school.', hi: 'वह स्कूल जाएगी' },
-            { sentence: 'They will play cricket.', hi: 'वे क्रिकेट खेलेंगे' },
-            { sentence: 'It will rain tomorrow.', hi: 'कल बारिश होगी' }
-          ]
-        },
-        {
-          title: 'Step 8: Future Continuous',
-          type: 'info',
-          content: '<p><b>Future Continuous:</b> Action will be happening in future</p><p>Structure: Subject + will be + V-ing</p>',
-          examples: [
-            { sentence: 'I will be eating at 8 pm.', hi: 'मैं 8 बजे खा रहा होऊँगा' },
-            { sentence: 'She will be reading a book.', hi: 'वह किताब पढ़ रही होगी' },
-            { sentence: 'They will be playing cricket.', hi: 'वे क्रिकेट खेल रहे होंगे' }
-          ]
-        },
-        {
-          title: 'Step 9: Future Perfect',
-          type: 'info',
-          content: '<p><b>Future Perfect:</b> Action will be completed by a certain time</p><p>Structure: Subject + will have + V3</p>',
-          examples: [
-            { sentence: 'I will have eaten by 8 pm.', hi: 'मैं 8 बजे तक खा चुका होऊँगा' },
-            { sentence: 'She will have finished her work.', hi: 'वह अपना काम पूरा कर चुकी होगी' },
-            { sentence: 'They will have left by then.', hi: 'वे तब तक जा चुके होंगे' }
+          id: 'future',
+          title: 'Future Tense',
+          icon: '🟣',
+          intro: 'भविष्य काल — आगे होगा',
+          subtopics: [
+            {
+              id: 'future-simple',
+              title: 'Future Simple',
+              icon: '1️⃣',
+              intro: 'आगे होगा',
+              structure: 'S + will + V1 + O',
+              usage: 'जो काम future में होगा।',
+              forms: [
+                { type: 'Simple',      formula: 'S + will + V1 + O', example: 'I will eat rice.' },
+                { type: 'Negative',    formula: 'S + will not + V1 + O', example: 'I will not eat rice.' },
+                { type: 'Interrogative', formula: 'Will + S + V1 + O?', example: 'Will you eat rice?' },
+                { type: 'WH Question', formula: 'WH + will + S + V1 + O?', example: 'What will you eat?' }
+              ],
+              examples: [
+                { en: 'I will eat rice tomorrow.', hi: 'मैं कल चावल खाऊँगा।' },
+                { en: 'She will go to school.', hi: 'वह स्कूल जाएगी।' },
+                { en: 'They will play cricket.', hi: 'वे क्रिकेट खेलेंगे।' },
+                { en: 'It will rain tomorrow.', hi: 'कल बारिश होगी।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I ___ eat rice tomorrow.', options: ['will', 'would', 'am', 'was'], answer: 'will' },
+                { type: 'mcq', q: 'She ___ go to school.', options: ['will', 'would', 'is', 'was'], answer: 'will' },
+                { type: 'mcq', q: 'They ___ play cricket.', options: ['will', 'would', 'are', 'were'], answer: 'will' },
+                { type: 'mcq', q: 'I will not ___ rice.', options: ['eat', 'ate', 'eaten', 'eating'], answer: 'eat' },
+                { type: 'mcq', q: '___ you come tomorrow?', options: ['Do', 'Does', 'Will', 'Did'], answer: 'Will' }
+              ]
+            },
+            {
+              id: 'future-continuous',
+              title: 'Future Continuous',
+              icon: '2️⃣',
+              intro: 'आगे चल रहा होगा',
+              structure: 'S + will be + V-ing + O',
+              usage: 'जो काम future में किसी समय चल रहा होगा।',
+              forms: [
+                { type: 'Simple',      formula: 'S + will be + V-ing + O', example: 'I will be eating rice.' },
+                { type: 'Negative',    formula: 'S + will not be + V-ing + O', example: 'I will not be eating rice.' },
+                { type: 'Interrogative', formula: 'Will + S + be + V-ing + O?', example: 'Will you be eating rice?' },
+                { type: 'WH Question', formula: 'WH + will + S + be + V-ing + O?', example: 'What will you be eating?' }
+              ],
+              examples: [
+                { en: 'I will be eating at 8 pm.', hi: 'मैं 8 बजे खा रहा होऊँगा।' },
+                { en: 'She will be reading a book.', hi: 'वह किताब पढ़ रही होगी।' },
+                { en: 'They will be playing cricket.', hi: 'वे क्रिकेट खेल रहे होंगे।' },
+                { en: 'It will be raining tonight.', hi: 'आज रात बारिश हो रही होगी।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I will ___ eating at 8 pm.', options: ['am', 'is', 'be', 'been'], answer: 'be' },
+                { type: 'mcq', q: 'She will be ___ a book.', options: ['read', 'reads', 'reading', 'readed'], answer: 'reading' },
+                { type: 'mcq', q: 'They will be ___ cricket.', options: ['play', 'plays', 'playing', 'played'], answer: 'playing' },
+                { type: 'mcq', q: 'It will be ___ tonight.', options: ['rain', 'rains', 'raining', 'rained'], answer: 'raining' },
+                { type: 'mcq', q: 'What ___ you be doing?', options: ['will', 'would', 'are', 'is'], answer: 'will' }
+              ]
+            },
+            {
+              id: 'future-perfect',
+              title: 'Future Perfect',
+              icon: '3️⃣',
+              intro: 'आगे तक पूरा हो चुका होगा',
+              structure: 'S + will have + V3 + O',
+              usage: 'जो काम future में किसी समय तक पूरा हो चुका होगा।',
+              forms: [
+                { type: 'Simple',      formula: 'S + will have + V3 + O', example: 'I will have eaten rice.' },
+                { type: 'Negative',    formula: 'S + will not have + V3 + O', example: 'I will not have eaten rice.' },
+                { type: 'Interrogative', formula: 'Will + S + have + V3 + O?', example: 'Will you have eaten rice?' },
+                { type: 'WH Question', formula: 'WH + will + S + have + V3 + O?', example: 'What will you have eaten?' }
+              ],
+              examples: [
+                { en: 'I will have eaten by 8 pm.', hi: 'मैं 8 बजे तक खा चुका होऊँगा।' },
+                { en: 'She will have finished her work.', hi: 'वह अपना काम पूरा कर चुकी होगी।' },
+                { en: 'They will have left by then.', hi: 'वे तब तक जा चुके होंगे।' },
+                { en: 'We will have reached Delhi.', hi: 'हम दिल्ली पहुँच चुके होंगे।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I will ___ eaten by 8 pm.', options: ['has', 'have', 'had', 'having'], answer: 'have' },
+                { type: 'mcq', q: 'She will have ___ her work.', options: ['finish', 'finishes', 'finished', 'finishing'], answer: 'finished' },
+                { type: 'mcq', q: 'They will have ___ by then.', options: ['leave', 'leaves', 'left', 'leaving'], answer: 'left' },
+                { type: 'mcq', q: 'We will have ___ Delhi.', options: ['reach', 'reaches', 'reached', 'reaching'], answer: 'reached' },
+                { type: 'mcq', q: '___ you have finished by then?', options: ['Do', 'Does', 'Will', 'Did'], answer: 'Will' }
+              ]
+            },
+            {
+              id: 'future-perfect-continuous',
+              title: 'Future Perfect Continuous',
+              icon: '4️⃣',
+              intro: 'आगे तक चलता रहेगा',
+              structure: 'S + will have been + V-ing + since/for + time',
+              usage: 'जो काम future में किसी समय तक चलता रहेगा।',
+              forms: [
+                { type: 'Simple',      formula: 'S + will have been + V-ing + ...', example: 'I will have been eating for 2 hours.' },
+                { type: 'Negative',    formula: 'S + will not have been + V-ing + ...', example: 'I will not have been eating.' },
+                { type: 'Interrogative', formula: 'Will + S + have been + V-ing + ...?', example: 'Will you have been eating?' },
+                { type: 'WH Question', formula: 'WH + will + S + have been + V-ing + ...?', example: 'How long will you have been eating?' }
+              ],
+              examples: [
+                { en: 'I will have been studying for 2 hours.', hi: 'मैं 2 घंटे से पढ़ रहा होऊँगा।' },
+                { en: 'She will have been working since morning.', hi: 'वह सुबह से काम कर रही होगी।' },
+                { en: 'It will have been raining since last night.', hi: 'कल रात से बारिश हो रही होगी।' },
+                { en: 'They will have been playing since 4 pm.', hi: 'वे 4 बजे से खेल रहे होंगे।' }
+              ],
+              practice: [
+                { type: 'mcq', q: 'I will ___ been studying for 2 hours.', options: ['has', 'have', 'had', 'having'], answer: 'have' },
+                { type: 'mcq', q: 'She will have been ___ since morning.', options: ['work', 'works', 'working', 'worked'], answer: 'working' },
+                { type: 'mcq', q: 'It will have been ___ since last night.', options: ['rain', 'rains', 'raining', 'rained'], answer: 'raining' },
+                { type: 'mcq', q: 'They will have been ___ since 4 pm.', options: ['play', 'plays', 'playing', 'played'], answer: 'playing' },
+                { type: 'mcq', q: 'How long will you have been ___?', options: ['study', 'studies', 'studying', 'studied'], answer: 'studying' }
+              ]
+            }
           ]
         }
-      ],
-      practice: [
-        { type: 'mcq', q: 'I ___ rice every day.', options: ['eat', 'eats', 'eating', 'ate'], answer: 'eat' },
-        { type: 'mcq', q: 'She ___ to school.', options: ['go', 'goes', 'going', 'went'], answer: 'goes' },
-        { type: 'mcq', q: 'I ___ eating rice now.', options: ['am', 'is', 'are', 'was'], answer: 'am' },
-        { type: 'mcq', q: 'They ___ playing football.', options: ['am', 'is', 'are', 'was'], answer: 'are' },
-        { type: 'mcq', q: 'I ___ eaten my lunch.', options: ['has', 'have', 'had', 'having'], answer: 'have' },
-        { type: 'mcq', q: 'She ___ finished her work.', options: ['has', 'have', 'had', 'having'], answer: 'has' },
-        { type: 'mcq', q: 'I ___ rice yesterday.', options: ['eat', 'eats', 'ate', 'eaten'], answer: 'ate' },
-        { type: 'mcq', q: 'She ___ to school yesterday.', options: ['go', 'goes', 'went', 'gone'], answer: 'went' },
-        { type: 'mcq', q: 'I ___ eating rice at 8 pm.', options: ['am', 'is', 'was', 'were'], answer: 'was' },
-        { type: 'mcq', q: 'They ___ playing cricket.', options: ['am', 'is', 'was', 'were'], answer: 'were' },
-        { type: 'mcq', q: 'I ___ eaten before he came.', options: ['has', 'have', 'had', 'having'], answer: 'had' },
-        { type: 'mcq', q: 'I ___ eat rice tomorrow.', options: ['will', 'would', 'am', 'was'], answer: 'will' },
-        { type: 'mcq', q: 'She ___ go to school tomorrow.', options: ['will', 'would', 'is', 'was'], answer: 'will' },
-        { type: 'mcq', q: 'I will ___ eating at 8 pm.', options: ['am', 'is', 'be', 'been'], answer: 'be' },
-        { type: 'mcq', q: 'I ___ have eaten by 8 pm.', options: ['will', 'would', 'am', 'was'], answer: 'will' }
-      ]
-    },
-
-    // ═══════════════════════════════════════════
-    // TOPIC 7: Prepositions (NEW!)
-    // ═══════════════════════════════════════════
-    {
-      id: 'prepositions',
-      title: 'Prepositions',
-      icon: '📍',
-      intro: 'सीखो in, on, at, by, with, for',
-      lessons: [
-        {
-          title: 'Step 1: In / On / At (Place)',
-          type: 'info',
-          content: `
-            <p><b>In</b> = अंदर (enclosed space)</p>
-            <p><b>On</b> = ऊपर (surface)</p>
-            <p><b>At</b> = विशेष स्थान (specific point)</p>
-          `,
-          examples: [
-            { sentence: 'I live in Delhi.', hi: 'मैं दिल्ली में रहता हूँ' },
-            { sentence: 'The book is on the table.', hi: 'किताब मेज पर है' },
-            { sentence: 'She is at the door.', hi: 'वह दरवाज़े पर है' },
-            { sentence: 'We are in the room.', hi: 'हम कमरे में हैं' },
-            { sentence: 'He is at home.', hi: 'वह घर पर है' },
-            { sentence: 'The cat is on the roof.', hi: 'बिल्ली छत पर है' }
-          ]
-        },
-        {
-          title: 'Step 2: In / On / At (Time)',
-          type: 'info',
-          content: `
-            <p><b>In</b> = महीने, साल, सदी (in May, in 2024)</p>
-            <p><b>On</b> = दिन, तारीख (on Monday, on 5th May)</p>
-            <p><b>At</b> = समय, रात (at 5 pm, at night)</p>
-          `,
-          examples: [
-            { sentence: 'I was born in 2000.', hi: 'मैं 2000 में पैदा हुआ' },
-            { sentence: 'We will meet on Monday.', hi: 'हम सोमवार को मिलेंगे' },
-            { sentence: 'The class starts at 9 am.', hi: 'क्लास 9 बजे शुरू होती है' },
-            { sentence: 'It is cold in December.', hi: 'दिसंबर में ठंड होती है' },
-            { sentence: 'I sleep at night.', hi: 'मैं रात में सोता हूँ' },
-            { sentence: 'My birthday is on 5th May.', hi: 'मेरा जन्मदिन 5 मई को है' }
-          ]
-        },
-        {
-          title: 'Step 3: By / With / For',
-          type: 'info',
-          content: `
-            <p><b>By</b> = के द्वारा (agent) / तक (deadline)</p>
-            <p><b>With</b> = के साथ (instrument/company)</p>
-            <p><b>For</b> = के लिए (purpose/duration)</p>
-          `,
-          examples: [
-            { sentence: 'This book is written by Ram.', hi: 'यह किताब राम द्वारा लिखी गई है' },
-            { sentence: 'I go to school with my friend.', hi: 'मैं अपने दोस्त के साथ स्कूल जाता हूँ' },
-            { sentence: 'I bought a gift for my mother.', hi: 'मैंने अपनी माँ के लिए तोहफा खरीदा' },
-            { sentence: 'Finish this work by 5 pm.', hi: 'यह काम 5 बजे तक खत्म करो' },
-            { sentence: 'Cut it with a knife.', hi: 'इसे चाकू से काटो' },
-            { sentence: 'I waited for two hours.', hi: 'मैंने दो घंटे इंतज़ार किया' }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: 'I live ___ Delhi.', options: ['in', 'on', 'at', 'by'], answer: 'in' },
-        { type: 'mcq', q: 'The book is ___ the table.', options: ['in', 'on', 'at', 'by'], answer: 'on' },
-        { type: 'mcq', q: 'She is ___ the door.', options: ['in', 'on', 'at', 'with'], answer: 'at' },
-        { type: 'mcq', q: 'I was born ___ 2000.', options: ['in', 'on', 'at', 'by'], answer: 'in' },
-        { type: 'mcq', q: 'We will meet ___ Monday.', options: ['in', 'on', 'at', 'by'], answer: 'on' },
-        { type: 'mcq', q: 'The class starts ___ 9 am.', options: ['in', 'on', 'at', 'by'], answer: 'at' },
-        { type: 'mcq', q: 'This book is written ___ Ram.', options: ['in', 'on', 'by', 'at'], answer: 'by' },
-        { type: 'mcq', q: 'I go to school ___ my friend.', options: ['in', 'with', 'at', 'on'], answer: 'with' },
-        { type: 'mcq', q: 'I bought a gift ___ my mother.', options: ['for', 'in', 'on', 'at'], answer: 'for' },
-        { type: 'mcq', q: 'Finish this work ___ 5 pm.', options: ['in', 'on', 'at', 'by'], answer: 'by' }
-      ]
-    },
-
-    // ═══════════════════════════════════════════
-    // TOPIC 8: Articles (NEW!)
-    // ═══════════════════════════════════════════
-    {
-      id: 'articles',
-      title: 'Articles (a, an, the)',
-      icon: '📰',
-      intro: 'सीखो a, an, the का सही use',
-      lessons: [
-        {
-          title: 'Step 1: A vs An',
-          type: 'info',
-          content: `
-            <p><b>A</b> = consonant sound से पहले (a book, a car)</p>
-            <p><b>An</b> = vowel sound से पहले (an apple, an hour)</p>
-          `,
-          examples: [
-            { sentence: 'I have a book.', hi: 'मेरे पास एक किताब है' },
-            { sentence: 'She is an engineer.', hi: 'वह एक इंजीनियर है' },
-            { sentence: 'He ate an orange.', hi: 'उसने एक संतरा खाया' },
-            { sentence: 'I saw a tiger.', hi: 'मैंने एक बाघ देखा' },
-            { sentence: 'Wait for an hour.', hi: 'एक घंटा रुको' }
-          ]
-        },
-        {
-          title: 'Step 2: The (Definite)',
-          type: 'info',
-          content: `
-            <p><b>The</b> = specific/known चीज़ के लिए</p>
-            <p>Unique cheezein: the sun, the moon, the earth</p>
-          `,
-          examples: [
-            { sentence: 'The sun rises in the east.', hi: 'सूरज पूर्व में उगता है' },
-            { sentence: 'I met the boy who won the prize.', hi: 'मैं उस लड़के से मिला जिसने इनाम जीता' },
-            { sentence: 'The Ganga is a holy river.', hi: 'गंगा एक पवित्र नदी है' },
-            { sentence: 'Please close the door.', hi: 'कृपया दरवाज़ा बंद करें' },
-            { sentence: 'He is the best student.', hi: 'वह सबसे अच्छा छात्र है' }
-          ]
-        },
-        {
-          title: 'Step 3: Zero Article (No article)',
-          type: 'info',
-          content: `
-            <p>Proper nouns, abstract nouns, meals, languages के साथ article नहीं आता</p>
-          `,
-          examples: [
-            { sentence: 'I love India.', hi: 'मुझे भारत से प्यार है' },
-            { sentence: 'She speaks English.', hi: 'वह English बोलती है' },
-            { sentence: 'Honesty is the best policy.', hi: 'ईमानदारी सबसे अच्छी नीति है' },
-            { sentence: 'I have breakfast at 8.', hi: 'मैं 8 बजे नाश्ता करता हूँ' },
-            { sentence: 'He plays cricket.', hi: 'वह क्रिकेट खेलता है' }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: 'I have ___ book.', options: ['a', 'an', 'the', 'no article'], answer: 'a' },
-        { type: 'mcq', q: 'She is ___ engineer.', options: ['a', 'an', 'the', 'no article'], answer: 'an' },
-        { type: 'mcq', q: 'He ate ___ orange.', options: ['a', 'an', 'the', 'no article'], answer: 'an' },
-        { type: 'mcq', q: 'Wait for ___ hour.', options: ['a', 'an', 'the', 'no article'], answer: 'an' },
-        { type: 'mcq', q: '___ sun rises in the east.', options: ['A', 'An', 'The', 'No article'], answer: 'The' },
-        { type: 'mcq', q: '___ Ganga is a holy river.', options: ['A', 'An', 'The', 'No article'], answer: 'The' },
-        { type: 'mcq', q: 'He is ___ best student.', options: ['a', 'an', 'the', 'no article'], answer: 'the' },
-        { type: 'mcq', q: 'I love ___ India.', options: ['a', 'an', 'the', 'no article'], answer: 'no article' },
-        { type: 'mcq', q: 'She speaks ___ English.', options: ['a', 'an', 'the', 'no article'], answer: 'no article' },
-        { type: 'mcq', q: 'I have ___ breakfast at 8.', options: ['a', 'an', 'the', 'no article'], answer: 'no article' }
-      ]
-    },
-
-    // ═══════════════════════════════════════════
-    // TOPIC 9: Punctuation (NEW!)
-    // ═══════════════════════════════════════════
-    {
-      id: 'punctuation',
-      title: 'Punctuation',
-      icon: '❕',
-      intro: 'सीखो comma, full stop, question mark, exclamation',
-      lessons: [
-        {
-          title: 'Step 1: Full Stop (.) / Question Mark (?) / Exclamation (!)',
-          type: 'info',
-          content: `
-            <p><b>Full Stop (.)</b> = Statement के अंत में</p>
-            <p><b>Question Mark (?)</b> = Question के अंत में</p>
-            <p><b>Exclamation (!)</b> = Emotion / surprise के लिए</p>
-          `,
-          examples: [
-            { sentence: 'I go to school. (statement)', hi: 'मैं स्कूल जाता हूँ' },
-            { sentence: 'Do you go to school? (question)', hi: 'क्या तुम स्कूल जाते हो?' },
-            { sentence: 'What a beautiful day! (exclamation)', hi: 'क्या सुंदर दिन है!' },
-            { sentence: 'Where is my pen?', hi: 'मेरी कलम कहाँ है?' },
-            { sentence: 'Wow! That is amazing!', hi: 'वाह! यह अद्भुत है!' }
-          ]
-        },
-        {
-          title: 'Step 2: Comma (,)',
-          type: 'info',
-          content: `
-            <p><b>Comma (,)</b> = List, pause, or separating clauses</p>
-          `,
-          examples: [
-            { sentence: 'I bought apples, oranges, and bananas.', hi: 'मैंने सेब, संतरे और केले खरीदे' },
-            { sentence: 'Ram, come here.', hi: 'राम, यहाँ आओ' },
-            { sentence: 'If it rains, I will stay home.', hi: 'अगर बारिश होगी, मैं घर रहूँगा' },
-            { sentence: 'She is smart, kind, and beautiful.', hi: 'वह होशियार, दयालु और सुंदर है' }
-          ]
-        },
-        {
-          title: 'Step 3: Apostrophe (\')',
-          type: 'info',
-          content: `
-            <p><b>Apostrophe (\')</b> = Possession या contraction</p>
-          `,
-          examples: [
-            { sentence: 'Ram\'s book is on the table.', hi: 'राम की किताब मेज पर है' },
-            { sentence: 'I can\'t swim.', hi: 'मैं तैर नहीं सकता' },
-            { sentence: 'She\'s my sister.', hi: 'वह मेरी बहन है' },
-            { sentence: 'The boys\' toys are new.', hi: 'लड़कों के खिलौने नए हैं' }
-          ]
-        }
-      ],
-      practice: [
-        { type: 'mcq', q: 'I go to school ___', options: ['.', '?', '!', ','], answer: '.' },
-        { type: 'mcq', q: 'Do you go to school ___', options: ['.', '?', '!', ','], answer: '?' },
-        { type: 'mcq', q: 'What a beautiful day ___', options: ['.', '?', '!', ','], answer: '!' },
-        { type: 'mcq', q: 'Where is my pen ___', options: ['.', '?', '!', ','], answer: '?' },
-        { type: 'mcq', q: 'I bought apples ___ oranges and bananas.', options: ['.', '?', '!', ','], answer: ',' },
-        { type: 'mcq', q: 'Ram ___ come here.', options: ['.', '?', '!', ','], answer: ',' },
-        { type: 'mcq', q: 'Ram___ book is on the table.', options: ["'s", 's', "'", 's\''], answer: "'s" },
-        { type: 'mcq', q: 'I can___ swim.', options: ["'t", 't', "'", 'nt'], answer: "'t" },
-        { type: 'mcq', q: 'She___ my sister.', options: ["'s", 's', "'", 's\''], answer: "'s" },
-        { type: 'mcq', q: 'Wow___ That is amazing!', options: ['.', '?', '!', ','], answer: '!' }
       ]
     }
 
   ]
 };
 
-// Global expose karo taaki HTML access kar sake
+// ═══════════════════════════════════════════════════════════
+// Global exposure
+// ═══════════════════════════════════════════════════════════
 if (typeof window !== 'undefined') {
   window.MODULE2 = MODULE2;
 }
