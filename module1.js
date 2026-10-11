@@ -2,7 +2,7 @@
 // Cards 1-5 with 3-example structure + sentence builder data
 
 // ═══════════════════════════════════════════════════════════
-// CARD 1 —  LETTERS
+// CARD 1 —  LETTERs
 // ═══════════════════════════════════════════════════════════
 var MODULE1_LETTERS = {
     id: 'letters',
@@ -6324,4 +6324,11 @@ var MODULE1_MODERNVERBS = {
       }
     }
   ]
-};
+// ═══════════════════════════════════════════════════════════
+// MODULE1_CARDS — Array banaya gaya purane variables se
+// ═══════════════════════════════════════════════════════════
+var MODULE1_CARDS = [
+  MODULE1_LETTERS,
+  ipaSoundsCard,
+  verbsCard
+];
