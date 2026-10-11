@@ -19,6 +19,10 @@
   .card-icon { font-size: 2rem; margin-bottom: 12px; }
   .card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
   .card-desc { font-size: 0.85rem; color: #94a3b8; line-height: 1.5; }
+  .card.disabled { opacity: 0.5; cursor: not-allowed; }
+  .card.disabled:hover { border-color: #1e293b; transform: none; }
+  .badge { display: inline-block; background: #1e293b; color: #94a3b8; font-size: 0.7rem; padding: 2px 8px; border-radius: 20px; margin-top: 8px; font-weight: 700; }
+  .badge.ready { background: #064e3b; color: #4ade80; }
 
   /* DETAIL */
   .detail-page { display: none; }
@@ -152,15 +156,27 @@
 <body>
 
 <div class="container">
+  <!-- ═══════════ PAGE 1: MODULES HOME ═══════════ -->
   <div class="home-page" id="home-page">
     <div class="header">
       <h1>🌱 English Mastery</h1>
-      <p>All Modules · Learn & Play</p>
+      <p>Choose a Module to start learning</p>
     </div>
     <div id="error-box" style="display:none; background:#3a1a1a; border:1px solid #f87171; color:#f87171; padding:16px; border-radius:12px; margin-bottom:20px; text-align:center; font-size:0.9rem;"></div>
+    <div class="cards-grid" id="modules-grid"></div>
+  </div>
+
+  <!-- ═══════════ PAGE 2: CARDS INSIDE A MODULE ═══════════ -->
+  <div class="home-page" id="module-page" style="display:none">
+    <button class="back-btn" onclick="goHome()">← All Modules</button>
+    <div class="header" style="padding: 10px 0 20px;">
+      <h1 id="module-title" style="font-size:1.6rem">Module</h1>
+      <p id="module-sub">Cards</p>
+    </div>
     <div class="cards-grid" id="cards-grid"></div>
   </div>
 
+  <!-- ═══════════ PAGE 3: CARD DETAIL ═══════════ -->
   <div class="detail-page" id="detail-page">
     <button class="back-btn" onclick="goBack()">← Back</button>
     <div class="detail-header">
@@ -170,6 +186,7 @@
     <div id="detail-content"></div>
   </div>
 
+  <!-- ═══════════ PAGE 4: GAME ═══════════ -->
   <div class="game-page" id="game-page">
     <button class="back-btn" onclick="closeGame()">← Back</button>
     <div class="game-progress"><div class="game-progress-fill" id="game-progress-fill"></div></div>
@@ -198,6 +215,7 @@ function handleLoadError(filename) {
 // STATE
 // ═══════════════════════════════════════════════════════════
 var state = {
+  currentModuleId: null,
   currentCard: null,
   currentCardIdx: 0,
   currentVerbLetter: 'all',
@@ -213,45 +231,57 @@ var state = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// COLLECT ALL CARDS — FIXED VARIABLE NAMES
+// MODULE DEFINITIONS (5 Modules)
 // ═══════════════════════════════════════════════════════════
-function getAllCards() {
+var MODULE_DEFS = [
+  { id: 'module1', num: 1, title: 'Module 1', icon: '📗', desc: 'Letters, Sounds, Verbs, Be Verbs, Modern Verbs' },
+  { id: 'module2', num: 2, title: 'Module 2', icon: '📘', desc: 'Coming soon...' },
+  { id: 'module3', num: 3, title: 'Module 3', icon: '📙', desc: 'Coming soon...' },
+  { id: 'module4', num: 4, title: 'Module 4', icon: '📕', desc: 'Coming soon...' },
+  { id: 'module5', num: 5, title: 'Module 5', icon: '📓', desc: 'Coming soon...' }
+];
+
+// ═══════════════════════════════════════════════════════════
+// GET CARDS FOR A SPECIFIC MODULE
+// ═══════════════════════════════════════════════════════════
+function getCardsForModule(moduleId) {
   var cards = [];
 
-  // -------- MODULE 1 --------
-  if (typeof MODULE1_LETTERS !== 'undefined') cards.push(MODULE1_LETTERS);
-  if (typeof MODULE1_SOUNDS !== 'undefined') cards.push(MODULE1_SOUNDS);
-  if (typeof MODULE1_VERBS !== 'undefined') cards.push(MODULE1_VERBS);
-  if (typeof MODULE1_BEVERBS !== 'undefined') cards.push(MODULE1_BEVERBS);
-  if (typeof MODULE1_MODERNVERBS !== 'undefined') cards.push(MODULE1_MODERNVERBS);
-
-  // -------- MODULE 2 --------
-  if (typeof MODULE2_LETTERS !== 'undefined') cards.push(MODULE2_LETTERS);
-  if (typeof MODULE2_SOUNDS !== 'undefined') cards.push(MODULE2_SOUNDS);
-  if (typeof MODULE2_VERBS !== 'undefined') cards.push(MODULE2_VERBS);
-  if (typeof MODULE2_BEVERBS !== 'undefined') cards.push(MODULE2_BEVERBS);
-  if (typeof MODULE2_MODERNVERBS !== 'undefined') cards.push(MODULE2_MODERNVERBS);
-
-  // -------- MODULE 3 --------
-  if (typeof MODULE3_LETTERS !== 'undefined') cards.push(MODULE3_LETTERS);
-  if (typeof MODULE3_SOUNDS !== 'undefined') cards.push(MODULE3_SOUNDS);
-  if (typeof MODULE3_VERBS !== 'undefined') cards.push(MODULE3_VERBS);
-  if (typeof MODULE3_BEVERBS !== 'undefined') cards.push(MODULE3_BEVERBS);
-  if (typeof MODULE3_MODERNVERBS !== 'undefined') cards.push(MODULE3_MODERNVERBS);
-
-  // -------- MODULE 4 --------
-  if (typeof MODULE4_LETTERS !== 'undefined') cards.push(MODULE4_LETTERS);
-  if (typeof MODULE4_SOUNDS !== 'undefined') cards.push(MODULE4_SOUNDS);
-  if (typeof MODULE4_VERBS !== 'undefined') cards.push(MODULE4_VERBS);
-  if (typeof MODULE4_BEVERBS !== 'undefined') cards.push(MODULE4_BEVERBS);
-  if (typeof MODULE4_MODERNVERBS !== 'undefined') cards.push(MODULE4_MODERNVERBS);
-
-  // -------- MODULE 5 --------
-  if (typeof MODULE5_LETTERS !== 'undefined') cards.push(MODULE5_LETTERS);
-  if (typeof MODULE5_SOUNDS !== 'undefined') cards.push(MODULE5_SOUNDS);
-  if (typeof MODULE5_VERBS !== 'undefined') cards.push(MODULE5_VERBS);
-  if (typeof MODULE5_BEVERBS !== 'undefined') cards.push(MODULE5_BEVERBS);
-  if (typeof MODULE5_MODERNVERBS !== 'undefined') cards.push(MODULE5_MODERNVERBS);
+  if (moduleId === 'module1') {
+    if (typeof MODULE1_LETTERS !== 'undefined') cards.push(MODULE1_LETTERS);
+    if (typeof MODULE1_SOUNDS !== 'undefined') cards.push(MODULE1_SOUNDS);
+    if (typeof MODULE1_VERBS !== 'undefined') cards.push(MODULE1_VERBS);
+    if (typeof MODULE1_BEVERBS !== 'undefined') cards.push(MODULE1_BEVERBS);
+    if (typeof MODULE1_MODERNVERBS !== 'undefined') cards.push(MODULE1_MODERNVERBS);
+  }
+  else if (moduleId === 'module2') {
+    if (typeof MODULE2_LETTERS !== 'undefined') cards.push(MODULE2_LETTERS);
+    if (typeof MODULE2_SOUNDS !== 'undefined') cards.push(MODULE2_SOUNDS);
+    if (typeof MODULE2_VERBS !== 'undefined') cards.push(MODULE2_VERBS);
+    if (typeof MODULE2_BEVERBS !== 'undefined') cards.push(MODULE2_BEVERBS);
+    if (typeof MODULE2_MODERNVERBS !== 'undefined') cards.push(MODULE2_MODERNVERBS);
+  }
+  else if (moduleId === 'module3') {
+    if (typeof MODULE3_LETTERS !== 'undefined') cards.push(MODULE3_LETTERS);
+    if (typeof MODULE3_SOUNDS !== 'undefined') cards.push(MODULE3_SOUNDS);
+    if (typeof MODULE3_VERBS !== 'undefined') cards.push(MODULE3_VERBS);
+    if (typeof MODULE3_BEVERBS !== 'undefined') cards.push(MODULE3_BEVERBS);
+    if (typeof MODULE3_MODERNVERBS !== 'undefined') cards.push(MODULE3_MODERNVERBS);
+  }
+  else if (moduleId === 'module4') {
+    if (typeof MODULE4_LETTERS !== 'undefined') cards.push(MODULE4_LETTERS);
+    if (typeof MODULE4_SOUNDS !== 'undefined') cards.push(MODULE4_SOUNDS);
+    if (typeof MODULE4_VERBS !== 'undefined') cards.push(MODULE4_VERBS);
+    if (typeof MODULE4_BEVERBS !== 'undefined') cards.push(MODULE4_BEVERBS);
+    if (typeof MODULE4_MODERNVERBS !== 'undefined') cards.push(MODULE4_MODERNVERBS);
+  }
+  else if (moduleId === 'module5') {
+    if (typeof MODULE5_LETTERS !== 'undefined') cards.push(MODULE5_LETTERS);
+    if (typeof MODULE5_SOUNDS !== 'undefined') cards.push(MODULE5_SOUNDS);
+    if (typeof MODULE5_VERBS !== 'undefined') cards.push(MODULE5_VERBS);
+    if (typeof MODULE5_BEVERBS !== 'undefined') cards.push(MODULE5_BEVERBS);
+    if (typeof MODULE5_MODERNVERBS !== 'undefined') cards.push(MODULE5_MODERNVERBS);
+  }
 
   return cards;
 }
@@ -266,29 +296,74 @@ function goBack() {
     var fn = state.backStack.pop();
     fn();
   } else {
-    renderHome();
+    goHome();
   }
 }
 
 // ═══════════════════════════════════════════════════════════
-// HOME
+// PAGE 1: HOME (Modules list)
 // ═══════════════════════════════════════════════════════════
-function renderHome() {
+function goHome() {
   state.backStack = [];
-  var cards = getAllCards();
-  var grid = document.getElementById('cards-grid');
-  var errBox = document.getElementById('error-box');
+  state.currentModuleId = null;
+  document.getElementById('home-page').style.display = 'block';
+  document.getElementById('module-page').style.display = 'none';
+  document.getElementById('detail-page').classList.remove('active');
+  document.getElementById('game-page').classList.remove('active');
+  renderModules();
+  window.scrollTo(0, 0);
+}
 
+function renderModules() {
+  var grid = document.getElementById('modules-grid');
+  grid.innerHTML = MODULE_DEFS.map(function(m) {
+    var cards = getCardsForModule(m.id);
+    var ready = cards.length > 0;
+    var badge = ready
+      ? '<div class="badge ready">✅ ' + cards.length + ' cards ready</div>'
+      : '<div class="badge">⏳ Coming soon</div>';
+    var cls = ready ? 'card' : 'card disabled';
+    var onclick = ready ? 'openModule(\'' + m.id + '\')' : '';
+    return '<div class="' + cls + '" onclick="' + onclick + '">' +
+      '<div class="card-icon">' + m.icon + '</div>' +
+      '<div class="card-title">' + m.title + '</div>' +
+      '<div class="card-desc">' + m.desc + '</div>' +
+      badge +
+      '</div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// PAGE 2: MODULE (Cards inside a module)
+// ═══════════════════════════════════════════════════════════
+function openModule(moduleId) {
+  state.currentModuleId = moduleId;
+  state.backStack = [goHome];
+
+  var def = MODULE_DEFS.find(function(m) { return m.id === moduleId; });
+  var cards = getCardsForModule(moduleId);
+
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('module-page').style.display = 'block';
+  document.getElementById('detail-page').classList.remove('active');
+  document.getElementById('game-page').classList.remove('active');
+
+  document.getElementById('module-title').textContent = def.icon + ' ' + def.title;
+  document.getElementById('module-sub').textContent = cards.length + ' cards available';
+
+  renderCardsInModule(cards);
+  window.scrollTo(0, 0);
+}
+
+function renderCardsInModule(cards) {
+  var grid = document.getElementById('cards-grid');
   if (cards.length === 0) {
     grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">' +
       '<div class="empty-icon">📚</div>' +
-      '<div class="empty-text">No modules loaded.<br>Upload <b>module1.js</b> to start learning.</div>' +
+      '<div class="empty-text">Is module mein abhi koi card nahi hai.<br>Data add karne par yahan dikhega.</div>' +
       '</div>';
     return;
   }
-
-  if (errBox) errBox.style.display = 'none';
-
   grid.innerHTML = cards.map(function(c, i) {
     return '<div class="card" onclick="openCard(' + i + ')">' +
       '<div class="card-icon">' + (c.icon || '📖') + '</div>' +
@@ -296,24 +371,23 @@ function renderHome() {
       '<div class="card-desc">' + c.desc + '</div>' +
       '</div>';
   }).join('');
-
-  document.getElementById('home-page').style.display = 'block';
-  document.getElementById('detail-page').classList.remove('active');
-  document.getElementById('game-page').classList.remove('active');
-  window.scrollTo(0, 0);
 }
 
 // ═══════════════════════════════════════════════════════════
 // OPEN CARD
 // ═══════════════════════════════════════════════════════════
 function openCard(idx) {
-  var cards = getAllCards();
+  var cards = getCardsForModule(state.currentModuleId);
   state.currentCardIdx = idx;
   state.currentCard = cards[idx];
-  state.backStack = [renderHome];
+  state.backStack = [
+    function() { openModule(state.currentModuleId); },
+    goHome
+  ];
   var c = state.currentCard;
 
   document.getElementById('home-page').style.display = 'none';
+  document.getElementById('module-page').style.display = 'none';
   document.getElementById('game-page').classList.remove('active');
   document.getElementById('detail-page').classList.add('active');
   document.getElementById('detail-title').textContent = (c.icon || '') + ' ' + c.title;
@@ -415,10 +489,12 @@ function openSoundType(type) {
       { symbol: 'U', sound: 'यू', examples: ['Umbrella', 'Uncle', 'Urn'] }
     ];
     var indianConsonants = [];
-    'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
-      var l = card.letters.find(function(x) { return x.capital === ch; });
-      if (l) indianConsonants.push({ symbol: ch, sound: l.sound, examples: l.examples });
-    });
+    if (card.letters) {
+      'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
+        var l = card.letters.find(function(x) { return x.capital === ch; });
+        if (l) indianConsonants.push({ symbol: ch, sound: l.sound, examples: l.examples });
+      });
+    }
     document.getElementById('detail-content').innerHTML =
       '<div style="text-align:center;margin-bottom:12px;color:#4ade80;font-weight:800;font-size:0.9rem">🅰️ Vowels</div>' +
       '<div class="letters-grid">' +
@@ -493,10 +569,12 @@ function startIndianGame(kind, idx) {
       { symbol: 'U', sound: 'यू', examples: ['Umbrella', 'Uncle', 'Urn'] }
     ];
   } else {
-    'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
-      var l = card.letters.find(function(x) { return x.capital === ch; });
-      if (l) allItems.push({ symbol: ch, sound: l.sound, examples: l.examples });
-    });
+    if (card.letters) {
+      'BCDFGHJKLMNPQRSTVWXYZ'.split('').forEach(function(ch) {
+        var l = card.letters.find(function(x) { return x.capital === ch; });
+        if (l) allItems.push({ symbol: ch, sound: l.sound, examples: l.examples });
+      });
+    }
   }
   var item = allItems[idx];
   var ordered = [item].concat(allItems.filter(function(x) { return x.symbol !== item.symbol; }));
@@ -733,6 +811,7 @@ function buildSentenceBuilderGame(verb, returnFn) {
   };
 
   document.getElementById('home-page').style.display = 'none';
+  document.getElementById('module-page').style.display = 'none';
   document.getElementById('detail-page').classList.remove('active');
   document.getElementById('game-page').classList.add('active');
   renderSentenceBuilderQ();
@@ -895,6 +974,7 @@ function startGame(questions, title, sub, returnFn) {
   state.gameReturnFn = returnFn;
 
   document.getElementById('home-page').style.display = 'none';
+  document.getElementById('module-page').style.display = 'none';
   document.getElementById('detail-page').classList.remove('active');
   document.getElementById('game-page').classList.add('active');
   renderGameQ();
@@ -1016,7 +1096,7 @@ function shuffle(arr) {
 // ═══════════════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════════════
-renderHome();
+goHome();
 console.log('📚 English Mastery ready');
 </script>
 </body>
