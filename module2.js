@@ -710,9 +710,7 @@ const MODULE2 = {
   ]
 };
 
-// ═══════════════════════════════════════════════════════════
-// OPTIONAL: Global exposure (browser console se access ke liye)
-// ═══════════════════════════════════════════════════════════
+// Global expose karo taaki HTML access kar sake
 if (typeof window !== 'undefined') {
   window.MODULE2 = MODULE2;
 }
